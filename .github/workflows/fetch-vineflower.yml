@@ -1,4 +1,4 @@
-name: Fetch pinned Vineflower
+name: Fetch pinned decompilers
 on:
   push:
     branches: [tool-bootstrap]
@@ -8,20 +8,25 @@ jobs:
   fetch:
     runs-on: ubuntu-latest
     steps:
-      - name: Download pinned official release
+      - name: Download pinned official releases
         run: |
           set -euxo pipefail
           curl --fail --location --retry 3 \
             --output vineflower-1.12.0.jar \
             https://github.com/Vineflower/vineflower/releases/download/1.12.0/vineflower-1.12.0.jar
-          sha256sum vineflower-1.12.0.jar | tee vineflower-1.12.0.sha256
+          curl --fail --location --retry 3 \
+            --output cfr-0.152.jar \
+            https://repo1.maven.org/maven2/org/benf/cfr/0.152/cfr-0.152.jar
+          sha256sum vineflower-1.12.0.jar cfr-0.152.jar | tee decompilers.sha256
           java -jar vineflower-1.12.0.jar --help >/dev/null
-      - name: Upload pinned decompiler
+          java -jar cfr-0.152.jar --help >/dev/null
+      - name: Upload pinned decompilers
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: vineflower-1.12.0
+          name: pinned-decompilers
           path: |
             vineflower-1.12.0.jar
-            vineflower-1.12.0.sha256
+            cfr-0.152.jar
+            decompilers.sha256
           if-no-files-found: error
           retention-days: 1
