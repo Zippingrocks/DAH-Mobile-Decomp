@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "target_id": "dah1-j2me-en-v1.2.0",
+  "pass": 9,
+  "class": "k",
+  "entries": 31,
+  "fields": 44,
+  "source_sha256": "2d8123e9e45bbf84563a4be3ffaa4f6a8e8bfbefa475dd6e407f84e243e614f2",
+  "rebuilt_class_sha256": "b75ac7aa5ae87ea9112883e1288c439da7bd2f6c97c9ce543d2ab0ee08e58c4f",
+  "original_class_sha256": "b13005813e9821ffb5dd2d9a5ca454c47334bc7e7800b3b4067bfdf675382085",
+  "differential": {
+    "total_per_side": 434002,
+    "output_sha256": "5ab6b8c9a01665443908c55a0a726bd2694195d244e6b6923cc912c74e96f668",
+    "groups": {
+      "initializer": 2,
+      "keys": 160000,
+      "endian": 120000,
+      "edge": 150000,
+      "draw": 4000
+    }
+  },
+  "negative_controls_detected": [
+    "wrong-key-bit",
+    "wrong-save-byte-order",
+    "wrong-edge-mask-formula",
+    "double-draw-count"
+  ],
+  "claims": {
+    "repaired_source": true,
+    "source_only_build": true,
+    "behavior_passed_scoped": true,
+    "complete_game": false,
+    "byte_match": false,
+    "native_port": false
+  }
+}

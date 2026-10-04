@@ -4,20 +4,19 @@ Faithful, understandable source reconstruction of the **first Java-phone game,
 version 1.2.0**, followed by a native Windows port. This is not the Xbox game,
 Flash game, mobile sequel, or Crypto Does Vegas.
 
-**Current stage: all 21 original classes have local source recovery. 19 classes
-(228 method entries) are repaired; b is the newest repaired world-manager class.
-k and p remain complete raw decompiler output awaiting repair. There is still no
+**Current stage: all 21 original classes have local source recovery. 20 classes
+(259 method entries) are repaired and have scoped build/behavior evidence. Only
+p (54 entries) remains raw decompiler output awaiting repair. There is still no
 complete behavior-validated game or native Windows port.**
 
-[**Latest reviewed recovery: world manager b**](docs/evidence/RECOVERY_PASS_008.md) · [**Raw all-class decompiler pass**](docs/evidence/DECOMPILER_PASS_007.md)
+[**Latest reviewed recovery: controller k**](docs/evidence/RECOVERY_PASS_009.md) · [**Raw all-class decompiler pass**](docs/evidence/DECOMPILER_PASS_007.md)
 
 ## Latest recovery pass
 
-Promoted world manager **b** from raw output to repaired source. A real CFR
-actor-spawn reconstruction error was corrected against original bytecode and
-Vineflower. The repaired class compiles in the all-source tree, and 400,002
-scoped observations per side match for mission-state calculations, alert
-transitions, visible-cell bounds and grid/collision lookup. k/p remain raw.
+Promoted controller **k** from raw output to repaired source. 434,002 scoped
+observations per side match across key-state transitions, edge detection,
+little-endian save helpers and the image-draw helper. Four deliberate defects
+were detected. Only p remains raw.
 
 ## Visual progress
 
@@ -32,8 +31,8 @@ count. Red in recovery means not recovered. Gray in comparison means unverified,
 not failure. Green exact-byte matches and blue normalized matches remain separate
 from behavioral accuracy. The dashboard also contains build and behavior views.
 
-**Nineteen classes now have repaired source and scoped build/behavior evidence;
-k/p remain raw decompiler output only.** Test support remains separate from rebuilt
+**Twenty classes now have repaired source and scoped build/behavior evidence; p
+remains raw decompiler output only.** Test support remains separate from rebuilt
 artifacts. No whole-class exact/normalized match is claimed, and the global
 byte-match report remains unselected.
 
@@ -121,7 +120,7 @@ material or to dependencies that have not yet been introduced.
 
 ## The next milestone
 
-Use the remaining raw k/p output to repair k next, then p, preserving the
+Repair the final raw class p next, then assemble and validate the first all-repaired source build, preserving the
 six reviewed regression suites and bytecode checks. The raw all-class compile is
 a starting point, not a substitute for reviewed game logic. Real platform
 services, whole-game comparisons and native compilation remain ahead.

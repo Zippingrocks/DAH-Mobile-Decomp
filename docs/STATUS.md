@@ -1,5 +1,20 @@
 # Project status
 
+## Pass 009 — controller k repaired
+
+- Repaired private sources: 20/21 classes, 259/313 original method entries.
+- k contributes 31 entries and 44 fields; only p remains raw-output.
+- k compiles in the complete source-only tree with no copied original class files.
+- 434,002 scoped observations per side matched for input masks, edge transitions, save helpers and drawing helper.
+- Four deliberate defects in tested paths were detected.
+- Full run-loop/menu/RMS/timing behavior is not yet claimed.
+- No exact/normalized match, complete playable game or native port is claimed.
+
+See [pass 009](evidence/RECOVERY_PASS_009.md) and
+[machine-readable evidence](evidence/controller-pass-009.json).
+
+## Prior status
+
 ## Pass 008 — world manager b repaired
 
 - Repaired private sources: 19/21 classes, 228/313 original method entries.

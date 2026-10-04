@@ -482,6 +482,16 @@
       "path": "docs/evidence/world-pass-008.json",
       "kind": "docs",
       "purpose": "Machine-readable hashes and scoped observation counts for world-manager recovery pass 008."
+    },
+    {
+      "path": "docs/evidence/RECOVERY_PASS_009.md",
+      "kind": "docs",
+      "purpose": "Document repaired controller source and scoped input/save/draw differential validation."
+    },
+    {
+      "path": "docs/evidence/controller-pass-009.json",
+      "kind": "docs",
+      "purpose": "Machine-readable hashes and observation counts for controller recovery pass 009."
     }
   ],
   "classes": [
@@ -840,23 +850,33 @@
     {
       "original": "k",
       "method_entries": 31,
-      "source_path": "recovered/raw/pass007/k.java",
+      "source_path": "src/game/k.java",
       "recovery": {
-        "state": "raw_output",
+        "state": "repaired",
         "evidence": [
           {
-            "path": "docs/evidence/DECOMPILER_PASS_007.md",
-            "scope": "Pinned CFR/Vineflower raw source exists locally; full raw tree compiles after documented decompiler repair points. Class not yet reviewed/repaired or behavior-tested."
+            "path": "docs/evidence/RECOVERY_PASS_009.md",
+            "scope": "Pinned CFR/Vineflower/original-bytecode review of all 31 controller entries; no unresolved source construct remains in k."
           }
         ]
       },
       "build": {
-        "state": "not_tested",
-        "evidence": []
+        "state": "passed",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_009.md",
+            "scope": "k compiles in the complete 21-class source-only tree without copied original classes; p remains raw."
+          }
+        ]
       },
       "behavior": {
-        "state": "not_tested",
-        "evidence": []
+        "state": "passed_scoped",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_009.md",
+            "scope": "434,002 matched observations per side for controller initializer, input masks, edge transitions, save-endian helpers and draw helper."
+          }
+        ]
       }
     },
     {
