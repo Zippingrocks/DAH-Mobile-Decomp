@@ -11,10 +11,10 @@
 | --- | --- |
 | Original classes inventoried | 21 |
 | Original method entries inventoried (including initialization) | 313 |
-| Classes with source recovery recorded (raw or repaired) | 0 / 21 |
-| Classes with repaired source recorded | 0 / 21 |
-| Classes included in a successful source-only build | 0 / 21 |
-| Classes with behavior comparisons passed in a documented scope | 0 / 21 |
+| Classes with source recovery recorded (raw or repaired) | 3 / 21 |
+| Classes with repaired source recorded | 3 / 21 |
+| Classes included in a successful source-only build | 3 / 21 |
+| Classes with behavior comparisons passed in a documented scope | 3 / 21 |
 
 These are class-level records, not a percentage complete or method-level proof. A stage changes only when its evidence is recorded; the generator does not run a decompiler, compile the game, or verify behavioral equivalence.
 
@@ -33,6 +33,7 @@ DAH-Mobile-Decomp/
 |-- README.md [DOCS]
 |-- config/
 |   |-- byte_match.json [CONFIG]
+|   |-- component_recovery.json [CONFIG]
 |   |-- source_map.json [CONFIG]
 |   `-- target.json [CONFIG]
 |-- docs/
@@ -45,15 +46,28 @@ DAH-Mobile-Decomp/
 |   |-- SOURCE_TREE.md [GENERATED]
 |   |-- STATUS.md [DOCS]
 |   |-- VERIFICATION.md [DOCS]
-|   `-- VISUAL_PROGRESS.md [GENERATED]
+|   |-- VISUAL_PROGRESS.md [GENERATED]
+|   `-- evidence/
+|       |-- RECOVERY_PASS_001.md [DOCS]
+|       `-- component-pass-001.json [GENERATED]
 |-- tests/
+|   |-- java/
+|   |   |-- ComponentProbe.java [TESTS]
+|   |   `-- component_support/
+|   |       |-- javax/
+|   |       |   `-- microedition/
+|   |       |       `-- lcdui/
+|   |       |           `-- Image.java [TESTS]
+|   |       `-- o.java [TESTS]
 |   |-- test_byte_match.py [TESTS]
+|   |-- test_component_recovery.py [TESTS]
 |   |-- test_dah1.py [TESTS]
 |   |-- test_source_map.py [TESTS]
 |   `-- test_treemap_dashboard.py [TESTS]
 `-- tools/
     |-- byte_match.py [TOOL]
     |-- classfile.py [TOOL]
+    |-- component_recovery.py [TOOL]
     |-- dah1.py [TOOL]
     |-- source_map.py [TOOL]
     `-- treemap_dashboard.py [TOOL]
@@ -69,6 +83,7 @@ DAH-Mobile-Decomp/
 | [`AGENTS.md`](../AGENTS.md) | policy | Scope, evidence and publication rules for work in this repository. |
 | [`README.md`](../README.md) | docs | Project entry point, usage and links to current progress. |
 | [`config/byte_match.json`](../config/byte_match.json) | config | Select a reviewed artifact-comparison report or leave all matches unverified. |
+| [`config/component_recovery.json`](../config/component_recovery.json) | config | Pin reviewed private component sources, original class hashes and explicit field mappings. |
 | [`config/source_map.json`](../config/source_map.json) | config | File descriptions, original-class inventory and evidence-backed progress records. |
 | [`config/target.json`](../config/target.json) | config | Exact input identity and expected static counts. |
 | [`docs/BEHAVIOR_TREEMAP.svg`](../docs/BEHAVIOR_TREEMAP.svg) | generated | GitHub-embeddable behavior class treemap from recorded evidence. |
@@ -81,12 +96,19 @@ DAH-Mobile-Decomp/
 | [`docs/STATUS.md`](../docs/STATUS.md) | docs | What was tested locally, limitations and the next task. |
 | [`docs/VERIFICATION.md`](../docs/VERIFICATION.md) | docs | Requirements for source-only rebuilds, behavior comparison and a gold candidate. |
 | [`docs/VISUAL_PROGRESS.md`](../docs/VISUAL_PROGRESS.md) | generated | Embed all four class treemaps and report current comparison status. |
+| [`docs/evidence/RECOVERY_PASS_001.md`](../docs/evidence/RECOVERY_PASS_001.md) | docs | Explain the first manual source recovery, scoped component tests, repeatability and remaining gaps. |
+| [`docs/evidence/component-pass-001.json`](../docs/evidence/component-pass-001.json) | generated | Recorded component source/artifact hashes and observation digests; no game code or assets. |
+| [`tests/java/ComponentProbe.java`](../tests/java/ComponentProbe.java) | tests | Authored differential probe for e/s/t; not a game runner or recovered game source. |
+| [`tests/java/component_support/javax/microedition/lcdui/Image.java`](../tests/java/component_support/javax/microedition/lcdui/Image.java) | tests | Scripted image-call test double; not graphics or a native-port implementation. |
+| [`tests/java/component_support/o.java`](../tests/java/component_support/o.java) | tests | Three-field test record only; never counted as recovered class o or shipped gameplay. |
 | [`tests/test_byte_match.py`](../tests/test_byte_match.py) | tests | Synthetic and independently compiled fixtures test matching and stale-report safeguards. |
+| [`tests/test_component_recovery.py`](../tests/test_component_recovery.py) | tests | Synthetic tests for component input guards, trace mismatches, packaging and signature inventories. |
 | [`tests/test_dah1.py`](../tests/test_dah1.py) | tests | Synthetic tests for input identity checks and the structural auditor. |
 | [`tests/test_source_map.py`](../tests/test_source_map.py) | tests | Metadata, inventory, evidence, rendering and stale-map regression tests. |
 | [`tests/test_treemap_dashboard.py`](../tests/test_treemap_dashboard.py) | tests | Test treemap geometry, status colors, rendering and repository integration. |
 | [`tools/byte_match.py`](../tools/byte_match.py) | tool | Compare original and candidate JAR classes, record hashes and gate displayed match claims. |
 | [`tools/classfile.py`](../tools/classfile.py) | tool | Resolve Java class structure and instructions with conservative fail-closed normalization. |
+| [`tools/component_recovery.py`](../tools/component_recovery.py) | tool | Compile recovered components and compare isolated original/rebuilt probes without a hidden fallback. |
 | [`tools/dah1.py`](../tools/dah1.py) | tool | Verify the pinned JAR and report class structure without executing the game. |
 | [`tools/source_map.py`](../tools/source_map.py) | tool | Generate or check the map against tracked files and optionally a local audit. |
 | [`tools/treemap_dashboard.py`](../tools/treemap_dashboard.py) | tool | Render proportional, status-colored SVG treemaps from the real progress schema. |
@@ -102,7 +124,7 @@ Original identifiers are preserved until readable names are established. Single-
 | `b` | 46 | Not recovered | not_started | not_tested | not_tested |
 | `c` | 11 | Not recovered | not_started | not_tested | not_tested |
 | `d` | 10 | Not recovered | not_started | not_tested | not_tested |
-| `e` | 13 | Not recovered | not_started | not_tested | not_tested |
+| `e` | 13 | `src/game/e.java` | repaired | passed | passed_scoped |
 | `f` | 11 | Not recovered | not_started | not_tested | not_tested |
 | `g` | 11 | Not recovered | not_started | not_tested | not_tested |
 | `h` | 3 | Not recovered | not_started | not_tested | not_tested |
@@ -116,12 +138,20 @@ Original identifiers are preserved until readable names are established. Single-
 | `p` | 54 | Not recovered | not_started | not_tested | not_tested |
 | `q` | 14 | Not recovered | not_started | not_tested | not_tested |
 | `r` | 2 | Not recovered | not_started | not_tested | not_tested |
-| `s` | 5 | Not recovered | not_started | not_tested | not_tested |
-| `t` | 1 | Not recovered | not_started | not_tested | not_tested |
+| `s` | 5 | `src/game/s.java` | repaired | passed | passed_scoped |
+| `t` | 1 | `src/game/t.java` | repaired | passed | passed_scoped |
 
 ### Recovery/build/behavior evidence
 
-None recorded. The structural inventory alone does not qualify as recovery evidence.
+- `e` / recovery: [`docs/evidence/RECOVERY_PASS_001.md`](../docs/evidence/RECOVERY_PASS_001.md) — Manual bytecode-backed reconstruction of all 13 method entries; reviewed local source hash and field mappings recorded.
+- `e` / build: [`docs/evidence/RECOVERY_PASS_001.md`](../docs/evidence/RECOVERY_PASS_001.md) — Clean source compilation of the e/s/t component artifact using isolated test-only dependencies; NOT a complete game build.
+- `e` / behavior: [`docs/evidence/RECOVERY_PASS_001.md`](../docs/evidence/RECOVERY_PASS_001.md) — Arithmetic, packed decoding, geometry and image-call outcomes against original with explicit test doubles; scope is not whole-game behavior.
+- `s` / recovery: [`docs/evidence/RECOVERY_PASS_001.md`](../docs/evidence/RECOVERY_PASS_001.md) — Manual bytecode-backed reconstruction of all 5 method entries; reviewed local source hash and field mappings recorded.
+- `s` / build: [`docs/evidence/RECOVERY_PASS_001.md`](../docs/evidence/RECOVERY_PASS_001.md) — Clean source compilation of the e/s/t component artifact using isolated test-only dependencies; NOT a complete game build.
+- `s` / behavior: [`docs/evidence/RECOVERY_PASS_001.md`](../docs/evidence/RECOVERY_PASS_001.md) — Object table, cache and failure-state observations against original across 18 resource scenarios with an image-call double; no rendering claim.
+- `t` / recovery: [`docs/evidence/RECOVERY_PASS_001.md`](../docs/evidence/RECOVERY_PASS_001.md) — Manual bytecode-backed reconstruction of all 1 method entries; reviewed local source hash and field mappings recorded.
+- `t` / build: [`docs/evidence/RECOVERY_PASS_001.md`](../docs/evidence/RECOVERY_PASS_001.md) — Clean source compilation of the e/s/t component artifact using isolated test-only dependencies; NOT a complete game build.
+- `t` / behavior: [`docs/evidence/RECOVERY_PASS_001.md`](../docs/evidence/RECOVERY_PASS_001.md) — Original-versus-rebuilt constructor field observations for 5008 boundary and deterministic random cases; field meanings remain unassigned.
 
 ## Planned work — not implemented
 
@@ -130,9 +160,8 @@ These are future work areas, not existing source folders or completed systems.
 | Area | State | Work remaining |
 | --- | --- | --- |
 | Decompiler pipeline | not_started | Pin tools and API definitions; generate complete raw output and logs locally. |
-| Recovered game source | not_started | Repair source locally and map original identifiers; no recovered game class is implemented yet. |
 | Java ME and Nokia services | not_started | Implement or adapt graphics, input, sound, lifecycle and storage for the port. |
-| Original versus rebuilt comparison | not_started | Controlled clock, random sequence, input and state comparisons with scoped evidence. |
+| Whole-game differential replay | not_started | Extend the component probes to full-game clock, randomness, scheduling and state comparisons. |
 | Native Windows build | not_started | Compile original game logic ahead of time; establish and validate the native toolchain. |
 | Gold release validation | not_started | Verify progression, persistence and fidelity; document limitations and unresolved differences. |
 
