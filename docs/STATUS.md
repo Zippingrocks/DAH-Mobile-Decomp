@@ -1,5 +1,22 @@
 # Project status
 
+## Integration pass 011 — final all-repaired whole-tree build
+
+- The **final repaired 21-class / 313-entry source set compiles together** with no copied original game classes.
+- Two clean builds reproduced every rebuilt class byte-for-byte; candidate JAR SHA-256 is `b3e5466c3cb7e0f3e4d3264d612d37cb56418efb4dff745e7bc6f06bad10a381`.
+- Candidate packaging contains 21 rebuilt classes plus **122 byte-identical original non-class entries**.
+- Ordered field/method descriptor sequences match the original for all 21 classes; method total remains 313.
+- Original and rebuilt startup/init/five-tick/lifecycle support traces match.
+- Deterministically seeded integrated state hashes match after initialization, after five ticks, after a multi-key sequence, and for the tested rendered frame.
+- The first integrated paint caught and corrected a real `k.paint(Graphics)` field-shadowing/linkage error before acceptance.
+- These checks use deterministic authored Java ME/Nokia adapters, not a production platform; complete missions, unrestricted main-loop scheduling, persistence, real audio, handset fidelity and native Windows remain unverified.
+- No exact/normalized whole-class byte match or unconditional full-game equivalence claim is made.
+
+See [integration pass 011](evidence/INTEGRATION_PASS_011.md) and
+[machine-readable evidence](evidence/integration-pass-011.json).
+
+## Prior status
+
 ## Pass 010 — final class p repaired
 
 - Repaired private sources: **21/21 classes, 313/313 original method entries**.

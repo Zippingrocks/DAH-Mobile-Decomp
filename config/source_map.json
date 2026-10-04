@@ -502,6 +502,16 @@
       "path": "docs/evidence/ui-pass-010.json",
       "kind": "docs",
       "purpose": "Record final p source/artifact hashes and matching scoped observation digests; no game code or assets."
+    },
+    {
+      "path": "docs/evidence/INTEGRATION_PASS_011.md",
+      "kind": "docs",
+      "purpose": "Document the first final all-repaired 21-class integration build, original-versus-rebuilt startup/state/render comparisons, caught linkage defect and remaining platform boundary."
+    },
+    {
+      "path": "docs/evidence/integration-pass-011.json",
+      "kind": "docs",
+      "purpose": "Machine-readable final integrated candidate hash, repeatability, descriptor/resource checks and scoped startup/state probe digests."
     }
   ],
   "classes": [

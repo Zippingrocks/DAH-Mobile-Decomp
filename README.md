@@ -6,11 +6,13 @@ Flash game, mobile sequel, or Crypto Does Vegas.
 
 **Current stage: all 21 original classes now have repaired source records, covering all 313 original method entries. The final class p passed its isolated source build and documented differential probes. A final all-repaired whole-tree integration build, complete game validation, and native Windows port remain ahead.**
 
-[**Latest reviewed recovery: final class p**](docs/evidence/RECOVERY_PASS_010.md) · [**All-class decompiler pass**](docs/evidence/DECOMPILER_PASS_007.md)
+[**Latest integration evidence**](docs/evidence/INTEGRATION_PASS_011.md) · [**Final class recovery**](docs/evidence/RECOVERY_PASS_010.md)
 
-## Latest recovery pass
+## Latest integration pass
 
-Promoted **p**, the final raw class, to repaired source after CFR/Vineflower/original-bytecode review. **10,906 observation records per side matched** across load, helper, screen-state and randomized navigation/input scopes, and seven deliberate defects were detected. The recovery ledger is now **21 / 21 repaired classes and 313 / 313 method entries**. This closes class reconstruction, not complete-game validation.
+The **final all-repaired 21-class source tree now compiles together** with no copied original classes. Two clean builds are byte-repeatable, all 313 ordered method descriptors match the original, and the candidate packages all 122 original non-code entries byte-for-byte. Original and rebuilt startup, initialization, five ticks, deterministic input/state checkpoints, lifecycle events and the tested rendered frame match under the shared deterministic adapters.
+
+The first integrated paint exposed a real source-linkage defect in `k.paint(Graphics)`; it was corrected against CFR, Vineflower and the original semantics before acceptance. Read [integration pass 011](docs/evidence/INTEGRATION_PASS_011.md).
 
 ## Visual progress
 
@@ -114,7 +116,7 @@ material or to dependencies that have not yet been introduced.
 
 ## The next milestone
 
-Assemble a fresh whole-tree build from the final **all-repaired** source snapshots, then move from class recovery into integration: production Java ME/Nokia services, controlled whole-game execution comparisons, progression/save/render/audio validation, and only then native Windows compilation. Do not substitute raw classes, copied originals, or placeholder gameplay.
+Move from bounded startup integration to a controlled frame scheduler that can deterministically drive menus into gameplay while comparing state, rendering, audio calls and persistence. Build production Java ME/Nokia-compatible services behind the recovered game API boundary, then proceed toward complete game validation and native Windows compilation.
 
 Read [the project status](docs/STATUS.md),
 [the verification contract](docs/VERIFICATION.md), and

@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "target_id": "dah1-j2me-en-v1.2.0",
+  "input_sha256": "2e03916ea4a5260960e5e57e4dbe0778fb9b577439eac0ce94a685cfecdaaf5f",
+  "candidate_sha256": "b3e5466c3cb7e0f3e4d3264d612d37cb56418efb4dff745e7bc6f06bad10a381",
+  "classes": 21,
+  "method_entries": 313,
+  "non_class_entries": 122,
+  "repeat_builds": true,
+  "descriptor_sequences_match": true,
+  "resources_byte_exact": true,
+  "source_tree_digest": "be5319626653607c54a56ec99ebfcb74356878e2cc18050d2f412b752f93d921",
+  "probes": {
+    "integration": {
+      "sha256": "a2a621363ac695d516ff21efa1e43d4c4f05dc4b3c8cd6c270817298751df2ec",
+      "lines": 5
+    },
+    "state": {
+      "sha256": "dc01b54d0e53dbb6df2b91ff0c6863e5e9b564ad468e6f005eea38eaaa1a1049",
+      "lines": 4
+    }
+  },
+  "state_observations": {
+    "after_init": "d56c3777a006dfc19d3bc0813ffb181ac5e11c8aaf162ce3c036722351b9d48f",
+    "after_5_ticks": "959ee402f4c9398959c9816dcd5fb8472ff056d2c618d72c0548d6aa32e35e83",
+    "after_key_sequence": "3dc89f97702325023e6210e795495aa72fbb1686a274459998e84263503ffc32",
+    "paint": "c1b6c60f888a0a1b5ccd175b305f693049b491037af64ed3b0657b0973dbf52b"
+  },
+  "defect_caught": {
+    "location": "k.paint(Graphics)",
+    "bad": "graphics = graphics",
+    "corrected": "k.graphics = graphics",
+    "pre_fix_paint_mismatch": true
+  },
+  "claims": {
+    "all_repaired_whole_tree_compile": true,
+    "two_clean_builds_byte_repeatable": true,
+    "scoped_integrated_match": true,
+    "full_game_equivalence": false,
+    "production_platform": false,
+    "native_windows_port": false,
+    "exact_class_byte_match": false
+  }
+}
