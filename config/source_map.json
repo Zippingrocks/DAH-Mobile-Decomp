@@ -472,6 +472,16 @@
       "path": "docs/evidence/decompiler-pass-007.json",
       "kind": "docs",
       "purpose": "Machine-readable tool/source/artifact hashes and static inventory results for decompiler pass 007."
+    },
+    {
+      "path": "docs/evidence/RECOVERY_PASS_008.md",
+      "kind": "docs",
+      "purpose": "Document repaired world-manager source, corrected decompiler defect, scoped differential tests and limitations."
+    },
+    {
+      "path": "docs/evidence/world-pass-008.json",
+      "kind": "docs",
+      "purpose": "Machine-readable hashes and scoped observation counts for world-manager recovery pass 008."
     }
   ],
   "classes": [
@@ -542,23 +552,33 @@
     {
       "original": "b",
       "method_entries": 46,
-      "source_path": "recovered/raw/pass007/b.java",
+      "source_path": "src/game/b.java",
       "recovery": {
-        "state": "raw_output",
+        "state": "repaired",
         "evidence": [
           {
-            "path": "docs/evidence/DECOMPILER_PASS_007.md",
-            "scope": "Pinned CFR/Vineflower raw source exists locally; full raw tree compiles after documented decompiler repair points. Class not yet reviewed/repaired or behavior-tested."
+            "path": "docs/evidence/RECOVERY_PASS_008.md",
+            "scope": "CFR/Vineflower/bytecode-backed repair of all 46 b entries; corrected duplicated actor construction and preserved descriptor inventory."
           }
         ]
       },
       "build": {
-        "state": "not_tested",
-        "evidence": []
+        "state": "passed",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_008.md",
+            "scope": "b compiles in the 21-class source-only tree with no copied original classes; k/p dependencies remain raw and are not promoted."
+          }
+        ]
       },
       "behavior": {
-        "state": "not_tested",
-        "evidence": []
+        "state": "passed_scoped",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_008.md",
+            "scope": "400,002 matched deterministic world/mission observations per side across initializer, mission-state, alert, viewport and empty-grid/collision scopes."
+          }
+        ]
       }
     },
     {

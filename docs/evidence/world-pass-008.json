@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "target_id": "dah1-j2me-en-v1.2.0",
+  "pass": 8,
+  "class": "b",
+  "entries": 46,
+  "fields": 93,
+  "source_sha256": "9ac9be3553e862b0b046e1732d31d872ee725d81bc7936bda35f11c38dd6aeb8",
+  "original_class_sha256": "3373fc290412c49650a9314a970aa92dd15f7dfb89afbb582d0ba867d40e8f3e",
+  "rebuilt_class_sha256": "628df20e948c52ca8146394e587de43b66fe56ad243965d2c9e5be11fe3fd080",
+  "repeat_compile_identical": true,
+  "differential": {
+    "total_per_side": 400002,
+    "output_sha256": "947138b2a0ed19cbdbaa18b47d76e550b7c63bfea49dfdc482e3337171e17fd1",
+    "groups": {"initializer": 2,"mission": 120000,"alert": 100000,"viewport": 100000,"grid": 80000}
+  },
+  "corrected_decompiler_defects": ["actor-spawn duplicated construction before boolean field assignment"],
+  "negative_controls_detected": ["alert-delta-zero","viewport-lower-clamp","wrong-grid-dimension"],
+  "negative_controls_not_counted": ["mission-threshold mutation produced unchanged tested digest"],
+  "claims": {"repaired_source": true,"source_only_build": true,"behavior_passed_scoped": true,"complete_game": false,"byte_match": false,"native_port": false}
+}

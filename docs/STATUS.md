@@ -1,5 +1,21 @@
 # Project status
 
+## Pass 008 — world manager b repaired
+
+- Repaired private sources: 19/21 classes, 228/313 original method entries.
+- b contributes 46 entries and 93 fields; k/p remain raw-output only.
+- CFR's duplicated actor-construction defect was corrected against original bytecode and Vineflower.
+- b compiles in the 21-class source-only tree with no copied original class files.
+- Two clean compiles reproduced identical rebuilt classes.
+- 400,002 scoped observations per side matched across mission state, alert transitions, viewport bounds and grid/collision lookup.
+- Three deliberate defects in tested paths were detected; one ineffective mission mutation is explicitly not counted.
+- No full-level/main-loop equivalence, exact/normalized match, playable game or native port is claimed.
+
+See [pass 008](evidence/RECOVERY_PASS_008.md) and
+[machine-readable evidence](evidence/world-pass-008.json).
+
+## Prior status
+
 ## Pass 007 — automated raw decompiler inventory and all-class source compile
 
 - CFR 0.152 and Vineflower 1.12.0 are locally available and hash-pinned.

@@ -4,26 +4,20 @@ Faithful, understandable source reconstruction of the **first Java-phone game,
 version 1.2.0**, followed by a native Windows port. This is not the Xbox game,
 Flash game, mobile sequel, or Crypto Does Vegas.
 
-**Current stage: all 21 original classes now have local source recovery. 18 classes
-(182 method entries) are repaired, compiled as reviewed components, and pass their
-documented comparisons; b, k and p are complete raw decompiler output awaiting
-repair. A separate all-class raw source tree compiles, but is not yet behavior-validated.**
+**Current stage: all 21 original classes have local source recovery. 19 classes
+(228 method entries) are repaired; b is the newest repaired world-manager class.
+k and p remain complete raw decompiler output awaiting repair. There is still no
+complete behavior-validated game or native Windows port.**
 
-[**Latest reviewed source-recovery results**](docs/evidence/RECOVERY_PASS_006.md) · [**Full raw decompiler pass**](docs/evidence/DECOMPILER_PASS_007.md)
+[**Latest reviewed recovery: world manager b**](docs/evidence/RECOVERY_PASS_008.md) · [**Raw all-class decompiler pass**](docs/evidence/DECOMPILER_PASS_007.md)
 
 ## Latest recovery pass
 
-Recovered the shared actor j: construction, animation, threat/state decisions,
-movement/navigation, damage, weapon gates, effect transitions, following and
-drawing. All eighteen reviewed components compile together without a j stand-in.
-25,818 direct actor calls per side matched; all thirty callable methods have
-normal-return observations. A real overloaded-collection call error was caught
-and corrected by the comparisons.
-
-Separately, CFR and Vineflower now provide complete raw source recovery for the
-remaining b/k/p classes. A repaired-for-compilation raw decompiler tree builds
-all 21 classes and preserves all 313 method-entry and 378 field-descriptor
-inventories, but b/k/p remain unreviewed and behavior-untested.
+Promoted world manager **b** from raw output to repaired source. A real CFR
+actor-spawn reconstruction error was corrected against original bytecode and
+Vineflower. The repaired class compiles in the all-source tree, and 400,002
+scoped observations per side match for mission-state calculations, alert
+transitions, visible-cell bounds and grid/collision lookup. k/p remain raw.
 
 ## Visual progress
 
@@ -38,11 +32,10 @@ count. Red in recovery means not recovered. Gray in comparison means unverified,
 not failure. Green exact-byte matches and blue normalized matches remain separate
 from behavioral accuracy. The dashboard also contains build and behavior views.
 
-**Eighteen classes have reviewed component-level passes; b/k/p are raw decompiler
-output only.** Test support remains separate from the rebuilt artifacts. No
-whole-class exact/normalized match is claimed, and the global byte-match report
-remains unselected. Read the linked evidence before treating a build/behavior
-tile as a full-game claim.
+**Nineteen classes now have repaired source and scoped build/behavior evidence;
+k/p remain raw decompiler output only.** Test support remains separate from rebuilt
+artifacts. No whole-class exact/normalized match is claimed, and the global
+byte-match report remains unselected.
 
 The images are generated from our recorded evidence, not hand-colored. The
 `Progress dashboard` workflow refreshes them on `main` after validation; pull
@@ -128,7 +121,7 @@ material or to dependencies that have not yet been introduced.
 
 ## The next milestone
 
-Use the complete raw b/k/p output to repair b first, then k and p, preserving the
+Use the remaining raw k/p output to repair k next, then p, preserving the
 six reviewed regression suites and bytecode checks. The raw all-class compile is
 a starting point, not a substitute for reviewed game logic. Real platform
 services, whole-game comparisons and native compilation remain ahead.
