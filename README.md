@@ -4,25 +4,26 @@ Faithful, understandable source reconstruction of the **first Java-phone game,
 version 1.2.0**, followed by a native Windows port. This is not the Xbox game,
 Flash game, mobile sequel, or Crypto Does Vegas.
 
-**Current stage: 17 of 21 original classes manually recovered (151 method entries),
-compiled as components, and passing their documented comparisons. No complete
-game build or native Windows port exists.**
+**Current stage: all 21 original classes now have local source recovery. 18 classes
+(182 method entries) are repaired, compiled as reviewed components, and pass their
+documented comparisons; b, k and p are complete raw decompiler output awaiting
+repair. A separate all-class raw source tree compiles, but is not yet behavior-validated.**
 
-[**Latest source-recovery results and limitations**](docs/evidence/RECOVERY_PASS_005.md)
+[**Latest reviewed source-recovery results**](docs/evidence/RECOVERY_PASS_006.md) · [**Full raw decompiler pass**](docs/evidence/DECOMPILER_PASS_007.md)
 
 ## Latest recovery pass
 
-Recovered weapon controller c, saucer/reticle specialization f and GameMidlet
-lifecycle forwarding. All seventeen private components compile together.
-**24,657 direct new-target calls per side matched**, seven deliberate defects
-were detected and all four historical comparison suites passed again. Two fresh
-runs reproduced identical component JARs and observation reports. Test actor,
-world/controller and platform services remain explicit dependencies, not recovered
-systems. Read [pass 005](docs/evidence/RECOVERY_PASS_005.md).
+Recovered the shared actor j: construction, animation, threat/state decisions,
+movement/navigation, damage, weapon gates, effect transitions, following and
+drawing. All eighteen reviewed components compile together without a j stand-in.
+25,818 direct actor calls per side matched; all thirty callable methods have
+normal-return observations. A real overloaded-collection call error was caught
+and corrected by the comparisons.
 
-**Pass 005 publication:** this update records the seventeen-class component recovery
-and its existing evidence. The Progress dashboard workflow regenerates the maps
-and runs the full public tooling suite; consult Actions for the actual result.
+Separately, CFR and Vineflower now provide complete raw source recovery for the
+remaining b/k/p classes. A repaired-for-compilation raw decompiler tree builds
+all 21 classes and preserves all 313 method-entry and 378 field-descriptor
+inventories, but b/k/p remain unreviewed and behavior-untested.
 
 ## Visual progress
 
@@ -37,11 +38,11 @@ count. Red in recovery means not recovered. Gray in comparison means unverified,
 not failure. Green exact-byte matches and blue normalized matches remain separate
 from behavioral accuracy. The dashboard also contains build and behavior views.
 
-**The seventeen local classes have component-level passes.** Their tests use explicit media,
-graphics and entity-record support outside the rebuilt artifact; those dependencies
-are not implemented game systems. No whole-class exact/normalized match is claimed,
-and the global byte-match report remains unselected. Read the linked evidence
-before treating a build/behavior tile as a full-game claim.
+**Eighteen classes have reviewed component-level passes; b/k/p are raw decompiler
+output only.** Test support remains separate from the rebuilt artifacts. No
+whole-class exact/normalized match is claimed, and the global byte-match report
+remains unselected. Read the linked evidence before treating a build/behavior
+tile as a full-game claim.
 
 The images are generated from our recorded evidence, not hand-colored. The
 `Progress dashboard` workflow refreshes them on `main` after validation; pull
@@ -127,10 +128,10 @@ material or to dependencies that have not yet been introduced.
 
 ## The next milestone
 
-Preserve all seventeen source snapshots and all five probe suites, recover
-dependencies, and obtain the decompiler for a complete automated pass when tool access permits. Continue
-toward a complete source-only game build without copied original classes or
-placeholder gameplay. Real platform services and native compilation remain ahead.
+Use the complete raw b/k/p output to repair b first, then k and p, preserving the
+six reviewed regression suites and bytecode checks. The raw all-class compile is
+a starting point, not a substitute for reviewed game logic. Real platform
+services, whole-game comparisons and native compilation remain ahead.
 
 Read [the project status](docs/STATUS.md),
 [the verification contract](docs/VERIFICATION.md), and

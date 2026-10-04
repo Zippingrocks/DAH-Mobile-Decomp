@@ -1,5 +1,34 @@
 # Project status
 
+## Pass 007 — automated raw decompiler inventory and all-class source compile
+
+- CFR 0.152 and Vineflower 1.12.0 are locally available and hash-pinned.
+- All 21 original classes have some local source recovery: 18 repaired/reviewed, b/k/p raw.
+- A repaired-for-compilation raw tree builds all 21 classes from Java source with no copied original class files.
+- Per-class method entries total 313/313; ordered method descriptors match every class.
+- Ordered field descriptors match every class, 378 fields total.
+- Two clean compiles produced byte-identical rebuilt class files.
+- A local candidate JAR has 21 rebuilt classes plus 122 byte-identical non-class resources and zero original class entries.
+- This is a mechanical source/build milestone, not playable-game or behavior-equivalence proof.
+
+See [decompiler pass 007](evidence/DECOMPILER_PASS_007.md) and
+[its machine-readable record](evidence/decompiler-pass-007.json).
+
+## Pass 006 — shared actor recovery
+
+- Repaired/reviewed private sources: 18/21 classes, 182/313 original method entries.
+- Newly repaired j contains 31 entries; seventeen prior source hashes remained unchanged.
+- 25,818 direct actor calls per side matched across ten scoped groups.
+- A wrong overloaded collection call was detected and corrected before acceptance.
+- Two clean final runs reproduced identical component JARs and reports.
+- Seven deliberate actor defects were detected; all five historical suites passed again.
+- 91 local recovery-tool tests passed; this is separate from hosted repository tooling.
+- No complete playable game, platform implementation, exact/normalized match or native port is claimed.
+
+See [pass 006](evidence/RECOVERY_PASS_006.md).
+
+## Historical status
+
 ## Pass 005 — component evidence and publication
 
 - Complete recovered private sources: 17/21 classes, 151/313 original method entries.

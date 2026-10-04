@@ -3,126 +3,1141 @@
   "target_id": "dah1-j2me-en-v1.2.0",
   "input_sha256": "2e03916ea4a5260960e5e57e4dbe0778fb9b577439eac0ce94a685cfecdaaf5f",
   "files": [
-    {"path": ".gitattributes", "kind": "policy", "purpose": "Consistent text handling for repository files."},
-    {"path": ".gitignore", "kind": "policy", "purpose": "Keep original inputs, assets, recovered game code and build products out of Git."},
-    {"path": "AGENTS.md", "kind": "policy", "purpose": "Scope, evidence and publication rules for work in this repository."},
-    {"path": "README.md", "kind": "docs", "purpose": "Project entry point, usage and links to current progress."},
-    {"path": "config/target.json", "kind": "config", "purpose": "Exact input identity and expected static counts."},
-    {"path": "config/source_map.json", "kind": "config", "purpose": "File descriptions, original-class inventory and evidence-backed progress records."},
-    {"path": "docs/STATUS.md", "kind": "docs", "purpose": "What was tested locally, limitations and the next task."},
-    {"path": "docs/VERIFICATION.md", "kind": "docs", "purpose": "Requirements for source-only rebuilds, behavior comparison and a gold candidate."},
-    {"path": "docs/SOURCE_MAP_GUIDE.md", "kind": "docs", "purpose": "How to refresh the map and record scoped evidence without overstating progress."},
-    {"path": "docs/SOURCE_TREE.md", "kind": "generated", "purpose": "Generated tree, class register, stage counts and planned-only work."},
-    {"path": "tests/test_dah1.py", "kind": "tests", "purpose": "Synthetic tests for input identity checks and the structural auditor."},
-    {"path": "tests/test_source_map.py", "kind": "tests", "purpose": "Metadata, inventory, evidence, rendering and stale-map regression tests."},
-    {"path": "tools/dah1.py", "kind": "tool", "purpose": "Verify the pinned JAR and report class structure without executing the game."},
-    {"path": "tools/source_map.py", "kind": "tool", "purpose": "Generate or check the map against tracked files and optionally a local audit."},
-    {"path": ".github/workflows/progress.yml", "kind": "tool", "purpose": "Validate and refresh generated GitHub dashboard files without original game inputs."},
-    {"path": "config/byte_match.json", "kind": "config", "purpose": "Select a reviewed artifact-comparison report or leave all matches unverified."},
-    {"path": "docs/BYTE_MATCH.md", "kind": "docs", "purpose": "Define exact and normalized comparison scope, freshness, provenance and limitations."},
-    {"path": "docs/VISUAL_PROGRESS.md", "kind": "generated", "purpose": "Embed all four class treemaps and report current comparison status."},
-    {"path": "tools/byte_match.py", "kind": "tool", "purpose": "Compare original and candidate JAR classes, record hashes and gate displayed match claims."},
-    {"path": "tools/classfile.py", "kind": "tool", "purpose": "Resolve Java class structure and instructions with conservative fail-closed normalization."},
-    {"path": "tools/treemap_dashboard.py", "kind": "tool", "purpose": "Render proportional, status-colored SVG treemaps from the real progress schema."},
-    {"path": "tests/test_byte_match.py", "kind": "tests", "purpose": "Synthetic and independently compiled fixtures test matching and stale-report safeguards."},
-    {"path": "tests/test_treemap_dashboard.py", "kind": "tests", "purpose": "Test treemap geometry, status colors, rendering and repository integration."},
-    {"path": "docs/RECOVERY_TREEMAP.svg", "kind": "generated", "purpose": "GitHub-embeddable recovery class treemap from recorded evidence."},
-    {"path": "docs/BUILD_TREEMAP.svg", "kind": "generated", "purpose": "GitHub-embeddable build class treemap from recorded evidence."},
-    {"path": "docs/BEHAVIOR_TREEMAP.svg", "kind": "generated", "purpose": "GitHub-embeddable behavior class treemap from recorded evidence."},
-    {"path": "docs/BYTE_MATCH_TREEMAP.svg", "kind": "generated", "purpose": "GitHub-embeddable byte-match class treemap from recorded evidence."},
-    {"path": "config/component_recovery.json", "kind": "config", "purpose": "Pin reviewed private component sources, original class hashes and explicit field mappings."},
-    {"path": "tools/component_recovery.py", "kind": "tool", "purpose": "Compile recovered components and compare isolated original/rebuilt probes without a hidden fallback."},
-    {"path": "tests/test_component_recovery.py", "kind": "tests", "purpose": "Synthetic tests for component input guards, trace mismatches, packaging and signature inventories."},
-    {"path": "tests/java/ComponentProbe.java", "kind": "tests", "purpose": "Authored differential probe for e/s/t; not a game runner or recovered game source."},
-    {"path": "tests/java/component_support/o.java", "kind": "tests", "purpose": "Three-field test record only; never counted as recovered class o or shipped gameplay."},
-    {"path": "tests/java/component_support/javax/microedition/lcdui/Image.java", "kind": "tests", "purpose": "Scripted image-call test double; not graphics or a native-port implementation."},
-    {"path": "docs/evidence/RECOVERY_PASS_001.md", "kind": "docs", "purpose": "Explain the first manual source recovery, scoped component tests, repeatability and remaining gaps."},
-    {"path": "docs/evidence/component-pass-001.json", "kind": "generated", "purpose": "Recorded component source/artifact hashes and observation digests; no game code or assets."},
-    {"path": "tools/subsystem_recovery.py", "kind": "tool", "purpose": "Build six private component sources and compare audio, bitmap text and navigation in isolated test JVMs."},
-    {"path": "config/subsystem_recovery.json", "kind": "config", "purpose": "Pin six local source snapshots, field and method aliases, test support and resource hashes."},
-    {"path": "tests/test_subsystem_recovery.py", "kind": "tests", "purpose": "Test aliases, fixtures, isolation and probe compilation without original game data."},
-    {"path": "tests/java/SubsystemProbe.java", "kind": "tests", "purpose": "Authored original-versus-recovered audio and bitmap-text observation probe."},
-    {"path": "tests/java/NavigationProbe.java", "kind": "tests", "purpose": "Authored navigation-table and selection probe using controlled world records."},
-    {"path": "docs/evidence/RECOVERY_PASS_002.md", "kind": "docs", "purpose": "Document three more recovered components, 172170 scoped calls, negative controls and limitations."},
-    {"path": "docs/evidence/subsystem-pass-002.json", "kind": "docs", "purpose": "Hashes and matching observation digests from the second reproducible subsystem run."},
-    {"path": "tests/java/subsystem_support/b.java", "kind": "tests", "purpose": "Authored subsystem test support, not recovered game or production platform code."},
-    {"path": "tests/java/subsystem_support/f.java", "kind": "tests", "purpose": "Authored subsystem test support, not recovered game or production platform code."},
-    {"path": "tests/java/subsystem_support/j.java", "kind": "tests", "purpose": "Authored subsystem test support, not recovered game or production platform code."},
-    {"path": "tests/java/subsystem_support/javax/microedition/lcdui/Graphics.java", "kind": "tests", "purpose": "Authored subsystem test support, not recovered game or production platform code."},
-    {"path": "tests/java/subsystem_support/javax/microedition/lcdui/Image.java", "kind": "tests", "purpose": "Authored subsystem test support, not recovered game or production platform code."},
-    {"path": "tests/java/subsystem_support/javax/microedition/media/Manager.java", "kind": "tests", "purpose": "Authored subsystem test support, not recovered game or production platform code."},
-    {"path": "tests/java/subsystem_support/javax/microedition/media/MediaException.java", "kind": "tests", "purpose": "Authored subsystem test support, not recovered game or production platform code."},
-    {"path": "tests/java/subsystem_support/javax/microedition/media/Player.java", "kind": "tests", "purpose": "Authored subsystem test support, not recovered game or production platform code."},
-    {"path": "tests/java/subsystem_support/javax/microedition/media/PlayerListener.java", "kind": "tests", "purpose": "Authored subsystem test support, not recovered game or production platform code."},
-    {"path": "tests/java/subsystem_support/k.java", "kind": "tests", "purpose": "Authored subsystem test support, not recovered game or production platform code."},
-    {"path": "tests/java/subsystem_support/o.java", "kind": "tests", "purpose": "Authored subsystem test support, not recovered game or production platform code."},
-    {"path": "tools/entity_recovery.py", "kind": "tool", "purpose": "Build eleven private components and compare isolated effect, entity and pickup probes."},
-    {"path": "config/entity_recovery.json", "kind": "config", "purpose": "Pin eleven source snapshots, resource hashes and explicit field and method aliases."},
-    {"path": "tests/test_entity_recovery.py", "kind": "tests", "purpose": "Check outcome counts, source guards, output isolation and public probe compilation."},
-    {"path": "tests/java/EntityProbe.java", "kind": "tests", "purpose": "Authored differential observations for effects, base entities, pickups and attached objects."},
-    {"path": "docs/evidence/RECOVERY_PASS_003.md", "kind": "docs", "purpose": "Document five new component recoveries, integration tests, negative controls and limitations."},
-    {"path": "docs/evidence/entity-pass-003.json", "kind": "docs", "purpose": "Recorded artifact hashes, direct target call outcomes and scoped observation digests."},
-    {"path": "tests/java/entity_support/b.java", "kind": "tests", "purpose": "Authored entity test support; not an implementation of unrecovered world or platform systems."},
-    {"path": "tests/java/entity_support/c.java", "kind": "tests", "purpose": "Authored entity test support; not an implementation of unrecovered world or platform systems."},
-    {"path": "tests/java/entity_support/f.java", "kind": "tests", "purpose": "Authored entity test support; not an implementation of unrecovered world or platform systems."},
-    {"path": "tests/java/entity_support/j.java", "kind": "tests", "purpose": "Authored entity test support; not an implementation of unrecovered world or platform systems."},
-    {"path": "tests/java/entity_support/javax/microedition/lcdui/Graphics.java", "kind": "tests", "purpose": "Authored entity test support; not an implementation of unrecovered world or platform systems."},
-    {"path": "tests/java/entity_support/k.java", "kind": "tests", "purpose": "Authored entity test support; not an implementation of unrecovered world or platform systems."},
-    {"path": "tests/java/entity_support/n.java", "kind": "tests", "purpose": "Authored entity test support; not an implementation of unrecovered world or platform systems."},
-    {"path": "config/collection_recovery.json", "kind": "config", "purpose": "Pin fourteen private source snapshots, explicit aliases, resource hashes and isolated test-support roster."},
-    {"path": "tools/collection_recovery.py", "kind": "tool", "purpose": "Build fourteen recovered components and compare entity collections and composite buildings with explicit test boundaries."},
-    {"path": "tests/test_collection_recovery.py", "kind": "tests", "purpose": "Test source preservation, call accounting, alias identity, output isolation and an authored field-shadowing regression."},
-    {"path": "tests/java/CollectionProbe.java", "kind": "tests", "purpose": "Authored collection/building differential probe with target-only outcomes; not a game runner or actor implementation."},
-    {"path": "docs/evidence/RECOVERY_PASS_004.md", "kind": "docs", "purpose": "Document three more manually recovered classes, 68152 scoped calls, seven detected mutations and retained limitations."},
-    {"path": "docs/evidence/collection-pass-004.json", "kind": "generated", "purpose": "Recorded fourteen-class source/artifact hashes and matching component observation digests; no code or assets."},
-    {"path": "tests/java/collection_support/b.java", "kind": "tests", "purpose": "Authored collection/building world or actor test support; not recovered game or production platform code."},
-    {"path": "tests/java/collection_support/c.java", "kind": "tests", "purpose": "Authored collection/building world or actor test support; not recovered game or production platform code."},
-    {"path": "tests/java/collection_support/f.java", "kind": "tests", "purpose": "Authored collection/building world or actor test support; not recovered game or production platform code."},
-    {"path": "tests/java/collection_support/j.java", "kind": "tests", "purpose": "Authored collection/building world or actor test support; not recovered game or production platform code."},
-    {"path": "tests/java/collection_support/k.java", "kind": "tests", "purpose": "Authored collection/building world or actor test support; not recovered game or production platform code."},
-    {"path": "config/weapon_recovery.json", "kind": "config", "purpose": "Pin seventeen recovered source snapshots and explicit weapon, saucer and lifecycle aliases."},
-    {"path": "tools/weapon_recovery.py", "kind": "tool", "purpose": "Compile seventeen private components and compare isolated weapon, saucer and lifecycle probes."},
-    {"path": "tests/test_weapon_recovery.py", "kind": "tests", "purpose": "Authored test support or probes; never counted as recovered gameplay or a production platform implementation."},
-    {"path": "docs/evidence/RECOVERY_PASS_005.md", "kind": "docs", "purpose": "Record scoped pass-005 observations, private snapshot hashes and publication limitations."},
-    {"path": "docs/evidence/weapon-pass-005.json", "kind": "docs", "purpose": "Record scoped pass-005 observations, private snapshot hashes and publication limitations."},
-    {"path": "tests/java/WeaponProbe.java", "kind": "tests", "purpose": "Authored test support or probes; never counted as recovered gameplay or a production platform implementation."},
-    {"path": "tests/java/weapon_support/b.java", "kind": "tests", "purpose": "Authored test support or probes; never counted as recovered gameplay or a production platform implementation."},
-    {"path": "tests/java/weapon_support/j.java", "kind": "tests", "purpose": "Authored test support or probes; never counted as recovered gameplay or a production platform implementation."},
-    {"path": "tests/java/weapon_support/k.java", "kind": "tests", "purpose": "Authored test support or probes; never counted as recovered gameplay or a production platform implementation."},
-    {"path": "tests/java/weapon_support/javax/microedition/lcdui/Graphics.java", "kind": "tests", "purpose": "Authored test support or probes; never counted as recovered gameplay or a production platform implementation."},
-    {"path": "tests/java/weapon_support/javax/microedition/lcdui/Display.java", "kind": "tests", "purpose": "Authored test support or probes; never counted as recovered gameplay or a production platform implementation."},
-    {"path": "tests/java/weapon_support/javax/microedition/lcdui/Displayable.java", "kind": "tests", "purpose": "Authored test support or probes; never counted as recovered gameplay or a production platform implementation."},
-    {"path": "tests/java/weapon_support/javax/microedition/midlet/MIDlet.java", "kind": "tests", "purpose": "Authored test support or probes; never counted as recovered gameplay or a production platform implementation."},
-    {"path": "tests/java/weapon_support/javax/microedition/midlet/MIDletStateChangeException.java", "kind": "tests", "purpose": "Authored test support or probes; never counted as recovered gameplay or a production platform implementation."}
+    {
+      "path": ".gitattributes",
+      "kind": "policy",
+      "purpose": "Consistent text handling for repository files."
+    },
+    {
+      "path": ".gitignore",
+      "kind": "policy",
+      "purpose": "Keep original inputs, assets, recovered game code and build products out of Git."
+    },
+    {
+      "path": "AGENTS.md",
+      "kind": "policy",
+      "purpose": "Scope, evidence and publication rules for work in this repository."
+    },
+    {
+      "path": "README.md",
+      "kind": "docs",
+      "purpose": "Project entry point, usage and links to current progress."
+    },
+    {
+      "path": "config/target.json",
+      "kind": "config",
+      "purpose": "Exact input identity and expected static counts."
+    },
+    {
+      "path": "config/source_map.json",
+      "kind": "config",
+      "purpose": "File descriptions, original-class inventory and evidence-backed progress records."
+    },
+    {
+      "path": "docs/STATUS.md",
+      "kind": "docs",
+      "purpose": "What was tested locally, limitations and the next task."
+    },
+    {
+      "path": "docs/VERIFICATION.md",
+      "kind": "docs",
+      "purpose": "Requirements for source-only rebuilds, behavior comparison and a gold candidate."
+    },
+    {
+      "path": "docs/SOURCE_MAP_GUIDE.md",
+      "kind": "docs",
+      "purpose": "How to refresh the map and record scoped evidence without overstating progress."
+    },
+    {
+      "path": "docs/SOURCE_TREE.md",
+      "kind": "generated",
+      "purpose": "Generated tree, class register, stage counts and planned-only work."
+    },
+    {
+      "path": "tests/test_dah1.py",
+      "kind": "tests",
+      "purpose": "Synthetic tests for input identity checks and the structural auditor."
+    },
+    {
+      "path": "tests/test_source_map.py",
+      "kind": "tests",
+      "purpose": "Metadata, inventory, evidence, rendering and stale-map regression tests."
+    },
+    {
+      "path": "tools/dah1.py",
+      "kind": "tool",
+      "purpose": "Verify the pinned JAR and report class structure without executing the game."
+    },
+    {
+      "path": "tools/source_map.py",
+      "kind": "tool",
+      "purpose": "Generate or check the map against tracked files and optionally a local audit."
+    },
+    {
+      "path": ".github/workflows/progress.yml",
+      "kind": "tool",
+      "purpose": "Validate and refresh generated GitHub dashboard files without original game inputs."
+    },
+    {
+      "path": "config/byte_match.json",
+      "kind": "config",
+      "purpose": "Select a reviewed artifact-comparison report or leave all matches unverified."
+    },
+    {
+      "path": "docs/BYTE_MATCH.md",
+      "kind": "docs",
+      "purpose": "Define exact and normalized comparison scope, freshness, provenance and limitations."
+    },
+    {
+      "path": "docs/VISUAL_PROGRESS.md",
+      "kind": "generated",
+      "purpose": "Embed all four class treemaps and report current comparison status."
+    },
+    {
+      "path": "tools/byte_match.py",
+      "kind": "tool",
+      "purpose": "Compare original and candidate JAR classes, record hashes and gate displayed match claims."
+    },
+    {
+      "path": "tools/classfile.py",
+      "kind": "tool",
+      "purpose": "Resolve Java class structure and instructions with conservative fail-closed normalization."
+    },
+    {
+      "path": "tools/treemap_dashboard.py",
+      "kind": "tool",
+      "purpose": "Render proportional, status-colored SVG treemaps from the real progress schema."
+    },
+    {
+      "path": "tests/test_byte_match.py",
+      "kind": "tests",
+      "purpose": "Synthetic and independently compiled fixtures test matching and stale-report safeguards."
+    },
+    {
+      "path": "tests/test_treemap_dashboard.py",
+      "kind": "tests",
+      "purpose": "Test treemap geometry, status colors, rendering and repository integration."
+    },
+    {
+      "path": "docs/RECOVERY_TREEMAP.svg",
+      "kind": "generated",
+      "purpose": "GitHub-embeddable recovery class treemap from recorded evidence."
+    },
+    {
+      "path": "docs/BUILD_TREEMAP.svg",
+      "kind": "generated",
+      "purpose": "GitHub-embeddable build class treemap from recorded evidence."
+    },
+    {
+      "path": "docs/BEHAVIOR_TREEMAP.svg",
+      "kind": "generated",
+      "purpose": "GitHub-embeddable behavior class treemap from recorded evidence."
+    },
+    {
+      "path": "docs/BYTE_MATCH_TREEMAP.svg",
+      "kind": "generated",
+      "purpose": "GitHub-embeddable byte-match class treemap from recorded evidence."
+    },
+    {
+      "path": "config/component_recovery.json",
+      "kind": "config",
+      "purpose": "Pin reviewed private component sources, original class hashes and explicit field mappings."
+    },
+    {
+      "path": "tools/component_recovery.py",
+      "kind": "tool",
+      "purpose": "Compile recovered components and compare isolated original/rebuilt probes without a hidden fallback."
+    },
+    {
+      "path": "tests/test_component_recovery.py",
+      "kind": "tests",
+      "purpose": "Synthetic tests for component input guards, trace mismatches, packaging and signature inventories."
+    },
+    {
+      "path": "tests/java/ComponentProbe.java",
+      "kind": "tests",
+      "purpose": "Authored differential probe for e/s/t; not a game runner or recovered game source."
+    },
+    {
+      "path": "tests/java/component_support/o.java",
+      "kind": "tests",
+      "purpose": "Three-field test record only; never counted as recovered class o or shipped gameplay."
+    },
+    {
+      "path": "tests/java/component_support/javax/microedition/lcdui/Image.java",
+      "kind": "tests",
+      "purpose": "Scripted image-call test double; not graphics or a native-port implementation."
+    },
+    {
+      "path": "docs/evidence/RECOVERY_PASS_001.md",
+      "kind": "docs",
+      "purpose": "Explain the first manual source recovery, scoped component tests, repeatability and remaining gaps."
+    },
+    {
+      "path": "docs/evidence/component-pass-001.json",
+      "kind": "generated",
+      "purpose": "Recorded component source/artifact hashes and observation digests; no game code or assets."
+    },
+    {
+      "path": "tools/subsystem_recovery.py",
+      "kind": "tool",
+      "purpose": "Build six private component sources and compare audio, bitmap text and navigation in isolated test JVMs."
+    },
+    {
+      "path": "config/subsystem_recovery.json",
+      "kind": "config",
+      "purpose": "Pin six local source snapshots, field and method aliases, test support and resource hashes."
+    },
+    {
+      "path": "tests/test_subsystem_recovery.py",
+      "kind": "tests",
+      "purpose": "Test aliases, fixtures, isolation and probe compilation without original game data."
+    },
+    {
+      "path": "tests/java/SubsystemProbe.java",
+      "kind": "tests",
+      "purpose": "Authored original-versus-recovered audio and bitmap-text observation probe."
+    },
+    {
+      "path": "tests/java/NavigationProbe.java",
+      "kind": "tests",
+      "purpose": "Authored navigation-table and selection probe using controlled world records."
+    },
+    {
+      "path": "docs/evidence/RECOVERY_PASS_002.md",
+      "kind": "docs",
+      "purpose": "Document three more recovered components, 172170 scoped calls, negative controls and limitations."
+    },
+    {
+      "path": "docs/evidence/subsystem-pass-002.json",
+      "kind": "docs",
+      "purpose": "Hashes and matching observation digests from the second reproducible subsystem run."
+    },
+    {
+      "path": "tests/java/subsystem_support/b.java",
+      "kind": "tests",
+      "purpose": "Authored subsystem test support, not recovered game or production platform code."
+    },
+    {
+      "path": "tests/java/subsystem_support/f.java",
+      "kind": "tests",
+      "purpose": "Authored subsystem test support, not recovered game or production platform code."
+    },
+    {
+      "path": "tests/java/subsystem_support/j.java",
+      "kind": "tests",
+      "purpose": "Authored subsystem test support, not recovered game or production platform code."
+    },
+    {
+      "path": "tests/java/subsystem_support/javax/microedition/lcdui/Graphics.java",
+      "kind": "tests",
+      "purpose": "Authored subsystem test support, not recovered game or production platform code."
+    },
+    {
+      "path": "tests/java/subsystem_support/javax/microedition/lcdui/Image.java",
+      "kind": "tests",
+      "purpose": "Authored subsystem test support, not recovered game or production platform code."
+    },
+    {
+      "path": "tests/java/subsystem_support/javax/microedition/media/Manager.java",
+      "kind": "tests",
+      "purpose": "Authored subsystem test support, not recovered game or production platform code."
+    },
+    {
+      "path": "tests/java/subsystem_support/javax/microedition/media/MediaException.java",
+      "kind": "tests",
+      "purpose": "Authored subsystem test support, not recovered game or production platform code."
+    },
+    {
+      "path": "tests/java/subsystem_support/javax/microedition/media/Player.java",
+      "kind": "tests",
+      "purpose": "Authored subsystem test support, not recovered game or production platform code."
+    },
+    {
+      "path": "tests/java/subsystem_support/javax/microedition/media/PlayerListener.java",
+      "kind": "tests",
+      "purpose": "Authored subsystem test support, not recovered game or production platform code."
+    },
+    {
+      "path": "tests/java/subsystem_support/k.java",
+      "kind": "tests",
+      "purpose": "Authored subsystem test support, not recovered game or production platform code."
+    },
+    {
+      "path": "tests/java/subsystem_support/o.java",
+      "kind": "tests",
+      "purpose": "Authored subsystem test support, not recovered game or production platform code."
+    },
+    {
+      "path": "tools/entity_recovery.py",
+      "kind": "tool",
+      "purpose": "Build eleven private components and compare isolated effect, entity and pickup probes."
+    },
+    {
+      "path": "config/entity_recovery.json",
+      "kind": "config",
+      "purpose": "Pin eleven source snapshots, resource hashes and explicit field and method aliases."
+    },
+    {
+      "path": "tests/test_entity_recovery.py",
+      "kind": "tests",
+      "purpose": "Check outcome counts, source guards, output isolation and public probe compilation."
+    },
+    {
+      "path": "tests/java/EntityProbe.java",
+      "kind": "tests",
+      "purpose": "Authored differential observations for effects, base entities, pickups and attached objects."
+    },
+    {
+      "path": "docs/evidence/RECOVERY_PASS_003.md",
+      "kind": "docs",
+      "purpose": "Document five new component recoveries, integration tests, negative controls and limitations."
+    },
+    {
+      "path": "docs/evidence/entity-pass-003.json",
+      "kind": "docs",
+      "purpose": "Recorded artifact hashes, direct target call outcomes and scoped observation digests."
+    },
+    {
+      "path": "tests/java/entity_support/b.java",
+      "kind": "tests",
+      "purpose": "Authored entity test support; not an implementation of unrecovered world or platform systems."
+    },
+    {
+      "path": "tests/java/entity_support/c.java",
+      "kind": "tests",
+      "purpose": "Authored entity test support; not an implementation of unrecovered world or platform systems."
+    },
+    {
+      "path": "tests/java/entity_support/f.java",
+      "kind": "tests",
+      "purpose": "Authored entity test support; not an implementation of unrecovered world or platform systems."
+    },
+    {
+      "path": "tests/java/entity_support/j.java",
+      "kind": "tests",
+      "purpose": "Authored entity test support; not an implementation of unrecovered world or platform systems."
+    },
+    {
+      "path": "tests/java/entity_support/javax/microedition/lcdui/Graphics.java",
+      "kind": "tests",
+      "purpose": "Authored entity test support; not an implementation of unrecovered world or platform systems."
+    },
+    {
+      "path": "tests/java/entity_support/k.java",
+      "kind": "tests",
+      "purpose": "Authored entity test support; not an implementation of unrecovered world or platform systems."
+    },
+    {
+      "path": "tests/java/entity_support/n.java",
+      "kind": "tests",
+      "purpose": "Authored entity test support; not an implementation of unrecovered world or platform systems."
+    },
+    {
+      "path": "config/collection_recovery.json",
+      "kind": "config",
+      "purpose": "Pin fourteen private source snapshots, explicit aliases, resource hashes and isolated test-support roster."
+    },
+    {
+      "path": "tools/collection_recovery.py",
+      "kind": "tool",
+      "purpose": "Build fourteen recovered components and compare entity collections and composite buildings with explicit test boundaries."
+    },
+    {
+      "path": "tests/test_collection_recovery.py",
+      "kind": "tests",
+      "purpose": "Test source preservation, call accounting, alias identity, output isolation and an authored field-shadowing regression."
+    },
+    {
+      "path": "tests/java/CollectionProbe.java",
+      "kind": "tests",
+      "purpose": "Authored collection/building differential probe with target-only outcomes; not a game runner or actor implementation."
+    },
+    {
+      "path": "docs/evidence/RECOVERY_PASS_004.md",
+      "kind": "docs",
+      "purpose": "Document three more manually recovered classes, 68152 scoped calls, seven detected mutations and retained limitations."
+    },
+    {
+      "path": "docs/evidence/collection-pass-004.json",
+      "kind": "generated",
+      "purpose": "Recorded fourteen-class source/artifact hashes and matching component observation digests; no code or assets."
+    },
+    {
+      "path": "tests/java/collection_support/b.java",
+      "kind": "tests",
+      "purpose": "Authored collection/building world or actor test support; not recovered game or production platform code."
+    },
+    {
+      "path": "tests/java/collection_support/c.java",
+      "kind": "tests",
+      "purpose": "Authored collection/building world or actor test support; not recovered game or production platform code."
+    },
+    {
+      "path": "tests/java/collection_support/f.java",
+      "kind": "tests",
+      "purpose": "Authored collection/building world or actor test support; not recovered game or production platform code."
+    },
+    {
+      "path": "tests/java/collection_support/j.java",
+      "kind": "tests",
+      "purpose": "Authored collection/building world or actor test support; not recovered game or production platform code."
+    },
+    {
+      "path": "tests/java/collection_support/k.java",
+      "kind": "tests",
+      "purpose": "Authored collection/building world or actor test support; not recovered game or production platform code."
+    },
+    {
+      "path": "config/weapon_recovery.json",
+      "kind": "config",
+      "purpose": "Pin seventeen recovered source snapshots and explicit weapon, saucer and lifecycle aliases."
+    },
+    {
+      "path": "tools/weapon_recovery.py",
+      "kind": "tool",
+      "purpose": "Compile seventeen private components and compare isolated weapon, saucer and lifecycle probes."
+    },
+    {
+      "path": "tests/test_weapon_recovery.py",
+      "kind": "tests",
+      "purpose": "Authored test support or probes; never counted as recovered gameplay or a production platform implementation."
+    },
+    {
+      "path": "docs/evidence/RECOVERY_PASS_005.md",
+      "kind": "docs",
+      "purpose": "Record scoped pass-005 observations, private snapshot hashes and publication limitations."
+    },
+    {
+      "path": "docs/evidence/weapon-pass-005.json",
+      "kind": "docs",
+      "purpose": "Record scoped pass-005 observations, private snapshot hashes and publication limitations."
+    },
+    {
+      "path": "tests/java/WeaponProbe.java",
+      "kind": "tests",
+      "purpose": "Authored test support or probes; never counted as recovered gameplay or a production platform implementation."
+    },
+    {
+      "path": "tests/java/weapon_support/b.java",
+      "kind": "tests",
+      "purpose": "Authored test support or probes; never counted as recovered gameplay or a production platform implementation."
+    },
+    {
+      "path": "tests/java/weapon_support/j.java",
+      "kind": "tests",
+      "purpose": "Authored test support or probes; never counted as recovered gameplay or a production platform implementation."
+    },
+    {
+      "path": "tests/java/weapon_support/k.java",
+      "kind": "tests",
+      "purpose": "Authored test support or probes; never counted as recovered gameplay or a production platform implementation."
+    },
+    {
+      "path": "tests/java/weapon_support/javax/microedition/lcdui/Graphics.java",
+      "kind": "tests",
+      "purpose": "Authored test support or probes; never counted as recovered gameplay or a production platform implementation."
+    },
+    {
+      "path": "tests/java/weapon_support/javax/microedition/lcdui/Display.java",
+      "kind": "tests",
+      "purpose": "Authored test support or probes; never counted as recovered gameplay or a production platform implementation."
+    },
+    {
+      "path": "tests/java/weapon_support/javax/microedition/lcdui/Displayable.java",
+      "kind": "tests",
+      "purpose": "Authored test support or probes; never counted as recovered gameplay or a production platform implementation."
+    },
+    {
+      "path": "tests/java/weapon_support/javax/microedition/midlet/MIDlet.java",
+      "kind": "tests",
+      "purpose": "Authored test support or probes; never counted as recovered gameplay or a production platform implementation."
+    },
+    {
+      "path": "tests/java/weapon_support/javax/microedition/midlet/MIDletStateChangeException.java",
+      "kind": "tests",
+      "purpose": "Authored test support or probes; never counted as recovered gameplay or a production platform implementation."
+    },
+    {
+      "path": "docs/evidence/RECOVERY_PASS_006.md",
+      "kind": "docs",
+      "purpose": "Document reviewed shared-actor recovery, scoped comparisons, corrected overload error and limitations."
+    },
+    {
+      "path": "docs/evidence/DECOMPILER_PASS_007.md",
+      "kind": "docs",
+      "purpose": "Document pinned dual-decompiler recovery, all-class raw source compilation, repair points and limitations."
+    },
+    {
+      "path": "docs/evidence/decompiler-pass-007.json",
+      "kind": "docs",
+      "purpose": "Machine-readable tool/source/artifact hashes and static inventory results for decompiler pass 007."
+    }
   ],
   "classes": [
-    {"original": "GameMidlet", "method_entries": 5, "source_path": "src/game/GameMidlet.java", "recovery": {"state": "repaired", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_005.md", "scope": "Manual reconstruction of all 5 original entries; accepted private source snapshot and descriptor mappings pinned."}]}, "build": {"state": "passed", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_005.md", "scope": "Clean seventeen-class component compilation with explicit actor/world/controller/platform test support; not a complete game build."}]}, "behavior": {"state": "passed_scoped", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_005.md", "scope": "Lifecycle call ordering, counters, failures and shared references against the original with explicit controller/display test doubles."}]}},
-    {"original": "a", "method_entries": 8, "source_path": "src/game/a.java", "recovery": {"state": "repaired", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_003.md", "scope": "Manual bytecode-backed reconstruction of all 8 entries; pinned private sources and explicit descriptor aliases."}]}, "build": {"state": "passed", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_003.md", "scope": "Eleven-class source-only component artifact with separately packaged authored dependencies; not a complete game build."}]}, "behavior": {"state": "passed_scoped", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_003.md", "scope": "Effects table loading, clone state, frame stepping and draw commands/pixels within a partial headless adapter."}]}},
-    {"original": "b", "method_entries": 46, "source_path": null, "recovery": {"state": "not_started", "evidence": []}, "build": {"state": "not_tested", "evidence": []}, "behavior": {"state": "not_tested", "evidence": []}},
-    {"original": "c", "method_entries": 11, "source_path": "src/game/c.java", "recovery": {"state": "repaired", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_005.md", "scope": "Manual reconstruction of all 11 original entries; accepted private source snapshot and descriptor mappings pinned."}]}, "build": {"state": "passed", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_005.md", "scope": "Clean seventeen-class component compilation with explicit actor/world/controller/platform test support; not a complete game build."}]}, "behavior": {"state": "passed_scoped", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_005.md", "scope": "Weapon setup, aiming, ammo, firing gates, update and drawing observations under scripted actor/world/platform callbacks."}]}},
-    {"original": "d", "method_entries": 10, "source_path": "src/game/d.java", "recovery": {"state": "repaired", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_004.md", "scope": "All original entries manually reconstructed; explicit aliases and private source snapshot hash pinned."}]}, "build": {"state": "passed", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_004.md", "scope": "Fourteen-class source-only component compilation with isolated test support and no copied original class; NOT a complete game build."}]}, "behavior": {"state": "passed_scoped", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_004.md", "scope": "Original composite-building tables, partial-load/cache behavior, variant/section registration and draw traces/pixels under shared test services; no full-level renderer."}]}},
-    {"original": "e", "method_entries": 13, "source_path": "src/game/e.java", "recovery": {"state": "repaired", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_001.md", "scope": "Manual bytecode-backed reconstruction of all 13 method entries; reviewed local source hash and field mappings recorded."}]}, "build": {"state": "passed", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_001.md", "scope": "Clean source compilation of the e/s/t component artifact using isolated test-only dependencies; NOT a complete game build."}]}, "behavior": {"state": "passed_scoped", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_001.md", "scope": "Arithmetic, packed decoding, geometry and image-call outcomes against original with explicit test doubles; scope is not whole-game behavior."}]}},
-    {"original": "f", "method_entries": 11, "source_path": "src/game/f.java", "recovery": {"state": "repaired", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_005.md", "scope": "Manual reconstruction of all 11 original entries; accepted private source snapshot and descriptor mappings pinned."}]}, "build": {"state": "passed", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_005.md", "scope": "Clean seventeen-class component compilation with explicit actor/world/controller/platform test support; not a complete game build."}]}, "behavior": {"state": "passed_scoped", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_005.md", "scope": "Saucer-specific movement, shield and reticle/collection logic under a scripted base actor and world; not complete actor AI."}]}},
-    {"original": "g", "method_entries": 11, "source_path": "src/game/g.java", "recovery": {"state": "repaired", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_002.md", "scope": "Manual reconstruction of all 11 entries with explicit descriptor aliases; private source hashes pinned."}]}, "build": {"state": "passed", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_002.md", "scope": "Six-class source-only component compilation with isolated test support; no original classes copied and no complete game build."}]}, "behavior": {"state": "passed_scoped", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_002.md", "scope": "Audio data loading and scripted media call/state/failure comparisons; no actual sound playback or thread-scheduling validation."}]}},
-    {"original": "h", "method_entries": 3, "source_path": "src/game/h.java", "recovery": {"state": "repaired", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_003.md", "scope": "Manual bytecode-backed reconstruction of all 3 entries; pinned private sources and explicit descriptor aliases."}]}, "build": {"state": "passed", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_003.md", "scope": "Eleven-class source-only component artifact with separately packaged authored dependencies; not a complete game build."}]}, "behavior": {"state": "passed_scoped", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_003.md", "scope": "Clipped strip drawing and phase updates including signed byte boundaries; not a full game renderer."}]}},
-    {"original": "i", "method_entries": 11, "source_path": "src/game/i.java", "recovery": {"state": "repaired", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_003.md", "scope": "Manual bytecode-backed reconstruction of all 11 entries; pinned private sources and explicit descriptor aliases."}]}, "build": {"state": "passed", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_003.md", "scope": "Eleven-class source-only component artifact with separately packaged authored dependencies; not a complete game build."}]}, "behavior": {"state": "passed_scoped", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_003.md", "scope": "Pickup stat/ammo updates, repeated collection, real recovered audio/font calls and scripted world/media failures."}]}},
-    {"original": "j", "method_entries": 31, "source_path": null, "recovery": {"state": "not_started", "evidence": []}, "build": {"state": "not_tested", "evidence": []}, "behavior": {"state": "not_tested", "evidence": []}},
-    {"original": "k", "method_entries": 31, "source_path": null, "recovery": {"state": "not_started", "evidence": []}, "build": {"state": "not_tested", "evidence": []}, "behavior": {"state": "not_tested", "evidence": []}},
-    {"original": "l", "method_entries": 14, "source_path": "src/game/l.java", "recovery": {"state": "repaired", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_002.md", "scope": "Manual reconstruction of all 14 entries with explicit descriptor aliases; private source hashes pinned."}]}, "build": {"state": "passed", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_002.md", "scope": "Six-class source-only component compilation with isolated test support; no original classes copied and no complete game build."}]}, "behavior": {"state": "passed_scoped", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_002.md", "scope": "Text tables, formatting, drawing commands and headless font pixels compared under a shared partial adapter; not handset or whole-game rendering."}]}},
-    {"original": "m", "method_entries": 4, "source_path": "src/game/m.java", "recovery": {"state": "repaired", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_003.md", "scope": "Manual bytecode-backed reconstruction of all 4 entries; pinned private sources and explicit descriptor aliases."}]}, "build": {"state": "passed", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_003.md", "scope": "Eleven-class source-only component artifact with separately packaged authored dependencies; not a complete game build."}]}, "behavior": {"state": "passed_scoped", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_003.md", "scope": "Spawn metadata, discarded random consumption and child update/draw delegation with authored actor targets."}]}},
-    {"original": "n", "method_entries": 21, "source_path": "src/game/n.java", "recovery": {"state": "repaired", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_004.md", "scope": "All original entries manually reconstructed; explicit aliases and private source snapshot hash pinned."}]}, "build": {"state": "passed", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_004.md", "scope": "Fourteen-class source-only component compilation with isolated test support and no copied original class; NOT a complete game build."}]}, "behavior": {"state": "passed_scoped", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_004.md", "scope": "Entity list ordering, queries, targeting calls, migration/disposal and real pickup integration with scripted actors/world and shared graphics; no full-world or AI test."}]}},
-    {"original": "o", "method_entries": 7, "source_path": "src/game/o.java", "recovery": {"state": "repaired", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_003.md", "scope": "Manual bytecode-backed reconstruction of all 7 entries; pinned private sources and explicit descriptor aliases."}]}, "build": {"state": "passed", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_003.md", "scope": "Eleven-class source-only component artifact with separately packaged authored dependencies; not a complete game build."}]}, "behavior": {"state": "passed_scoped", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_003.md", "scope": "Factory dispatch, picking, timed effects, flags, shared rise state and pickup/removal calls under controlled world/actor dependencies."}]}},
-    {"original": "p", "method_entries": 54, "source_path": null, "recovery": {"state": "not_started", "evidence": []}, "build": {"state": "not_tested", "evidence": []}, "behavior": {"state": "not_tested", "evidence": []}},
-    {"original": "q", "method_entries": 14, "source_path": "src/game/q.java", "recovery": {"state": "repaired", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_002.md", "scope": "Manual reconstruction of all 14 entries with explicit descriptor aliases; private source hashes pinned."}]}, "build": {"state": "passed", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_002.md", "scope": "Six-class source-only component compilation with isolated test support; no original classes copied and no complete game build."}]}, "behavior": {"state": "passed_scoped", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_002.md", "scope": "Navigation loads, packed links, random choice and spatial queries against original using scripted world records; not full actor/world integration."}]}},
-    {"original": "r", "method_entries": 2, "source_path": "src/game/r.java", "recovery": {"state": "repaired", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_004.md", "scope": "All original entries manually reconstructed; explicit aliases and private source snapshot hash pinned."}]}, "build": {"state": "passed", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_004.md", "scope": "Fourteen-class source-only component compilation with isolated test support and no copied original class; NOT a complete game build."}]}, "behavior": {"state": "passed_scoped", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_004.md", "scope": "Building-section dimensions, ownership and drawing against original with real recovered base entity and limited shared graphics; not original-handset fidelity."}]}},
-    {"original": "s", "method_entries": 5, "source_path": "src/game/s.java", "recovery": {"state": "repaired", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_001.md", "scope": "Manual bytecode-backed reconstruction of all 5 method entries; reviewed local source hash and field mappings recorded."}]}, "build": {"state": "passed", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_001.md", "scope": "Clean source compilation of the e/s/t component artifact using isolated test-only dependencies; NOT a complete game build."}]}, "behavior": {"state": "passed_scoped", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_001.md", "scope": "Object table, cache and failure-state observations against original across 18 resource scenarios with an image-call double; no rendering claim."}]}},
-    {"original": "t", "method_entries": 1, "source_path": "src/game/t.java", "recovery": {"state": "repaired", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_001.md", "scope": "Manual bytecode-backed reconstruction of all 1 method entries; reviewed local source hash and field mappings recorded."}]}, "build": {"state": "passed", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_001.md", "scope": "Clean source compilation of the e/s/t component artifact using isolated test-only dependencies; NOT a complete game build."}]}, "behavior": {"state": "passed_scoped", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_001.md", "scope": "Original-versus-rebuilt constructor field observations for 5008 boundary and deterministic random cases; field meanings remain unassigned."}]}}
+    {
+      "original": "GameMidlet",
+      "method_entries": 5,
+      "source_path": "src/game/GameMidlet.java",
+      "recovery": {
+        "state": "repaired",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_005.md",
+            "scope": "Manual reconstruction of all 5 original entries; accepted private source snapshot and descriptor mappings pinned."
+          }
+        ]
+      },
+      "build": {
+        "state": "passed",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_005.md",
+            "scope": "Clean seventeen-class component compilation with explicit actor/world/controller/platform test support; not a complete game build."
+          }
+        ]
+      },
+      "behavior": {
+        "state": "passed_scoped",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_005.md",
+            "scope": "Lifecycle call ordering, counters, failures and shared references against the original with explicit controller/display test doubles."
+          }
+        ]
+      }
+    },
+    {
+      "original": "a",
+      "method_entries": 8,
+      "source_path": "src/game/a.java",
+      "recovery": {
+        "state": "repaired",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_003.md",
+            "scope": "Manual bytecode-backed reconstruction of all 8 entries; pinned private sources and explicit descriptor aliases."
+          }
+        ]
+      },
+      "build": {
+        "state": "passed",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_003.md",
+            "scope": "Eleven-class source-only component artifact with separately packaged authored dependencies; not a complete game build."
+          }
+        ]
+      },
+      "behavior": {
+        "state": "passed_scoped",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_003.md",
+            "scope": "Effects table loading, clone state, frame stepping and draw commands/pixels within a partial headless adapter."
+          }
+        ]
+      }
+    },
+    {
+      "original": "b",
+      "method_entries": 46,
+      "source_path": "recovered/raw/pass007/b.java",
+      "recovery": {
+        "state": "raw_output",
+        "evidence": [
+          {
+            "path": "docs/evidence/DECOMPILER_PASS_007.md",
+            "scope": "Pinned CFR/Vineflower raw source exists locally; full raw tree compiles after documented decompiler repair points. Class not yet reviewed/repaired or behavior-tested."
+          }
+        ]
+      },
+      "build": {
+        "state": "not_tested",
+        "evidence": []
+      },
+      "behavior": {
+        "state": "not_tested",
+        "evidence": []
+      }
+    },
+    {
+      "original": "c",
+      "method_entries": 11,
+      "source_path": "src/game/c.java",
+      "recovery": {
+        "state": "repaired",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_005.md",
+            "scope": "Manual reconstruction of all 11 original entries; accepted private source snapshot and descriptor mappings pinned."
+          }
+        ]
+      },
+      "build": {
+        "state": "passed",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_005.md",
+            "scope": "Clean seventeen-class component compilation with explicit actor/world/controller/platform test support; not a complete game build."
+          }
+        ]
+      },
+      "behavior": {
+        "state": "passed_scoped",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_005.md",
+            "scope": "Weapon setup, aiming, ammo, firing gates, update and drawing observations under scripted actor/world/platform callbacks."
+          }
+        ]
+      }
+    },
+    {
+      "original": "d",
+      "method_entries": 10,
+      "source_path": "src/game/d.java",
+      "recovery": {
+        "state": "repaired",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_004.md",
+            "scope": "All original entries manually reconstructed; explicit aliases and private source snapshot hash pinned."
+          }
+        ]
+      },
+      "build": {
+        "state": "passed",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_004.md",
+            "scope": "Fourteen-class source-only component compilation with isolated test support and no copied original class; NOT a complete game build."
+          }
+        ]
+      },
+      "behavior": {
+        "state": "passed_scoped",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_004.md",
+            "scope": "Original composite-building tables, partial-load/cache behavior, variant/section registration and draw traces/pixels under shared test services; no full-level renderer."
+          }
+        ]
+      }
+    },
+    {
+      "original": "e",
+      "method_entries": 13,
+      "source_path": "src/game/e.java",
+      "recovery": {
+        "state": "repaired",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_001.md",
+            "scope": "Manual bytecode-backed reconstruction of all 13 method entries; reviewed local source hash and field mappings recorded."
+          }
+        ]
+      },
+      "build": {
+        "state": "passed",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_001.md",
+            "scope": "Clean source compilation of the e/s/t component artifact using isolated test-only dependencies; NOT a complete game build."
+          }
+        ]
+      },
+      "behavior": {
+        "state": "passed_scoped",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_001.md",
+            "scope": "Arithmetic, packed decoding, geometry and image-call outcomes against original with explicit test doubles; scope is not whole-game behavior."
+          }
+        ]
+      }
+    },
+    {
+      "original": "f",
+      "method_entries": 11,
+      "source_path": "src/game/f.java",
+      "recovery": {
+        "state": "repaired",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_005.md",
+            "scope": "Manual reconstruction of all 11 original entries; accepted private source snapshot and descriptor mappings pinned."
+          }
+        ]
+      },
+      "build": {
+        "state": "passed",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_005.md",
+            "scope": "Clean seventeen-class component compilation with explicit actor/world/controller/platform test support; not a complete game build."
+          }
+        ]
+      },
+      "behavior": {
+        "state": "passed_scoped",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_005.md",
+            "scope": "Saucer-specific movement, shield and reticle/collection logic under a scripted base actor and world; not complete actor AI."
+          }
+        ]
+      }
+    },
+    {
+      "original": "g",
+      "method_entries": 11,
+      "source_path": "src/game/g.java",
+      "recovery": {
+        "state": "repaired",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_002.md",
+            "scope": "Manual reconstruction of all 11 entries with explicit descriptor aliases; private source hashes pinned."
+          }
+        ]
+      },
+      "build": {
+        "state": "passed",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_002.md",
+            "scope": "Six-class source-only component compilation with isolated test support; no original classes copied and no complete game build."
+          }
+        ]
+      },
+      "behavior": {
+        "state": "passed_scoped",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_002.md",
+            "scope": "Audio data loading and scripted media call/state/failure comparisons; no actual sound playback or thread-scheduling validation."
+          }
+        ]
+      }
+    },
+    {
+      "original": "h",
+      "method_entries": 3,
+      "source_path": "src/game/h.java",
+      "recovery": {
+        "state": "repaired",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_003.md",
+            "scope": "Manual bytecode-backed reconstruction of all 3 entries; pinned private sources and explicit descriptor aliases."
+          }
+        ]
+      },
+      "build": {
+        "state": "passed",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_003.md",
+            "scope": "Eleven-class source-only component artifact with separately packaged authored dependencies; not a complete game build."
+          }
+        ]
+      },
+      "behavior": {
+        "state": "passed_scoped",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_003.md",
+            "scope": "Clipped strip drawing and phase updates including signed byte boundaries; not a full game renderer."
+          }
+        ]
+      }
+    },
+    {
+      "original": "i",
+      "method_entries": 11,
+      "source_path": "src/game/i.java",
+      "recovery": {
+        "state": "repaired",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_003.md",
+            "scope": "Manual bytecode-backed reconstruction of all 11 entries; pinned private sources and explicit descriptor aliases."
+          }
+        ]
+      },
+      "build": {
+        "state": "passed",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_003.md",
+            "scope": "Eleven-class source-only component artifact with separately packaged authored dependencies; not a complete game build."
+          }
+        ]
+      },
+      "behavior": {
+        "state": "passed_scoped",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_003.md",
+            "scope": "Pickup stat/ammo updates, repeated collection, real recovered audio/font calls and scripted world/media failures."
+          }
+        ]
+      }
+    },
+    {
+      "original": "j",
+      "method_entries": 31,
+      "source_path": "src/game/j.java",
+      "recovery": {
+        "state": "repaired",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_006.md",
+            "scope": "Manual bytecode-backed reconstruction of all 31 actor entries; overload-selection defect corrected under differential testing."
+          }
+        ]
+      },
+      "build": {
+        "state": "passed",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_006.md",
+            "scope": "Eighteen recovered game classes compile together as a component artifact with explicit test-only world/controller/platform support; not a whole-game build."
+          }
+        ]
+      },
+      "behavior": {
+        "state": "passed_scoped",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_006.md",
+            "scope": "25,818 direct actor calls per side matched across documented actor/state/navigation/damage/drawing/integration probes; not exhaustive gameplay."
+          }
+        ]
+      }
+    },
+    {
+      "original": "k",
+      "method_entries": 31,
+      "source_path": "recovered/raw/pass007/k.java",
+      "recovery": {
+        "state": "raw_output",
+        "evidence": [
+          {
+            "path": "docs/evidence/DECOMPILER_PASS_007.md",
+            "scope": "Pinned CFR/Vineflower raw source exists locally; full raw tree compiles after documented decompiler repair points. Class not yet reviewed/repaired or behavior-tested."
+          }
+        ]
+      },
+      "build": {
+        "state": "not_tested",
+        "evidence": []
+      },
+      "behavior": {
+        "state": "not_tested",
+        "evidence": []
+      }
+    },
+    {
+      "original": "l",
+      "method_entries": 14,
+      "source_path": "src/game/l.java",
+      "recovery": {
+        "state": "repaired",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_002.md",
+            "scope": "Manual reconstruction of all 14 entries with explicit descriptor aliases; private source hashes pinned."
+          }
+        ]
+      },
+      "build": {
+        "state": "passed",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_002.md",
+            "scope": "Six-class source-only component compilation with isolated test support; no original classes copied and no complete game build."
+          }
+        ]
+      },
+      "behavior": {
+        "state": "passed_scoped",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_002.md",
+            "scope": "Text tables, formatting, drawing commands and headless font pixels compared under a shared partial adapter; not handset or whole-game rendering."
+          }
+        ]
+      }
+    },
+    {
+      "original": "m",
+      "method_entries": 4,
+      "source_path": "src/game/m.java",
+      "recovery": {
+        "state": "repaired",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_003.md",
+            "scope": "Manual bytecode-backed reconstruction of all 4 entries; pinned private sources and explicit descriptor aliases."
+          }
+        ]
+      },
+      "build": {
+        "state": "passed",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_003.md",
+            "scope": "Eleven-class source-only component artifact with separately packaged authored dependencies; not a complete game build."
+          }
+        ]
+      },
+      "behavior": {
+        "state": "passed_scoped",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_003.md",
+            "scope": "Spawn metadata, discarded random consumption and child update/draw delegation with authored actor targets."
+          }
+        ]
+      }
+    },
+    {
+      "original": "n",
+      "method_entries": 21,
+      "source_path": "src/game/n.java",
+      "recovery": {
+        "state": "repaired",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_004.md",
+            "scope": "All original entries manually reconstructed; explicit aliases and private source snapshot hash pinned."
+          }
+        ]
+      },
+      "build": {
+        "state": "passed",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_004.md",
+            "scope": "Fourteen-class source-only component compilation with isolated test support and no copied original class; NOT a complete game build."
+          }
+        ]
+      },
+      "behavior": {
+        "state": "passed_scoped",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_004.md",
+            "scope": "Entity list ordering, queries, targeting calls, migration/disposal and real pickup integration with scripted actors/world and shared graphics; no full-world or AI test."
+          }
+        ]
+      }
+    },
+    {
+      "original": "o",
+      "method_entries": 7,
+      "source_path": "src/game/o.java",
+      "recovery": {
+        "state": "repaired",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_003.md",
+            "scope": "Manual bytecode-backed reconstruction of all 7 entries; pinned private sources and explicit descriptor aliases."
+          }
+        ]
+      },
+      "build": {
+        "state": "passed",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_003.md",
+            "scope": "Eleven-class source-only component artifact with separately packaged authored dependencies; not a complete game build."
+          }
+        ]
+      },
+      "behavior": {
+        "state": "passed_scoped",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_003.md",
+            "scope": "Factory dispatch, picking, timed effects, flags, shared rise state and pickup/removal calls under controlled world/actor dependencies."
+          }
+        ]
+      }
+    },
+    {
+      "original": "p",
+      "method_entries": 54,
+      "source_path": "recovered/raw/pass007/p.java",
+      "recovery": {
+        "state": "raw_output",
+        "evidence": [
+          {
+            "path": "docs/evidence/DECOMPILER_PASS_007.md",
+            "scope": "Pinned CFR/Vineflower raw source exists locally; full raw tree compiles after documented decompiler repair points. Class not yet reviewed/repaired or behavior-tested."
+          }
+        ]
+      },
+      "build": {
+        "state": "not_tested",
+        "evidence": []
+      },
+      "behavior": {
+        "state": "not_tested",
+        "evidence": []
+      }
+    },
+    {
+      "original": "q",
+      "method_entries": 14,
+      "source_path": "src/game/q.java",
+      "recovery": {
+        "state": "repaired",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_002.md",
+            "scope": "Manual reconstruction of all 14 entries with explicit descriptor aliases; private source hashes pinned."
+          }
+        ]
+      },
+      "build": {
+        "state": "passed",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_002.md",
+            "scope": "Six-class source-only component compilation with isolated test support; no original classes copied and no complete game build."
+          }
+        ]
+      },
+      "behavior": {
+        "state": "passed_scoped",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_002.md",
+            "scope": "Navigation loads, packed links, random choice and spatial queries against original using scripted world records; not full actor/world integration."
+          }
+        ]
+      }
+    },
+    {
+      "original": "r",
+      "method_entries": 2,
+      "source_path": "src/game/r.java",
+      "recovery": {
+        "state": "repaired",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_004.md",
+            "scope": "All original entries manually reconstructed; explicit aliases and private source snapshot hash pinned."
+          }
+        ]
+      },
+      "build": {
+        "state": "passed",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_004.md",
+            "scope": "Fourteen-class source-only component compilation with isolated test support and no copied original class; NOT a complete game build."
+          }
+        ]
+      },
+      "behavior": {
+        "state": "passed_scoped",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_004.md",
+            "scope": "Building-section dimensions, ownership and drawing against original with real recovered base entity and limited shared graphics; not original-handset fidelity."
+          }
+        ]
+      }
+    },
+    {
+      "original": "s",
+      "method_entries": 5,
+      "source_path": "src/game/s.java",
+      "recovery": {
+        "state": "repaired",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_001.md",
+            "scope": "Manual bytecode-backed reconstruction of all 5 method entries; reviewed local source hash and field mappings recorded."
+          }
+        ]
+      },
+      "build": {
+        "state": "passed",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_001.md",
+            "scope": "Clean source compilation of the e/s/t component artifact using isolated test-only dependencies; NOT a complete game build."
+          }
+        ]
+      },
+      "behavior": {
+        "state": "passed_scoped",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_001.md",
+            "scope": "Object table, cache and failure-state observations against original across 18 resource scenarios with an image-call double; no rendering claim."
+          }
+        ]
+      }
+    },
+    {
+      "original": "t",
+      "method_entries": 1,
+      "source_path": "src/game/t.java",
+      "recovery": {
+        "state": "repaired",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_001.md",
+            "scope": "Manual bytecode-backed reconstruction of all 1 method entries; reviewed local source hash and field mappings recorded."
+          }
+        ]
+      },
+      "build": {
+        "state": "passed",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_001.md",
+            "scope": "Clean source compilation of the e/s/t component artifact using isolated test-only dependencies; NOT a complete game build."
+          }
+        ]
+      },
+      "behavior": {
+        "state": "passed_scoped",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_001.md",
+            "scope": "Original-versus-rebuilt constructor field observations for 5008 boundary and deterministic random cases; field meanings remain unassigned."
+          }
+        ]
+      }
+    }
   ],
   "planned": [
-    {"area": "Decompiler pipeline", "state": "not_started", "purpose": "Pin tools and API definitions; generate complete raw output and logs locally."},
-    {"area": "Java ME and Nokia services", "state": "not_started", "purpose": "Implement or adapt graphics, input, sound, lifecycle and storage for the port."},
-    {"area": "Whole-game differential replay", "state": "not_started", "purpose": "Extend the component probes to full-game clock, randomness, scheduling and state comparisons."},
-    {"area": "Native Windows build", "state": "not_started", "purpose": "Compile original game logic ahead of time; establish and validate the native toolchain."},
-    {"area": "Gold release validation", "state": "not_started", "purpose": "Verify progression, persistence and fidelity; document limitations and unresolved differences."}
+    {
+      "area": "Java ME and Nokia services",
+      "state": "not_started",
+      "purpose": "Implement or adapt graphics, input, sound, lifecycle and storage for the port."
+    },
+    {
+      "area": "Whole-game differential replay",
+      "state": "not_started",
+      "purpose": "Extend the component probes to full-game clock, randomness, scheduling and state comparisons."
+    },
+    {
+      "area": "Native Windows build",
+      "state": "not_started",
+      "purpose": "Compile original game logic ahead of time; establish and validate the native toolchain."
+    },
+    {
+      "area": "Gold release validation",
+      "state": "not_started",
+      "purpose": "Verify progression, persistence and fidelity; document limitations and unresolved differences."
+    }
   ]
 }

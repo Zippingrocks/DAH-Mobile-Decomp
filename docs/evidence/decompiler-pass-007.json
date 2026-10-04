@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "target_id": "dah1-j2me-en-v1.2.0",
+  "input_sha256": "2e03916ea4a5260960e5e57e4dbe0778fb9b577439eac0ce94a685cfecdaaf5f",
+  "tools": {
+    "cfr": {
+      "version": "0.152",
+      "sha256": "f686e8f3ded377d7bc87d216a90e9e9512df4156e75b06c655a16648ae8765b2"
+    },
+    "vineflower": {
+      "version": "1.12.0",
+      "sha256": "1dfcfe974395734fa467ce620661c7623d05ba83670de0529b1fbd63ff548b9d"
+    },
+    "javac": {
+      "observed": "21.0.11",
+      "options": [
+        "--release",
+        "8",
+        "-g:none",
+        "-implicit:none"
+      ]
+    }
+  },
+  "raw_source_snapshots": {
+    "b.java": {
+      "sha256": "accac5001b24f2cd9398af409bf26585e28151786cc4fa6d438d17eed66d5503",
+      "bytes": 53681
+    },
+    "k.java": {
+      "sha256": "2d8123e9e45bbf84563a4be3ffaa4f6a8e8bfbefa475dd6e407f84e243e614f2",
+      "bytes": 21501
+    },
+    "p.java": {
+      "sha256": "761ccd1379ec00cea578b1b7327f04ece9b26964ccf890c9ab9e8048ee3a283a",
+      "bytes": 68314
+    },
+    "r-individual.java": {
+      "sha256": "0e309856c8c54bea2bc9c668453ef16771d75d2838a69f1c310e0f9317cdaf6a",
+      "bytes": 968
+    }
+  },
+  "whole_jar_cfr_java_files": 20,
+  "whole_jar_vineflower_java_files": 20,
+  "repair_points": [
+    "j-unstructured-state-change",
+    "j-draw-offset-definite-assignment",
+    "f-cell-x-definite-assignment",
+    "b-background-loop-scope",
+    "r-separate-decompile"
+  ],
+  "compiled_game_classes": 21,
+  "original_method_entries": 313,
+  "rebuilt_method_entries": 313,
+  "method_descriptor_sequences_equal_all_classes": true,
+  "field_descriptor_sequences_equal_all_classes": true,
+  "field_entries": 378,
+  "repeat_compile_class_bytes_identical": true,
+  "candidate_jar": {
+    "bytes": 207076,
+    "sha256": "8c887599181955f3f1fc305699aebceeddf2ad5f71192f268bfcbef0a3f1974f",
+    "game_classes": 21,
+    "non_class_entries": 122,
+    "non_class_entries_byte_identical": true,
+    "original_class_entries_copied": 0,
+    "exact_class_matches": 0
+  },
+  "claims": {
+    "complete_raw_source_inventory": true,
+    "all_class_source_compile": true,
+    "complete_repaired_source": false,
+    "playable": false,
+    "behavioral_equivalence": false,
+    "native_port": false
+  }
+}
