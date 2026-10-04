@@ -9,7 +9,7 @@
 <rect x="32.00" y="131" width="373.33" height="78" rx="8" fill="white"/>
 <rect x="32.00" y="131" width="5" height="78" rx="2" fill="#b83d45"/>
 <text x="48.00" y="158" class="small">Not recovered</text>
-<text x="48.00" y="192" font-size="28" font-weight="700" fill="#14283f">15 / 21</text>
+<text x="48.00" y="192" font-size="28" font-weight="700" fill="#14283f">10 / 21</text>
 <rect x="410.67" y="131" width="373.33" height="78" rx="8" fill="white"/>
 <rect x="410.67" y="131" width="5" height="78" rx="2" fill="#b67b15"/>
 <text x="426.67" y="158" class="small">Raw decompiler output</text>
@@ -17,7 +17,7 @@
 <rect x="789.33" y="131" width="373.33" height="78" rx="8" fill="white"/>
 <rect x="789.33" y="131" width="5" height="78" rx="2" fill="#187bb2"/>
 <text x="805.33" y="158" class="small">Repaired source</text>
-<text x="805.33" y="192" font-size="28" font-weight="700" fill="#14283f">6 / 21</text>
+<text x="805.33" y="192" font-size="28" font-weight="700" fill="#14283f">11 / 21</text>
 <text x="32" y="234" class="small">Each rectangle is one original class. Obfuscated names are retained until identified.</text>
 <g data-class="p" data-state="not_started">
 <title>p: 54 method entries; Not recovered</title>
@@ -118,9 +118,9 @@
 <text x="894.907" y="435.821" class="label">11 entries</text>
 </g>
 </g>
-<g data-class="i" data-state="not_started">
-<title>i: 11 method entries; Not recovered</title>
-<rect x="1029.745" y="248.000" width="138.255" height="144.383" fill="#b83d45" stroke="#f4f7fb" stroke-width="2"/>
+<g data-class="i" data-state="repaired">
+<title>i: 11 method entries; Repaired source</title>
+<rect x="1029.745" y="248.000" width="138.255" height="144.383" fill="#187bb2" stroke="#f4f7fb" stroke-width="2"/>
 <clipPath id="tile11"><rect x="1034.745" y="251.000" width="128.255" height="138.383"/></clipPath>
 <g clip-path="url(#tile11)">
 <text x="1039.745" y="275.000" class="name" style="font-size:22.00px">i</text>
@@ -136,18 +136,18 @@
 <text x="1039.745" y="442.383" class="label">10 entries</text>
 </g>
 </g>
-<g data-class="a" data-state="not_started">
-<title>a: 8 method entries; Not recovered</title>
-<rect x="884.907" y="523.641" width="121.325" height="119.658" fill="#b83d45" stroke="#f4f7fb" stroke-width="2"/>
+<g data-class="a" data-state="repaired">
+<title>a: 8 method entries; Repaired source</title>
+<rect x="884.907" y="523.641" width="121.325" height="119.658" fill="#187bb2" stroke="#f4f7fb" stroke-width="2"/>
 <clipPath id="tile13"><rect x="889.907" y="526.641" width="111.325" height="113.658"/></clipPath>
 <g clip-path="url(#tile13)">
 <text x="894.907" y="550.641" class="name" style="font-size:22.00px">a</text>
 <text x="894.907" y="573.641" class="label">8 entries</text>
 </g>
 </g>
-<g data-class="o" data-state="not_started">
-<title>o: 7 method entries; Not recovered</title>
-<rect x="884.907" y="643.299" width="121.325" height="104.701" fill="#b83d45" stroke="#f4f7fb" stroke-width="2"/>
+<g data-class="o" data-state="repaired">
+<title>o: 7 method entries; Repaired source</title>
+<rect x="884.907" y="643.299" width="121.325" height="104.701" fill="#187bb2" stroke="#f4f7fb" stroke-width="2"/>
 <clipPath id="tile14"><rect x="889.907" y="646.299" width="111.325" height="98.701"/></clipPath>
 <g clip-path="url(#tile14)">
 <text x="894.907" y="670.299" class="name" style="font-size:22.00px">o</text>
@@ -170,17 +170,17 @@
 <text x="1097.116" y="550.641" class="name" style="font-size:22.00px">s</text>
 </g>
 </g>
-<g data-class="m" data-state="not_started">
-<title>m: 4 method entries; Not recovered</title>
-<rect x="1006.233" y="635.821" width="64.707" height="112.179" fill="#b83d45" stroke="#f4f7fb" stroke-width="2"/>
+<g data-class="m" data-state="repaired">
+<title>m: 4 method entries; Repaired source</title>
+<rect x="1006.233" y="635.821" width="64.707" height="112.179" fill="#187bb2" stroke="#f4f7fb" stroke-width="2"/>
 <clipPath id="tile17"><rect x="1011.233" y="638.821" width="54.707" height="106.179"/></clipPath>
 <g clip-path="url(#tile17)">
 <text x="1016.233" y="662.821" class="name" style="font-size:22.00px">m</text>
 </g>
 </g>
-<g data-class="h" data-state="not_started">
-<title>h: 3 method entries; Not recovered</title>
-<rect x="1070.940" y="635.821" width="97.060" height="56.090" fill="#b83d45" stroke="#f4f7fb" stroke-width="2"/>
+<g data-class="h" data-state="repaired">
+<title>h: 3 method entries; Repaired source</title>
+<rect x="1070.940" y="635.821" width="97.060" height="56.090" fill="#187bb2" stroke="#f4f7fb" stroke-width="2"/>
 <clipPath id="tile18"><rect x="1075.940" y="638.821" width="87.060" height="50.090"/></clipPath>
 <g clip-path="url(#tile18)">
 <text x="1080.940" y="662.821" class="name" style="font-size:22.00px">h</text>
@@ -204,5 +204,5 @@
 </g>
 <text x="32" y="780" class="small">Recovered source, a passing build, and tested behavior are separate milestones. Green is scoped to this view.</text>
 <text x="32" y="807" class="small">Gray means untested or unverified, not failure. Class counts do not measure whole-game accuracy.</text>
-<text x="32" y="832" font-size="11" fill="#526377">Metadata snapshot d93ecf11c2dad1e6 · generated by tools/treemap_dashboard.py</text>
+<text x="32" y="832" font-size="11" fill="#526377">Metadata snapshot 9dd44b45a181db6f · generated by tools/treemap_dashboard.py</text>
 </svg>
