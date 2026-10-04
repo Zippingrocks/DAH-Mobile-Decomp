@@ -11,10 +11,10 @@
 | --- | --- |
 | Original classes inventoried | 21 |
 | Original method entries inventoried (including initialization) | 313 |
-| Classes with source recovery recorded (raw or repaired) | 11 / 21 |
-| Classes with repaired source recorded | 11 / 21 |
-| Classes included in a successful source-only build | 11 / 21 |
-| Classes with behavior comparisons passed in a documented scope | 11 / 21 |
+| Classes with source recovery recorded (raw or repaired) | 14 / 21 |
+| Classes with repaired source recorded | 14 / 21 |
+| Classes included in a successful source-only build | 14 / 21 |
+| Classes with behavior comparisons passed in a documented scope | 14 / 21 |
 
 These are class-level records, not a percentage complete or method-level proof. A stage changes only when its evidence is recorded; the generator does not run a decompiler, compile the game, or verify behavioral equivalence.
 
@@ -33,6 +33,7 @@ DAH-Mobile-Decomp/
 |-- README.md [DOCS]
 |-- config/
 |   |-- byte_match.json [CONFIG]
+|   |-- collection_recovery.json [CONFIG]
 |   |-- component_recovery.json [CONFIG]
 |   |-- entity_recovery.json [CONFIG]
 |   |-- source_map.json [CONFIG]
@@ -53,15 +54,24 @@ DAH-Mobile-Decomp/
 |       |-- RECOVERY_PASS_001.md [DOCS]
 |       |-- RECOVERY_PASS_002.md [DOCS]
 |       |-- RECOVERY_PASS_003.md [DOCS]
+|       |-- RECOVERY_PASS_004.md [DOCS]
+|       |-- collection-pass-004.json [GENERATED]
 |       |-- component-pass-001.json [GENERATED]
 |       |-- entity-pass-003.json [DOCS]
 |       `-- subsystem-pass-002.json [DOCS]
 |-- tests/
 |   |-- java/
+|   |   |-- CollectionProbe.java [TESTS]
 |   |   |-- ComponentProbe.java [TESTS]
 |   |   |-- EntityProbe.java [TESTS]
 |   |   |-- NavigationProbe.java [TESTS]
 |   |   |-- SubsystemProbe.java [TESTS]
+|   |   |-- collection_support/
+|   |   |   |-- b.java [TESTS]
+|   |   |   |-- c.java [TESTS]
+|   |   |   |-- f.java [TESTS]
+|   |   |   |-- j.java [TESTS]
+|   |   |   `-- k.java [TESTS]
 |   |   |-- component_support/
 |   |   |   |-- javax/
 |   |   |   |   `-- microedition/
@@ -96,6 +106,7 @@ DAH-Mobile-Decomp/
 |   |       |-- k.java [TESTS]
 |   |       `-- o.java [TESTS]
 |   |-- test_byte_match.py [TESTS]
+|   |-- test_collection_recovery.py [TESTS]
 |   |-- test_component_recovery.py [TESTS]
 |   |-- test_dah1.py [TESTS]
 |   |-- test_entity_recovery.py [TESTS]
@@ -105,6 +116,7 @@ DAH-Mobile-Decomp/
 `-- tools/
     |-- byte_match.py [TOOL]
     |-- classfile.py [TOOL]
+    |-- collection_recovery.py [TOOL]
     |-- component_recovery.py [TOOL]
     |-- dah1.py [TOOL]
     |-- entity_recovery.py [TOOL]
@@ -123,6 +135,7 @@ DAH-Mobile-Decomp/
 | [`AGENTS.md`](../AGENTS.md) | policy | Scope, evidence and publication rules for work in this repository. |
 | [`README.md`](../README.md) | docs | Project entry point, usage and links to current progress. |
 | [`config/byte_match.json`](../config/byte_match.json) | config | Select a reviewed artifact-comparison report or leave all matches unverified. |
+| [`config/collection_recovery.json`](../config/collection_recovery.json) | config | Pin fourteen private source snapshots, explicit aliases, resource hashes and isolated test-support roster. |
 | [`config/component_recovery.json`](../config/component_recovery.json) | config | Pin reviewed private component sources, original class hashes and explicit field mappings. |
 | [`config/entity_recovery.json`](../config/entity_recovery.json) | config | Pin eleven source snapshots, resource hashes and explicit field and method aliases. |
 | [`config/source_map.json`](../config/source_map.json) | config | File descriptions, original-class inventory and evidence-backed progress records. |
@@ -141,13 +154,21 @@ DAH-Mobile-Decomp/
 | [`docs/evidence/RECOVERY_PASS_001.md`](../docs/evidence/RECOVERY_PASS_001.md) | docs | Explain the first manual source recovery, scoped component tests, repeatability and remaining gaps. |
 | [`docs/evidence/RECOVERY_PASS_002.md`](../docs/evidence/RECOVERY_PASS_002.md) | docs | Document three more recovered components, 172170 scoped calls, negative controls and limitations. |
 | [`docs/evidence/RECOVERY_PASS_003.md`](../docs/evidence/RECOVERY_PASS_003.md) | docs | Document five new component recoveries, integration tests, negative controls and limitations. |
+| [`docs/evidence/RECOVERY_PASS_004.md`](../docs/evidence/RECOVERY_PASS_004.md) | docs | Document three more manually recovered classes, 68152 scoped calls, seven detected mutations and retained limitations. |
+| [`docs/evidence/collection-pass-004.json`](../docs/evidence/collection-pass-004.json) | generated | Recorded fourteen-class source/artifact hashes and matching component observation digests; no code or assets. |
 | [`docs/evidence/component-pass-001.json`](../docs/evidence/component-pass-001.json) | generated | Recorded component source/artifact hashes and observation digests; no game code or assets. |
 | [`docs/evidence/entity-pass-003.json`](../docs/evidence/entity-pass-003.json) | docs | Recorded artifact hashes, direct target call outcomes and scoped observation digests. |
 | [`docs/evidence/subsystem-pass-002.json`](../docs/evidence/subsystem-pass-002.json) | docs | Hashes and matching observation digests from the second reproducible subsystem run. |
+| [`tests/java/CollectionProbe.java`](../tests/java/CollectionProbe.java) | tests | Authored collection/building differential probe with target-only outcomes; not a game runner or actor implementation. |
 | [`tests/java/ComponentProbe.java`](../tests/java/ComponentProbe.java) | tests | Authored differential probe for e/s/t; not a game runner or recovered game source. |
 | [`tests/java/EntityProbe.java`](../tests/java/EntityProbe.java) | tests | Authored differential observations for effects, base entities, pickups and attached objects. |
 | [`tests/java/NavigationProbe.java`](../tests/java/NavigationProbe.java) | tests | Authored navigation-table and selection probe using controlled world records. |
 | [`tests/java/SubsystemProbe.java`](../tests/java/SubsystemProbe.java) | tests | Authored original-versus-recovered audio and bitmap-text observation probe. |
+| [`tests/java/collection_support/b.java`](../tests/java/collection_support/b.java) | tests | Authored collection/building world or actor test support; not recovered game or production platform code. |
+| [`tests/java/collection_support/c.java`](../tests/java/collection_support/c.java) | tests | Authored collection/building world or actor test support; not recovered game or production platform code. |
+| [`tests/java/collection_support/f.java`](../tests/java/collection_support/f.java) | tests | Authored collection/building world or actor test support; not recovered game or production platform code. |
+| [`tests/java/collection_support/j.java`](../tests/java/collection_support/j.java) | tests | Authored collection/building world or actor test support; not recovered game or production platform code. |
+| [`tests/java/collection_support/k.java`](../tests/java/collection_support/k.java) | tests | Authored collection/building world or actor test support; not recovered game or production platform code. |
 | [`tests/java/component_support/javax/microedition/lcdui/Image.java`](../tests/java/component_support/javax/microedition/lcdui/Image.java) | tests | Scripted image-call test double; not graphics or a native-port implementation. |
 | [`tests/java/component_support/o.java`](../tests/java/component_support/o.java) | tests | Three-field test record only; never counted as recovered class o or shipped gameplay. |
 | [`tests/java/entity_support/b.java`](../tests/java/entity_support/b.java) | tests | Authored entity test support; not an implementation of unrecovered world or platform systems. |
@@ -169,6 +190,7 @@ DAH-Mobile-Decomp/
 | [`tests/java/subsystem_support/k.java`](../tests/java/subsystem_support/k.java) | tests | Authored subsystem test support, not recovered game or production platform code. |
 | [`tests/java/subsystem_support/o.java`](../tests/java/subsystem_support/o.java) | tests | Authored subsystem test support, not recovered game or production platform code. |
 | [`tests/test_byte_match.py`](../tests/test_byte_match.py) | tests | Synthetic and independently compiled fixtures test matching and stale-report safeguards. |
+| [`tests/test_collection_recovery.py`](../tests/test_collection_recovery.py) | tests | Test source preservation, call accounting, alias identity, output isolation and an authored field-shadowing regression. |
 | [`tests/test_component_recovery.py`](../tests/test_component_recovery.py) | tests | Synthetic tests for component input guards, trace mismatches, packaging and signature inventories. |
 | [`tests/test_dah1.py`](../tests/test_dah1.py) | tests | Synthetic tests for input identity checks and the structural auditor. |
 | [`tests/test_entity_recovery.py`](../tests/test_entity_recovery.py) | tests | Check outcome counts, source guards, output isolation and public probe compilation. |
@@ -177,6 +199,7 @@ DAH-Mobile-Decomp/
 | [`tests/test_treemap_dashboard.py`](../tests/test_treemap_dashboard.py) | tests | Test treemap geometry, status colors, rendering and repository integration. |
 | [`tools/byte_match.py`](../tools/byte_match.py) | tool | Compare original and candidate JAR classes, record hashes and gate displayed match claims. |
 | [`tools/classfile.py`](../tools/classfile.py) | tool | Resolve Java class structure and instructions with conservative fail-closed normalization. |
+| [`tools/collection_recovery.py`](../tools/collection_recovery.py) | tool | Build fourteen recovered components and compare entity collections and composite buildings with explicit test boundaries. |
 | [`tools/component_recovery.py`](../tools/component_recovery.py) | tool | Compile recovered components and compare isolated original/rebuilt probes without a hidden fallback. |
 | [`tools/dah1.py`](../tools/dah1.py) | tool | Verify the pinned JAR and report class structure without executing the game. |
 | [`tools/entity_recovery.py`](../tools/entity_recovery.py) | tool | Build eleven private components and compare isolated effect, entity and pickup probes. |
@@ -194,7 +217,7 @@ Original identifiers are preserved until readable names are established. Single-
 | `a` | 8 | `src/game/a.java` | repaired | passed | passed_scoped |
 | `b` | 46 | Not recovered | not_started | not_tested | not_tested |
 | `c` | 11 | Not recovered | not_started | not_tested | not_tested |
-| `d` | 10 | Not recovered | not_started | not_tested | not_tested |
+| `d` | 10 | `src/game/d.java` | repaired | passed | passed_scoped |
 | `e` | 13 | `src/game/e.java` | repaired | passed | passed_scoped |
 | `f` | 11 | Not recovered | not_started | not_tested | not_tested |
 | `g` | 11 | `src/game/g.java` | repaired | passed | passed_scoped |
@@ -204,11 +227,11 @@ Original identifiers are preserved until readable names are established. Single-
 | `k` | 31 | Not recovered | not_started | not_tested | not_tested |
 | `l` | 14 | `src/game/l.java` | repaired | passed | passed_scoped |
 | `m` | 4 | `src/game/m.java` | repaired | passed | passed_scoped |
-| `n` | 21 | Not recovered | not_started | not_tested | not_tested |
+| `n` | 21 | `src/game/n.java` | repaired | passed | passed_scoped |
 | `o` | 7 | `src/game/o.java` | repaired | passed | passed_scoped |
 | `p` | 54 | Not recovered | not_started | not_tested | not_tested |
 | `q` | 14 | `src/game/q.java` | repaired | passed | passed_scoped |
-| `r` | 2 | Not recovered | not_started | not_tested | not_tested |
+| `r` | 2 | `src/game/r.java` | repaired | passed | passed_scoped |
 | `s` | 5 | `src/game/s.java` | repaired | passed | passed_scoped |
 | `t` | 1 | `src/game/t.java` | repaired | passed | passed_scoped |
 
@@ -217,6 +240,9 @@ Original identifiers are preserved until readable names are established. Single-
 - `a` / recovery: [`docs/evidence/RECOVERY_PASS_003.md`](../docs/evidence/RECOVERY_PASS_003.md) — Manual bytecode-backed reconstruction of all 8 entries; pinned private sources and explicit descriptor aliases.
 - `a` / build: [`docs/evidence/RECOVERY_PASS_003.md`](../docs/evidence/RECOVERY_PASS_003.md) — Eleven-class source-only component artifact with separately packaged authored dependencies; not a complete game build.
 - `a` / behavior: [`docs/evidence/RECOVERY_PASS_003.md`](../docs/evidence/RECOVERY_PASS_003.md) — Effects table loading, clone state, frame stepping and draw commands/pixels within a partial headless adapter.
+- `d` / recovery: [`docs/evidence/RECOVERY_PASS_004.md`](../docs/evidence/RECOVERY_PASS_004.md) — All original entries manually reconstructed; explicit aliases and private source snapshot hash pinned.
+- `d` / build: [`docs/evidence/RECOVERY_PASS_004.md`](../docs/evidence/RECOVERY_PASS_004.md) — Fourteen-class source-only component compilation with isolated test support and no copied original class; NOT a complete game build.
+- `d` / behavior: [`docs/evidence/RECOVERY_PASS_004.md`](../docs/evidence/RECOVERY_PASS_004.md) — Original composite-building tables, partial-load/cache behavior, variant/section registration and draw traces/pixels under shared test services; no full-level renderer.
 - `e` / recovery: [`docs/evidence/RECOVERY_PASS_001.md`](../docs/evidence/RECOVERY_PASS_001.md) — Manual bytecode-backed reconstruction of all 13 method entries; reviewed local source hash and field mappings recorded.
 - `e` / build: [`docs/evidence/RECOVERY_PASS_001.md`](../docs/evidence/RECOVERY_PASS_001.md) — Clean source compilation of the e/s/t component artifact using isolated test-only dependencies; NOT a complete game build.
 - `e` / behavior: [`docs/evidence/RECOVERY_PASS_001.md`](../docs/evidence/RECOVERY_PASS_001.md) — Arithmetic, packed decoding, geometry and image-call outcomes against original with explicit test doubles; scope is not whole-game behavior.
@@ -235,12 +261,18 @@ Original identifiers are preserved until readable names are established. Single-
 - `m` / recovery: [`docs/evidence/RECOVERY_PASS_003.md`](../docs/evidence/RECOVERY_PASS_003.md) — Manual bytecode-backed reconstruction of all 4 entries; pinned private sources and explicit descriptor aliases.
 - `m` / build: [`docs/evidence/RECOVERY_PASS_003.md`](../docs/evidence/RECOVERY_PASS_003.md) — Eleven-class source-only component artifact with separately packaged authored dependencies; not a complete game build.
 - `m` / behavior: [`docs/evidence/RECOVERY_PASS_003.md`](../docs/evidence/RECOVERY_PASS_003.md) — Spawn metadata, discarded random consumption and child update/draw delegation with authored actor targets.
+- `n` / recovery: [`docs/evidence/RECOVERY_PASS_004.md`](../docs/evidence/RECOVERY_PASS_004.md) — All original entries manually reconstructed; explicit aliases and private source snapshot hash pinned.
+- `n` / build: [`docs/evidence/RECOVERY_PASS_004.md`](../docs/evidence/RECOVERY_PASS_004.md) — Fourteen-class source-only component compilation with isolated test support and no copied original class; NOT a complete game build.
+- `n` / behavior: [`docs/evidence/RECOVERY_PASS_004.md`](../docs/evidence/RECOVERY_PASS_004.md) — Entity list ordering, queries, targeting calls, migration/disposal and real pickup integration with scripted actors/world and shared graphics; no full-world or AI test.
 - `o` / recovery: [`docs/evidence/RECOVERY_PASS_003.md`](../docs/evidence/RECOVERY_PASS_003.md) — Manual bytecode-backed reconstruction of all 7 entries; pinned private sources and explicit descriptor aliases.
 - `o` / build: [`docs/evidence/RECOVERY_PASS_003.md`](../docs/evidence/RECOVERY_PASS_003.md) — Eleven-class source-only component artifact with separately packaged authored dependencies; not a complete game build.
 - `o` / behavior: [`docs/evidence/RECOVERY_PASS_003.md`](../docs/evidence/RECOVERY_PASS_003.md) — Factory dispatch, picking, timed effects, flags, shared rise state and pickup/removal calls under controlled world/actor dependencies.
 - `q` / recovery: [`docs/evidence/RECOVERY_PASS_002.md`](../docs/evidence/RECOVERY_PASS_002.md) — Manual reconstruction of all 14 entries with explicit descriptor aliases; private source hashes pinned.
 - `q` / build: [`docs/evidence/RECOVERY_PASS_002.md`](../docs/evidence/RECOVERY_PASS_002.md) — Six-class source-only component compilation with isolated test support; no original classes copied and no complete game build.
 - `q` / behavior: [`docs/evidence/RECOVERY_PASS_002.md`](../docs/evidence/RECOVERY_PASS_002.md) — Navigation loads, packed links, random choice and spatial queries against original using scripted world records; not full actor/world integration.
+- `r` / recovery: [`docs/evidence/RECOVERY_PASS_004.md`](../docs/evidence/RECOVERY_PASS_004.md) — All original entries manually reconstructed; explicit aliases and private source snapshot hash pinned.
+- `r` / build: [`docs/evidence/RECOVERY_PASS_004.md`](../docs/evidence/RECOVERY_PASS_004.md) — Fourteen-class source-only component compilation with isolated test support and no copied original class; NOT a complete game build.
+- `r` / behavior: [`docs/evidence/RECOVERY_PASS_004.md`](../docs/evidence/RECOVERY_PASS_004.md) — Building-section dimensions, ownership and drawing against original with real recovered base entity and limited shared graphics; not original-handset fidelity.
 - `s` / recovery: [`docs/evidence/RECOVERY_PASS_001.md`](../docs/evidence/RECOVERY_PASS_001.md) — Manual bytecode-backed reconstruction of all 5 method entries; reviewed local source hash and field mappings recorded.
 - `s` / build: [`docs/evidence/RECOVERY_PASS_001.md`](../docs/evidence/RECOVERY_PASS_001.md) — Clean source compilation of the e/s/t component artifact using isolated test-only dependencies; NOT a complete game build.
 - `s` / behavior: [`docs/evidence/RECOVERY_PASS_001.md`](../docs/evidence/RECOVERY_PASS_001.md) — Object table, cache and failure-state observations against original across 18 resource scenarios with an image-call double; no rendering claim.
