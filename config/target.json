@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "dah1-j2me-en-v1.2.0",
+  "title": "Destroy All Humans! Mobile",
+  "filename": "Destroy-All-Humans_J2ME_EN_v120.jar",
+  "version": "1.2.0",
+  "entry_class": "GameMidlet",
+  "size_bytes": 201816,
+  "sha256": "2e03916ea4a5260960e5e57e4dbe0778fb9b577439eac0ce94a685cfecdaaf5f",
+  "expected_static_counts": {
+    "class_count": 21,
+    "method_entries": 313,
+    "constructors": 23,
+    "class_initializers": 12,
+    "class_bytes": 119140,
+    "method_bytecode_bytes": 54035,
+    "native_methods": 0
+  }
+}

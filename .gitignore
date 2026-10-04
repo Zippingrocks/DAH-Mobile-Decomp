@@ -1,0 +1,44 @@
+# Original inputs, extracted assets, decompiler output, and local references.
+/inputs/
+/local/
+/recovered/
+/src/game/
+/build/
+/dist/
+/.cache/
+/deps/
+# Do not publish game binaries or third-party binary distributions.
+*.jar
+*.jad
+*.class
+*.swf
+*.zip
+*.7z
+*.exe
+*.dll
+*.so
+*.dylib
+*.bin
+*.dat
+*.map
+*.png
+*.jpg
+*.mid
+*.amr
+*.wav
+*.mp3
+# Environment and editor files.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
