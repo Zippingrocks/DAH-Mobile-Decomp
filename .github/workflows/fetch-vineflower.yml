@@ -1,0 +1,22 @@
+name: Fetch Vineflower tool
+on:
+  push:
+    paths:
+      - '.github/workflows/fetch-vineflower.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download pinned Vineflower 1.12.0
+        run: |
+          curl -L --fail --retry 3 -o vineflower-1.12.0.jar https://github.com/Vineflower/vineflower/releases/download/1.12.0/vineflower-1.12.0.jar
+          echo "1dfcfe974395734fa467ce620661c7623d05ba83670de0529b1fbd63ff548b9d  vineflower-1.12.0.jar" | sha256sum -c -
+      - uses: actions/upload-artifact@v4
+        with:
+          name: vineflower-1.12.0
+          path: vineflower-1.12.0.jar
+          if-no-files-found: error
+          retention-days: 1
