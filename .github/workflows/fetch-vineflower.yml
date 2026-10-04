@@ -1,0 +1,27 @@
+name: Fetch pinned Vineflower
+on:
+  push:
+    branches: [tool-bootstrap]
+permissions:
+  contents: read
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download pinned official release
+        run: |
+          set -euxo pipefail
+          curl --fail --location --retry 3 \
+            --output vineflower-1.12.0.jar \
+            https://github.com/Vineflower/vineflower/releases/download/1.12.0/vineflower-1.12.0.jar
+          sha256sum vineflower-1.12.0.jar | tee vineflower-1.12.0.sha256
+          java -jar vineflower-1.12.0.jar --help >/dev/null
+      - name: Upload pinned decompiler
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: vineflower-1.12.0
+          path: |
+            vineflower-1.12.0.jar
+            vineflower-1.12.0.sha256
+          if-no-files-found: error
+          retention-days: 1
