@@ -1,0 +1,48 @@
+name: Progress dashboard
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: progress-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  check:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4, pinned
+        with:
+          persist-credentials: false
+      - run: |
+          python3 tools/source_map.py --check
+          python3 tools/treemap_dashboard.py --check
+          python3 -m unittest discover -s tests -v
+  refresh:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4, pinned
+        with:
+          ref: ${{ github.sha }}
+      - name: Regenerate and validate
+        run: |
+          python3 tools/source_map.py
+          python3 tools/treemap_dashboard.py
+          python3 tools/source_map.py --check
+          python3 tools/treemap_dashboard.py --check
+          python3 -m unittest discover -s tests -v
+      - name: Commit generated documentation only
+        run: |
+          git add docs/SOURCE_TREE.md docs/VISUAL_PROGRESS.md docs/RECOVERY_TREEMAP.svg docs/BUILD_TREEMAP.svg docs/BEHAVIOR_TREEMAP.svg docs/BYTE_MATCH_TREEMAP.svg
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'Refresh progress treemaps [skip ci]'
+            git push origin HEAD:main
+          fi

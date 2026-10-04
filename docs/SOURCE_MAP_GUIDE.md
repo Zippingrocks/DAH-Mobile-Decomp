@@ -32,8 +32,12 @@ python -m unittest discover -s tests -v
 
 Stage the updated `docs/SOURCE_TREE.md`, then inspect `git diff --cached` before
 committing. The generator uses Python 3.10+ and Git with no additional packages.
-There is no GitHub Actions workflow yet: this is an executable local check, not
-an automatic hosted update or a branch-protection rule.
+The `Progress dashboard` workflow checks pull requests and regenerates source-map
+and treemap documentation on main, then runs the tooling tests. Only fixed
+allowlisted generated documentation paths can be committed by its update step.
+It does not change branch protection, upload ignored inputs, compare game builds,
+or bypass a rejected non-fast-forward push. Repository policies can prevent a
+bot push; regenerate and commit locally in that case.
 
 ## Class record rules
 
@@ -88,3 +92,28 @@ not overwrite it. The optional comparison checks the report's input hash/size
 and every class's method count. Without `--audit`, checks verify the configured
 target, totals, metadata consistency, file coverage, and generated-document
 freshness, not the binary again. Neither command runs the game.
+
+## Visual treemaps and byte-match results
+
+The README embeds the recovery and byte-match maps. `docs/VISUAL_PROGRESS.md`
+embeds all four views. After editing the class records, refresh both generators:
+
+```console
+python tools/source_map.py
+python tools/treemap_dashboard.py
+python tools/source_map.py --check
+python tools/treemap_dashboard.py --check
+python -m unittest discover -s tests -v
+```
+
+Treemaps consume the actual nested state/evidence records, not a second set of
+hand-edited statuses. Byte comparison uses a separate artifact report selected
+by `config/byte_match.json`. See `docs/BYTE_MATCH.md` for supported normalization,
+report freshness, publication review, and the source-evidence gate. Unknown or
+missing results stay unverified. These are class-level visualizations, not
+method coverage or an overall accuracy percentage.
+
+The workflow pins `actions/checkout` to commit
+`11d5960a326750d5838078e36cf38b85af677262`, resolved from the publisher's v4 ref.
+The optional JDK fixture test reports a skip when javac is absent. No dependency
+binary or original game data is fetched by the workflow.

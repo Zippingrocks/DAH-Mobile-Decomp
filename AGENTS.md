@@ -42,3 +42,12 @@ never equate structural inventory, source recovery, compilation, or fidelity.
 Stage intended new tooling/docs first, run `python tools/source_map.py`, then
 `python tools/source_map.py --check` and the full tests. Stage the generated
 `docs/SOURCE_TREE.md` before committing. See `docs/SOURCE_MAP_GUIDE.md`.
+
+## Keep the visual dashboard and comparison evidence current
+
+Run `python tools/treemap_dashboard.py` and `--check` after updating the source
+map. Keep all four SVGs and `docs/VISUAL_PROGRESS.md` with the same commit. The
+workflow may regenerate those files on main; it never supplies game results.
+Use `tools/byte_match.py` for actual candidate-JAR comparisons and follow
+`docs/BYTE_MATCH.md`. Keep a null comparison-report pointer until a real rebuilt
+artifact exists. Never promote an original-vs-original self-test to progress.

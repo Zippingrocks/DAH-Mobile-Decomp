@@ -43,6 +43,39 @@ python -m unittest discover -s tests -v
 The source tree and class register are progress reporting, not new recovered
 game code. No original binary, asset, disassembly or recovered source is published.
 
+## Visual dashboard and byte comparison implemented
+
+- The README now embeds real SVG recovery and byte-match treemaps; the visual
+  dashboard includes source-only build and behavior views as well.
+- Each rectangle corresponds to an original class and has area proportional to
+  its original method-entry count. Recovery remains 0/21, build passes 0/21,
+  behavior passes 0/21, and byte comparisons unverified 21/21.
+- A conservative actual JAR comparison tool distinguishes entire-class exact
+  bytes, normalized structure, known structural differences and unverified data.
+  No DAH rebuilt JAR or gameplay comparison is claimed.
+- The generator reads the repository's existing nested evidence schema. It
+  validates the source map, gates positive matches on source-only build records,
+  and marks comparison reports stale when their recorded context changes.
+- The workflow definition checks pull requests and refreshes generated dashboard
+  files on main. A workflow definition is not evidence of a hosted passing run;
+  consult Actions for the actual result. It never uploads or fetches game data.
+
+- All **68 local tooling tests** passed in this change: the original 37, plus
+  19 comparison and 12 treemap tests. The installed-JDK fixture test ran, not
+  skipped. SVGs were rendered and visually inspected for label/legend overlap.
+- All 21 original class structures were accepted by the normalizer in a local
+  diagnostic. Original-vs-original byte equality was checked only as a tool
+  diagnostic and is NOT selected as progress evidence. The report pointer
+  remains null; no recovered game code or rebuilt game is claimed.
+
+```console
+python tools/source_map.py
+python tools/treemap_dashboard.py
+python tools/source_map.py --check
+python tools/treemap_dashboard.py --check
+python -m unittest discover -s tests -v
+```
+
 ## Not established
 
 - A successful decompiler pass over the complete game.
@@ -51,7 +84,6 @@ game code. No original binary, asset, disassembly or recovered source is publish
 - Working Java ME/Nokia platform implementations for this project.
 - Original-versus-rebuilt execution comparisons, controlled timing, or RNG replay.
 - A native compiler proof of concept, Windows executable, or Windows playtest.
-- A configured CI workflow. Local tooling tests are not GitHub-hosted CI.
 - Any unconditional 100% fidelity claim.
 
 ## Commands exercised on the supplied input

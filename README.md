@@ -7,6 +7,23 @@ Flash game, mobile sequel, or Crypto Does Vegas.
 **Current stage: verified input and structural-audit tooling. No recovered game
 source has been compiled. No game behavior or native port is verified.**
 
+## Visual progress
+
+[**Open the visual dashboard**](docs/VISUAL_PROGRESS.md) · [Detailed source map](docs/SOURCE_TREE.md) · [Byte-match policy](docs/BYTE_MATCH.md)
+
+![Source-recovery progress treemap](docs/RECOVERY_TREEMAP.svg)
+
+![Exact-byte and normalized-match treemap](docs/BYTE_MATCH_TREEMAP.svg)
+
+Each rectangle is an original class; its area represents the original method-entry
+count. Red in recovery means not recovered. Gray in comparison means unverified,
+not failure. Green exact-byte matches and blue normalized matches remain separate
+from behavioral accuracy. The dashboard also contains build and behavior views.
+
+The images are generated from our recorded evidence, not hand-colored. The
+`Progress dashboard` workflow refreshes them on `main` after validation; pull
+requests check that generated files are current. No game binary is needed by CI.
+
 ## Source tree and progress
 
 Open the **[source tree and implementation map](docs/SOURCE_TREE.md)** for the

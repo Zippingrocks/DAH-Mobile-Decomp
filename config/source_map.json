@@ -16,7 +16,20 @@
     {"path": "tests/test_dah1.py", "kind": "tests", "purpose": "Synthetic tests for input identity checks and the structural auditor."},
     {"path": "tests/test_source_map.py", "kind": "tests", "purpose": "Metadata, inventory, evidence, rendering and stale-map regression tests."},
     {"path": "tools/dah1.py", "kind": "tool", "purpose": "Verify the pinned JAR and report class structure without executing the game."},
-    {"path": "tools/source_map.py", "kind": "tool", "purpose": "Generate or check the map against tracked files and optionally a local audit."}
+    {"path": "tools/source_map.py", "kind": "tool", "purpose": "Generate or check the map against tracked files and optionally a local audit."},
+    {"path": ".github/workflows/progress.yml", "kind": "tool", "purpose": "Validate and refresh generated GitHub dashboard files without original game inputs."},
+    {"path": "config/byte_match.json", "kind": "config", "purpose": "Select a reviewed artifact-comparison report or leave all matches unverified."},
+    {"path": "docs/BYTE_MATCH.md", "kind": "docs", "purpose": "Define exact and normalized comparison scope, freshness, provenance and limitations."},
+    {"path": "docs/VISUAL_PROGRESS.md", "kind": "generated", "purpose": "Embed all four class treemaps and report current comparison status."},
+    {"path": "tools/byte_match.py", "kind": "tool", "purpose": "Compare original and candidate JAR classes, record hashes and gate displayed match claims."},
+    {"path": "tools/classfile.py", "kind": "tool", "purpose": "Resolve Java class structure and instructions with conservative fail-closed normalization."},
+    {"path": "tools/treemap_dashboard.py", "kind": "tool", "purpose": "Render proportional, status-colored SVG treemaps from the real progress schema."},
+    {"path": "tests/test_byte_match.py", "kind": "tests", "purpose": "Synthetic and independently compiled fixtures test matching and stale-report safeguards."},
+    {"path": "tests/test_treemap_dashboard.py", "kind": "tests", "purpose": "Test treemap geometry, status colors, rendering and repository integration."},
+    {"path": "docs/RECOVERY_TREEMAP.svg", "kind": "generated", "purpose": "GitHub-embeddable recovery class treemap from recorded evidence."},
+    {"path": "docs/BUILD_TREEMAP.svg", "kind": "generated", "purpose": "GitHub-embeddable build class treemap from recorded evidence."},
+    {"path": "docs/BEHAVIOR_TREEMAP.svg", "kind": "generated", "purpose": "GitHub-embeddable behavior class treemap from recorded evidence."},
+    {"path": "docs/BYTE_MATCH_TREEMAP.svg", "kind": "generated", "purpose": "GitHub-embeddable byte-match class treemap from recorded evidence."}
   ],
   "classes": [
     {"original": "GameMidlet", "method_entries": 5, "source_path": null, "recovery": {"state": "not_started", "evidence": []}, "build": {"state": "not_tested", "evidence": []}, "behavior": {"state": "not_tested", "evidence": []}},
