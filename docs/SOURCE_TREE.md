@@ -12,9 +12,9 @@
 | Original classes inventoried | 21 |
 | Original method entries inventoried (including initialization) | 313 |
 | Classes with source recovery recorded (raw or repaired) | 21 / 21 |
-| Classes with repaired source recorded | 19 / 21 |
-| Classes included in a successful source-only build | 19 / 21 |
-| Classes with behavior comparisons passed in a documented scope | 19 / 21 |
+| Classes with repaired source recorded | 20 / 21 |
+| Classes included in a successful source-only build | 20 / 21 |
+| Classes with behavior comparisons passed in a documented scope | 20 / 21 |
 
 These are class-level records, not a percentage complete or method-level proof. A stage changes only when its evidence is recorded; the generator does not run a decompiler, compile the game, or verify behavioral equivalence.
 
@@ -60,8 +60,10 @@ DAH-Mobile-Decomp/
 |       |-- RECOVERY_PASS_005.md [DOCS]
 |       |-- RECOVERY_PASS_006.md [DOCS]
 |       |-- RECOVERY_PASS_008.md [DOCS]
+|       |-- RECOVERY_PASS_009.md [DOCS]
 |       |-- collection-pass-004.json [GENERATED]
 |       |-- component-pass-001.json [GENERATED]
+|       |-- controller-pass-009.json [DOCS]
 |       |-- decompiler-pass-007.json [DOCS]
 |       |-- entity-pass-003.json [DOCS]
 |       |-- subsystem-pass-002.json [DOCS]
@@ -184,8 +186,10 @@ DAH-Mobile-Decomp/
 | [`docs/evidence/RECOVERY_PASS_005.md`](../docs/evidence/RECOVERY_PASS_005.md) | docs | Record scoped pass-005 observations, private snapshot hashes and publication limitations. |
 | [`docs/evidence/RECOVERY_PASS_006.md`](../docs/evidence/RECOVERY_PASS_006.md) | docs | Document reviewed shared-actor recovery, scoped comparisons, corrected overload error and limitations. |
 | [`docs/evidence/RECOVERY_PASS_008.md`](../docs/evidence/RECOVERY_PASS_008.md) | docs | Document repaired world-manager source, corrected decompiler defect, scoped differential tests and limitations. |
+| [`docs/evidence/RECOVERY_PASS_009.md`](../docs/evidence/RECOVERY_PASS_009.md) | docs | Document repaired controller source and scoped input/save/draw differential validation. |
 | [`docs/evidence/collection-pass-004.json`](../docs/evidence/collection-pass-004.json) | generated | Recorded fourteen-class source/artifact hashes and matching component observation digests; no code or assets. |
 | [`docs/evidence/component-pass-001.json`](../docs/evidence/component-pass-001.json) | generated | Recorded component source/artifact hashes and observation digests; no game code or assets. |
+| [`docs/evidence/controller-pass-009.json`](../docs/evidence/controller-pass-009.json) | docs | Machine-readable hashes and observation counts for controller recovery pass 009. |
 | [`docs/evidence/decompiler-pass-007.json`](../docs/evidence/decompiler-pass-007.json) | docs | Machine-readable tool/source/artifact hashes and static inventory results for decompiler pass 007. |
 | [`docs/evidence/entity-pass-003.json`](../docs/evidence/entity-pass-003.json) | docs | Recorded artifact hashes, direct target call outcomes and scoped observation digests. |
 | [`docs/evidence/subsystem-pass-002.json`](../docs/evidence/subsystem-pass-002.json) | docs | Hashes and matching observation digests from the second reproducible subsystem run. |
@@ -267,7 +271,7 @@ Original identifiers are preserved until readable names are established. Single-
 | `h` | 3 | `src/game/h.java` | repaired | passed | passed_scoped |
 | `i` | 11 | `src/game/i.java` | repaired | passed | passed_scoped |
 | `j` | 31 | `src/game/j.java` | repaired | passed | passed_scoped |
-| `k` | 31 | `recovered/raw/pass007/k.java` | raw_output | not_tested | not_tested |
+| `k` | 31 | `src/game/k.java` | repaired | passed | passed_scoped |
 | `l` | 14 | `src/game/l.java` | repaired | passed | passed_scoped |
 | `m` | 4 | `src/game/m.java` | repaired | passed | passed_scoped |
 | `n` | 21 | `src/game/n.java` | repaired | passed | passed_scoped |
@@ -313,7 +317,9 @@ Original identifiers are preserved until readable names are established. Single-
 - `j` / recovery: [`docs/evidence/RECOVERY_PASS_006.md`](../docs/evidence/RECOVERY_PASS_006.md) — Manual bytecode-backed reconstruction of all 31 actor entries; overload-selection defect corrected under differential testing.
 - `j` / build: [`docs/evidence/RECOVERY_PASS_006.md`](../docs/evidence/RECOVERY_PASS_006.md) — Eighteen recovered game classes compile together as a component artifact with explicit test-only world/controller/platform support; not a whole-game build.
 - `j` / behavior: [`docs/evidence/RECOVERY_PASS_006.md`](../docs/evidence/RECOVERY_PASS_006.md) — 25,818 direct actor calls per side matched across documented actor/state/navigation/damage/drawing/integration probes; not exhaustive gameplay.
-- `k` / recovery: [`docs/evidence/DECOMPILER_PASS_007.md`](../docs/evidence/DECOMPILER_PASS_007.md) — Pinned CFR/Vineflower raw source exists locally; full raw tree compiles after documented decompiler repair points. Class not yet reviewed/repaired or behavior-tested.
+- `k` / recovery: [`docs/evidence/RECOVERY_PASS_009.md`](../docs/evidence/RECOVERY_PASS_009.md) — Pinned CFR/Vineflower/original-bytecode review of all 31 controller entries; no unresolved source construct remains in k.
+- `k` / build: [`docs/evidence/RECOVERY_PASS_009.md`](../docs/evidence/RECOVERY_PASS_009.md) — k compiles in the complete 21-class source-only tree without copied original classes; p remains raw.
+- `k` / behavior: [`docs/evidence/RECOVERY_PASS_009.md`](../docs/evidence/RECOVERY_PASS_009.md) — 434,002 matched observations per side for controller initializer, input masks, edge transitions, save-endian helpers and draw helper.
 - `l` / recovery: [`docs/evidence/RECOVERY_PASS_002.md`](../docs/evidence/RECOVERY_PASS_002.md) — Manual reconstruction of all 14 entries with explicit descriptor aliases; private source hashes pinned.
 - `l` / build: [`docs/evidence/RECOVERY_PASS_002.md`](../docs/evidence/RECOVERY_PASS_002.md) — Six-class source-only component compilation with isolated test support; no original classes copied and no complete game build.
 - `l` / behavior: [`docs/evidence/RECOVERY_PASS_002.md`](../docs/evidence/RECOVERY_PASS_002.md) — Text tables, formatting, drawing commands and headless font pixels compared under a shared partial adapter; not handset or whole-game rendering.
