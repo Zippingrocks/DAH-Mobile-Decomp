@@ -7,6 +7,21 @@ Flash game, mobile sequel, or Crypto Does Vegas.
 **Current stage: verified input and structural-audit tooling. No recovered game
 source has been compiled. No game behavior or native port is verified.**
 
+## Source tree and progress
+
+Open the **[source tree and implementation map](docs/SOURCE_TREE.md)** for the
+actual tracked files, all 21 original classes, and separate recovery, build, and
+behavior records. Planned systems are kept separate from implemented tooling.
+
+The map is generated and checked locally:
+
+```console
+python tools/source_map.py
+python tools/source_map.py --check
+```
+
+See [the maintenance guide](docs/SOURCE_MAP_GUIDE.md) before updating statuses.
+
 ## Working here
 
 Python 3.10 or newer runs the current tools, with no third-party Python packages.

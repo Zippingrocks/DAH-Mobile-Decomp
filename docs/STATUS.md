@@ -15,6 +15,34 @@
 These numbers are counts, not decompilation completion or accuracy percentages.
 The bytecode count excludes assets, metadata, and external runtime services.
 
+## Source-tree map implemented
+
+- `docs/SOURCE_TREE.md` is a generated map of every tracked file, with a purpose
+  register and the 21 original classes tracked separately from project tooling.
+- `config/source_map.json` records recovery, source-only build, and behavior
+  independently. All game-class states remain not started/not tested.
+- `tools/source_map.py --check` checks file coverage, safe paths, stage/evidence
+  consistency, configured counts, and generated-document freshness. Evidence
+  metadata is not a proof of the underlying claim.
+- The optional audit comparison matched every class and method-entry count to a
+  fresh audit of the hash-verified original: 21 classes and 313 method entries.
+- All **37 local tooling tests** passed: the original 13 plus 24 map tests.
+  These require no original game files. They cover stale output, missing file
+  metadata, unsupported status claims, stage ordering, evidence requirements,
+  inventory mismatches, deterministic rendering, and exclusion of ignored inputs.
+- The README links directly to the map. `docs/SOURCE_MAP_GUIDE.md` and `AGENTS.md`
+  explain how to keep it current. No hosted automation was configured.
+
+```console
+python tools/dah1.py audit --output local/audit-source-map.json
+python tools/source_map.py
+python tools/source_map.py --check --audit local/audit-source-map.json
+python -m unittest discover -s tests -v
+```
+
+The source tree and class register are progress reporting, not new recovered
+game code. No original binary, asset, disassembly or recovered source is published.
+
 ## Not established
 
 - A successful decompiler pass over the complete game.

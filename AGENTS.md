@@ -33,3 +33,12 @@ Run `python -m unittest discover -s tests -v` and inspect `git diff --cached`.
 Use `git status --ignored` to confirm private inputs remain excluded. Never use
 `git add -f` for ignored game material. Inspect logs before copying them into
 tracked documentation. Do not introduce secrets, tokens, or original assets.
+
+## Keep the implementation map current
+
+Update `config/source_map.json` when adding tracked files or changing a class
+recovery/build/behavior record. Every non-default stage needs scoped evidence;
+never equate structural inventory, source recovery, compilation, or fidelity.
+Stage intended new tooling/docs first, run `python tools/source_map.py`, then
+`python tools/source_map.py --check` and the full tests. Stage the generated
+`docs/SOURCE_TREE.md` before committing. See `docs/SOURCE_MAP_GUIDE.md`.

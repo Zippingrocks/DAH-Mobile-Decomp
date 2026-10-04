@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "target_id": "dah1-j2me-en-v1.2.0",
+  "input_sha256": "2e03916ea4a5260960e5e57e4dbe0778fb9b577439eac0ce94a685cfecdaaf5f",
+  "files": [
+    {"path": ".gitattributes", "kind": "policy", "purpose": "Consistent text handling for repository files."},
+    {"path": ".gitignore", "kind": "policy", "purpose": "Keep original inputs, assets, recovered game code and build products out of Git."},
+    {"path": "AGENTS.md", "kind": "policy", "purpose": "Scope, evidence and publication rules for work in this repository."},
+    {"path": "README.md", "kind": "docs", "purpose": "Project entry point, usage and links to current progress."},
+    {"path": "config/target.json", "kind": "config", "purpose": "Exact input identity and expected static counts."},
+    {"path": "config/source_map.json", "kind": "config", "purpose": "File descriptions, original-class inventory and evidence-backed progress records."},
+    {"path": "docs/STATUS.md", "kind": "docs", "purpose": "What was tested locally, limitations and the next task."},
+    {"path": "docs/VERIFICATION.md", "kind": "docs", "purpose": "Requirements for source-only rebuilds, behavior comparison and a gold candidate."},
+    {"path": "docs/SOURCE_MAP_GUIDE.md", "kind": "docs", "purpose": "How to refresh the map and record scoped evidence without overstating progress."},
+    {"path": "docs/SOURCE_TREE.md", "kind": "generated", "purpose": "Generated tree, class register, stage counts and planned-only work."},
+    {"path": "tests/test_dah1.py", "kind": "tests", "purpose": "Synthetic tests for input identity checks and the structural auditor."},
+    {"path": "tests/test_source_map.py", "kind": "tests", "purpose": "Metadata, inventory, evidence, rendering and stale-map regression tests."},
+    {"path": "tools/dah1.py", "kind": "tool", "purpose": "Verify the pinned JAR and report class structure without executing the game."},
+    {"path": "tools/source_map.py", "kind": "tool", "purpose": "Generate or check the map against tracked files and optionally a local audit."}
+  ],
+  "classes": [
+    {"original": "GameMidlet", "method_entries": 5, "source_path": null, "recovery": {"state": "not_started", "evidence": []}, "build": {"state": "not_tested", "evidence": []}, "behavior": {"state": "not_tested", "evidence": []}},
+    {"original": "a", "method_entries": 8, "source_path": null, "recovery": {"state": "not_started", "evidence": []}, "build": {"state": "not_tested", "evidence": []}, "behavior": {"state": "not_tested", "evidence": []}},
+    {"original": "b", "method_entries": 46, "source_path": null, "recovery": {"state": "not_started", "evidence": []}, "build": {"state": "not_tested", "evidence": []}, "behavior": {"state": "not_tested", "evidence": []}},
+    {"original": "c", "method_entries": 11, "source_path": null, "recovery": {"state": "not_started", "evidence": []}, "build": {"state": "not_tested", "evidence": []}, "behavior": {"state": "not_tested", "evidence": []}},
+    {"original": "d", "method_entries": 10, "source_path": null, "recovery": {"state": "not_started", "evidence": []}, "build": {"state": "not_tested", "evidence": []}, "behavior": {"state": "not_tested", "evidence": []}},
+    {"original": "e", "method_entries": 13, "source_path": null, "recovery": {"state": "not_started", "evidence": []}, "build": {"state": "not_tested", "evidence": []}, "behavior": {"state": "not_tested", "evidence": []}},
+    {"original": "f", "method_entries": 11, "source_path": null, "recovery": {"state": "not_started", "evidence": []}, "build": {"state": "not_tested", "evidence": []}, "behavior": {"state": "not_tested", "evidence": []}},
+    {"original": "g", "method_entries": 11, "source_path": null, "recovery": {"state": "not_started", "evidence": []}, "build": {"state": "not_tested", "evidence": []}, "behavior": {"state": "not_tested", "evidence": []}},
+    {"original": "h", "method_entries": 3, "source_path": null, "recovery": {"state": "not_started", "evidence": []}, "build": {"state": "not_tested", "evidence": []}, "behavior": {"state": "not_tested", "evidence": []}},
+    {"original": "i", "method_entries": 11, "source_path": null, "recovery": {"state": "not_started", "evidence": []}, "build": {"state": "not_tested", "evidence": []}, "behavior": {"state": "not_tested", "evidence": []}},
+    {"original": "j", "method_entries": 31, "source_path": null, "recovery": {"state": "not_started", "evidence": []}, "build": {"state": "not_tested", "evidence": []}, "behavior": {"state": "not_tested", "evidence": []}},
+    {"original": "k", "method_entries": 31, "source_path": null, "recovery": {"state": "not_started", "evidence": []}, "build": {"state": "not_tested", "evidence": []}, "behavior": {"state": "not_tested", "evidence": []}},
+    {"original": "l", "method_entries": 14, "source_path": null, "recovery": {"state": "not_started", "evidence": []}, "build": {"state": "not_tested", "evidence": []}, "behavior": {"state": "not_tested", "evidence": []}},
+    {"original": "m", "method_entries": 4, "source_path": null, "recovery": {"state": "not_started", "evidence": []}, "build": {"state": "not_tested", "evidence": []}, "behavior": {"state": "not_tested", "evidence": []}},
+    {"original": "n", "method_entries": 21, "source_path": null, "recovery": {"state": "not_started", "evidence": []}, "build": {"state": "not_tested", "evidence": []}, "behavior": {"state": "not_tested", "evidence": []}},
+    {"original": "o", "method_entries": 7, "source_path": null, "recovery": {"state": "not_started", "evidence": []}, "build": {"state": "not_tested", "evidence": []}, "behavior": {"state": "not_tested", "evidence": []}},
+    {"original": "p", "method_entries": 54, "source_path": null, "recovery": {"state": "not_started", "evidence": []}, "build": {"state": "not_tested", "evidence": []}, "behavior": {"state": "not_tested", "evidence": []}},
+    {"original": "q", "method_entries": 14, "source_path": null, "recovery": {"state": "not_started", "evidence": []}, "build": {"state": "not_tested", "evidence": []}, "behavior": {"state": "not_tested", "evidence": []}},
+    {"original": "r", "method_entries": 2, "source_path": null, "recovery": {"state": "not_started", "evidence": []}, "build": {"state": "not_tested", "evidence": []}, "behavior": {"state": "not_tested", "evidence": []}},
+    {"original": "s", "method_entries": 5, "source_path": null, "recovery": {"state": "not_started", "evidence": []}, "build": {"state": "not_tested", "evidence": []}, "behavior": {"state": "not_tested", "evidence": []}},
+    {"original": "t", "method_entries": 1, "source_path": null, "recovery": {"state": "not_started", "evidence": []}, "build": {"state": "not_tested", "evidence": []}, "behavior": {"state": "not_tested", "evidence": []}}
+  ],
+  "planned": [
+    {"area": "Decompiler pipeline", "state": "not_started", "purpose": "Pin tools and API definitions; generate complete raw output and logs locally."},
+    {"area": "Recovered game source", "state": "not_started", "purpose": "Repair source locally and map original identifiers; no recovered game class is implemented yet."},
+    {"area": "Java ME and Nokia services", "state": "not_started", "purpose": "Implement or adapt graphics, input, sound, lifecycle and storage for the port."},
+    {"area": "Original versus rebuilt comparison", "state": "not_started", "purpose": "Controlled clock, random sequence, input and state comparisons with scoped evidence."},
+    {"area": "Native Windows build", "state": "not_started", "purpose": "Compile original game logic ahead of time; establish and validate the native toolchain."},
+    {"area": "Gold release validation", "state": "not_started", "purpose": "Verify progression, persistence and fidelity; document limitations and unresolved differences."}
+  ]
+}
