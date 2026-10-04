@@ -29,7 +29,15 @@
     {"path": "docs/RECOVERY_TREEMAP.svg", "kind": "generated", "purpose": "GitHub-embeddable recovery class treemap from recorded evidence."},
     {"path": "docs/BUILD_TREEMAP.svg", "kind": "generated", "purpose": "GitHub-embeddable build class treemap from recorded evidence."},
     {"path": "docs/BEHAVIOR_TREEMAP.svg", "kind": "generated", "purpose": "GitHub-embeddable behavior class treemap from recorded evidence."},
-    {"path": "docs/BYTE_MATCH_TREEMAP.svg", "kind": "generated", "purpose": "GitHub-embeddable byte-match class treemap from recorded evidence."}
+    {"path": "docs/BYTE_MATCH_TREEMAP.svg", "kind": "generated", "purpose": "GitHub-embeddable byte-match class treemap from recorded evidence."},
+    {"path": "config/component_recovery.json", "kind": "config", "purpose": "Pin reviewed private component sources, original class hashes and explicit field mappings."},
+    {"path": "tools/component_recovery.py", "kind": "tool", "purpose": "Compile recovered components and compare isolated original/rebuilt probes without a hidden fallback."},
+    {"path": "tests/test_component_recovery.py", "kind": "tests", "purpose": "Synthetic tests for component input guards, trace mismatches, packaging and signature inventories."},
+    {"path": "tests/java/ComponentProbe.java", "kind": "tests", "purpose": "Authored differential probe for e/s/t; not a game runner or recovered game source."},
+    {"path": "tests/java/component_support/o.java", "kind": "tests", "purpose": "Three-field test record only; never counted as recovered class o or shipped gameplay."},
+    {"path": "tests/java/component_support/javax/microedition/lcdui/Image.java", "kind": "tests", "purpose": "Scripted image-call test double; not graphics or a native-port implementation."},
+    {"path": "docs/evidence/RECOVERY_PASS_001.md", "kind": "docs", "purpose": "Explain the first manual source recovery, scoped component tests, repeatability and remaining gaps."},
+    {"path": "docs/evidence/component-pass-001.json", "kind": "generated", "purpose": "Recorded component source/artifact hashes and observation digests; no game code or assets."}
   ],
   "classes": [
     {"original": "GameMidlet", "method_entries": 5, "source_path": null, "recovery": {"state": "not_started", "evidence": []}, "build": {"state": "not_tested", "evidence": []}, "behavior": {"state": "not_tested", "evidence": []}},
@@ -37,7 +45,7 @@
     {"original": "b", "method_entries": 46, "source_path": null, "recovery": {"state": "not_started", "evidence": []}, "build": {"state": "not_tested", "evidence": []}, "behavior": {"state": "not_tested", "evidence": []}},
     {"original": "c", "method_entries": 11, "source_path": null, "recovery": {"state": "not_started", "evidence": []}, "build": {"state": "not_tested", "evidence": []}, "behavior": {"state": "not_tested", "evidence": []}},
     {"original": "d", "method_entries": 10, "source_path": null, "recovery": {"state": "not_started", "evidence": []}, "build": {"state": "not_tested", "evidence": []}, "behavior": {"state": "not_tested", "evidence": []}},
-    {"original": "e", "method_entries": 13, "source_path": null, "recovery": {"state": "not_started", "evidence": []}, "build": {"state": "not_tested", "evidence": []}, "behavior": {"state": "not_tested", "evidence": []}},
+    {"original": "e", "method_entries": 13, "source_path": "src/game/e.java", "recovery": {"state": "repaired", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_001.md", "scope": "Manual bytecode-backed reconstruction of all 13 method entries; reviewed local source hash and field mappings recorded."}]}, "build": {"state": "passed", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_001.md", "scope": "Clean source compilation of the e/s/t component artifact using isolated test-only dependencies; NOT a complete game build."}]}, "behavior": {"state": "passed_scoped", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_001.md", "scope": "Arithmetic, packed decoding, geometry and image-call outcomes against original with explicit test doubles; scope is not whole-game behavior."}]}},
     {"original": "f", "method_entries": 11, "source_path": null, "recovery": {"state": "not_started", "evidence": []}, "build": {"state": "not_tested", "evidence": []}, "behavior": {"state": "not_tested", "evidence": []}},
     {"original": "g", "method_entries": 11, "source_path": null, "recovery": {"state": "not_started", "evidence": []}, "build": {"state": "not_tested", "evidence": []}, "behavior": {"state": "not_tested", "evidence": []}},
     {"original": "h", "method_entries": 3, "source_path": null, "recovery": {"state": "not_started", "evidence": []}, "build": {"state": "not_tested", "evidence": []}, "behavior": {"state": "not_tested", "evidence": []}},
@@ -51,14 +59,13 @@
     {"original": "p", "method_entries": 54, "source_path": null, "recovery": {"state": "not_started", "evidence": []}, "build": {"state": "not_tested", "evidence": []}, "behavior": {"state": "not_tested", "evidence": []}},
     {"original": "q", "method_entries": 14, "source_path": null, "recovery": {"state": "not_started", "evidence": []}, "build": {"state": "not_tested", "evidence": []}, "behavior": {"state": "not_tested", "evidence": []}},
     {"original": "r", "method_entries": 2, "source_path": null, "recovery": {"state": "not_started", "evidence": []}, "build": {"state": "not_tested", "evidence": []}, "behavior": {"state": "not_tested", "evidence": []}},
-    {"original": "s", "method_entries": 5, "source_path": null, "recovery": {"state": "not_started", "evidence": []}, "build": {"state": "not_tested", "evidence": []}, "behavior": {"state": "not_tested", "evidence": []}},
-    {"original": "t", "method_entries": 1, "source_path": null, "recovery": {"state": "not_started", "evidence": []}, "build": {"state": "not_tested", "evidence": []}, "behavior": {"state": "not_tested", "evidence": []}}
+    {"original": "s", "method_entries": 5, "source_path": "src/game/s.java", "recovery": {"state": "repaired", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_001.md", "scope": "Manual bytecode-backed reconstruction of all 5 method entries; reviewed local source hash and field mappings recorded."}]}, "build": {"state": "passed", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_001.md", "scope": "Clean source compilation of the e/s/t component artifact using isolated test-only dependencies; NOT a complete game build."}]}, "behavior": {"state": "passed_scoped", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_001.md", "scope": "Object table, cache and failure-state observations against original across 18 resource scenarios with an image-call double; no rendering claim."}]}},
+    {"original": "t", "method_entries": 1, "source_path": "src/game/t.java", "recovery": {"state": "repaired", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_001.md", "scope": "Manual bytecode-backed reconstruction of all 1 method entries; reviewed local source hash and field mappings recorded."}]}, "build": {"state": "passed", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_001.md", "scope": "Clean source compilation of the e/s/t component artifact using isolated test-only dependencies; NOT a complete game build."}]}, "behavior": {"state": "passed_scoped", "evidence": [{"path": "docs/evidence/RECOVERY_PASS_001.md", "scope": "Original-versus-rebuilt constructor field observations for 5008 boundary and deterministic random cases; field meanings remain unassigned."}]}}
   ],
   "planned": [
     {"area": "Decompiler pipeline", "state": "not_started", "purpose": "Pin tools and API definitions; generate complete raw output and logs locally."},
-    {"area": "Recovered game source", "state": "not_started", "purpose": "Repair source locally and map original identifiers; no recovered game class is implemented yet."},
     {"area": "Java ME and Nokia services", "state": "not_started", "purpose": "Implement or adapt graphics, input, sound, lifecycle and storage for the port."},
-    {"area": "Original versus rebuilt comparison", "state": "not_started", "purpose": "Controlled clock, random sequence, input and state comparisons with scoped evidence."},
+    {"area": "Whole-game differential replay", "state": "not_started", "purpose": "Extend the component probes to full-game clock, randomness, scheduling and state comparisons."},
     {"area": "Native Windows build", "state": "not_started", "purpose": "Compile original game logic ahead of time; establish and validate the native toolchain."},
     {"area": "Gold release validation", "state": "not_started", "purpose": "Verify progression, persistence and fidelity; document limitations and unresolved differences."}
   ]

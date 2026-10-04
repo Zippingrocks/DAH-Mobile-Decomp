@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "target_id": "dah1-j2me-en-v1.2.0",
+  "scope": "Reviewed local source snapshots for component testing only; no complete game build.",
+  "components": [
+    {
+      "original": "e",
+      "method_entries": 13,
+      "source_sha256": "2f8c305c5cde7ab9440b72a70be779e3a74b910e708167f67812089a60fc30e9",
+      "original_class_sha256": "104ed338b2f868c51ea7c1bd8a3965bdd5c41b7ce19fa1d23a648b83bcb450d0"
+    },
+    {
+      "original": "s",
+      "method_entries": 5,
+      "source_sha256": "9806bff4743bf41c8adf164812b78680ac2d84678f2f02e921df7b3a8e044302",
+      "original_class_sha256": "e5c333feba4c237b0fdf50d2edc7acd637577b87c05ee4379790493804ebc13c"
+    },
+    {
+      "original": "t",
+      "method_entries": 1,
+      "source_sha256": "35a011f6dee03b979ceaaea31a5f67ffe85c580092ad242d9e04347502487de6",
+      "original_class_sha256": "ced0dede09e5dae4251ea14a0201c65335149f73d3457bfbe9ce9453f53f2fff"
+    }
+  ],
+  "object_resource_sha256": "4de7398ab62653c64cc763fa5f97f1ba96c562800d1ad3687f096a21c33eaa33",
+  "field_renames": [
+    {
+      "owner": "e",
+      "original": "a",
+      "descriptor": "B",
+      "source_name": "packedHeader"
+    },
+    {
+      "owner": "e",
+      "original": "a",
+      "descriptor": "Z",
+      "source_name": "secondPackedValue"
+    },
+    {
+      "owner": "s",
+      "original": "a",
+      "descriptor": "[Ljava/lang/String;",
+      "source_name": "imageNames"
+    },
+    {
+      "owner": "s",
+      "original": "a",
+      "descriptor": "[Ljavax/microedition/lcdui/Image;",
+      "source_name": "images"
+    },
+    {
+      "owner": "s",
+      "original": "a",
+      "descriptor": "[S",
+      "source_name": "offsetX"
+    },
+    {
+      "owner": "s",
+      "original": "b",
+      "descriptor": "[S",
+      "source_name": "offsetY"
+    },
+    {
+      "owner": "s",
+      "original": "e",
+      "descriptor": "[B",
+      "source_name": "factorY"
+    }
+  ]
+}

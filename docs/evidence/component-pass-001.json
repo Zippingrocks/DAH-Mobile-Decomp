@@ -1,0 +1,292 @@
+{
+  "compared_calls_per_side": 299377,
+  "comparisons": [
+    {
+      "groups": {
+        "arithmetic": {
+          "calls_per_side": 122482,
+          "trace_sha256": "c10591244e5f365e72c08f3adfdaf2b5ce00fdb5cbebb8ea25a73e27630e4f4e"
+        },
+        "constructors-and-initial-state": {
+          "calls_per_side": 5010,
+          "trace_sha256": "1d7a1824ee8448379fb0acc7a17dbd276039de9ddea842d5060922cd1e8478c2"
+        },
+        "image-call-contract-with-test-double": {
+          "calls_per_side": 84,
+          "trace_sha256": "11cd74c4ea01a6962d217d80ba15cb477124873c7c268727073d55275175132c"
+        },
+        "inclusive-geometry-with-test-records": {
+          "calls_per_side": 36007,
+          "trace_sha256": "4d0685aa58b870da8ba24c058a6ea2137ca0a6181ea5d4767080b99ced0159e0"
+        },
+        "packed-reader-and-failures": {
+          "calls_per_side": 131114,
+          "trace_sha256": "4d9ade36bd6ce8f5fbe216fb3c7a1178389c9f56a5aa33bda3280e22cf96ac92"
+        }
+      },
+      "result": "passed_scoped",
+      "scenario": "core"
+    },
+    {
+      "groups": {
+        "object-table-load-cache-and-failures": {
+          "calls_per_side": 260,
+          "trace_sha256": "c95ea96d5a7d1b7ff07aae9a43e33b01ac5c66e26f392f22929d94306b377036"
+        }
+      },
+      "result": "passed_scoped",
+      "scenario": "table--1"
+    },
+    {
+      "groups": {
+        "object-table-load-cache-and-failures": {
+          "calls_per_side": 260,
+          "trace_sha256": "8858c8d9ea390b938474362ae9c45b75f495d9941e121f54aee1e9bfcd320ae6"
+        }
+      },
+      "result": "passed_scoped",
+      "scenario": "table-0"
+    },
+    {
+      "groups": {
+        "object-table-load-cache-and-failures": {
+          "calls_per_side": 260,
+          "trace_sha256": "8858c8d9ea390b938474362ae9c45b75f495d9941e121f54aee1e9bfcd320ae6"
+        }
+      },
+      "result": "passed_scoped",
+      "scenario": "table-1"
+    },
+    {
+      "groups": {
+        "object-table-load-cache-and-failures": {
+          "calls_per_side": 260,
+          "trace_sha256": "54cc53511be871b288f34b6ae78b5e1c0dd1ad63653a507c8bf2a478da1610e8"
+        }
+      },
+      "result": "passed_scoped",
+      "scenario": "table-2"
+    },
+    {
+      "groups": {
+        "object-table-load-cache-and-failures": {
+          "calls_per_side": 260,
+          "trace_sha256": "8858c8d9ea390b938474362ae9c45b75f495d9941e121f54aee1e9bfcd320ae6"
+        }
+      },
+      "result": "passed_scoped",
+      "scenario": "table-3"
+    },
+    {
+      "groups": {
+        "object-table-load-cache-and-failures": {
+          "calls_per_side": 260,
+          "trace_sha256": "8858c8d9ea390b938474362ae9c45b75f495d9941e121f54aee1e9bfcd320ae6"
+        }
+      },
+      "result": "passed_scoped",
+      "scenario": "table-4"
+    },
+    {
+      "groups": {
+        "object-table-load-cache-and-failures": {
+          "calls_per_side": 260,
+          "trace_sha256": "3a2e40640d82bd4dbb61ee26d7c87adcf210f5f3f6ac295c3c87c32b932f4788"
+        }
+      },
+      "result": "passed_scoped",
+      "scenario": "table-5"
+    },
+    {
+      "groups": {
+        "object-table-load-cache-and-failures": {
+          "calls_per_side": 260,
+          "trace_sha256": "8b33847efef60df6df0e8ac0a9fb449f5577f4e57d1f44d35f7c7a3702382220"
+        }
+      },
+      "result": "passed_scoped",
+      "scenario": "table-6"
+    },
+    {
+      "groups": {
+        "object-table-load-cache-and-failures": {
+          "calls_per_side": 260,
+          "trace_sha256": "8b33847efef60df6df0e8ac0a9fb449f5577f4e57d1f44d35f7c7a3702382220"
+        }
+      },
+      "result": "passed_scoped",
+      "scenario": "table-7"
+    },
+    {
+      "groups": {
+        "object-table-load-cache-and-failures": {
+          "calls_per_side": 260,
+          "trace_sha256": "8b33847efef60df6df0e8ac0a9fb449f5577f4e57d1f44d35f7c7a3702382220"
+        }
+      },
+      "result": "passed_scoped",
+      "scenario": "table-8"
+    },
+    {
+      "groups": {
+        "object-table-load-cache-and-failures": {
+          "calls_per_side": 260,
+          "trace_sha256": "8b33847efef60df6df0e8ac0a9fb449f5577f4e57d1f44d35f7c7a3702382220"
+        }
+      },
+      "result": "passed_scoped",
+      "scenario": "table-9"
+    },
+    {
+      "groups": {
+        "object-table-load-cache-and-failures": {
+          "calls_per_side": 260,
+          "trace_sha256": "40be110c8c2b194bc5d186b3996a44b36ebdaad0ca705ff375f81efe636945c1"
+        }
+      },
+      "result": "passed_scoped",
+      "scenario": "table-10"
+    },
+    {
+      "groups": {
+        "object-table-load-cache-and-failures": {
+          "calls_per_side": 260,
+          "trace_sha256": "8b33847efef60df6df0e8ac0a9fb449f5577f4e57d1f44d35f7c7a3702382220"
+        }
+      },
+      "result": "passed_scoped",
+      "scenario": "table-11"
+    },
+    {
+      "groups": {
+        "object-table-load-cache-and-failures": {
+          "calls_per_side": 260,
+          "trace_sha256": "8b33847efef60df6df0e8ac0a9fb449f5577f4e57d1f44d35f7c7a3702382220"
+        }
+      },
+      "result": "passed_scoped",
+      "scenario": "table-12"
+    },
+    {
+      "groups": {
+        "object-table-load-cache-and-failures": {
+          "calls_per_side": 260,
+          "trace_sha256": "c1217e79952b9e5a45a8fa4d46bdcd9448a45000e167df825eddc720b2a6eb75"
+        }
+      },
+      "result": "passed_scoped",
+      "scenario": "table-31"
+    },
+    {
+      "groups": {
+        "object-table-load-cache-and-failures": {
+          "calls_per_side": 260,
+          "trace_sha256": "e51d65d1028fb262b6eac05151cb8559106e3f6efa4af352703e424402afccfe"
+        }
+      },
+      "result": "passed_scoped",
+      "scenario": "table-128"
+    },
+    {
+      "groups": {
+        "object-table-load-cache-and-failures": {
+          "calls_per_side": 260,
+          "trace_sha256": "77a194011e6200252e0a1b98b857ae95ebc13c1408740c6329dc7d372371435c"
+        }
+      },
+      "result": "passed_scoped",
+      "scenario": "table-1015"
+    },
+    {
+      "groups": {
+        "object-table-load-cache-and-failures": {
+          "calls_per_side": 260,
+          "trace_sha256": "0abe7b37add69b976f08ee71d3b2469a924406ef7aca07b9313c2a77df199917"
+        }
+      },
+      "result": "passed_scoped",
+      "scenario": "table-1016"
+    }
+  ],
+  "component_inventory": {
+    "e": {
+      "exact_class_bytes": false,
+      "method_entries": 13,
+      "method_signatures_identical": true,
+      "original_class_sha256": "104ed338b2f868c51ea7c1bd8a3965bdd5c41b7ce19fa1d23a648b83bcb450d0",
+      "original_class_version": [
+        45,
+        3
+      ],
+      "rebuilt_class_sha256": "62c0c77861bfc966428fe601766ed5059da9eb0ff08214ae9c48af379941d0cc",
+      "rebuilt_class_version": [
+        52,
+        0
+      ]
+    },
+    "s": {
+      "exact_class_bytes": false,
+      "method_entries": 5,
+      "method_signatures_identical": true,
+      "original_class_sha256": "e5c333feba4c237b0fdf50d2edc7acd637577b87c05ee4379790493804ebc13c",
+      "original_class_version": [
+        45,
+        3
+      ],
+      "rebuilt_class_sha256": "2ab18a895d4927af1484b4370523710fe96c67356e447d4eb317866f1b197648",
+      "rebuilt_class_version": [
+        52,
+        0
+      ]
+    },
+    "t": {
+      "exact_class_bytes": false,
+      "method_entries": 1,
+      "method_signatures_identical": true,
+      "original_class_sha256": "ced0dede09e5dae4251ea14a0201c65335149f73d3457bfbe9ce9453f53f2fff",
+      "original_class_version": [
+        45,
+        3
+      ],
+      "rebuilt_class_sha256": "e348dcde03ea926a979df5160fd8dd922e7c2714c812804e32f66fce8bd68933",
+      "rebuilt_class_version": [
+        52,
+        0
+      ]
+    }
+  },
+  "has_gameplay_stubs_in_rebuilt_jar": false,
+  "java_version": "openjdk version \"21.0.11\" 2026-04-21\nOpenJDK Runtime Environment (build 21.0.11+10-1-deb13u2-Debian)\nOpenJDK 64-Bit Server VM (build 21.0.11+10-1-deb13u2-Debian, mixed mode, sharing)",
+  "javac_version": "javac 21.0.11",
+  "limitations": [
+    "18 game classes not recovered by this pass",
+    "No full-game source-only build or playtest",
+    "Not a handset or Windows native-port test",
+    "Observation digests cover only the explicitly authored cases",
+    "Exception types compared; messages, stack traces and GC timing not compared",
+    "Signature equality is not bytecode or behavioral equivalence",
+    "No exact/normalized whole-class match claimed"
+  ],
+  "original_sha256": "2e03916ea4a5260960e5e57e4dbe0778fb9b577439eac0ce94a685cfecdaaf5f",
+  "rebuilt_components_sha256": "a7a9424c12f4e21c1ee66147c8c2ef613abac2fdb5ab572a2a1d9237386e110f",
+  "recovery_method": "manual source reconstruction from pinned original javap bytecode",
+  "schema_version": 1,
+  "scope": "component tests only; not a full game, handset test or native port",
+  "source_snapshots": {
+    "src/game/e.java": "2f8c305c5cde7ab9440b72a70be779e3a74b910e708167f67812089a60fc30e9",
+    "src/game/s.java": "9806bff4743bf41c8adf164812b78680ac2d84678f2f02e921df7b3a8e044302",
+    "src/game/t.java": "35a011f6dee03b979ceaaea31a5f67ffe85c580092ad242d9e04347502487de6"
+  },
+  "target_id": "dah1-j2me-en-v1.2.0",
+  "test_doubles": [
+    "javax.microedition.lcdui.Image: scripted call recorder, no pixels",
+    "o: three-field test record, no entities or AI"
+  ],
+  "test_tool_snapshots": {
+    "config/component_recovery.json": "549be29d5c0952abd53c1e442d120c73230a7237da2e2136e98534b28a9ee7b8",
+    "tests/java/ComponentProbe.java": "9198e2bb84e069995392ca7ba7f5df86bfbeadaa49fef02675ca40428cea117d",
+    "tests/java/component_support/javax/microedition/lcdui/Image.java": "c1c3bd12fafc6f27835954ea31f83008c6fe24f748df7b7a90b38620e167c734",
+    "tests/java/component_support/o.java": "d5ea02a18703c2dcf17d9c277b457994600beed76e3ffc980f040ca058b9182c",
+    "tools/component_recovery.py": "ca7614496b72f882f1ee15a2cb34fb22fabf4d5371956e6c0603f60d64330231"
+  }
+}
