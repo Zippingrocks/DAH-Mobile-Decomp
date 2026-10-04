@@ -1,6 +1,31 @@
 # Project status
 
-## Latest: recovery pass 002
+## Latest: recovery pass 003
+
+Eleven original classes now have private compiling source snapshots, containing
+91 method entries. New a/o/h/i/m contribute 33 entries. The remaining 10 classes
+and 222 entries, complete game integration and Windows port are still pending.
+
+The source-only component JAR includes the real base entity and connects it to
+recovered effects, pickups, object tables, arithmetic, font and audio code.
+World/controller/actor/removal and platform dependencies remain explicit test
+support outside that JAR. No original class is a candidate fallback.
+
+All 107,750 directly invoked target calls per side matched. There are 31 directly
+observed new methods/constructors and two static initializer entries; these are
+not branch-coverage or game-accuracy scores. Two fresh runs reproduce the JAR
+and report hashes. Five deliberately wrong source variants are detected. Both
+previous regression suites also pass (299,377 and 172,170 calls per side in
+their separate scopes). All 45 local recovery-tool tests passed, including 15
+new tests; the full hosted suite is reported by Actions, not assumed here.
+
+See [pass 003](evidence/RECOVERY_PASS_003.md) and its linked machine-readable
+report for commands, hashes, scoped assumptions and excluded behaviors. Source
+bodies and original inputs remain private in the workstation/checkpoint. No
+exact or normalized whole-class match is claimed; byte-match tiles stay gray.
+
+
+## Prior: recovery pass 002
 
 Six original classes now have local, compiling source snapshots: e/s/t/g/l/q,
 with 58 method entries. Newly recovered g/l/q add 39 entries. The remaining
@@ -51,7 +76,7 @@ hashes, identifier mappings, evidence summaries and progress records, not game
 source or assets. Publication/visibility must be addressed before committing
 recovered source.
 
-## What the component passes do and do not mean
+## Historical pass-001 component boundary
 
 The candidate artifact contains only the three rebuilt classes. Test doubles for
 Image and a three-field entity record live outside it. They enable isolated tests
@@ -64,7 +89,7 @@ match or unconditional accuracy guarantee is claimed. The global byte-match
 report remains unselected. Class-level build and behavior passes refer to the
 component scopes in the evidence report, not to all gameplay or all handsets.
 
-## Run the local component checks
+## Historical pass-001 component checks
 
 Requires the pinned original under inputs/original, the three private source
 snapshots under src/game, Python 3.10+ and a JDK supporting --release 8. The
@@ -89,16 +114,16 @@ earlier commits. The previous 68 tooling tests and initial successful hosted
 refresh are historical evidence; consult Actions for the current commit's run.
 The newly added 15 tests are a separate addition, not 15 recovered game methods.
 
-## Not established / next concrete work
+## Current remaining work
 
 - Complete decompiler output for all 21 classes, or complete recovered game source.
-- Real implementations of the Image/Java ME/Nokia platform services and class o.
+- Production Image/Java ME/Nokia services and the remaining b/c/d/f/j/k/n/p/r/GameMidlet code.
 - A full source-only game JAR, interactive gameplay, missions, save/load or audio.
 - Controlled full-game clock/randomness/scheduling comparisons.
 - A native Windows compiler proof, Windows executable, Windows playtest or gold release.
 
 Obtain the decompiler for a complete automated pass when tool access permits;
-manual bytecode-backed recovery can continue meanwhile. Preserve the e/s/t
-regressions, recover additional dependencies, and never hide missing classes with
+manual bytecode-backed recovery can continue meanwhile. Preserve all eleven
+source snapshots and all three regression suites, recover additional dependencies,
+and never hide missing classes with
 copied originals or pretend gameplay implementations.
-
