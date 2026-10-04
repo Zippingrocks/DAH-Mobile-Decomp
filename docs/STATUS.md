@@ -1,6 +1,34 @@
 # Project status
 
-## Latest: recovery pass 003
+## Latest: recovery pass 004
+
+Fourteen original classes now have private compiling source snapshots, with
+124 original method entries. New n/d/r contribute 33 entries; the seven remaining
+classes contain 189 entries. There is no complete playable or native game build.
+
+The component JAR now contains the actual recovered entity collection and
+composite-building/section logic, integrated with the earlier base/pickup/effects
+code. World selection, actor AI/weapon behavior and platform services still have
+explicit test boundaries outside the game artifact. No original class is a
+compiler input or candidate fallback.
+
+All 68,152 explicit new-target calls per side matched; all 32 callable new entries
+had normal-return observations, with one additional class initializer exercised
+indirectly. Two fresh runs reproduced identical artifacts and observation reports.
+Seven deliberately broken copies were detected. An inherited-field binding error
+found in the first reconstruction was corrected before the accepted runs.
+
+All three earlier suites passed again (107,750, 172,170 and 299,377 calls per side
+under their own scopes). All 60 local recovery-tool tests passed, including 15
+new tests. Full hosted tooling results are available in Actions; game comparisons
+require the private inputs and are not performed by public CI.
+
+See [pass 004](evidence/RECOVERY_PASS_004.md) and its machine-readable observations
+for exact boundaries, hashes and limitations. Only n/d/r status records advance.
+No exact/normalized whole-class match is claimed; the byte-match pointer stays
+null. Recovered bodies, inputs, artifacts and logs remain in the private checkpoint.
+
+## Prior: recovery pass 003
 
 Eleven original classes now have private compiling source snapshots, containing
 91 method entries. New a/o/h/i/m contribute 33 entries. The remaining 10 classes
@@ -117,13 +145,13 @@ The newly added 15 tests are a separate addition, not 15 recovered game methods.
 ## Current remaining work
 
 - Complete decompiler output for all 21 classes, or complete recovered game source.
-- Production Image/Java ME/Nokia services and the remaining b/c/d/f/j/k/n/p/r/GameMidlet code.
+- Production Image/Java ME/Nokia services and the remaining b/c/f/j/k/p/GameMidlet code.
 - A full source-only game JAR, interactive gameplay, missions, save/load or audio.
 - Controlled full-game clock/randomness/scheduling comparisons.
 - A native Windows compiler proof, Windows executable, Windows playtest or gold release.
 
 Obtain the decompiler for a complete automated pass when tool access permits;
-manual bytecode-backed recovery can continue meanwhile. Preserve all eleven
-source snapshots and all three regression suites, recover additional dependencies,
+manual bytecode-backed recovery can continue meanwhile. Preserve all fourteen
+source snapshots and all four regression suites, recover additional dependencies,
 and never hide missing classes with
 copied originals or pretend gameplay implementations.

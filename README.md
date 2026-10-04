@@ -4,21 +4,21 @@ Faithful, understandable source reconstruction of the **first Java-phone game,
 version 1.2.0**, followed by a native Windows port. This is not the Xbox game,
 Flash game, mobile sequel, or Crypto Does Vegas.
 
-**Current stage: 11 of 21 original classes manually recovered locally (91 method
+**Current stage: 14 of 21 original classes manually recovered locally (124 method
 entries), compiled as components, and tested against the original in a documented
 scope. No complete game build or native Windows port exists yet.**
 
-[**Latest source-recovery results and limitations**](docs/evidence/RECOVERY_PASS_003.md)
+[**Latest source-recovery results and limitations**](docs/evidence/RECOVERY_PASS_004.md)
 
 ## Latest recovery pass
 
-Recovered effect timelines/drawing a, base entities o, clipped-column drawing h,
-pickup logic i and object-child metadata m. All eleven local components compile
-in a source-only component artifact. The new **107,750 direct target calls per
-side matched** under documented world/platform support; both earlier suites also
-passed again. Five deliberately broken variants were detected, and two fresh
-runs produced identical component JARs and observation reports. This is not a
-playable game or an accuracy percentage. Read [pass 003](docs/evidence/RECOVERY_PASS_003.md).
+Recovered entity collections n, composite-building tables/assembly d and building
+sections r. All fourteen private components compile together. **68,152 explicit
+new-target calls per side matched** under documented world/actor/platform test
+support; all three prior suites passed again. Seven deliberately broken variants
+were detected. Two fresh runs reproduced identical component JARs and observation
+reports. This is not a playable game or an accuracy percentage. Read
+[pass 004](docs/evidence/RECOVERY_PASS_004.md).
 
 ## Visual progress
 
@@ -33,7 +33,7 @@ count. Red in recovery means not recovered. Gray in comparison means unverified,
 not failure. Green exact-byte matches and blue normalized matches remain separate
 from behavioral accuracy. The dashboard also contains build and behavior views.
 
-**All eleven classes have component-level passes.** Their tests use explicit media,
+**All fourteen classes have component-level passes.** Their tests use explicit media,
 graphics and entity-record support outside the rebuilt artifact; those dependencies
 are not implemented game systems. No whole-class exact/normalized match is claimed,
 and the global byte-match report remains unselected. Read the linked evidence
@@ -89,19 +89,21 @@ Alternatively pass `--input "path/to/game.jar"`. An existing output file is neve
 overwritten; choose a new report name for each run. Auditing parses structure
 without extracting or executing game code. It is not a complete JVM verifier.
 
-For the eleven recovered components, restore the reviewed private source snapshots
+For the fourteen recovered components, restore the reviewed private source snapshots
 under `src/game/`, use a JDK supporting `--release 8`, and choose new run directories:
 
 ```console
+python tools/collection_recovery.py --run-dir local/collection-next-run
 python tools/entity_recovery.py --run-dir local/entity-next-run
 python tools/subsystem_recovery.py --run-dir local/subsystem-next-run
 python tools/component_recovery.py --run-dir local/component-next-run
 ```
 
-The first command compiles eleven components and compares effects/entities/pickups.
-The second reruns the six-class audio/font/navigation scope; the third reruns the
-earlier three-class e/s/t scope. None builds the complete game, downloads a
-decompiler, uploads game data, or compiles a native executable. See the recovery reports for exact test boundaries.
+The first command compiles fourteen components and compares collection/building
+integration. The other commands preserve the eleven-class effects/entity/pickup,
+six-class audio/font/navigation, and three-class helper regression scopes.
+None builds the complete game, downloads a decompiler, uploads game data, or
+compiles a native executable. See the reports for exact test boundaries.
 
 ## Repository boundaries
 
@@ -119,7 +121,7 @@ material or to dependencies that have not yet been introduced.
 
 ## The next milestone
 
-Preserve all eleven source snapshots and all three probe suites, recover
+Preserve all fourteen source snapshots and all four probe suites, recover
 dependencies, and obtain the decompiler for a complete automated pass when tool access permits. Continue
 toward a complete source-only game build without copied original classes or
 placeholder gameplay. Real platform services and native compilation remain ahead.

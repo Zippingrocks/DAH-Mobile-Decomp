@@ -1,0 +1,363 @@
+{
+  "call_scope": "explicit calls to newly recovered n/d/r only; fixture calls and nested calls excluded; not branch coverage",
+  "calls_per_side": 68152,
+  "candidate_sha256": "9d15d48c226ccba191e6456386d49cd66b3afc0357c8ad15dd9a88f10425fa1c",
+  "direct_call_outcomes": {
+    "building-draw": {
+      "fixture_calls_excluded": 8,
+      "methods": {
+        "d.<init>(III)V": {
+          "returned": 1,
+          "threw": 0
+        },
+        "d.a(III)V": {
+          "returned": 188,
+          "threw": 8
+        },
+        "d.a(I[BII)V": {
+          "returned": 134,
+          "threw": 364
+        },
+        "d.a(Ljava/lang/Object;)Z": {
+          "returned": 1,
+          "threw": 0
+        },
+        "d.b(I[BII)V": {
+          "returned": 134,
+          "threw": 361
+        },
+        "n.<init>(II)V": {
+          "returned": 1,
+          "threw": 0
+        },
+        "r.<init>(Ld;Ld;BIIBB)V": {
+          "returned": 496,
+          "threw": 0
+        },
+        "r.g()V": {
+          "returned": 134,
+          "threw": 362
+        }
+      }
+    },
+    "building-load": {
+      "fixture_calls_excluded": 8,
+      "methods": {
+        "d.a(Ljava/lang/Object;)Z": {
+          "returned": 2073,
+          "threw": 6
+        },
+        "d.b()V": {
+          "returned": 3,
+          "threw": 0
+        },
+        "n.<init>(II)V": {
+          "returned": 1,
+          "threw": 0
+        }
+      }
+    },
+    "building-state": {
+      "fixture_calls_excluded": 1372,
+      "methods": {
+        "d.<init>(III)V": {
+          "returned": 264,
+          "threw": 84
+        },
+        "d.a()V": {
+          "returned": 262,
+          "threw": 1
+        },
+        "d.a(B)B": {
+          "returned": 500,
+          "threw": 0
+        },
+        "d.a(Ljava/lang/Object;)Z": {
+          "returned": 3,
+          "threw": 0
+        },
+        "d.b(B)B": {
+          "returned": 500,
+          "threw": 0
+        },
+        "n.<init>(II)V": {
+          "returned": 342,
+          "threw": 0
+        },
+        "r.<init>(Ld;Ld;BIIBB)V": {
+          "returned": 264,
+          "threw": 16
+        }
+      }
+    },
+    "collection-draw": {
+      "fixture_calls_excluded": 968,
+      "methods": {
+        "d.<init>(III)V": {
+          "returned": 1,
+          "threw": 0
+        },
+        "d.a(Ljava/lang/Object;)Z": {
+          "returned": 1,
+          "threw": 0
+        },
+        "n.<init>(II)V": {
+          "returned": 322,
+          "threw": 0
+        },
+        "n.a()I": {
+          "returned": 1126,
+          "threw": 155
+        },
+        "n.a()V": {
+          "returned": 128,
+          "threw": 33
+        },
+        "n.b()I": {
+          "returned": 161,
+          "threw": 1
+        },
+        "r.<init>(Ld;Ld;BIIBB)V": {
+          "returned": 160,
+          "threw": 0
+        }
+      }
+    },
+    "collection-lifecycle": {
+      "fixture_calls_excluded": 1800,
+      "methods": {
+        "n.<init>(II)V": {
+          "returned": 910,
+          "threw": 0
+        },
+        "n.b()V": {
+          "returned": 1167,
+          "threw": 102
+        },
+        "n.c()V": {
+          "returned": 2,
+          "threw": 8
+        },
+        "n.d()V": {
+          "returned": 525,
+          "threw": 0
+        }
+      }
+    },
+    "collection-math": {
+      "fixture_calls_excluded": 10,
+      "methods": {
+        "d.<init>(III)V": {
+          "returned": 1,
+          "threw": 0
+        },
+        "d.a(Ljava/lang/Object;)Z": {
+          "returned": 1,
+          "threw": 0
+        },
+        "n.<init>(II)V": {
+          "returned": 1,
+          "threw": 0
+        },
+        "n.a(IIIIIIII)I": {
+          "returned": 16000,
+          "threw": 0
+        },
+        "n.a(IIIIIIII)Z": {
+          "returned": 16000,
+          "threw": 0
+        },
+        "n.a(Lo;)Z": {
+          "returned": 6000,
+          "threw": 2
+        },
+        "n.a(Lo;Lo;)Z": {
+          "returned": 6000,
+          "threw": 2
+        },
+        "r.<init>(Ld;Ld;BIIBB)V": {
+          "returned": 1,
+          "threw": 0
+        }
+      }
+    },
+    "collection-population": {
+      "fixture_calls_excluded": 508,
+      "methods": {
+        "d.a(Ljava/lang/Object;)Z": {
+          "returned": 1,
+          "threw": 0
+        },
+        "n.<init>(II)V": {
+          "returned": 1058,
+          "threw": 0
+        },
+        "n.a(BBB)V": {
+          "returned": 508,
+          "threw": 516
+        },
+        "n.a(Ljava/io/DataInputStream;)V": {
+          "returned": 5,
+          "threw": 27
+        },
+        "n.a(Lo;)V": {
+          "returned": 581,
+          "threw": 2
+        },
+        "n.b(Lo;)V": {
+          "returned": 251,
+          "threw": 1
+        }
+      }
+    },
+    "collection-queries": {
+      "fixture_calls_excluded": 10429,
+      "methods": {
+        "d.<init>(III)V": {
+          "returned": 1,
+          "threw": 0
+        },
+        "d.a(Ljava/lang/Object;)Z": {
+          "returned": 1,
+          "threw": 0
+        },
+        "n.<init>(II)V": {
+          "returned": 1305,
+          "threw": 0
+        },
+        "n.a(IIIILo;)Lo;": {
+          "returned": 678,
+          "threw": 1
+        },
+        "n.a(Lo;)Lo;": {
+          "returned": 487,
+          "threw": 164
+        },
+        "n.b(IIIILo;)Lo;": {
+          "returned": 651,
+          "threw": 0
+        },
+        "n.c(IIIILo;)Lo;": {
+          "returned": 511,
+          "threw": 164
+        },
+        "r.<init>(Ld;Ld;BIIBB)V": {
+          "returned": 2,
+          "threw": 0
+        }
+      }
+    },
+    "collection-targeting": {
+      "fixture_calls_excluded": 12329,
+      "methods": {
+        "n.<init>(II)V": {
+          "returned": 3082,
+          "threw": 0
+        },
+        "n.a(Lj;)Lo;": {
+          "returned": 2600,
+          "threw": 1
+        },
+        "n.a(Lo;I)V": {
+          "returned": 184,
+          "threw": 57
+        }
+      }
+    }
+  },
+  "groups": {
+    "building-draw": {
+      "calls_per_side": 2184,
+      "trace_sha256": "3d59af86d110cb32b08c2ef507bc524147b68afda469a551d958bdb4432700b5"
+    },
+    "building-load": {
+      "calls_per_side": 2083,
+      "trace_sha256": "b536f312c8e6802f847eba68139abb8d965a93657f73239cfa230081bda67b33"
+    },
+    "building-state": {
+      "calls_per_side": 2236,
+      "trace_sha256": "a37af92da2a6ce7693f720ff4aace08f99c1b3937e8166de6d0bcd968e0b1538"
+    },
+    "collection-draw": {
+      "calls_per_side": 2088,
+      "trace_sha256": "ea0dd2b5fe6e60a274400cb7ce7411934d141e73a9c4f0c460e761a6b3e26daf"
+    },
+    "collection-lifecycle": {
+      "calls_per_side": 2714,
+      "trace_sha256": "e9635273523b49330cdfe846c4845a9468420030718ac8472a0d414d894e371b"
+    },
+    "collection-math": {
+      "calls_per_side": 44008,
+      "trace_sha256": "119ec9f4cee8ef35d411e5df8e623919094e42ac7b15dbbb38539168e81ad087"
+    },
+    "collection-population": {
+      "calls_per_side": 2950,
+      "trace_sha256": "48d0cdd39ee7658b552ea800bb3ab813782f20c71b95275401ce4e7f098ac84c"
+    },
+    "collection-queries": {
+      "calls_per_side": 3965,
+      "trace_sha256": "05ff771e4a6907dd24255f3f2923d45abc13e74286b1115a1f29313e0dea3c91"
+    },
+    "collection-targeting": {
+      "calls_per_side": 5924,
+      "trace_sha256": "8a4789b017d4bd2269998a857f22afcab51c005781e2f65c3325f5ccdf6f888b"
+    }
+  },
+  "javac": "javac 21.0.11",
+  "method_entries": {
+    "a": 8,
+    "d": 10,
+    "e": 13,
+    "g": 11,
+    "h": 3,
+    "i": 11,
+    "l": 14,
+    "m": 4,
+    "n": 21,
+    "o": 7,
+    "q": 14,
+    "r": 2,
+    "s": 5,
+    "t": 1
+  },
+  "original_sha256": "2e03916ea4a5260960e5e57e4dbe0778fb9b577439eac0ce94a685cfecdaaf5f",
+  "schema_version": 1,
+  "scope": "fourteen-class component build; collection/building integration with actor/world/platform test support, not whole game",
+  "source_hashes": {
+    "a.java": "9b1869b9181dd9c50804d088b858d0d5e77e1528142442b1c98a7f515e189d68",
+    "d.java": "5799d877e7cc97e4238fd4a1c4263aece790c14786c68b12b0438582d3df5443",
+    "e.java": "2f8c305c5cde7ab9440b72a70be779e3a74b910e708167f67812089a60fc30e9",
+    "g.java": "53613677b4bf60747bc01fb3d87403e6228b1cf8970666300e63a30e57eb35ce",
+    "h.java": "e9f6b75f6d7ce4eb19cc9a34cc256da1053e605a0cd137163038192e3632ce80",
+    "i.java": "e503827016869eb353251ecf077af2449fa480eaa5e5ef28ee33a88a9872cf87",
+    "l.java": "f38824fc36e5abf1e4f6b39062d565e31b26daa9d0cfe399521f119c18fc6c54",
+    "m.java": "790ca3776979782cece0527838b5342a337263d3fc1f967a13efaa47532c93c4",
+    "n.java": "f315558e4cb54ac408ef768acabfc50fc6e36782414f11e5ced09a1a12d67f21",
+    "o.java": "1d0def51539f26c99aab761cdf7ccdc0d619748e3589add7d34025309fa49e9c",
+    "q.java": "edc1c6630a3a6a5511c087291638d00895bfa9429fb831f3eeb0f809e97dd64d",
+    "r.java": "13a2cdc29f90c43ad7c7c3ee27708eee8d9889fcb6416b5bdcc03d89909bc703",
+    "s.java": "9806bff4743bf41c8adf164812b78680ac2d84678f2f02e921df7b3a8e044302",
+    "t.java": "35a011f6dee03b979ceaaea31a5f67ffe85c580092ad242d9e04347502487de6"
+  },
+  "support_hashes": {
+    "tests/java/CollectionProbe.java": "7afdd9f9a212825b202708e8b8715eed4de3ac9812e5f81918971ca5601a3400",
+    "tests/java/collection_support/b.java": "644da7b24114da11e40c4052a7d3182ea345159147d2dffae7e1dcdb738db8d1",
+    "tests/java/collection_support/c.java": "562a45d3490ab3bdd8fb0b1927ee538b761c3a30d17b7bd88094e94e15adf759",
+    "tests/java/collection_support/f.java": "8aa37ca3f145b4f0391e2fed00754cef6071b08a6adbcfedebffaee7557b77c7",
+    "tests/java/collection_support/j.java": "944286b95de90c1e9a33a680c23411993a303d12be4b93bd1606cd27912defd4",
+    "tests/java/collection_support/k.java": "eca3921266b7f7e52ad5a2c6edee1d9aa65ca0ba1c998670c07c2e30409513df",
+    "tests/java/entity_support/javax/microedition/lcdui/Graphics.java": "f78e959a0f9a5cff890fbc569a731645229511b200992976b39ea9277dbaf6a6",
+    "tests/java/subsystem_support/javax/microedition/lcdui/Image.java": "5e852a310ecd80f37d51357ba5386102b797016888b8121be4521c8b346f0b59",
+    "tests/java/subsystem_support/javax/microedition/media/Manager.java": "1372df9aa61bacefc5e3889801afdb8b2a631b15cadab6e97e312e25a6680695",
+    "tests/java/subsystem_support/javax/microedition/media/MediaException.java": "293eb56d8742d0f66412526f69c390bb85f4706d943981e9a74f3b616275a8fc",
+    "tests/java/subsystem_support/javax/microedition/media/Player.java": "42307c70fc54d4d95d2379a4b73022173adc39fc90f0a7f0b9f24a617f72ffc0",
+    "tests/java/subsystem_support/javax/microedition/media/PlayerListener.java": "d2ce4d1729831fdd88f712b611b6750de55a62b3a633fbf9b9d876e8ed745373"
+  },
+  "target_id": "dah1-j2me-en-v1.2.0",
+  "tool_hashes": {
+    "config/collection_recovery.json": "53550c2d68aaa12741ee9490ce31776671175da69efe1176903c85e59417e558",
+    "tools/collection_recovery.py": "523d52b5364a0fc691ae35937ce6bfdd14f9894fd46eac5c296338761294df2b",
+    "tools/component_recovery.py": "ca7614496b72f882f1ee15a2cb34fb22fabf4d5371956e6c0603f60d64330231",
+    "tools/subsystem_recovery.py": "b68869f59fe503c20ea550b5078fdbdbf4992fc8480daa909710387dc27ed623"
+  }
+}
