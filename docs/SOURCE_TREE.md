@@ -11,10 +11,10 @@
 | --- | --- |
 | Original classes inventoried | 21 |
 | Original method entries inventoried (including initialization) | 313 |
-| Classes with source recovery recorded (raw or repaired) | 17 / 21 |
-| Classes with repaired source recorded | 17 / 21 |
-| Classes included in a successful source-only build | 17 / 21 |
-| Classes with behavior comparisons passed in a documented scope | 17 / 21 |
+| Classes with source recovery recorded (raw or repaired) | 21 / 21 |
+| Classes with repaired source recorded | 18 / 21 |
+| Classes included in a successful source-only build | 18 / 21 |
+| Classes with behavior comparisons passed in a documented scope | 18 / 21 |
 
 These are class-level records, not a percentage complete or method-level proof. A stage changes only when its evidence is recorded; the generator does not run a decompiler, compile the game, or verify behavioral equivalence.
 
@@ -52,13 +52,16 @@ DAH-Mobile-Decomp/
 |   |-- VERIFICATION.md [DOCS]
 |   |-- VISUAL_PROGRESS.md [GENERATED]
 |   `-- evidence/
+|       |-- DECOMPILER_PASS_007.md [DOCS]
 |       |-- RECOVERY_PASS_001.md [DOCS]
 |       |-- RECOVERY_PASS_002.md [DOCS]
 |       |-- RECOVERY_PASS_003.md [DOCS]
 |       |-- RECOVERY_PASS_004.md [DOCS]
 |       |-- RECOVERY_PASS_005.md [DOCS]
+|       |-- RECOVERY_PASS_006.md [DOCS]
 |       |-- collection-pass-004.json [GENERATED]
 |       |-- component-pass-001.json [GENERATED]
+|       |-- decompiler-pass-007.json [DOCS]
 |       |-- entity-pass-003.json [DOCS]
 |       |-- subsystem-pass-002.json [DOCS]
 |       `-- weapon-pass-005.json [DOCS]
@@ -171,13 +174,16 @@ DAH-Mobile-Decomp/
 | [`docs/STATUS.md`](../docs/STATUS.md) | docs | What was tested locally, limitations and the next task. |
 | [`docs/VERIFICATION.md`](../docs/VERIFICATION.md) | docs | Requirements for source-only rebuilds, behavior comparison and a gold candidate. |
 | [`docs/VISUAL_PROGRESS.md`](../docs/VISUAL_PROGRESS.md) | generated | Embed all four class treemaps and report current comparison status. |
+| [`docs/evidence/DECOMPILER_PASS_007.md`](../docs/evidence/DECOMPILER_PASS_007.md) | docs | Document pinned dual-decompiler recovery, all-class raw source compilation, repair points and limitations. |
 | [`docs/evidence/RECOVERY_PASS_001.md`](../docs/evidence/RECOVERY_PASS_001.md) | docs | Explain the first manual source recovery, scoped component tests, repeatability and remaining gaps. |
 | [`docs/evidence/RECOVERY_PASS_002.md`](../docs/evidence/RECOVERY_PASS_002.md) | docs | Document three more recovered components, 172170 scoped calls, negative controls and limitations. |
 | [`docs/evidence/RECOVERY_PASS_003.md`](../docs/evidence/RECOVERY_PASS_003.md) | docs | Document five new component recoveries, integration tests, negative controls and limitations. |
 | [`docs/evidence/RECOVERY_PASS_004.md`](../docs/evidence/RECOVERY_PASS_004.md) | docs | Document three more manually recovered classes, 68152 scoped calls, seven detected mutations and retained limitations. |
 | [`docs/evidence/RECOVERY_PASS_005.md`](../docs/evidence/RECOVERY_PASS_005.md) | docs | Record scoped pass-005 observations, private snapshot hashes and publication limitations. |
+| [`docs/evidence/RECOVERY_PASS_006.md`](../docs/evidence/RECOVERY_PASS_006.md) | docs | Document reviewed shared-actor recovery, scoped comparisons, corrected overload error and limitations. |
 | [`docs/evidence/collection-pass-004.json`](../docs/evidence/collection-pass-004.json) | generated | Recorded fourteen-class source/artifact hashes and matching component observation digests; no code or assets. |
 | [`docs/evidence/component-pass-001.json`](../docs/evidence/component-pass-001.json) | generated | Recorded component source/artifact hashes and observation digests; no game code or assets. |
+| [`docs/evidence/decompiler-pass-007.json`](../docs/evidence/decompiler-pass-007.json) | docs | Machine-readable tool/source/artifact hashes and static inventory results for decompiler pass 007. |
 | [`docs/evidence/entity-pass-003.json`](../docs/evidence/entity-pass-003.json) | docs | Recorded artifact hashes, direct target call outcomes and scoped observation digests. |
 | [`docs/evidence/subsystem-pass-002.json`](../docs/evidence/subsystem-pass-002.json) | docs | Hashes and matching observation digests from the second reproducible subsystem run. |
 | [`docs/evidence/weapon-pass-005.json`](../docs/evidence/weapon-pass-005.json) | docs | Record scoped pass-005 observations, private snapshot hashes and publication limitations. |
@@ -248,7 +254,7 @@ Original identifiers are preserved until readable names are established. Single-
 | --- | ---: | --- | --- | --- | --- |
 | `GameMidlet` | 5 | `src/game/GameMidlet.java` | repaired | passed | passed_scoped |
 | `a` | 8 | `src/game/a.java` | repaired | passed | passed_scoped |
-| `b` | 46 | Not recovered | not_started | not_tested | not_tested |
+| `b` | 46 | `recovered/raw/pass007/b.java` | raw_output | not_tested | not_tested |
 | `c` | 11 | `src/game/c.java` | repaired | passed | passed_scoped |
 | `d` | 10 | `src/game/d.java` | repaired | passed | passed_scoped |
 | `e` | 13 | `src/game/e.java` | repaired | passed | passed_scoped |
@@ -256,13 +262,13 @@ Original identifiers are preserved until readable names are established. Single-
 | `g` | 11 | `src/game/g.java` | repaired | passed | passed_scoped |
 | `h` | 3 | `src/game/h.java` | repaired | passed | passed_scoped |
 | `i` | 11 | `src/game/i.java` | repaired | passed | passed_scoped |
-| `j` | 31 | Not recovered | not_started | not_tested | not_tested |
-| `k` | 31 | Not recovered | not_started | not_tested | not_tested |
+| `j` | 31 | `src/game/j.java` | repaired | passed | passed_scoped |
+| `k` | 31 | `recovered/raw/pass007/k.java` | raw_output | not_tested | not_tested |
 | `l` | 14 | `src/game/l.java` | repaired | passed | passed_scoped |
 | `m` | 4 | `src/game/m.java` | repaired | passed | passed_scoped |
 | `n` | 21 | `src/game/n.java` | repaired | passed | passed_scoped |
 | `o` | 7 | `src/game/o.java` | repaired | passed | passed_scoped |
-| `p` | 54 | Not recovered | not_started | not_tested | not_tested |
+| `p` | 54 | `recovered/raw/pass007/p.java` | raw_output | not_tested | not_tested |
 | `q` | 14 | `src/game/q.java` | repaired | passed | passed_scoped |
 | `r` | 2 | `src/game/r.java` | repaired | passed | passed_scoped |
 | `s` | 5 | `src/game/s.java` | repaired | passed | passed_scoped |
@@ -276,6 +282,7 @@ Original identifiers are preserved until readable names are established. Single-
 - `a` / recovery: [`docs/evidence/RECOVERY_PASS_003.md`](../docs/evidence/RECOVERY_PASS_003.md) — Manual bytecode-backed reconstruction of all 8 entries; pinned private sources and explicit descriptor aliases.
 - `a` / build: [`docs/evidence/RECOVERY_PASS_003.md`](../docs/evidence/RECOVERY_PASS_003.md) — Eleven-class source-only component artifact with separately packaged authored dependencies; not a complete game build.
 - `a` / behavior: [`docs/evidence/RECOVERY_PASS_003.md`](../docs/evidence/RECOVERY_PASS_003.md) — Effects table loading, clone state, frame stepping and draw commands/pixels within a partial headless adapter.
+- `b` / recovery: [`docs/evidence/DECOMPILER_PASS_007.md`](../docs/evidence/DECOMPILER_PASS_007.md) — Pinned CFR/Vineflower raw source exists locally; full raw tree compiles after documented decompiler repair points. Class not yet reviewed/repaired or behavior-tested.
 - `c` / recovery: [`docs/evidence/RECOVERY_PASS_005.md`](../docs/evidence/RECOVERY_PASS_005.md) — Manual reconstruction of all 11 original entries; accepted private source snapshot and descriptor mappings pinned.
 - `c` / build: [`docs/evidence/RECOVERY_PASS_005.md`](../docs/evidence/RECOVERY_PASS_005.md) — Clean seventeen-class component compilation with explicit actor/world/controller/platform test support; not a complete game build.
 - `c` / behavior: [`docs/evidence/RECOVERY_PASS_005.md`](../docs/evidence/RECOVERY_PASS_005.md) — Weapon setup, aiming, ammo, firing gates, update and drawing observations under scripted actor/world/platform callbacks.
@@ -297,6 +304,10 @@ Original identifiers are preserved until readable names are established. Single-
 - `i` / recovery: [`docs/evidence/RECOVERY_PASS_003.md`](../docs/evidence/RECOVERY_PASS_003.md) — Manual bytecode-backed reconstruction of all 11 entries; pinned private sources and explicit descriptor aliases.
 - `i` / build: [`docs/evidence/RECOVERY_PASS_003.md`](../docs/evidence/RECOVERY_PASS_003.md) — Eleven-class source-only component artifact with separately packaged authored dependencies; not a complete game build.
 - `i` / behavior: [`docs/evidence/RECOVERY_PASS_003.md`](../docs/evidence/RECOVERY_PASS_003.md) — Pickup stat/ammo updates, repeated collection, real recovered audio/font calls and scripted world/media failures.
+- `j` / recovery: [`docs/evidence/RECOVERY_PASS_006.md`](../docs/evidence/RECOVERY_PASS_006.md) — Manual bytecode-backed reconstruction of all 31 actor entries; overload-selection defect corrected under differential testing.
+- `j` / build: [`docs/evidence/RECOVERY_PASS_006.md`](../docs/evidence/RECOVERY_PASS_006.md) — Eighteen recovered game classes compile together as a component artifact with explicit test-only world/controller/platform support; not a whole-game build.
+- `j` / behavior: [`docs/evidence/RECOVERY_PASS_006.md`](../docs/evidence/RECOVERY_PASS_006.md) — 25,818 direct actor calls per side matched across documented actor/state/navigation/damage/drawing/integration probes; not exhaustive gameplay.
+- `k` / recovery: [`docs/evidence/DECOMPILER_PASS_007.md`](../docs/evidence/DECOMPILER_PASS_007.md) — Pinned CFR/Vineflower raw source exists locally; full raw tree compiles after documented decompiler repair points. Class not yet reviewed/repaired or behavior-tested.
 - `l` / recovery: [`docs/evidence/RECOVERY_PASS_002.md`](../docs/evidence/RECOVERY_PASS_002.md) — Manual reconstruction of all 14 entries with explicit descriptor aliases; private source hashes pinned.
 - `l` / build: [`docs/evidence/RECOVERY_PASS_002.md`](../docs/evidence/RECOVERY_PASS_002.md) — Six-class source-only component compilation with isolated test support; no original classes copied and no complete game build.
 - `l` / behavior: [`docs/evidence/RECOVERY_PASS_002.md`](../docs/evidence/RECOVERY_PASS_002.md) — Text tables, formatting, drawing commands and headless font pixels compared under a shared partial adapter; not handset or whole-game rendering.
@@ -309,6 +320,7 @@ Original identifiers are preserved until readable names are established. Single-
 - `o` / recovery: [`docs/evidence/RECOVERY_PASS_003.md`](../docs/evidence/RECOVERY_PASS_003.md) — Manual bytecode-backed reconstruction of all 7 entries; pinned private sources and explicit descriptor aliases.
 - `o` / build: [`docs/evidence/RECOVERY_PASS_003.md`](../docs/evidence/RECOVERY_PASS_003.md) — Eleven-class source-only component artifact with separately packaged authored dependencies; not a complete game build.
 - `o` / behavior: [`docs/evidence/RECOVERY_PASS_003.md`](../docs/evidence/RECOVERY_PASS_003.md) — Factory dispatch, picking, timed effects, flags, shared rise state and pickup/removal calls under controlled world/actor dependencies.
+- `p` / recovery: [`docs/evidence/DECOMPILER_PASS_007.md`](../docs/evidence/DECOMPILER_PASS_007.md) — Pinned CFR/Vineflower raw source exists locally; full raw tree compiles after documented decompiler repair points. Class not yet reviewed/repaired or behavior-tested.
 - `q` / recovery: [`docs/evidence/RECOVERY_PASS_002.md`](../docs/evidence/RECOVERY_PASS_002.md) — Manual reconstruction of all 14 entries with explicit descriptor aliases; private source hashes pinned.
 - `q` / build: [`docs/evidence/RECOVERY_PASS_002.md`](../docs/evidence/RECOVERY_PASS_002.md) — Six-class source-only component compilation with isolated test support; no original classes copied and no complete game build.
 - `q` / behavior: [`docs/evidence/RECOVERY_PASS_002.md`](../docs/evidence/RECOVERY_PASS_002.md) — Navigation loads, packed links, random choice and spatial queries against original using scripted world records; not full actor/world integration.
@@ -328,7 +340,6 @@ These are future work areas, not existing source folders or completed systems.
 
 | Area | State | Work remaining |
 | --- | --- | --- |
-| Decompiler pipeline | not_started | Pin tools and API definitions; generate complete raw output and logs locally. |
 | Java ME and Nokia services | not_started | Implement or adapt graphics, input, sound, lifecycle and storage for the port. |
 | Whole-game differential replay | not_started | Extend the component probes to full-game clock, randomness, scheduling and state comparisons. |
 | Native Windows build | not_started | Compile original game logic ahead of time; establish and validate the native toolchain. |
