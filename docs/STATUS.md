@@ -1,5 +1,20 @@
 # Project status
 
+## Pass 010 — final class p repaired
+
+- Repaired private sources: **21/21 classes, 313/313 original method entries**.
+- p contributes the final 54 entries and 46 fields.
+- CFR 0.152 output was cross-checked against Vineflower 1.12.0 and original javap; source-only identifier collisions/shadowing were repaired without gameplay redesign.
+- Repaired p compiles in an isolated candidate runtime with authored support and no original p.class fallback.
+- **10,906 observation records per side** matched across five scoped groups; seven deliberate defects were detected.
+- Pass 007 already established a mechanical 21-class source-only compile; a fresh integration compile from the final all-repaired snapshots is still required.
+- No exact/normalized whole-class match, complete playable game, production platform or native port is claimed.
+
+See [pass 010](evidence/RECOVERY_PASS_010.md) and
+[machine-readable evidence](evidence/ui-pass-010.json).
+
+## Prior status
+
 ## Pass 009 — controller k repaired
 
 - Repaired private sources: 20/21 classes, 259/313 original method entries.

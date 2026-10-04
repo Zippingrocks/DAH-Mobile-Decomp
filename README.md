@@ -4,19 +4,13 @@ Faithful, understandable source reconstruction of the **first Java-phone game,
 version 1.2.0**, followed by a native Windows port. This is not the Xbox game,
 Flash game, mobile sequel, or Crypto Does Vegas.
 
-**Current stage: all 21 original classes have local source recovery. 20 classes
-(259 method entries) are repaired and have scoped build/behavior evidence. Only
-p (54 entries) remains raw decompiler output awaiting repair. There is still no
-complete behavior-validated game or native Windows port.**
+**Current stage: all 21 original classes now have repaired source records, covering all 313 original method entries. The final class p passed its isolated source build and documented differential probes. A final all-repaired whole-tree integration build, complete game validation, and native Windows port remain ahead.**
 
-[**Latest reviewed recovery: controller k**](docs/evidence/RECOVERY_PASS_009.md) · [**Raw all-class decompiler pass**](docs/evidence/DECOMPILER_PASS_007.md)
+[**Latest reviewed recovery: final class p**](docs/evidence/RECOVERY_PASS_010.md) · [**All-class decompiler pass**](docs/evidence/DECOMPILER_PASS_007.md)
 
 ## Latest recovery pass
 
-Promoted controller **k** from raw output to repaired source. 434,002 scoped
-observations per side match across key-state transitions, edge detection,
-little-endian save helpers and the image-draw helper. Four deliberate defects
-were detected. Only p remains raw.
+Promoted **p**, the final raw class, to repaired source after CFR/Vineflower/original-bytecode review. **10,906 observation records per side matched** across load, helper, screen-state and randomized navigation/input scopes, and seven deliberate defects were detected. The recovery ledger is now **21 / 21 repaired classes and 313 / 313 method entries**. This closes class reconstruction, not complete-game validation.
 
 ## Visual progress
 
@@ -120,10 +114,7 @@ material or to dependencies that have not yet been introduced.
 
 ## The next milestone
 
-Repair the final raw class p next, then assemble and validate the first all-repaired source build, preserving the
-six reviewed regression suites and bytecode checks. The raw all-class compile is
-a starting point, not a substitute for reviewed game logic. Real platform
-services, whole-game comparisons and native compilation remain ahead.
+Assemble a fresh whole-tree build from the final **all-repaired** source snapshots, then move from class recovery into integration: production Java ME/Nokia services, controlled whole-game execution comparisons, progression/save/render/audio validation, and only then native Windows compilation. Do not substitute raw classes, copied originals, or placeholder gameplay.
 
 Read [the project status](docs/STATUS.md),
 [the verification contract](docs/VERIFICATION.md), and

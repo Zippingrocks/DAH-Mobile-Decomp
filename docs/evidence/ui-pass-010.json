@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "target_id": "dah1-j2me-en-v1.2.0",
+  "input_sha256": "2e03916ea4a5260960e5e57e4dbe0778fb9b577439eac0ce94a685cfecdaaf5f",
+  "class": "p",
+  "method_entries": 54,
+  "fields": 46,
+  "source_sha256": "3b2455012313a9dbc4b1087c30317d4d84b86508603347b94eba19c1488909ad",
+  "rebuilt_class_sha256": "b0b0890a8cff3d72205ad79b4f6d19fc90365a5e90cc86245a0ba8e7a702afc5",
+  "original_class_sha256": "656f3caaab76a056b9810950b4ac7fd51fdd6f0c79026222680cf0f8e4f0e199",
+  "decompilers": [
+    {
+      "name": "CFR",
+      "version": "0.152",
+      "sha256": "f686e8f3ded377d7bc87d216a90e9e9512df4156e75b06c655a16648ae8765b2"
+    },
+    {
+      "name": "Vineflower",
+      "version": "1.12.0",
+      "sha256": "1dfcfe974395734fa467ce620661c7623d05ba83670de0529b1fbd63ff548b9d"
+    }
+  ],
+  "descriptor_inventory": {
+    "fields_match": true,
+    "methods_match": true
+  },
+  "observation_groups": [
+    {
+      "name": "load",
+      "count_per_side": 192,
+      "sha256": "98bcccc6d3097cf37d8c8c2b916b4d3852ed74d4ae2fc6c4ff161ffd52c66786"
+    },
+    {
+      "name": "static",
+      "count_per_side": 143,
+      "sha256": "e18ce89f9612141e7a1989129afa539d3ac4c9616ae67e8ff58e1328ae774116"
+    },
+    {
+      "name": "private",
+      "count_per_side": 155,
+      "sha256": "744995851f82f9aacdc3e346f06cfb58cdc49ee4db11ae924ebcab81665f912f"
+    },
+    {
+      "name": "public",
+      "count_per_side": 416,
+      "sha256": "8572095d0d243703cf0d111b18621853fa85c0d19c95faeaf167dc2cf1cb8014"
+    },
+    {
+      "name": "navigation",
+      "count_per_side": 10000,
+      "sha256": "00359967197e19696a833f8031ac49396bbe9dfba9198fc0aa157743cc289055"
+    }
+  ],
+  "total_observation_records_per_side": 10906,
+  "negative_controls": [
+    {
+      "name": "stack_increment",
+      "detected": true
+    },
+    {
+      "name": "transition_shift",
+      "detected": true
+    },
+    {
+      "name": "sound_toggle",
+      "detected": true
+    },
+    {
+      "name": "mission_gate",
+      "detected": true
+    },
+    {
+      "name": "navigation_wrap",
+      "detected": true
+    },
+    {
+      "name": "star_modulo",
+      "detected": true
+    },
+    {
+      "name": "left_prompt_x",
+      "detected": true
+    }
+  ],
+  "excluded_negative_control": {
+    "name": "old_navigation_repeat_timer",
+    "reason": "Older fixture did not exercise intended path; excluded rather than counted."
+  },
+  "claims": {
+    "class_recovery_repaired": true,
+    "isolated_source_build": true,
+    "scoped_behavior_match": true,
+    "final_all_repaired_whole_tree_build": false,
+    "exact_byte_match": false,
+    "normalized_match": false,
+    "playable_game": false,
+    "native_windows_port": false
+  }
+}

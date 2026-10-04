@@ -492,6 +492,16 @@
       "path": "docs/evidence/controller-pass-009.json",
       "kind": "docs",
       "purpose": "Machine-readable hashes and observation counts for controller recovery pass 009."
+    },
+    {
+      "path": "docs/evidence/RECOVERY_PASS_010.md",
+      "kind": "docs",
+      "purpose": "Document final class-p repair, dual-decompiler review, scoped differential observations, negative controls and limitations."
+    },
+    {
+      "path": "docs/evidence/ui-pass-010.json",
+      "kind": "docs",
+      "purpose": "Record final p source/artifact hashes and matching scoped observation digests; no game code or assets."
     }
   ],
   "classes": [
@@ -1010,23 +1020,33 @@
     {
       "original": "p",
       "method_entries": 54,
-      "source_path": "recovered/raw/pass007/p.java",
+      "source_path": "src/game/p.java",
       "recovery": {
-        "state": "raw_output",
+        "state": "repaired",
         "evidence": [
           {
-            "path": "docs/evidence/DECOMPILER_PASS_007.md",
-            "scope": "Pinned CFR/Vineflower raw source exists locally; full raw tree compiles after documented decompiler repair points. Class not yet reviewed/repaired or behavior-tested."
+            "path": "docs/evidence/RECOVERY_PASS_010.md",
+            "scope": "CFR 0.152 reconstruction cross-checked against Vineflower 1.12.0 and original javap; Java-only duplicate/shadowed identifiers repaired without gameplay redesign."
           }
         ]
       },
       "build": {
-        "state": "not_tested",
-        "evidence": []
+        "state": "passed",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_010.md",
+            "scope": "Repaired p compiles from Java source in an isolated candidate runtime with authored support and preserves all 46 field and 54 method descriptors; no original p.class fallback."
+          }
+        ]
       },
       "behavior": {
-        "state": "not_tested",
-        "evidence": []
+        "state": "passed_scoped",
+        "evidence": [
+          {
+            "path": "docs/evidence/RECOVERY_PASS_010.md",
+            "scope": "10,906 matching observation records per side across load, static helper, private helper, public state/screen and randomized navigation/input scopes; seven deliberate defects detected."
+          }
+        ]
       }
     },
     {
