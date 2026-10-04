@@ -1,6 +1,29 @@
 # Project status
 
-## Current stage: first recovered components compile and pass scoped comparisons
+## Latest: recovery pass 002
+
+Six original classes now have local, compiling source snapshots: e/s/t/g/l/q,
+with 58 method entries. Newly recovered g/l/q add 39 entries. The remaining
+15 classes / 255 entries are not recovered. Full-game rebuilding, platform
+integration and native Windows compilation are still pending.
+
+The new audio/font/navigation suite matched all 172,170 calls per side under
+explicit test support. Two fresh runs reproduced identical six-class JAR and
+observation JSON hashes. Three deliberately incorrect private variants were
+detected. The unchanged e/s/t suite matched its 299,377 calls per side again.
+The 30 component/subsystem tooling tests passed locally; consult Actions for
+the complete hosted suite. No exact or normalized whole-class match is claimed.
+
+Run `python tools/subsystem_recovery.py --run-dir local/<new-run-name>` with the
+pinned private inputs and sources present. Read
+[the complete pass-002 evidence](evidence/RECOVERY_PASS_002.md) before interpreting
+recovery, component-build or scoped-behavior tiles. Test doubles are not recovered
+classes; no game material has been published and byte-match reporting remains null.
+
+## Prior checkpoint (historical, superseded counts)
+
+
+### Pass 001: first recovered components compile and pass scoped comparisons
 
 See [recovery pass 001](evidence/RECOVERY_PASS_001.md) for the exact boundary and
 [machine-readable evidence](evidence/component-pass-001.json) for artifact hashes
@@ -78,3 +101,4 @@ Obtain the decompiler for a complete automated pass when tool access permits;
 manual bytecode-backed recovery can continue meanwhile. Preserve the e/s/t
 regressions, recover additional dependencies, and never hide missing classes with
 copied originals or pretend gameplay implementations.
+

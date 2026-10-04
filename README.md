@@ -4,11 +4,21 @@ Faithful, understandable source reconstruction of the **first Java-phone game,
 version 1.2.0**, followed by a native Windows port. This is not the Xbox game,
 Flash game, mobile sequel, or Crypto Does Vegas.
 
-**Current stage: 3 of 21 original classes manually recovered locally (19 method
+**Current stage: 6 of 21 original classes manually recovered locally (58 method
 entries), compiled as components, and tested against the original in a documented
 scope. No complete game build or native Windows port exists yet.**
 
-[**First source-recovery results and limitations**](docs/evidence/RECOVERY_PASS_001.md)
+[**Latest source-recovery results and limitations**](docs/evidence/RECOVERY_PASS_002.md)
+
+## Latest recovery pass
+
+Recovered audio controller g, bitmap-font/text component l and navigation-table
+component q. Their **172,170 original-versus-rebuilt calls per side matched**
+under the documented adapters; the older 299,377-call component suite also
+passed again. Both clean subsystem runs produced identical artifact/report hashes.
+These are six-component builds and scoped comparisons, not a playable game or
+an accuracy percentage. Byte matching remains unverified. See
+[pass 002](docs/evidence/RECOVERY_PASS_002.md) for the test boundaries and quirks.
 
 ## Visual progress
 
@@ -23,9 +33,9 @@ count. Red in recovery means not recovered. Gray in comparison means unverified,
 not failure. Green exact-byte matches and blue normalized matches remain separate
 from behavioral accuracy. The dashboard also contains build and behavior views.
 
-**The first e/s/t passes are component-level.** Their tests use explicit Image
-and entity-record doubles outside the rebuilt artifact; those dependencies are
-not implemented game systems. No whole-class exact/normalized match is claimed,
+**All six classes have component-level passes.** Their tests use explicit media,
+graphics and entity-record support outside the rebuilt artifact; those dependencies
+are not implemented game systems. No whole-class exact/normalized match is claimed,
 and the global byte-match report remains unselected. Read the linked evidence
 before treating a build/behavior tile as a full-game claim.
 
@@ -79,16 +89,18 @@ Alternatively pass `--input "path/to/game.jar"`. An existing output file is neve
 overwritten; choose a new report name for each run. Auditing parses structure
 without extracting or executing game code. It is not a complete JVM verifier.
 
-For the three recovered components, restore the reviewed private source snapshots
-under `src/game/`, use a JDK supporting `--release 8`, and choose a new run directory:
+For the six recovered components, restore the reviewed private source snapshots
+under `src/game/`, use a JDK supporting `--release 8`, and choose new run directories:
 
 ```console
+python tools/subsystem_recovery.py --run-dir local/subsystem-next-run
 python tools/component_recovery.py --run-dir local/component-next-run
 ```
 
-This compiles a three-class component artifact and runs isolated probes. It does
-not build the complete game, download a decompiler, upload game data, or compile
-a native executable. See the recovery report for exact dependencies and coverage.
+The first command compiles all six components and compares audio/font/navigation
+observations. The second reruns the earlier three-class e/s/t regression suite.
+Neither builds the complete game, downloads a decompiler, uploads game data, or
+compiles a native executable. See the recovery reports for exact test boundaries.
 
 ## Repository boundaries
 
@@ -106,7 +118,7 @@ material or to dependencies that have not yet been introduced.
 
 ## The next milestone
 
-Preserve the e/s/t regression baseline, recover further dependencies, and obtain
+Preserve all six source snapshots and both probe suites, recover dependencies, and obtain
 the decompiler for a complete automated pass when tool access permits. Continue
 toward a complete source-only game build without copied original classes or
 placeholder gameplay. Real platform services and native compilation remain ahead.

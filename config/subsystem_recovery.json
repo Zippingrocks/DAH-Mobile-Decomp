@@ -1,0 +1,303 @@
+{
+  "schema_version": 1,
+  "target_id": "dah1-j2me-en-v1.2.0",
+  "scope": "source snapshots for six components only; b/k/j/f/o are test records, not recovered game classes",
+  "components": [
+    {
+      "original": "e",
+      "method_entries": 13,
+      "source_sha256": "2f8c305c5cde7ab9440b72a70be779e3a74b910e708167f67812089a60fc30e9",
+      "original_class_sha256": "104ed338b2f868c51ea7c1bd8a3965bdd5c41b7ce19fa1d23a648b83bcb450d0"
+    },
+    {
+      "original": "s",
+      "method_entries": 5,
+      "source_sha256": "9806bff4743bf41c8adf164812b78680ac2d84678f2f02e921df7b3a8e044302",
+      "original_class_sha256": "e5c333feba4c237b0fdf50d2edc7acd637577b87c05ee4379790493804ebc13c"
+    },
+    {
+      "original": "t",
+      "method_entries": 1,
+      "source_sha256": "35a011f6dee03b979ceaaea31a5f67ffe85c580092ad242d9e04347502487de6",
+      "original_class_sha256": "ced0dede09e5dae4251ea14a0201c65335149f73d3457bfbe9ce9453f53f2fff"
+    },
+    {
+      "original": "g",
+      "method_entries": 11,
+      "source_sha256": "53613677b4bf60747bc01fb3d87403e6228b1cf8970666300e63a30e57eb35ce",
+      "original_class_sha256": "d669817474a3ba22babd87fbc36d8147f42d2bf7b4e8624716aa2b9aec45e011"
+    },
+    {
+      "original": "l",
+      "method_entries": 14,
+      "source_sha256": "f38824fc36e5abf1e4f6b39062d565e31b26daa9d0cfe399521f119c18fc6c54",
+      "original_class_sha256": "5f9152c584a1c0d1dfe1108d4622a37b95748ba5e3b3e4e5125ce4d4aeee0920"
+    },
+    {
+      "original": "q",
+      "method_entries": 14,
+      "source_sha256": "edc1c6630a3a6a5511c087291638d00895bfa9429fb831f3eeb0f809e97dd64d",
+      "original_class_sha256": "b792dfb0d47c143c9bb22ce32e2f899319bb1b539b9ae017750d65d20a0b67cf"
+    }
+  ],
+  "field_renames": [
+    {
+      "owner": "e",
+      "original": "a",
+      "descriptor": "B",
+      "source_name": "packedHeader"
+    },
+    {
+      "owner": "e",
+      "original": "a",
+      "descriptor": "Z",
+      "source_name": "secondPackedValue"
+    },
+    {
+      "owner": "s",
+      "original": "a",
+      "descriptor": "[Ljava/lang/String;",
+      "source_name": "imageNames"
+    },
+    {
+      "owner": "s",
+      "original": "a",
+      "descriptor": "[Ljavax/microedition/lcdui/Image;",
+      "source_name": "images"
+    },
+    {
+      "owner": "s",
+      "original": "a",
+      "descriptor": "[S",
+      "source_name": "offsetX"
+    },
+    {
+      "owner": "s",
+      "original": "b",
+      "descriptor": "[S",
+      "source_name": "offsetY"
+    },
+    {
+      "owner": "s",
+      "original": "e",
+      "descriptor": "[B",
+      "source_name": "factorY"
+    },
+    {
+      "owner": "g",
+      "original": "a",
+      "descriptor": "Ljavax/microedition/media/Player;",
+      "source_name": "player"
+    },
+    {
+      "owner": "g",
+      "original": "a",
+      "descriptor": "[[B",
+      "source_name": "samples"
+    },
+    {
+      "owner": "g",
+      "original": "a",
+      "descriptor": "[B",
+      "source_name": "formats"
+    },
+    {
+      "owner": "g",
+      "original": "b",
+      "descriptor": "I",
+      "source_name": "capacity"
+    },
+    {
+      "owner": "g",
+      "original": "a",
+      "descriptor": "I",
+      "source_name": "selected"
+    },
+    {
+      "owner": "g",
+      "original": "a",
+      "descriptor": "Z",
+      "source_name": "enabled"
+    },
+    {
+      "owner": "g",
+      "original": "b",
+      "descriptor": "Z",
+      "source_name": "playing"
+    },
+    {
+      "owner": "l",
+      "original": "a",
+      "descriptor": "Ljavax/microedition/lcdui/Image;",
+      "source_name": "atlas"
+    },
+    {
+      "owner": "l",
+      "original": "a",
+      "descriptor": "[B",
+      "source_name": "advances"
+    },
+    {
+      "owner": "l",
+      "original": "a",
+      "descriptor": "B",
+      "source_name": "spaceAdvance"
+    },
+    {
+      "owner": "l",
+      "original": "b",
+      "descriptor": "B",
+      "source_name": "digitBase"
+    },
+    {
+      "owner": "l",
+      "original": "a",
+      "descriptor": "[S",
+      "source_name": "glyphX"
+    },
+    {
+      "owner": "l",
+      "original": "c",
+      "descriptor": "B",
+      "source_name": "atlasY"
+    },
+    {
+      "owner": "l",
+      "original": "b",
+      "descriptor": "[B",
+      "source_name": "glyphWidths"
+    },
+    {
+      "owner": "l",
+      "original": "d",
+      "descriptor": "B",
+      "source_name": "glyphHeight"
+    },
+    {
+      "owner": "l",
+      "original": "c",
+      "descriptor": "[B",
+      "source_name": "strings"
+    },
+    {
+      "owner": "l",
+      "original": "b",
+      "descriptor": "[S",
+      "source_name": "stringOffsets"
+    },
+    {
+      "owner": "l",
+      "original": "a",
+      "descriptor": "[C",
+      "source_name": "charToGlyph"
+    },
+    {
+      "owner": "l",
+      "original": "b",
+      "descriptor": "[C",
+      "source_name": "glyphToChar"
+    },
+    {
+      "owner": "l",
+      "original": "d",
+      "descriptor": "[B",
+      "source_name": "numberScratch"
+    },
+    {
+      "owner": "q",
+      "original": "a",
+      "descriptor": "[S",
+      "source_name": "x"
+    },
+    {
+      "owner": "q",
+      "original": "b",
+      "descriptor": "[S",
+      "source_name": "y"
+    },
+    {
+      "owner": "q",
+      "original": "a",
+      "descriptor": "[I",
+      "source_name": "links"
+    },
+    {
+      "owner": "q",
+      "original": "a",
+      "descriptor": "[B",
+      "source_name": "choices"
+    },
+    {
+      "owner": "b",
+      "original": "a",
+      "descriptor": "Lj;",
+      "source_name": "primary"
+    },
+    {
+      "owner": "b",
+      "original": "a",
+      "descriptor": "Lf;",
+      "source_name": "fallback"
+    },
+    {
+      "owner": "k",
+      "original": "a",
+      "descriptor": "I",
+      "source_name": "width"
+    },
+    {
+      "owner": "k",
+      "original": "b",
+      "descriptor": "I",
+      "source_name": "height"
+    },
+    {
+      "owner": "k",
+      "original": "a",
+      "descriptor": "Ljava/util/Random;",
+      "source_name": "rng"
+    }
+  ],
+  "method_renames": [
+    {
+      "owner": "l",
+      "original": "a",
+      "descriptor": "(II)B",
+      "source_name": "encodedByte"
+    },
+    {
+      "owner": "l",
+      "original": "b",
+      "descriptor": "(II)B",
+      "source_name": "glyphOffsetByte"
+    }
+  ],
+  "support_sources": [
+    "tests/java/NavigationProbe.java",
+    "tests/java/SubsystemProbe.java",
+    "tests/java/subsystem_support/b.java",
+    "tests/java/subsystem_support/f.java",
+    "tests/java/subsystem_support/j.java",
+    "tests/java/subsystem_support/javax/microedition/lcdui/Graphics.java",
+    "tests/java/subsystem_support/javax/microedition/lcdui/Image.java",
+    "tests/java/subsystem_support/javax/microedition/media/Manager.java",
+    "tests/java/subsystem_support/javax/microedition/media/MediaException.java",
+    "tests/java/subsystem_support/javax/microedition/media/Player.java",
+    "tests/java/subsystem_support/javax/microedition/media/PlayerListener.java",
+    "tests/java/subsystem_support/k.java",
+    "tests/java/subsystem_support/o.java"
+  ],
+  "resource_hashes": {
+    "fnt1.font": "7860dccabc7318ce2ee73084e1cce6b582a827dfa4c7ca994659f1c1d4aa1e34",
+    "fnt1.def": "efddf9ed5378e702fb26c7c3f951f46eea8358651de2db9d8f4857bed08c0465",
+    "pics/fnt1.png": "ec24b10778894250cd7af5431392567a3281edf764bbba14d9a2f6ea69aed1f0",
+    "en.bin": "6380a0e4ba3357e2a13e1873e2999fa8b549d5eb427e7ae57dcd41621090a54a",
+    "de.bin": "00258cd944a55778081040a7c3ef51f59ff8f9fcf4e72fdc6e20a0cd0ae8c568",
+    "fr.bin": "e7c540c18161d37cc45f07d8cfb8b5d8100fee1a622340f3939d22899c634fb0",
+    "it.bin": "95025a8b54afe3428656011fd41fd23d0fa631289c955a6e5b64f56e1bbe39c1",
+    "es.bin": "bd90aad1f57db4ea8f1d544428fa66a130438c622ae521b1cae797e6cca9f3fc",
+    "common.bin": "452529f5ee583ff1214458ea5893c9c0b24b3cd6c34efdce903bb4910d81327d",
+    "Sound/theme.mid": "fa9e861f807f96cc7c84716c815c969f52a1c30694a1d58bed207d592b6b25da",
+    "Sound/select.amr": "94bb3ab8ae3f01c4f6fc2a780630082b25b8ba68ca0a5edf9e05f8ebb0b1be18"
+  }
+}

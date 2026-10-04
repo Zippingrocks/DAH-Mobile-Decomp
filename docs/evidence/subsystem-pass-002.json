@@ -1,0 +1,91 @@
+{
+  "calls_per_side": 172170,
+  "candidate_sha256": "5305b3346e7bd204aaf867d733543a6eb5cdb85387ffe87f221452ff7ef0a57c",
+  "groups": {
+    "audio-fault-matrix": {
+      "calls_per_side": 1355,
+      "trace_sha256": "6754b22b29bfb5eec230388094787e15e41904593216d96df71ff273a39c9c82"
+    },
+    "audio-resources-and-resize": {
+      "calls_per_side": 63,
+      "trace_sha256": "e60d113b025de63979972057f49121a413a41ffe72b31b2b5aaad6c44e7f9c43"
+    },
+    "audio-scripted-lifecycle": {
+      "calls_per_side": 14160,
+      "trace_sha256": "f27204078d4055e2a6365f0329ff8dc9a139aa7a6eb18883ac06f59bccbaf646"
+    },
+    "font-construction-and-partial-reads": {
+      "calls_per_side": 381,
+      "trace_sha256": "62765c2f6f2bc31617fd70183fcdeaa38219725515d3a3037539f61559aef7fa"
+    },
+    "font-layout-boundaries-and-exceptions": {
+      "calls_per_side": 1303,
+      "trace_sha256": "3018a33e4ad19485983488acbe152a460c685eb71b9038af28ae022703eacacc"
+    },
+    "font-measurement-and-token-access": {
+      "calls_per_side": 13540,
+      "trace_sha256": "954daed6a23a9ebfc25dca77bffeaddd51b28a5381477468bf80b0c49e0c7368"
+    },
+    "font-number-formatting": {
+      "calls_per_side": 14281,
+      "trace_sha256": "128621d7b7c0220d7085974738128e3a752dfc937d4bfe7516c07831a321209a"
+    },
+    "font-real-text-raster-and-command-traces": {
+      "calls_per_side": 404,
+      "trace_sha256": "83bdedcda0b47409d770c528bc7a7e6db75890c831f1fb2ba6495852f03ac1d1"
+    },
+    "font-text-tables-and-failures": {
+      "calls_per_side": 84,
+      "trace_sha256": "65ad522853de304130dd794c888020d18fad86f2140e9a2675b3862282fe76e8"
+    },
+    "navigation-loading-and-partial-state": {
+      "calls_per_side": 1486,
+      "trace_sha256": "45d31631d36a6a70cfd754fa832cad020f0b555d3aaee2030817c623a8124e72"
+    },
+    "navigation-packed-links-and-random-selection": {
+      "calls_per_side": 100025,
+      "trace_sha256": "249884c390fbcccd6d29c16bf225abcfda09af298eedcc47b2e01c8e62104948"
+    },
+    "navigation-spatial-queries-and-boundaries": {
+      "calls_per_side": 25088,
+      "trace_sha256": "a821fad5eca9ba01755ca87ed1c5af734673f86b20414c71fea00f581a541617"
+    }
+  },
+  "javac": "javac 21.0.11",
+  "method_entries": {
+    "e": 13,
+    "g": 11,
+    "l": 14,
+    "q": 14,
+    "s": 5,
+    "t": 1
+  },
+  "original_sha256": "2e03916ea4a5260960e5e57e4dbe0778fb9b577439eac0ce94a685cfecdaaf5f",
+  "runner_sha256": "b68869f59fe503c20ea550b5078fdbdbf4992fc8480daa909710387dc27ed623",
+  "schema_version": 1,
+  "scope": "six-class component artifact; audio/font/navigation observations under test support, not full game fidelity",
+  "source_hashes": {
+    "e.java": "2f8c305c5cde7ab9440b72a70be779e3a74b910e708167f67812089a60fc30e9",
+    "g.java": "53613677b4bf60747bc01fb3d87403e6228b1cf8970666300e63a30e57eb35ce",
+    "l.java": "f38824fc36e5abf1e4f6b39062d565e31b26daa9d0cfe399521f119c18fc6c54",
+    "q.java": "edc1c6630a3a6a5511c087291638d00895bfa9429fb831f3eeb0f809e97dd64d",
+    "s.java": "9806bff4743bf41c8adf164812b78680ac2d84678f2f02e921df7b3a8e044302",
+    "t.java": "35a011f6dee03b979ceaaea31a5f67ffe85c580092ad242d9e04347502487de6"
+  },
+  "support_hashes": {
+    "tests/java/NavigationProbe.java": "a6c7ae4696f70f1e3b5bf8a688f0ef94eeee5ec075151d6fccb8a06df6143d15",
+    "tests/java/SubsystemProbe.java": "0bcc250dcc3fc92557f2985cf88e18cbf4c5f53f1f602a16f4f3298a665abf7d",
+    "tests/java/subsystem_support/b.java": "7d5158c133d2f043d446f0fca06cb3fba0beb7daa265c88ae632622f60351b83",
+    "tests/java/subsystem_support/f.java": "b2204262280e999d18c6729127f5f75650e1b9687ca4d0a6ca6bf111a2c6fea1",
+    "tests/java/subsystem_support/j.java": "d094773ec16e2ddf5c7e1e2749a2d774c610390f135594cde5aa155d3c0b8830",
+    "tests/java/subsystem_support/javax/microedition/lcdui/Graphics.java": "4a2d5f890c9f5758e1a6cb970c72ed726ff0fd2e28352a5d2b1b3fbb87187817",
+    "tests/java/subsystem_support/javax/microedition/lcdui/Image.java": "5e852a310ecd80f37d51357ba5386102b797016888b8121be4521c8b346f0b59",
+    "tests/java/subsystem_support/javax/microedition/media/Manager.java": "1372df9aa61bacefc5e3889801afdb8b2a631b15cadab6e97e312e25a6680695",
+    "tests/java/subsystem_support/javax/microedition/media/MediaException.java": "293eb56d8742d0f66412526f69c390bb85f4706d943981e9a74f3b616275a8fc",
+    "tests/java/subsystem_support/javax/microedition/media/Player.java": "42307c70fc54d4d95d2379a4b73022173adc39fc90f0a7f0b9f24a617f72ffc0",
+    "tests/java/subsystem_support/javax/microedition/media/PlayerListener.java": "d2ce4d1729831fdd88f712b611b6750de55a62b3a633fbf9b9d876e8ed745373",
+    "tests/java/subsystem_support/k.java": "67d85d32b0108694257676d90bd2777a7c6a3c6c719eb568f71d49702854e0db",
+    "tests/java/subsystem_support/o.java": "d5ea02a18703c2dcf17d9c277b457994600beed76e3ffc980f040ca058b9182c"
+  },
+  "target_id": "dah1-j2me-en-v1.2.0"
+}
