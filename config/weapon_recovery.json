@@ -1,0 +1,1233 @@
+{
+  "schema_version": 1,
+  "target_id": "dah1-j2me-en-v1.2.0",
+  "scope": "seventeen source components, weapon/saucer and lifecycle probes; four remaining game classes and platform services are not recovered by this runner",
+  "components": [
+    {
+      "original": "e",
+      "method_entries": 13,
+      "source_sha256": "2f8c305c5cde7ab9440b72a70be779e3a74b910e708167f67812089a60fc30e9",
+      "original_class_sha256": "104ed338b2f868c51ea7c1bd8a3965bdd5c41b7ce19fa1d23a648b83bcb450d0"
+    },
+    {
+      "original": "s",
+      "method_entries": 5,
+      "source_sha256": "9806bff4743bf41c8adf164812b78680ac2d84678f2f02e921df7b3a8e044302",
+      "original_class_sha256": "e5c333feba4c237b0fdf50d2edc7acd637577b87c05ee4379790493804ebc13c"
+    },
+    {
+      "original": "t",
+      "method_entries": 1,
+      "source_sha256": "35a011f6dee03b979ceaaea31a5f67ffe85c580092ad242d9e04347502487de6",
+      "original_class_sha256": "ced0dede09e5dae4251ea14a0201c65335149f73d3457bfbe9ce9453f53f2fff"
+    },
+    {
+      "original": "g",
+      "method_entries": 11,
+      "source_sha256": "53613677b4bf60747bc01fb3d87403e6228b1cf8970666300e63a30e57eb35ce",
+      "original_class_sha256": "d669817474a3ba22babd87fbc36d8147f42d2bf7b4e8624716aa2b9aec45e011"
+    },
+    {
+      "original": "l",
+      "method_entries": 14,
+      "source_sha256": "f38824fc36e5abf1e4f6b39062d565e31b26daa9d0cfe399521f119c18fc6c54",
+      "original_class_sha256": "5f9152c584a1c0d1dfe1108d4622a37b95748ba5e3b3e4e5125ce4d4aeee0920"
+    },
+    {
+      "original": "q",
+      "method_entries": 14,
+      "source_sha256": "edc1c6630a3a6a5511c087291638d00895bfa9429fb831f3eeb0f809e97dd64d",
+      "original_class_sha256": "b792dfb0d47c143c9bb22ce32e2f899319bb1b539b9ae017750d65d20a0b67cf"
+    },
+    {
+      "original": "a",
+      "method_entries": 8,
+      "source_sha256": "9b1869b9181dd9c50804d088b858d0d5e77e1528142442b1c98a7f515e189d68",
+      "original_class_sha256": "ebd0311c1bb37271bc1386392cbb944a39ef5364fb9fc3d138474bed2f505d52"
+    },
+    {
+      "original": "o",
+      "method_entries": 7,
+      "source_sha256": "1d0def51539f26c99aab761cdf7ccdc0d619748e3589add7d34025309fa49e9c",
+      "original_class_sha256": "fc5903563117118dc17a3b8be82e634a188ae92ed346547551d782578dac4ad3"
+    },
+    {
+      "original": "h",
+      "method_entries": 3,
+      "source_sha256": "e9f6b75f6d7ce4eb19cc9a34cc256da1053e605a0cd137163038192e3632ce80",
+      "original_class_sha256": "15e5fd3540e9aaaf903d830165f2aedad2b8992b07729943680ba9bef849be66"
+    },
+    {
+      "original": "i",
+      "method_entries": 11,
+      "source_sha256": "e503827016869eb353251ecf077af2449fa480eaa5e5ef28ee33a88a9872cf87",
+      "original_class_sha256": "1abadce65f6fbea1c382173c0657ef6179387346456c014fb1a0256943b4743f"
+    },
+    {
+      "original": "m",
+      "method_entries": 4,
+      "source_sha256": "790ca3776979782cece0527838b5342a337263d3fc1f967a13efaa47532c93c4",
+      "original_class_sha256": "630fe5c76f56b6d285ba322ccb28328ed431798210679043225535a2ee82d77a"
+    },
+    {
+      "original": "n",
+      "method_entries": 21,
+      "source_sha256": "f315558e4cb54ac408ef768acabfc50fc6e36782414f11e5ced09a1a12d67f21",
+      "original_class_sha256": "f27dc574179732ef2370930ae575eb1f925a478455329cd41463737ed1068722",
+      "source_path": "src/game/n.java"
+    },
+    {
+      "original": "d",
+      "method_entries": 10,
+      "source_sha256": "5799d877e7cc97e4238fd4a1c4263aece790c14786c68b12b0438582d3df5443",
+      "original_class_sha256": "3685514f0ccc061ce24faabd43d5a4e065ad320ce3ba8cd183f7457369941f63",
+      "source_path": "src/game/d.java"
+    },
+    {
+      "original": "r",
+      "method_entries": 2,
+      "source_sha256": "13a2cdc29f90c43ad7c7c3ee27708eee8d9889fcb6416b5bdcc03d89909bc703",
+      "original_class_sha256": "0e7cc6de41ddf42dc6810204150f5d8abe67f7eb8464090790c13beedadfdd1b",
+      "source_path": "src/game/r.java"
+    },
+    {
+      "original": "c",
+      "method_entries": 11,
+      "source_sha256": "490928eb9564376de8ea71d8ab84bbced6ee6f8fe3fd9f6c76d239ad4808981f",
+      "original_class_sha256": "fc6fbaabdbdf01a555ca1bcec28cb3efa41a0ca34bfa5c5dae0c996a423938b8"
+    },
+    {
+      "original": "f",
+      "method_entries": 11,
+      "source_sha256": "3fddc003983eea2a7e2f388513a077d60a4b457e43cf08406a4777bc2e7488e9",
+      "original_class_sha256": "49309acc4e845339f4ce856cf5ab71d52187062a4e3bebf70dcb78d079915ea1"
+    },
+    {
+      "original": "GameMidlet",
+      "method_entries": 5,
+      "source_sha256": "4571081041663a940b1056fb6483aec9d73b1c7243ab4d021e13a25f2acfc8d3",
+      "original_class_sha256": "e84867a4832f8d39ac2c9aea44bb233d5931df860f0239e69608ca4b896fce2c"
+    }
+  ],
+  "field_renames": [
+    {
+      "owner": "e",
+      "original": "a",
+      "descriptor": "B",
+      "source_name": "packedHeader"
+    },
+    {
+      "owner": "e",
+      "original": "a",
+      "descriptor": "Z",
+      "source_name": "secondPackedValue"
+    },
+    {
+      "owner": "s",
+      "original": "a",
+      "descriptor": "[Ljava/lang/String;",
+      "source_name": "imageNames"
+    },
+    {
+      "owner": "s",
+      "original": "a",
+      "descriptor": "[Ljavax/microedition/lcdui/Image;",
+      "source_name": "images"
+    },
+    {
+      "owner": "s",
+      "original": "a",
+      "descriptor": "[S",
+      "source_name": "offsetX"
+    },
+    {
+      "owner": "s",
+      "original": "b",
+      "descriptor": "[S",
+      "source_name": "offsetY"
+    },
+    {
+      "owner": "s",
+      "original": "e",
+      "descriptor": "[B",
+      "source_name": "factorY"
+    },
+    {
+      "owner": "g",
+      "original": "a",
+      "descriptor": "Ljavax/microedition/media/Player;",
+      "source_name": "player"
+    },
+    {
+      "owner": "g",
+      "original": "a",
+      "descriptor": "[[B",
+      "source_name": "samples"
+    },
+    {
+      "owner": "g",
+      "original": "a",
+      "descriptor": "[B",
+      "source_name": "formats"
+    },
+    {
+      "owner": "g",
+      "original": "b",
+      "descriptor": "I",
+      "source_name": "capacity"
+    },
+    {
+      "owner": "g",
+      "original": "a",
+      "descriptor": "I",
+      "source_name": "selected"
+    },
+    {
+      "owner": "g",
+      "original": "a",
+      "descriptor": "Z",
+      "source_name": "enabled"
+    },
+    {
+      "owner": "g",
+      "original": "b",
+      "descriptor": "Z",
+      "source_name": "playing"
+    },
+    {
+      "owner": "l",
+      "original": "a",
+      "descriptor": "Ljavax/microedition/lcdui/Image;",
+      "source_name": "atlas"
+    },
+    {
+      "owner": "l",
+      "original": "a",
+      "descriptor": "[B",
+      "source_name": "advances"
+    },
+    {
+      "owner": "l",
+      "original": "a",
+      "descriptor": "B",
+      "source_name": "spaceAdvance"
+    },
+    {
+      "owner": "l",
+      "original": "b",
+      "descriptor": "B",
+      "source_name": "digitBase"
+    },
+    {
+      "owner": "l",
+      "original": "a",
+      "descriptor": "[S",
+      "source_name": "glyphX"
+    },
+    {
+      "owner": "l",
+      "original": "c",
+      "descriptor": "B",
+      "source_name": "atlasY"
+    },
+    {
+      "owner": "l",
+      "original": "b",
+      "descriptor": "[B",
+      "source_name": "glyphWidths"
+    },
+    {
+      "owner": "l",
+      "original": "d",
+      "descriptor": "B",
+      "source_name": "glyphHeight"
+    },
+    {
+      "owner": "l",
+      "original": "c",
+      "descriptor": "[B",
+      "source_name": "strings"
+    },
+    {
+      "owner": "l",
+      "original": "b",
+      "descriptor": "[S",
+      "source_name": "stringOffsets"
+    },
+    {
+      "owner": "l",
+      "original": "a",
+      "descriptor": "[C",
+      "source_name": "charToGlyph"
+    },
+    {
+      "owner": "l",
+      "original": "b",
+      "descriptor": "[C",
+      "source_name": "glyphToChar"
+    },
+    {
+      "owner": "l",
+      "original": "d",
+      "descriptor": "[B",
+      "source_name": "numberScratch"
+    },
+    {
+      "owner": "q",
+      "original": "a",
+      "descriptor": "[S",
+      "source_name": "x"
+    },
+    {
+      "owner": "q",
+      "original": "b",
+      "descriptor": "[S",
+      "source_name": "y"
+    },
+    {
+      "owner": "q",
+      "original": "a",
+      "descriptor": "[I",
+      "source_name": "links"
+    },
+    {
+      "owner": "q",
+      "original": "a",
+      "descriptor": "[B",
+      "source_name": "choices"
+    },
+    {
+      "owner": "b",
+      "original": "a",
+      "descriptor": "Lj;",
+      "source_name": "primary"
+    },
+    {
+      "owner": "b",
+      "original": "a",
+      "descriptor": "Lf;",
+      "source_name": "fallback"
+    },
+    {
+      "owner": "k",
+      "original": "a",
+      "descriptor": "I",
+      "source_name": "width"
+    },
+    {
+      "owner": "k",
+      "original": "b",
+      "descriptor": "I",
+      "source_name": "height"
+    },
+    {
+      "owner": "k",
+      "original": "a",
+      "descriptor": "Ljava/util/Random;",
+      "source_name": "rng"
+    },
+    {
+      "owner": "a",
+      "original": "a",
+      "descriptor": "[Ljava/lang/String;",
+      "source_name": "imageNames"
+    },
+    {
+      "owner": "a",
+      "original": "a",
+      "descriptor": "[Ljavax/microedition/lcdui/Image;",
+      "source_name": "images"
+    },
+    {
+      "owner": "a",
+      "original": "a",
+      "descriptor": "Z",
+      "source_name": "alternateCycle"
+    },
+    {
+      "owner": "a",
+      "original": "b",
+      "descriptor": "Z",
+      "source_name": "loops"
+    },
+    {
+      "owner": "a",
+      "original": "a",
+      "descriptor": "S",
+      "source_name": "lastFrame"
+    },
+    {
+      "owner": "a",
+      "original": "b",
+      "descriptor": "S",
+      "source_name": "frameCount"
+    },
+    {
+      "owner": "a",
+      "original": "a",
+      "descriptor": "B",
+      "source_name": "frame"
+    },
+    {
+      "owner": "a",
+      "original": "a",
+      "descriptor": "I",
+      "source_name": "x"
+    },
+    {
+      "owner": "a",
+      "original": "b",
+      "descriptor": "I",
+      "source_name": "y"
+    },
+    {
+      "owner": "a",
+      "original": "b",
+      "descriptor": "B",
+      "source_name": "kind"
+    },
+    {
+      "owner": "a",
+      "original": "c",
+      "descriptor": "B",
+      "source_name": "delay"
+    },
+    {
+      "owner": "a",
+      "original": "d",
+      "descriptor": "B",
+      "source_name": "tick"
+    },
+    {
+      "owner": "a",
+      "original": "a",
+      "descriptor": "J",
+      "source_name": "started"
+    },
+    {
+      "owner": "a",
+      "original": "b",
+      "descriptor": "J",
+      "source_name": "duration"
+    },
+    {
+      "owner": "a",
+      "original": "e",
+      "descriptor": "B",
+      "source_name": "imageId"
+    },
+    {
+      "owner": "a",
+      "original": "a",
+      "descriptor": "Ljava/util/Vector;",
+      "source_name": "frames"
+    },
+    {
+      "owner": "a",
+      "original": "b",
+      "descriptor": "Ljava/util/Vector;",
+      "source_name": "templates"
+    },
+    {
+      "owner": "a",
+      "original": "c",
+      "descriptor": "Z",
+      "source_name": "loaded"
+    },
+    {
+      "owner": "o",
+      "original": "b",
+      "descriptor": "Lj;",
+      "source_name": "ownerActor"
+    },
+    {
+      "owner": "o",
+      "original": "c",
+      "descriptor": "La;",
+      "source_name": "effect"
+    },
+    {
+      "owner": "o",
+      "original": "o",
+      "descriptor": "I",
+      "source_name": "riseLimit"
+    },
+    {
+      "owner": "h",
+      "original": "a",
+      "descriptor": "B",
+      "source_name": "phase"
+    },
+    {
+      "owner": "h",
+      "original": "a",
+      "descriptor": "Ljavax/microedition/lcdui/Image;",
+      "source_name": "image"
+    },
+    {
+      "owner": "i",
+      "original": "a",
+      "descriptor": "Ljavax/microedition/lcdui/Image;",
+      "source_name": "image"
+    },
+    {
+      "owner": "m",
+      "original": "a",
+      "descriptor": "Lo;",
+      "source_name": "child"
+    },
+    {
+      "owner": "m",
+      "original": "a",
+      "descriptor": "[B",
+      "source_name": "spawns"
+    },
+    {
+      "owner": "m",
+      "original": "a",
+      "descriptor": "B",
+      "source_name": "spawnCount"
+    },
+    {
+      "owner": "b",
+      "original": "a",
+      "descriptor": "B",
+      "source_name": "mode"
+    },
+    {
+      "owner": "b",
+      "original": "a",
+      "descriptor": "S",
+      "source_name": "score"
+    },
+    {
+      "owner": "b",
+      "original": "b",
+      "descriptor": "Lj;",
+      "source_name": "player"
+    },
+    {
+      "owner": "b",
+      "original": "b",
+      "descriptor": "Ljavax/microedition/lcdui/Image;",
+      "source_name": "hud"
+    },
+    {
+      "owner": "k",
+      "original": "a",
+      "descriptor": "Ljavax/microedition/lcdui/Graphics;",
+      "source_name": "graphics"
+    },
+    {
+      "owner": "k",
+      "original": "a",
+      "descriptor": "Ll;",
+      "source_name": "font"
+    },
+    {
+      "owner": "k",
+      "original": "a",
+      "descriptor": "Lg;",
+      "source_name": "sound"
+    },
+    {
+      "owner": "j",
+      "original": "b",
+      "descriptor": "S",
+      "source_name": "shield"
+    },
+    {
+      "owner": "j",
+      "original": "a",
+      "descriptor": "[B",
+      "source_name": "ammo"
+    },
+    {
+      "owner": "c",
+      "original": "a",
+      "descriptor": "[B",
+      "source_name": "ammo"
+    },
+    {
+      "owner": "c",
+      "original": "a",
+      "descriptor": "Ljavax/microedition/lcdui/Image;",
+      "source_name": "image"
+    },
+    {
+      "owner": "n",
+      "original": "a",
+      "descriptor": "Ljava/util/Vector;",
+      "source_name": "entities"
+    },
+    {
+      "owner": "n",
+      "original": "b",
+      "descriptor": "Ljava/util/Vector;",
+      "source_name": "decorations"
+    },
+    {
+      "owner": "n",
+      "original": "a",
+      "descriptor": "Z",
+      "source_name": "needsSort"
+    },
+    {
+      "owner": "n",
+      "original": "a",
+      "descriptor": "I",
+      "source_name": "originX"
+    },
+    {
+      "owner": "n",
+      "original": "b",
+      "descriptor": "I",
+      "source_name": "originY"
+    },
+    {
+      "owner": "n",
+      "original": "a",
+      "descriptor": "Lo;",
+      "source_name": "current"
+    },
+    {
+      "owner": "d",
+      "original": "a",
+      "descriptor": "[Ljava/lang/String;",
+      "source_name": "imagePaths"
+    },
+    {
+      "owner": "d",
+      "original": "a",
+      "descriptor": "[[S",
+      "source_name": "pieces"
+    },
+    {
+      "owner": "d",
+      "original": "a",
+      "descriptor": "[[[S",
+      "source_name": "parts"
+    },
+    {
+      "owner": "d",
+      "original": "b",
+      "descriptor": "[[[S",
+      "source_name": "buildings"
+    },
+    {
+      "owner": "d",
+      "original": "a",
+      "descriptor": "[Ljavax/microedition/lcdui/Image;",
+      "source_name": "images"
+    },
+    {
+      "owner": "d",
+      "original": "a",
+      "descriptor": "Z",
+      "source_name": "loaded"
+    },
+    {
+      "owner": "d",
+      "original": "a",
+      "descriptor": "I",
+      "source_name": "type"
+    },
+    {
+      "owner": "d",
+      "original": "b",
+      "descriptor": "I",
+      "source_name": "x"
+    },
+    {
+      "owner": "d",
+      "original": "c",
+      "descriptor": "I",
+      "source_name": "y"
+    },
+    {
+      "owner": "d",
+      "original": "a",
+      "descriptor": "[Lr;",
+      "source_name": "sections"
+    },
+    {
+      "owner": "d",
+      "original": "a",
+      "descriptor": "[B",
+      "source_name": "variations"
+    },
+    {
+      "owner": "r",
+      "original": "a",
+      "descriptor": "Ld;",
+      "source_name": "building"
+    },
+    {
+      "owner": "r",
+      "original": "a",
+      "descriptor": "B",
+      "source_name": "partIndex"
+    },
+    {
+      "owner": "r",
+      "original": "a",
+      "descriptor": "I",
+      "source_name": "width"
+    },
+    {
+      "owner": "r",
+      "original": "b",
+      "descriptor": "I",
+      "source_name": "height"
+    },
+    {
+      "owner": "j",
+      "original": "g",
+      "descriptor": "B",
+      "source_name": "state"
+    },
+    {
+      "owner": "j",
+      "original": "c",
+      "descriptor": "S",
+      "source_name": "collisionTimer"
+    },
+    {
+      "owner": "j",
+      "original": "a",
+      "descriptor": "S",
+      "source_name": "stateTimer"
+    },
+    {
+      "owner": "j",
+      "original": "a",
+      "descriptor": "Lc;",
+      "source_name": "weapon"
+    },
+    {
+      "owner": "j",
+      "original": "b",
+      "descriptor": "La;",
+      "source_name": "secondaryEffect"
+    },
+    {
+      "owner": "b",
+      "original": "e",
+      "descriptor": "I",
+      "source_name": "hitFraction"
+    },
+    {
+      "owner": "b",
+      "original": "g",
+      "descriptor": "S",
+      "source_name": "cellWidth"
+    },
+    {
+      "owner": "b",
+      "original": "f",
+      "descriptor": "S",
+      "source_name": "cellHeight"
+    },
+    {
+      "owner": "b",
+      "original": "a",
+      "descriptor": "[Lo;",
+      "source_name": "transfers"
+    },
+    {
+      "owner": "b",
+      "original": "b",
+      "descriptor": "B",
+      "source_name": "transferCount"
+    },
+    {
+      "owner": "c",
+      "original": "b",
+      "descriptor": "[B",
+      "source_name": "bTable"
+    },
+    {
+      "owner": "c",
+      "original": "a",
+      "descriptor": "I",
+      "source_name": "aValue"
+    },
+    {
+      "owner": "c",
+      "original": "a",
+      "descriptor": "Z",
+      "source_name": "special"
+    },
+    {
+      "owner": "c",
+      "original": "b",
+      "descriptor": "I",
+      "source_name": "screenX"
+    },
+    {
+      "owner": "c",
+      "original": "c",
+      "descriptor": "I",
+      "source_name": "screenY"
+    },
+    {
+      "owner": "c",
+      "original": "a",
+      "descriptor": "Lj;",
+      "source_name": "owner"
+    },
+    {
+      "owner": "c",
+      "original": "a",
+      "descriptor": "Lo;",
+      "source_name": "target"
+    },
+    {
+      "owner": "c",
+      "original": "d",
+      "descriptor": "I",
+      "source_name": "targetX"
+    },
+    {
+      "owner": "c",
+      "original": "e",
+      "descriptor": "I",
+      "source_name": "targetY"
+    },
+    {
+      "owner": "c",
+      "original": "f",
+      "descriptor": "I",
+      "source_name": "fixedX"
+    },
+    {
+      "owner": "c",
+      "original": "g",
+      "descriptor": "I",
+      "source_name": "fixedY"
+    },
+    {
+      "owner": "c",
+      "original": "h",
+      "descriptor": "I",
+      "source_name": "weaponType"
+    },
+    {
+      "owner": "c",
+      "original": "b",
+      "descriptor": "Z",
+      "source_name": "hit"
+    },
+    {
+      "owner": "c",
+      "original": "i",
+      "descriptor": "I",
+      "source_name": "stepX"
+    },
+    {
+      "owner": "c",
+      "original": "j",
+      "descriptor": "I",
+      "source_name": "stepY"
+    },
+    {
+      "owner": "c",
+      "original": "a",
+      "descriptor": "La;",
+      "source_name": "attackEffect"
+    },
+    {
+      "owner": "c",
+      "original": "b",
+      "descriptor": "La;",
+      "source_name": "impactEffect"
+    },
+    {
+      "owner": "c",
+      "original": "c",
+      "descriptor": "La;",
+      "source_name": "projectileEffect"
+    },
+    {
+      "owner": "c",
+      "original": "d",
+      "descriptor": "La;",
+      "source_name": "sideEffectA"
+    },
+    {
+      "owner": "c",
+      "original": "e",
+      "descriptor": "La;",
+      "source_name": "sideEffectB"
+    },
+    {
+      "owner": "c",
+      "original": "a",
+      "descriptor": "B",
+      "source_name": "soundIndex"
+    },
+    {
+      "owner": "c",
+      "original": "k",
+      "descriptor": "I",
+      "source_name": "targetState"
+    },
+    {
+      "owner": "c",
+      "original": "l",
+      "descriptor": "I",
+      "source_name": "speed"
+    },
+    {
+      "owner": "f",
+      "original": "a",
+      "descriptor": "I",
+      "source_name": "shieldPower"
+    },
+    {
+      "owner": "f",
+      "original": "a",
+      "descriptor": "Z",
+      "source_name": "visible"
+    },
+    {
+      "owner": "f",
+      "original": "b",
+      "descriptor": "Z",
+      "source_name": "unavailable"
+    },
+    {
+      "owner": "f",
+      "original": "a",
+      "descriptor": "Lj;",
+      "source_name": "occupant"
+    },
+    {
+      "owner": "f",
+      "original": "a",
+      "descriptor": "B",
+      "source_name": "driftStep"
+    },
+    {
+      "owner": "f",
+      "original": "b",
+      "descriptor": "B",
+      "source_name": "reticleDirection"
+    },
+    {
+      "owner": "f",
+      "original": "c",
+      "descriptor": "B",
+      "source_name": "reticleStep"
+    },
+    {
+      "owner": "f",
+      "original": "b",
+      "descriptor": "I",
+      "source_name": "driftX"
+    },
+    {
+      "owner": "f",
+      "original": "c",
+      "descriptor": "I",
+      "source_name": "driftY"
+    },
+    {
+      "owner": "f",
+      "original": "a",
+      "descriptor": "Ljavax/microedition/lcdui/Image;",
+      "source_name": "image"
+    },
+    {
+      "owner": "GameMidlet",
+      "original": "a",
+      "descriptor": "Ljavax/microedition/lcdui/Display;",
+      "source_name": "display"
+    },
+    {
+      "owner": "GameMidlet",
+      "original": "a",
+      "descriptor": "Lk;",
+      "source_name": "controller"
+    },
+    {
+      "owner": "GameMidlet",
+      "original": "a",
+      "descriptor": "I",
+      "source_name": "starts"
+    },
+    {
+      "owner": "j",
+      "original": "e",
+      "descriptor": "I",
+      "source_name": "weaponId"
+    },
+    {
+      "owner": "j",
+      "original": "d",
+      "descriptor": "Z",
+      "source_name": "disguise"
+    },
+    {
+      "owner": "j",
+      "original": "d",
+      "descriptor": "I",
+      "source_name": "disguiseType"
+    },
+    {
+      "owner": "j",
+      "original": "j",
+      "descriptor": "I",
+      "source_name": "globalTimer"
+    },
+    {
+      "owner": "j",
+      "original": "a",
+      "descriptor": "La;",
+      "source_name": "primaryEffect"
+    },
+    {
+      "owner": "b",
+      "original": "d",
+      "descriptor": "S",
+      "source_name": "worldHeight"
+    },
+    {
+      "owner": "b",
+      "original": "h",
+      "descriptor": "S",
+      "source_name": "columns"
+    },
+    {
+      "owner": "b",
+      "original": "i",
+      "descriptor": "S",
+      "source_name": "rows"
+    },
+    {
+      "owner": "b",
+      "original": "a",
+      "descriptor": "[Ln;",
+      "source_name": "cells"
+    },
+    {
+      "owner": "b",
+      "original": "k",
+      "descriptor": "B",
+      "source_name": "scrollStep"
+    },
+    {
+      "owner": "b",
+      "original": "j",
+      "descriptor": "I",
+      "source_name": "scrollExtra"
+    },
+    {
+      "owner": "b",
+      "original": "f",
+      "descriptor": "Z",
+      "source_name": "scrollFinished"
+    }
+  ],
+  "method_renames": [
+    {
+      "owner": "l",
+      "original": "a",
+      "descriptor": "(II)B",
+      "source_name": "encodedByte"
+    },
+    {
+      "owner": "l",
+      "original": "b",
+      "descriptor": "(II)B",
+      "source_name": "glyphOffsetByte"
+    },
+    {
+      "owner": "o",
+      "original": "a",
+      "descriptor": "(I)Z",
+      "source_name": "isActorType"
+    },
+    {
+      "owner": "n",
+      "original": "a",
+      "descriptor": "(Lo;)Z",
+      "source_name": "isVisible"
+    },
+    {
+      "owner": "n",
+      "original": "a",
+      "descriptor": "(Lo;)Lo;",
+      "source_name": "nearby"
+    },
+    {
+      "owner": "n",
+      "original": "a",
+      "descriptor": "(IIIIIIII)I",
+      "source_name": "rayEntry"
+    },
+    {
+      "owner": "n",
+      "original": "a",
+      "descriptor": "()I",
+      "source_name": "drawNext"
+    },
+    {
+      "owner": "n",
+      "original": "b",
+      "descriptor": "()I",
+      "source_name": "firstVisible"
+    },
+    {
+      "owner": "j",
+      "original": "a",
+      "descriptor": "(II)V",
+      "source_name": "transform"
+    }
+  ],
+  "support_sources": [
+    "tests/java/WeaponProbe.java",
+    "tests/java/weapon_support/b.java",
+    "tests/java/weapon_support/j.java",
+    "tests/java/weapon_support/k.java",
+    "tests/java/weapon_support/javax/microedition/lcdui/Graphics.java",
+    "tests/java/weapon_support/javax/microedition/lcdui/Display.java",
+    "tests/java/weapon_support/javax/microedition/lcdui/Displayable.java",
+    "tests/java/weapon_support/javax/microedition/midlet/MIDlet.java",
+    "tests/java/weapon_support/javax/microedition/midlet/MIDletStateChangeException.java",
+    "tests/java/subsystem_support/javax/microedition/lcdui/Image.java",
+    "tests/java/subsystem_support/javax/microedition/media/Manager.java",
+    "tests/java/subsystem_support/javax/microedition/media/MediaException.java",
+    "tests/java/subsystem_support/javax/microedition/media/Player.java",
+    "tests/java/subsystem_support/javax/microedition/media/PlayerListener.java"
+  ],
+  "resource_hashes": {
+    "Sound/select.amr": "94bb3ab8ae3f01c4f6fc2a780630082b25b8ba68ca0a5edf9e05f8ebb0b1be18",
+    "Sound/theme.mid": "fa9e861f807f96cc7c84716c815c969f52a1c30694a1d58bed207d592b6b25da",
+    "common.bin": "452529f5ee583ff1214458ea5893c9c0b24b3cd6c34efdce903bb4910d81327d",
+    "data/effects.dat": "4aeab9615a080a544b15aca1d89e62a7c6f5c7258fa8cf26739695f67fa3699e",
+    "data/objects.dat": "4de7398ab62653c64cc763fa5f97f1ba96c562800d1ad3687f096a21c33eaa33",
+    "de.bin": "00258cd944a55778081040a7c3ef51f59ff8f9fcf4e72fdc6e20a0cd0ae8c568",
+    "en.bin": "6380a0e4ba3357e2a13e1873e2999fa8b549d5eb427e7ae57dcd41621090a54a",
+    "es.bin": "bd90aad1f57db4ea8f1d544428fa66a130438c622ae521b1cae797e6cca9f3fc",
+    "fnt1.def": "efddf9ed5378e702fb26c7c3f951f46eea8358651de2db9d8f4857bed08c0465",
+    "fnt1.font": "7860dccabc7318ce2ee73084e1cce6b582a827dfa4c7ca994659f1c1d4aa1e34",
+    "fr.bin": "e7c540c18161d37cc45f07d8cfb8b5d8100fee1a622340f3939d22899c634fb0",
+    "it.bin": "95025a8b54afe3428656011fd41fd23d0fa631289c955a6e5b64f56e1bbe39c1",
+    "pics/Beam.png": "fdf98cd656fcb7e6bbf38f1d5835a44d46d27d6d9a5871f7a638fd14b2bb23e9",
+    "pics/Cow.png": "3170ae7bc0a6622133f07c836510eed72e7429091a4f596bb337e917912847f0",
+    "pics/Hud.png": "106cfe3849de7e6579e58ea117a5e5a9f0fad7578f3e1615cc25d38c0e58a1a1",
+    "pics/Trees.png": "73dbafc7c85b9610b3ce9a7a6212095c1a4a9507cf461e51e0cfca3e059c87fc",
+    "pics/alienWeapons.png": "4567ecb2c8394ce24cd214a826b41f1e82d50631ea88d2051d2cd8a1cc4a33d2",
+    "pics/cars.png": "935afc402ac86b67d93f67c9ace93bdd4a4823c356b7b5ae9cc76ad88fdc54a2",
+    "pics/commonWeapons.png": "9d8add0c3528cdaf8fb2ae1a6cff8c886f4bb21f75f5ef91210ce84bf1c3adf1",
+    "pics/f1.png": "74667067103b838daeaf416abecc94f9147876fd68ddd67ccda10a08ddce7194",
+    "pics/f10.png": "1e421bba6b5f4d2af3e1583792b6d7d45d7e293d4a08177bf09d127fd27b2ed6",
+    "pics/f11.png": "c072e14a45fa2ebe4709f2a7a82bd2389c9aa4a561ab9198b19169d9124657d5",
+    "pics/f12.png": "7ad8dbaad51cf6ca361aca152bc3589ddea2db4421efaf80bc5a2ea076948e36",
+    "pics/f2.png": "813bae82188954f44b35dc5f9b8db601929506d3b30cbbf552f3b94e130310c2",
+    "pics/f3.png": "5571f6f98a5f563dc684ac1b9643bb9cb5166aa860085b971154a443d84e836c",
+    "pics/f4.png": "be4be19e057687d5a8b01ea4a1816d77e55b98ca708c082c1cd3e05a4c7d4f0b",
+    "pics/f5.png": "b6c4a6445ce171a4900c26f1fe29cbfe0208afd8b4a934ab7fd82a0104ef0350",
+    "pics/f6.png": "d75220c7a2552a67d296eee8743d3ee71e6a94f5363c32cdcdce4a4e7cfa129e",
+    "pics/f7.png": "a7403eabd92a8d8077211e450dc2eabf0c574a2f512a492b7e281f952772dfeb",
+    "pics/f8.png": "063c39a49048e02a5ffa7bf4cbe8b6ca17d59f0d4bed9d241a6459841c15f732",
+    "pics/f9.png": "e5a6f41c718299b2f52782e2c7d580f41de7b1245b5c6db2d9909fa23fda9456",
+    "pics/fnt1.png": "ec24b10778894250cd7af5431392567a3281edf764bbba14d9a2f6ea69aed1f0",
+    "pics/fountain.png": "1fa80eb38ea0d8e5712cc4845b3e1ffafe1f21dcf33060061e73d9f9a07587b8",
+    "pics/hay.png": "08fee7cc041c1346fb13cc95221cc425a317f21117002c5d533cd8eb8cf8052e",
+    "pics/p1.png": "d90599e7fe4ea0f47484fdb44eae0177d76a96a318d590767e38f60db2503a66",
+    "pics/p2.png": "4f0710e93cd7b2c3137fd31fd9690958b114cf38b17ae06e8748cfbb81c0c0e8",
+    "pics/p3.png": "00e7e692f255003b91b9581c851ae36b1abf8152bbe7383e1250d13a8452f04f",
+    "pics/p4.png": "bcb6c9664b68f8873dfdf261948c1db44008bea51f4cba420c36332b37957383",
+    "pics/p5.png": "1a51b46a3fe521fa0ef64859d7b44d570ea4c397a1f4140b7c1b025ebd00741c",
+    "pics/park.png": "8b79c6d21281bd083ca7eea569c06c78233d592fc7b32f7eab6cb6123fb23430",
+    "pics/powerups.png": "cd2f03d0e769cc1f14121dc77d2c82f66e374cdbb8598a07125f5da1107b587b",
+    "pics/shields.png": "bf8b38fd72b061a64eb60fc152350155f19b147d903876a0898e34a1005c7264",
+    "pics/ship.png": "f9cf2e3b557ac90c6349e45dc9a0eb304743485c79247384ea0633da00fd828f",
+    "pics/shipWeapons.png": "39c42a053f8cec1b6ea0c4e443a05f61d332cde09261cedf0e64faeb2d499f49",
+    "pics/target.png": "4d11e80dff60325c5b8e1eea7c7b273f1071239eee35813e2a330d740638c1ee",
+    "pics/u1.png": "21cc654865eb3e717ce550f3e667a22c3d7a4c5fba67b55eef0df594b4f68621",
+    "pics/u10.png": "1e469d507641c4c611230f3c07e7bf2bcf0ed1064d17524069fe7e50a13aa4df",
+    "pics/u11.png": "56685b0a4a5f0f08583d24a5d5c3e6705397d746c78761a07ea478f319eceb2e",
+    "pics/u12.png": "acef5cd7b8b66b15032130083bf458590e2ecd94b3b994f31d0605242c5b6963",
+    "pics/u2.png": "a8047d8661117b5ea281c8b94c9cc414fd41d918a05355614f45848e1f33b79e",
+    "pics/u3.png": "f390c3878777b638c0b63da98ef1b0f396835e57dabe140fe20e03783a5fe0fb",
+    "pics/u4.png": "d0e61fec19f13fb73071a6e3020327a9af3e65f770c24b264c6803706a5c2ab5",
+    "pics/u5.png": "25430890743e4b8dfd9b5f2659c5c6e1513fc826c6cfa0b01d397dcb1cdf3b3b",
+    "pics/u6.png": "17e93a34ac7c747a72852f41e0ac4de7359a615813307af03201445c28a87c1a",
+    "pics/u7.png": "3a921d5eb1f78360f9faf62903fdd6cea635d637981fd5031163364423291db8",
+    "pics/u8.png": "e0b95322d42a2dfbe4602e45b4e8d07cb860f157b2bf6ff222119470dcec8dac",
+    "pics/u9.png": "a7e0abf9657a76b24c668fab70146e66afe23c5534e1376a3a2211fccdffb4ea",
+    "pics/urban.png": "2678f8f6939d4260c72555042a8e9e3fa41d517ae233059a03a4572d1436d74c",
+    "data/HousePieces.dat": "e1e1df8480f2eebdff41f7761acd4475dc664bb7bd53b90db64025d209871248",
+    "data/HouseParts.dat": "72503e9897c0509dac9362fe9bb8daf7615eae1ee7727a1a8d38da60a87309bc",
+    "data/Houses.dat": "e4e95487de68d244501da9bc4f026e666506f6f6d8a29dacc3005ed0b348ea26",
+    "pics/house.png": "5a6ea0004ae8acfac9d38f08061af62de432e5db1dba2d92bcd3464ebb8a0e7e",
+    "pics/barn.png": "24802e5ce748867d0e744e35ce168d14af2cfaee22c9df695d8270f988d4291b",
+    "pics/Alien_Weapon_Strip.png": "0fad745fa124e860eca16902137db7239e61f4cdf5e8b2f0568a49060c70c291"
+  },
+  "test_aliases": {
+    "b.class": {
+      "primary": "a",
+      "fallback": "a",
+      "mode": "a",
+      "score": "a",
+      "player": "b",
+      "hud": "b",
+      "hitFraction": "e",
+      "cellWidth": "g",
+      "cellHeight": "f",
+      "transfers": "a",
+      "transferCount": "b",
+      "worldHeight": "d",
+      "columns": "h",
+      "rows": "i",
+      "cells": "a",
+      "scrollStep": "k",
+      "scrollExtra": "j",
+      "scrollFinished": "f"
+    },
+    "k.class": {
+      "width": "a",
+      "height": "b",
+      "rng": "a",
+      "graphics": "a",
+      "font": "a",
+      "sound": "a"
+    },
+    "j.class": {
+      "shield": "b",
+      "ammo": "a",
+      "state": "g",
+      "collisionTimer": "c",
+      "stateTimer": "a",
+      "weapon": "a",
+      "secondaryEffect": "b",
+      "weaponId": "e",
+      "disguise": "d",
+      "disguiseType": "d",
+      "globalTimer": "j",
+      "primaryEffect": "a",
+      "transform": "a"
+    }
+  },
+  "support_classes": [
+    "WeaponProbe$FixedRandom.class",
+    "WeaponProbe.class",
+    "b.class",
+    "j.class",
+    "javax/microedition/lcdui/Display.class",
+    "javax/microedition/lcdui/Displayable.class",
+    "javax/microedition/lcdui/Graphics.class",
+    "javax/microedition/lcdui/Image.class",
+    "javax/microedition/media/Manager$FakePlayer.class",
+    "javax/microedition/media/Manager.class",
+    "javax/microedition/media/MediaException.class",
+    "javax/microedition/media/Player.class",
+    "javax/microedition/media/PlayerListener.class",
+    "javax/microedition/midlet/MIDlet.class",
+    "javax/microedition/midlet/MIDletStateChangeException.class",
+    "k.class"
+  ]
+}

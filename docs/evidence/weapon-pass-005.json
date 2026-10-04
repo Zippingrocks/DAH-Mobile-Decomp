@@ -1,0 +1,336 @@
+{
+  "call_scope": "explicit calls to newly recovered c/f/GameMidlet only; fixture calls and nested calls excluded; not branch coverage",
+  "calls_per_side": 24657,
+  "candidate_sha256": "fe2a3af65e2dae81a65aea7eb8d7f64310cb8ccdb629259b9b44aa9c586c153d",
+  "direct_call_outcomes": {
+    "midlet-lifecycle": {
+      "fixture_calls_excluded": 151,
+      "methods": {
+        "GameMidlet.<init>()V": {
+          "returned": 48,
+          "threw": 12
+        },
+        "GameMidlet.destroyApp(Z)V": {
+          "returned": 72,
+          "threw": 24
+        },
+        "GameMidlet.pauseApp()V": {
+          "returned": 32,
+          "threw": 16
+        },
+        "GameMidlet.startApp()V": {
+          "returned": 24,
+          "threw": 72
+        }
+      }
+    },
+    "saucer-motion": {
+      "fixture_calls_excluded": 531,
+      "methods": {
+        "f.<init>(III)V": {
+          "returned": 14,
+          "threw": 0
+        },
+        "f.a()V": {
+          "returned": 13,
+          "threw": 0
+        },
+        "f.b()V": {
+          "returned": 91,
+          "threw": 0
+        },
+        "f.b(I)V": {
+          "returned": 468,
+          "threw": 1
+        },
+        "f.c()V": {
+          "returned": 100,
+          "threw": 1
+        },
+        "f.r()V": {
+          "returned": 13,
+          "threw": 0
+        }
+      }
+    },
+    "saucer-reticle": {
+      "fixture_calls_excluded": 11,
+      "methods": {
+        "f.<init>(III)V": {
+          "returned": 1,
+          "threw": 0
+        },
+        "f.d()V": {
+          "returned": 1008,
+          "threw": 1
+        }
+      }
+    },
+    "saucer-targeting": {
+      "fixture_calls_excluded": 1108,
+      "methods": {
+        "f.<init>(III)V": {
+          "returned": 48,
+          "threw": 0
+        },
+        "f.e()V": {
+          "returned": 408,
+          "threw": 4
+        }
+      }
+    },
+    "saucer-update-draw": {
+      "fixture_calls_excluded": 307,
+      "methods": {
+        "c.<init>(Lj;)V": {
+          "returned": 1,
+          "threw": 0
+        },
+        "f.<init>(III)V": {
+          "returned": 1,
+          "threw": 0
+        },
+        "f.a(I)V": {
+          "returned": 13,
+          "threw": 0
+        },
+        "f.f()V": {
+          "returned": 126,
+          "threw": 1
+        },
+        "f.g()V": {
+          "returned": 110,
+          "threw": 59
+        }
+      }
+    },
+    "weapon-aiming": {
+      "fixture_calls_excluded": 249,
+      "methods": {
+        "c.<init>(Lj;)V": {
+          "returned": 20,
+          "threw": 0
+        },
+        "c.a()V": {
+          "returned": 576,
+          "threw": 2
+        },
+        "c.a(II)V": {
+          "returned": 845,
+          "threw": 0
+        },
+        "c.a(Lo;)Z": {
+          "returned": 576,
+          "threw": 0
+        },
+        "f.<init>(III)V": {
+          "returned": 7,
+          "threw": 0
+        }
+      }
+    },
+    "weapon-drawing": {
+      "fixture_calls_excluded": 31,
+      "methods": {
+        "c.<init>(Lj;)V": {
+          "returned": 4,
+          "threw": 0
+        },
+        "c.a(I)V": {
+          "returned": 481,
+          "threw": 0
+        },
+        "c.b(I)V": {
+          "returned": 87,
+          "threw": 2
+        },
+        "c.d()V": {
+          "returned": 324,
+          "threw": 156
+        },
+        "f.<init>(III)V": {
+          "returned": 2,
+          "threw": 0
+        }
+      }
+    },
+    "weapon-firing": {
+      "fixture_calls_excluded": 616,
+      "methods": {
+        "c.<init>(Lj;)V": {
+          "returned": 1803,
+          "threw": 0
+        },
+        "c.a()V": {
+          "returned": 2976,
+          "threw": 0
+        },
+        "c.a(I)V": {
+          "returned": 3564,
+          "threw": 0
+        },
+        "c.b()V": {
+          "returned": 3534,
+          "threw": 200
+        },
+        "f.<init>(III)V": {
+          "returned": 44,
+          "threw": 0
+        }
+      }
+    },
+    "weapon-selection": {
+      "fixture_calls_excluded": 276,
+      "methods": {
+        "c.<init>(Lj;)V": {
+          "returned": 55,
+          "threw": 1
+        },
+        "c.a(B)V": {
+          "returned": 1026,
+          "threw": 3
+        },
+        "c.a(I)V": {
+          "returned": 1026,
+          "threw": 0
+        },
+        "f.<init>(III)V": {
+          "returned": 6,
+          "threw": 0
+        }
+      }
+    },
+    "weapon-update": {
+      "fixture_calls_excluded": 45,
+      "methods": {
+        "c.<init>(Lj;)V": {
+          "returned": 4,
+          "threw": 0
+        },
+        "c.a()V": {
+          "returned": 324,
+          "threw": 0
+        },
+        "c.a(I)V": {
+          "returned": 324,
+          "threw": 0
+        },
+        "c.c()V": {
+          "returned": 3901,
+          "threw": 1
+        },
+        "f.<init>(III)V": {
+          "returned": 1,
+          "threw": 0
+        }
+      }
+    }
+  },
+  "groups": {
+    "midlet-lifecycle": {
+      "calls_per_side": 300,
+      "trace_sha256": "a7576308acc1589199447f728d3eefa8eca443dd3b78090885912da8058a0d0e"
+    },
+    "saucer-motion": {
+      "calls_per_side": 701,
+      "trace_sha256": "28d5e49c68291b08c3fdbf65290056634f507116b7c9dfd22aa90e992c5dd1a2"
+    },
+    "saucer-reticle": {
+      "calls_per_side": 1010,
+      "trace_sha256": "429a04e18f31c459c902a6300f0116da53fc8b7158bd585a7ce93c9811b9a298"
+    },
+    "saucer-targeting": {
+      "calls_per_side": 460,
+      "trace_sha256": "fde2aefcf9c271c9006ae9a6e8c4821d82999f458ea78c773d638e79cfade3cd"
+    },
+    "saucer-update-draw": {
+      "calls_per_side": 311,
+      "trace_sha256": "ec7f897792e8b4fa7a962d89488448f9ca802b8009babd88a99864ff9c9adb08"
+    },
+    "weapon-aiming": {
+      "calls_per_side": 2026,
+      "trace_sha256": "7509881f8726f188164d30d2cb7a9e41ecc50a85f96b2f660e4b1df443616f42"
+    },
+    "weapon-drawing": {
+      "calls_per_side": 1056,
+      "trace_sha256": "8aab2c9637b532e73447f6c415c1b909732fc6c24b54796e29190e9962dc9280"
+    },
+    "weapon-firing": {
+      "calls_per_side": 12121,
+      "trace_sha256": "efe400a3e0d1f3da11b6232c662ba10c004d461622f12ac4a16951737e67b466"
+    },
+    "weapon-selection": {
+      "calls_per_side": 2117,
+      "trace_sha256": "88b64668ea0a20f3ded588138f04b878017e128ad267674b905929fe7201ea45"
+    },
+    "weapon-update": {
+      "calls_per_side": 4555,
+      "trace_sha256": "e0d2a7d8910f5696e21b77b00f79aad3ab0209eee9c23486e787f22629e33a5b"
+    }
+  },
+  "javac": "javac 21.0.11",
+  "method_entries": {
+    "GameMidlet": 5,
+    "a": 8,
+    "c": 11,
+    "d": 10,
+    "e": 13,
+    "f": 11,
+    "g": 11,
+    "h": 3,
+    "i": 11,
+    "l": 14,
+    "m": 4,
+    "n": 21,
+    "o": 7,
+    "q": 14,
+    "r": 2,
+    "s": 5,
+    "t": 1
+  },
+  "original_sha256": "2e03916ea4a5260960e5e57e4dbe0778fb9b577439eac0ce94a685cfecdaaf5f",
+  "schema_version": 1,
+  "scope": "seventeen-class component build; weapon/saucer/lifecycle integration with base-actor/world/controller/platform test support, not whole game",
+  "source_hashes": {
+    "GameMidlet.java": "4571081041663a940b1056fb6483aec9d73b1c7243ab4d021e13a25f2acfc8d3",
+    "a.java": "9b1869b9181dd9c50804d088b858d0d5e77e1528142442b1c98a7f515e189d68",
+    "c.java": "490928eb9564376de8ea71d8ab84bbced6ee6f8fe3fd9f6c76d239ad4808981f",
+    "d.java": "5799d877e7cc97e4238fd4a1c4263aece790c14786c68b12b0438582d3df5443",
+    "e.java": "2f8c305c5cde7ab9440b72a70be779e3a74b910e708167f67812089a60fc30e9",
+    "f.java": "3fddc003983eea2a7e2f388513a077d60a4b457e43cf08406a4777bc2e7488e9",
+    "g.java": "53613677b4bf60747bc01fb3d87403e6228b1cf8970666300e63a30e57eb35ce",
+    "h.java": "e9f6b75f6d7ce4eb19cc9a34cc256da1053e605a0cd137163038192e3632ce80",
+    "i.java": "e503827016869eb353251ecf077af2449fa480eaa5e5ef28ee33a88a9872cf87",
+    "l.java": "f38824fc36e5abf1e4f6b39062d565e31b26daa9d0cfe399521f119c18fc6c54",
+    "m.java": "790ca3776979782cece0527838b5342a337263d3fc1f967a13efaa47532c93c4",
+    "n.java": "f315558e4cb54ac408ef768acabfc50fc6e36782414f11e5ced09a1a12d67f21",
+    "o.java": "1d0def51539f26c99aab761cdf7ccdc0d619748e3589add7d34025309fa49e9c",
+    "q.java": "edc1c6630a3a6a5511c087291638d00895bfa9429fb831f3eeb0f809e97dd64d",
+    "r.java": "13a2cdc29f90c43ad7c7c3ee27708eee8d9889fcb6416b5bdcc03d89909bc703",
+    "s.java": "9806bff4743bf41c8adf164812b78680ac2d84678f2f02e921df7b3a8e044302",
+    "t.java": "35a011f6dee03b979ceaaea31a5f67ffe85c580092ad242d9e04347502487de6"
+  },
+  "support_hashes": {
+    "tests/java/WeaponProbe.java": "acd04c07c9e43c6737faa0fd5d061aff7123fb70eed95ecfab93301549fb4ce3",
+    "tests/java/subsystem_support/javax/microedition/lcdui/Image.java": "5e852a310ecd80f37d51357ba5386102b797016888b8121be4521c8b346f0b59",
+    "tests/java/subsystem_support/javax/microedition/media/Manager.java": "1372df9aa61bacefc5e3889801afdb8b2a631b15cadab6e97e312e25a6680695",
+    "tests/java/subsystem_support/javax/microedition/media/MediaException.java": "293eb56d8742d0f66412526f69c390bb85f4706d943981e9a74f3b616275a8fc",
+    "tests/java/subsystem_support/javax/microedition/media/Player.java": "42307c70fc54d4d95d2379a4b73022173adc39fc90f0a7f0b9f24a617f72ffc0",
+    "tests/java/subsystem_support/javax/microedition/media/PlayerListener.java": "d2ce4d1729831fdd88f712b611b6750de55a62b3a633fbf9b9d876e8ed745373",
+    "tests/java/weapon_support/b.java": "4883dd20220eb8236841b197d7187b50089ca677ad303de01f4a347f2b70e55f",
+    "tests/java/weapon_support/j.java": "0adf298af0e63ed695012ed1227e231e4aaca41cb63bd1b9f6cddbcbf699f704",
+    "tests/java/weapon_support/javax/microedition/lcdui/Display.java": "7e7dad4a8aec1008528a4838449f59e0d918954d75e851d4e2b42f4e6edc2a31",
+    "tests/java/weapon_support/javax/microedition/lcdui/Displayable.java": "4ec27555892059487fb1313e08b6ba9cb8a46239e57ec2ae191821aaa5fcf929",
+    "tests/java/weapon_support/javax/microedition/lcdui/Graphics.java": "b1bbedad44b510cd8cd5f5da53aa5f56812cdead4038273dd1abef1357120a87",
+    "tests/java/weapon_support/javax/microedition/midlet/MIDlet.java": "0aefb9f8e059d092816f72aed855add5993630194053f2f2fea4815a296074fc",
+    "tests/java/weapon_support/javax/microedition/midlet/MIDletStateChangeException.java": "0e16ed6df506a82fd3d6248465c114b0852b0cf8304b55788b7067ecea9fed59",
+    "tests/java/weapon_support/k.java": "078863fdb5a83f195ff59c1fc783898deefc6fea07817bb1b55333f47a5e783d"
+  },
+  "target_id": "dah1-j2me-en-v1.2.0",
+  "tool_hashes": {
+    "config/weapon_recovery.json": "ef692b10149784824aaf0e8bab99211ce267277c385f7ac109a0c819b3068675",
+    "tools/component_recovery.py": "ca7614496b72f882f1ee15a2cb34fb22fabf4d5371956e6c0603f60d64330231",
+    "tools/subsystem_recovery.py": "b68869f59fe503c20ea550b5078fdbdbf4992fc8480daa909710387dc27ed623",
+    "tools/weapon_recovery.py": "5cc7b51097b50e0dbef280ae516f2759f1b4c376ef0e309fc739ad86f17f44e3"
+  }
+}
