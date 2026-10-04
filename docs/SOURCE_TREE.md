@@ -12,9 +12,9 @@
 | Original classes inventoried | 21 |
 | Original method entries inventoried (including initialization) | 313 |
 | Classes with source recovery recorded (raw or repaired) | 21 / 21 |
-| Classes with repaired source recorded | 20 / 21 |
-| Classes included in a successful source-only build | 20 / 21 |
-| Classes with behavior comparisons passed in a documented scope | 20 / 21 |
+| Classes with repaired source recorded | 21 / 21 |
+| Classes included in a successful source-only build | 21 / 21 |
+| Classes with behavior comparisons passed in a documented scope | 21 / 21 |
 
 These are class-level records, not a percentage complete or method-level proof. A stage changes only when its evidence is recorded; the generator does not run a decompiler, compile the game, or verify behavioral equivalence.
 
@@ -61,12 +61,14 @@ DAH-Mobile-Decomp/
 |       |-- RECOVERY_PASS_006.md [DOCS]
 |       |-- RECOVERY_PASS_008.md [DOCS]
 |       |-- RECOVERY_PASS_009.md [DOCS]
+|       |-- RECOVERY_PASS_010.md [DOCS]
 |       |-- collection-pass-004.json [GENERATED]
 |       |-- component-pass-001.json [GENERATED]
 |       |-- controller-pass-009.json [DOCS]
 |       |-- decompiler-pass-007.json [DOCS]
 |       |-- entity-pass-003.json [DOCS]
 |       |-- subsystem-pass-002.json [DOCS]
+|       |-- ui-pass-010.json [DOCS]
 |       |-- weapon-pass-005.json [DOCS]
 |       `-- world-pass-008.json [DOCS]
 |-- tests/
@@ -187,12 +189,14 @@ DAH-Mobile-Decomp/
 | [`docs/evidence/RECOVERY_PASS_006.md`](../docs/evidence/RECOVERY_PASS_006.md) | docs | Document reviewed shared-actor recovery, scoped comparisons, corrected overload error and limitations. |
 | [`docs/evidence/RECOVERY_PASS_008.md`](../docs/evidence/RECOVERY_PASS_008.md) | docs | Document repaired world-manager source, corrected decompiler defect, scoped differential tests and limitations. |
 | [`docs/evidence/RECOVERY_PASS_009.md`](../docs/evidence/RECOVERY_PASS_009.md) | docs | Document repaired controller source and scoped input/save/draw differential validation. |
+| [`docs/evidence/RECOVERY_PASS_010.md`](../docs/evidence/RECOVERY_PASS_010.md) | docs | Document final class-p repair, dual-decompiler review, scoped differential observations, negative controls and limitations. |
 | [`docs/evidence/collection-pass-004.json`](../docs/evidence/collection-pass-004.json) | generated | Recorded fourteen-class source/artifact hashes and matching component observation digests; no code or assets. |
 | [`docs/evidence/component-pass-001.json`](../docs/evidence/component-pass-001.json) | generated | Recorded component source/artifact hashes and observation digests; no game code or assets. |
 | [`docs/evidence/controller-pass-009.json`](../docs/evidence/controller-pass-009.json) | docs | Machine-readable hashes and observation counts for controller recovery pass 009. |
 | [`docs/evidence/decompiler-pass-007.json`](../docs/evidence/decompiler-pass-007.json) | docs | Machine-readable tool/source/artifact hashes and static inventory results for decompiler pass 007. |
 | [`docs/evidence/entity-pass-003.json`](../docs/evidence/entity-pass-003.json) | docs | Recorded artifact hashes, direct target call outcomes and scoped observation digests. |
 | [`docs/evidence/subsystem-pass-002.json`](../docs/evidence/subsystem-pass-002.json) | docs | Hashes and matching observation digests from the second reproducible subsystem run. |
+| [`docs/evidence/ui-pass-010.json`](../docs/evidence/ui-pass-010.json) | docs | Record final p source/artifact hashes and matching scoped observation digests; no game code or assets. |
 | [`docs/evidence/weapon-pass-005.json`](../docs/evidence/weapon-pass-005.json) | docs | Record scoped pass-005 observations, private snapshot hashes and publication limitations. |
 | [`docs/evidence/world-pass-008.json`](../docs/evidence/world-pass-008.json) | docs | Machine-readable hashes and scoped observation counts for world-manager recovery pass 008. |
 | [`tests/java/CollectionProbe.java`](../tests/java/CollectionProbe.java) | tests | Authored collection/building differential probe with target-only outcomes; not a game runner or actor implementation. |
@@ -276,7 +280,7 @@ Original identifiers are preserved until readable names are established. Single-
 | `m` | 4 | `src/game/m.java` | repaired | passed | passed_scoped |
 | `n` | 21 | `src/game/n.java` | repaired | passed | passed_scoped |
 | `o` | 7 | `src/game/o.java` | repaired | passed | passed_scoped |
-| `p` | 54 | `recovered/raw/pass007/p.java` | raw_output | not_tested | not_tested |
+| `p` | 54 | `src/game/p.java` | repaired | passed | passed_scoped |
 | `q` | 14 | `src/game/q.java` | repaired | passed | passed_scoped |
 | `r` | 2 | `src/game/r.java` | repaired | passed | passed_scoped |
 | `s` | 5 | `src/game/s.java` | repaired | passed | passed_scoped |
@@ -332,7 +336,9 @@ Original identifiers are preserved until readable names are established. Single-
 - `o` / recovery: [`docs/evidence/RECOVERY_PASS_003.md`](../docs/evidence/RECOVERY_PASS_003.md) — Manual bytecode-backed reconstruction of all 7 entries; pinned private sources and explicit descriptor aliases.
 - `o` / build: [`docs/evidence/RECOVERY_PASS_003.md`](../docs/evidence/RECOVERY_PASS_003.md) — Eleven-class source-only component artifact with separately packaged authored dependencies; not a complete game build.
 - `o` / behavior: [`docs/evidence/RECOVERY_PASS_003.md`](../docs/evidence/RECOVERY_PASS_003.md) — Factory dispatch, picking, timed effects, flags, shared rise state and pickup/removal calls under controlled world/actor dependencies.
-- `p` / recovery: [`docs/evidence/DECOMPILER_PASS_007.md`](../docs/evidence/DECOMPILER_PASS_007.md) — Pinned CFR/Vineflower raw source exists locally; full raw tree compiles after documented decompiler repair points. Class not yet reviewed/repaired or behavior-tested.
+- `p` / recovery: [`docs/evidence/RECOVERY_PASS_010.md`](../docs/evidence/RECOVERY_PASS_010.md) — CFR 0.152 reconstruction cross-checked against Vineflower 1.12.0 and original javap; Java-only duplicate/shadowed identifiers repaired without gameplay redesign.
+- `p` / build: [`docs/evidence/RECOVERY_PASS_010.md`](../docs/evidence/RECOVERY_PASS_010.md) — Repaired p compiles from Java source in an isolated candidate runtime with authored support and preserves all 46 field and 54 method descriptors; no original p.class fallback.
+- `p` / behavior: [`docs/evidence/RECOVERY_PASS_010.md`](../docs/evidence/RECOVERY_PASS_010.md) — 10,906 matching observation records per side across load, static helper, private helper, public state/screen and randomized navigation/input scopes; seven deliberate defects detected.
 - `q` / recovery: [`docs/evidence/RECOVERY_PASS_002.md`](../docs/evidence/RECOVERY_PASS_002.md) — Manual reconstruction of all 14 entries with explicit descriptor aliases; private source hashes pinned.
 - `q` / build: [`docs/evidence/RECOVERY_PASS_002.md`](../docs/evidence/RECOVERY_PASS_002.md) — Six-class source-only component compilation with isolated test support; no original classes copied and no complete game build.
 - `q` / behavior: [`docs/evidence/RECOVERY_PASS_002.md`](../docs/evidence/RECOVERY_PASS_002.md) — Navigation loads, packed links, random choice and spatial queries against original using scripted world records; not full actor/world integration.
