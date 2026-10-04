@@ -25,23 +25,38 @@ TOOL = implemented project tool; TESTS = test code, not a pass result; CONFIG/PO
 ```text
 DAH-Mobile-Decomp/
 |-- .gitattributes [POLICY]
+|-- .github/
+|   `-- workflows/
+|       `-- progress.yml [TOOL]
 |-- .gitignore [POLICY]
 |-- AGENTS.md [POLICY]
 |-- README.md [DOCS]
 |-- config/
+|   |-- byte_match.json [CONFIG]
 |   |-- source_map.json [CONFIG]
 |   `-- target.json [CONFIG]
 |-- docs/
+|   |-- BEHAVIOR_TREEMAP.svg [GENERATED]
+|   |-- BUILD_TREEMAP.svg [GENERATED]
+|   |-- BYTE_MATCH.md [DOCS]
+|   |-- BYTE_MATCH_TREEMAP.svg [GENERATED]
+|   |-- RECOVERY_TREEMAP.svg [GENERATED]
 |   |-- SOURCE_MAP_GUIDE.md [DOCS]
 |   |-- SOURCE_TREE.md [GENERATED]
 |   |-- STATUS.md [DOCS]
-|   `-- VERIFICATION.md [DOCS]
+|   |-- VERIFICATION.md [DOCS]
+|   `-- VISUAL_PROGRESS.md [GENERATED]
 |-- tests/
+|   |-- test_byte_match.py [TESTS]
 |   |-- test_dah1.py [TESTS]
-|   `-- test_source_map.py [TESTS]
+|   |-- test_source_map.py [TESTS]
+|   `-- test_treemap_dashboard.py [TESTS]
 `-- tools/
+    |-- byte_match.py [TOOL]
+    |-- classfile.py [TOOL]
     |-- dah1.py [TOOL]
-    `-- source_map.py [TOOL]
+    |-- source_map.py [TOOL]
+    `-- treemap_dashboard.py [TOOL]
 ```
 
 ### What the existing files do
@@ -49,19 +64,32 @@ DAH-Mobile-Decomp/
 | File | Kind | Implemented purpose / documented responsibility |
 | --- | --- | --- |
 | [`.gitattributes`](../.gitattributes) | policy | Consistent text handling for repository files. |
+| [`.github/workflows/progress.yml`](../.github/workflows/progress.yml) | tool | Validate and refresh generated GitHub dashboard files without original game inputs. |
 | [`.gitignore`](../.gitignore) | policy | Keep original inputs, assets, recovered game code and build products out of Git. |
 | [`AGENTS.md`](../AGENTS.md) | policy | Scope, evidence and publication rules for work in this repository. |
 | [`README.md`](../README.md) | docs | Project entry point, usage and links to current progress. |
+| [`config/byte_match.json`](../config/byte_match.json) | config | Select a reviewed artifact-comparison report or leave all matches unverified. |
 | [`config/source_map.json`](../config/source_map.json) | config | File descriptions, original-class inventory and evidence-backed progress records. |
 | [`config/target.json`](../config/target.json) | config | Exact input identity and expected static counts. |
+| [`docs/BEHAVIOR_TREEMAP.svg`](../docs/BEHAVIOR_TREEMAP.svg) | generated | GitHub-embeddable behavior class treemap from recorded evidence. |
+| [`docs/BUILD_TREEMAP.svg`](../docs/BUILD_TREEMAP.svg) | generated | GitHub-embeddable build class treemap from recorded evidence. |
+| [`docs/BYTE_MATCH.md`](../docs/BYTE_MATCH.md) | docs | Define exact and normalized comparison scope, freshness, provenance and limitations. |
+| [`docs/BYTE_MATCH_TREEMAP.svg`](../docs/BYTE_MATCH_TREEMAP.svg) | generated | GitHub-embeddable byte-match class treemap from recorded evidence. |
+| [`docs/RECOVERY_TREEMAP.svg`](../docs/RECOVERY_TREEMAP.svg) | generated | GitHub-embeddable recovery class treemap from recorded evidence. |
 | [`docs/SOURCE_MAP_GUIDE.md`](../docs/SOURCE_MAP_GUIDE.md) | docs | How to refresh the map and record scoped evidence without overstating progress. |
 | [`docs/SOURCE_TREE.md`](../docs/SOURCE_TREE.md) | generated | Generated tree, class register, stage counts and planned-only work. |
 | [`docs/STATUS.md`](../docs/STATUS.md) | docs | What was tested locally, limitations and the next task. |
 | [`docs/VERIFICATION.md`](../docs/VERIFICATION.md) | docs | Requirements for source-only rebuilds, behavior comparison and a gold candidate. |
+| [`docs/VISUAL_PROGRESS.md`](../docs/VISUAL_PROGRESS.md) | generated | Embed all four class treemaps and report current comparison status. |
+| [`tests/test_byte_match.py`](../tests/test_byte_match.py) | tests | Synthetic and independently compiled fixtures test matching and stale-report safeguards. |
 | [`tests/test_dah1.py`](../tests/test_dah1.py) | tests | Synthetic tests for input identity checks and the structural auditor. |
 | [`tests/test_source_map.py`](../tests/test_source_map.py) | tests | Metadata, inventory, evidence, rendering and stale-map regression tests. |
+| [`tests/test_treemap_dashboard.py`](../tests/test_treemap_dashboard.py) | tests | Test treemap geometry, status colors, rendering and repository integration. |
+| [`tools/byte_match.py`](../tools/byte_match.py) | tool | Compare original and candidate JAR classes, record hashes and gate displayed match claims. |
+| [`tools/classfile.py`](../tools/classfile.py) | tool | Resolve Java class structure and instructions with conservative fail-closed normalization. |
 | [`tools/dah1.py`](../tools/dah1.py) | tool | Verify the pinned JAR and report class structure without executing the game. |
 | [`tools/source_map.py`](../tools/source_map.py) | tool | Generate or check the map against tracked files and optionally a local audit. |
+| [`tools/treemap_dashboard.py`](../tools/treemap_dashboard.py) | tool | Render proportional, status-colored SVG treemaps from the real progress schema. |
 
 ## Original-class recovery register
 

@@ -1,1 +1,212 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="80"><text x="20" y="40">Awaiting first automated dashboard render; no game progress implied.</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="850" viewBox="0 0 1200 850" role="img" aria-labelledby="title desc">
+<title id="title">DAH Mobile: Byte-match comparison</title>
+<desc id="desc">Class-level progress treemap. Area equals original method-entry count, not coverage or accuracy. Colors reflect recorded evidence only.</desc>
+<style>text{font-family:Segoe UI,Arial,sans-serif}.small{font-size:14px;fill:#526377}.label{font-size:14px;fill:white}.name{font-size:22px;font-weight:700;fill:white}</style>
+<rect width="1200" height="850" rx="16" fill="#f4f7fb"/>
+<text x="32" y="37" font-size="13" fill="#526377" letter-spacing="2">DESTROY ALL HUMANS! MOBILE / v1.2.0</text>
+<text x="32" y="80" font-size="34" font-weight="700" fill="#14283f">Byte-match comparison</text>
+<text x="32" y="108" class="small">21 original classes · 313 method entries · area = method count</text>
+<rect x="32.00" y="131" width="280.00" height="78" rx="8" fill="white"/>
+<rect x="32.00" y="131" width="5" height="78" rx="2" fill="#16866b"/>
+<text x="48.00" y="158" class="small">Exact class-file bytes</text>
+<text x="48.00" y="192" font-size="28" font-weight="700" fill="#14283f">0 / 21</text>
+<rect x="316.00" y="131" width="280.00" height="78" rx="8" fill="white"/>
+<rect x="316.00" y="131" width="5" height="78" rx="2" fill="#187bb2"/>
+<text x="332.00" y="158" class="small">Normalized structure</text>
+<text x="332.00" y="192" font-size="28" font-weight="700" fill="#14283f">0 / 21</text>
+<rect x="600.00" y="131" width="280.00" height="78" rx="8" fill="white"/>
+<rect x="600.00" y="131" width="5" height="78" rx="2" fill="#b83d45"/>
+<text x="616.00" y="158" class="small">Known structural differences</text>
+<text x="616.00" y="192" font-size="28" font-weight="700" fill="#14283f">0 / 21</text>
+<rect x="884.00" y="131" width="280.00" height="78" rx="8" fill="white"/>
+<rect x="884.00" y="131" width="5" height="78" rx="2" fill="#657587"/>
+<text x="900.00" y="158" class="small">Unverified / stale</text>
+<text x="900.00" y="192" font-size="28" font-weight="700" fill="#14283f">21 / 21</text>
+<text x="32" y="234" class="small">Each rectangle is one original class. Obfuscated names are retained until identified.</text>
+<g data-class="p" data-state="unverified">
+<title>p: 54 method entries; Unverified / stale</title>
+<rect x="32.000" y="248.000" width="362.939" height="270.000" fill="#657587" stroke="#f4f7fb" stroke-width="2"/>
+<clipPath id="tile0"><rect x="37.000" y="251.000" width="352.939" height="264.000"/></clipPath>
+<g clip-path="url(#tile0)">
+<text x="42.000" y="275.000" class="name" style="font-size:22.00px">p</text>
+<text x="42.000" y="298.000" class="label">54 method entries</text>
+</g>
+</g>
+<g data-class="b" data-state="unverified">
+<title>b: 46 method entries; Unverified / stale</title>
+<rect x="32.000" y="518.000" width="362.939" height="230.000" fill="#657587" stroke="#f4f7fb" stroke-width="2"/>
+<clipPath id="tile1"><rect x="37.000" y="521.000" width="352.939" height="224.000"/></clipPath>
+<g clip-path="url(#tile1)">
+<text x="42.000" y="545.000" class="name" style="font-size:22.00px">b</text>
+<text x="42.000" y="568.000" class="label">46 method entries</text>
+</g>
+</g>
+<g data-class="j" data-state="unverified">
+<title>j: 31 method entries; Unverified / stale</title>
+<rect x="394.939" y="248.000" width="225.022" height="250.000" fill="#657587" stroke="#f4f7fb" stroke-width="2"/>
+<clipPath id="tile2"><rect x="399.939" y="251.000" width="215.022" height="244.000"/></clipPath>
+<g clip-path="url(#tile2)">
+<text x="404.939" y="275.000" class="name" style="font-size:22.00px">j</text>
+<text x="404.939" y="298.000" class="label">31 method entries</text>
+</g>
+</g>
+<g data-class="k" data-state="unverified">
+<title>k: 31 method entries; Unverified / stale</title>
+<rect x="394.939" y="498.000" width="225.022" height="250.000" fill="#657587" stroke="#f4f7fb" stroke-width="2"/>
+<clipPath id="tile3"><rect x="399.939" y="501.000" width="215.022" height="244.000"/></clipPath>
+<g clip-path="url(#tile3)">
+<text x="404.939" y="525.000" class="name" style="font-size:22.00px">k</text>
+<text x="404.939" y="548.000" class="label">31 method entries</text>
+</g>
+</g>
+<g data-class="n" data-state="unverified">
+<title>n: 21 method entries; Unverified / stale</title>
+<rect x="619.962" y="248.000" width="158.967" height="239.726" fill="#657587" stroke="#f4f7fb" stroke-width="2"/>
+<clipPath id="tile4"><rect x="624.962" y="251.000" width="148.967" height="233.726"/></clipPath>
+<g clip-path="url(#tile4)">
+<text x="629.962" y="275.000" class="name" style="font-size:22.00px">n</text>
+<text x="629.962" y="298.000" class="label">21 method entries</text>
+</g>
+</g>
+<g data-class="l" data-state="unverified">
+<title>l: 14 method entries; Unverified / stale</title>
+<rect x="778.929" y="248.000" width="105.978" height="239.726" fill="#657587" stroke="#f4f7fb" stroke-width="2"/>
+<clipPath id="tile5"><rect x="783.929" y="251.000" width="95.978" height="233.726"/></clipPath>
+<g clip-path="url(#tile5)">
+<text x="788.929" y="275.000" class="name" style="font-size:22.00px">l</text>
+<text x="788.929" y="298.000" class="label">14 entries</text>
+</g>
+</g>
+<g data-class="q" data-state="unverified">
+<title>q: 14 method entries; Unverified / stale</title>
+<rect x="619.962" y="487.726" width="97.612" height="260.274" fill="#657587" stroke="#f4f7fb" stroke-width="2"/>
+<clipPath id="tile6"><rect x="624.962" y="490.726" width="87.612" height="254.274"/></clipPath>
+<g clip-path="url(#tile6)">
+<text x="629.962" y="514.726" class="name" style="font-size:22.00px">q</text>
+<text x="629.962" y="537.726" class="label">14 entries</text>
+</g>
+</g>
+<g data-class="e" data-state="unverified">
+<title>e: 13 method entries; Unverified / stale</title>
+<rect x="717.573" y="487.726" width="167.334" height="140.982" fill="#657587" stroke="#f4f7fb" stroke-width="2"/>
+<clipPath id="tile7"><rect x="722.573" y="490.726" width="157.334" height="134.982"/></clipPath>
+<g clip-path="url(#tile7)">
+<text x="727.573" y="514.726" class="name" style="font-size:22.00px">e</text>
+<text x="727.573" y="537.726" class="label">13 method entries</text>
+</g>
+</g>
+<g data-class="c" data-state="unverified">
+<title>c: 11 method entries; Unverified / stale</title>
+<rect x="717.573" y="628.708" width="167.334" height="119.292" fill="#657587" stroke="#f4f7fb" stroke-width="2"/>
+<clipPath id="tile8"><rect x="722.573" y="631.708" width="157.334" height="113.292"/></clipPath>
+<g clip-path="url(#tile8)">
+<text x="727.573" y="655.708" class="name" style="font-size:22.00px">c</text>
+<text x="727.573" y="678.708" class="label">11 method entries</text>
+</g>
+</g>
+<g data-class="f" data-state="unverified">
+<title>f: 11 method entries; Unverified / stale</title>
+<rect x="884.907" y="248.000" width="144.838" height="137.821" fill="#657587" stroke="#f4f7fb" stroke-width="2"/>
+<clipPath id="tile9"><rect x="889.907" y="251.000" width="134.838" height="131.821"/></clipPath>
+<g clip-path="url(#tile9)">
+<text x="894.907" y="275.000" class="name" style="font-size:22.00px">f</text>
+<text x="894.907" y="298.000" class="label">11 entries</text>
+</g>
+</g>
+<g data-class="g" data-state="unverified">
+<title>g: 11 method entries; Unverified / stale</title>
+<rect x="884.907" y="385.821" width="144.838" height="137.821" fill="#657587" stroke="#f4f7fb" stroke-width="2"/>
+<clipPath id="tile10"><rect x="889.907" y="388.821" width="134.838" height="131.821"/></clipPath>
+<g clip-path="url(#tile10)">
+<text x="894.907" y="412.821" class="name" style="font-size:22.00px">g</text>
+<text x="894.907" y="435.821" class="label">11 entries</text>
+</g>
+</g>
+<g data-class="i" data-state="unverified">
+<title>i: 11 method entries; Unverified / stale</title>
+<rect x="1029.745" y="248.000" width="138.255" height="144.383" fill="#657587" stroke="#f4f7fb" stroke-width="2"/>
+<clipPath id="tile11"><rect x="1034.745" y="251.000" width="128.255" height="138.383"/></clipPath>
+<g clip-path="url(#tile11)">
+<text x="1039.745" y="275.000" class="name" style="font-size:22.00px">i</text>
+<text x="1039.745" y="298.000" class="label">11 entries</text>
+</g>
+</g>
+<g data-class="d" data-state="unverified">
+<title>d: 10 method entries; Unverified / stale</title>
+<rect x="1029.745" y="392.383" width="138.255" height="131.258" fill="#657587" stroke="#f4f7fb" stroke-width="2"/>
+<clipPath id="tile12"><rect x="1034.745" y="395.383" width="128.255" height="125.258"/></clipPath>
+<g clip-path="url(#tile12)">
+<text x="1039.745" y="419.383" class="name" style="font-size:22.00px">d</text>
+<text x="1039.745" y="442.383" class="label">10 entries</text>
+</g>
+</g>
+<g data-class="a" data-state="unverified">
+<title>a: 8 method entries; Unverified / stale</title>
+<rect x="884.907" y="523.641" width="121.325" height="119.658" fill="#657587" stroke="#f4f7fb" stroke-width="2"/>
+<clipPath id="tile13"><rect x="889.907" y="526.641" width="111.325" height="113.658"/></clipPath>
+<g clip-path="url(#tile13)">
+<text x="894.907" y="550.641" class="name" style="font-size:22.00px">a</text>
+<text x="894.907" y="573.641" class="label">8 entries</text>
+</g>
+</g>
+<g data-class="o" data-state="unverified">
+<title>o: 7 method entries; Unverified / stale</title>
+<rect x="884.907" y="643.299" width="121.325" height="104.701" fill="#657587" stroke="#f4f7fb" stroke-width="2"/>
+<clipPath id="tile14"><rect x="889.907" y="646.299" width="111.325" height="98.701"/></clipPath>
+<g clip-path="url(#tile14)">
+<text x="894.907" y="670.299" class="name" style="font-size:22.00px">o</text>
+<text x="894.907" y="693.299" class="label">7 entries</text>
+</g>
+</g>
+<g data-class="GameMidlet" data-state="unverified">
+<title>GameMidlet: 5 method entries; Unverified / stale</title>
+<rect x="1006.233" y="523.641" width="80.884" height="112.179" fill="#657587" stroke="#f4f7fb" stroke-width="2"/>
+<clipPath id="tile15"><rect x="1011.233" y="526.641" width="70.884" height="106.179"/></clipPath>
+<g clip-path="url(#tile15)">
+<text x="1016.233" y="550.641" class="name" style="font-size:11.00px">GameMidlet</text>
+</g>
+</g>
+<g data-class="s" data-state="unverified">
+<title>s: 5 method entries; Unverified / stale</title>
+<rect x="1087.116" y="523.641" width="80.884" height="112.179" fill="#657587" stroke="#f4f7fb" stroke-width="2"/>
+<clipPath id="tile16"><rect x="1092.116" y="526.641" width="70.884" height="106.179"/></clipPath>
+<g clip-path="url(#tile16)">
+<text x="1097.116" y="550.641" class="name" style="font-size:22.00px">s</text>
+</g>
+</g>
+<g data-class="m" data-state="unverified">
+<title>m: 4 method entries; Unverified / stale</title>
+<rect x="1006.233" y="635.821" width="64.707" height="112.179" fill="#657587" stroke="#f4f7fb" stroke-width="2"/>
+<clipPath id="tile17"><rect x="1011.233" y="638.821" width="54.707" height="106.179"/></clipPath>
+<g clip-path="url(#tile17)">
+<text x="1016.233" y="662.821" class="name" style="font-size:22.00px">m</text>
+</g>
+</g>
+<g data-class="h" data-state="unverified">
+<title>h: 3 method entries; Unverified / stale</title>
+<rect x="1070.940" y="635.821" width="97.060" height="56.090" fill="#657587" stroke="#f4f7fb" stroke-width="2"/>
+<clipPath id="tile18"><rect x="1075.940" y="638.821" width="87.060" height="50.090"/></clipPath>
+<g clip-path="url(#tile18)">
+<text x="1080.940" y="662.821" class="name" style="font-size:22.00px">h</text>
+</g>
+</g>
+<g data-class="r" data-state="unverified">
+<title>r: 2 method entries; Unverified / stale</title>
+<rect x="1070.940" y="691.910" width="64.707" height="56.090" fill="#657587" stroke="#f4f7fb" stroke-width="2"/>
+<clipPath id="tile19"><rect x="1075.940" y="694.910" width="54.707" height="50.090"/></clipPath>
+<g clip-path="url(#tile19)">
+<text x="1080.940" y="718.910" class="name" style="font-size:22.00px">r</text>
+</g>
+</g>
+<g data-class="t" data-state="unverified">
+<title>t: 1 method entries; Unverified / stale</title>
+<rect x="1135.647" y="691.910" width="32.353" height="56.090" fill="#657587" stroke="#f4f7fb" stroke-width="2"/>
+<clipPath id="tile20"><rect x="1140.647" y="694.910" width="22.353" height="50.090"/></clipPath>
+<g clip-path="url(#tile20)">
+<text x="1145.647" y="718.910" class="name" style="font-size:19.01px">t</text>
+</g>
+</g>
+<text x="32" y="780" class="small">Exact means the entire class file. Normalized is the documented comparison policy, not a behavioral proof.</text>
+<text x="32" y="807" class="small">Gray means untested or unverified, not failure. Class counts do not measure whole-game accuracy.</text>
+<text x="32" y="832" font-size="11" fill="#526377">Metadata snapshot 721ebb3bafba07c3 · generated by tools/treemap_dashboard.py</text>
+</svg>
