@@ -647,6 +647,16 @@
       "path": "docs/evidence/integration-pass-012.json",
       "kind": "docs",
       "purpose": "Machine-readable persistence and long-run probe digests for integration pass 012."
+    },
+    {
+      "path": "docs/evidence/INTEGRATION_PASS_013_CHECKPOINT.md",
+      "kind": "docs",
+      "purpose": "Preserve the interrupted campaign-matrix and production-desktop-runtime integration results, including the corrected j.n:B binding and pending regressions."
+    },
+    {
+      "path": "docs/evidence/integration-pass-013-checkpoint.json",
+      "kind": "docs",
+      "purpose": "Machine-readable checkpoint for the 13-mission matrix, desktop runtime smoke/comparison, reconstruction defect, and pending regression reruns."
     }
   ],
   "classes": [

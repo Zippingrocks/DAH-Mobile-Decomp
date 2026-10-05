@@ -4,9 +4,9 @@ Faithful, understandable source reconstruction of the **first Java-phone game,
 version 1.2.0**, followed by a native Windows port. This is not the Xbox game,
 Flash game, mobile sequel, or Crypto Does Vegas.
 
-**Current stage: all 21 original classes are repaired and the final all-repaired tree has a repeatable 21-class source-only integration build. The original and rebuild now match through startup, menu→gameplay transition, save/load round-trips, and a 500-frame deterministic gameplay stress run with state, rendering, media-call and RMS checkpoints. Complete campaign validation and the native Windows port remain ahead.**
+**Current stage: all 21 original classes are repaired and the final all-repaired tree has a repeatable 21-class source-only integration build. The original and rebuild now match through startup, menu→gameplay transition, save/load round-trips, and a 500-frame deterministic gameplay stress run with state, rendering, media-call and RMS checkpoints. A direct-load 13-mission matrix also matches after correcting a hidden actor-field binding bug; the broader regression rerun is still pending. Complete campaign validation and the native Windows port remain ahead.**
 
-[**Latest integration evidence**](docs/evidence/INTEGRATION_PASS_011.md) · [**Final class recovery**](docs/evidence/RECOVERY_PASS_010.md)
+[**Latest interrupted integration checkpoint**](docs/evidence/INTEGRATION_PASS_013_CHECKPOINT.md) · [**Latest completed integration evidence**](docs/evidence/INTEGRATION_PASS_012.md) · [**Final class recovery**](docs/evidence/RECOVERY_PASS_010.md)
 
 ## Latest integration work
 

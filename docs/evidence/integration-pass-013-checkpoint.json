@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "target_id": "dah1-j2me-en-v1.2.0",
+  "checkpoint": "integration-pass-013",
+  "desktop_runtime": {
+    "compiled_repaired_classes": 21,
+    "initialized": true,
+    "controller_ticks": true,
+    "framebuffer_size": "176x208",
+    "file_backed_rms": true,
+    "compared_original_vs_rebuilt_frames": 300,
+    "framebuffer_match": true,
+    "save_file_match": true,
+    "production_release_claim": false
+  },
+  "campaign_matrix": {
+    "missions_tested": 13,
+    "initial_mismatches": [
+      8,
+      9,
+      13
+    ],
+    "defect": {
+      "wrong_binding": "o.n (inherited/static)",
+      "original_binding": "j.n:B",
+      "category": "source reconstruction field-binding error",
+      "timing_jitter": false
+    },
+    "after_fix": {
+      "missions_matching": 13,
+      "load_state_match": true,
+      "objective_metadata_match": true,
+      "initial_completion_gate_match": true,
+      "completion_state_match": true,
+      "dynamic_kill_totals": {
+        "7": 29,
+        "12": 30
+      }
+    }
+  },
+  "pending_regressions": [
+    "300-frame production desktop comparison",
+    "500-frame deterministic stress comparison",
+    "RMS save/load round-trip",
+    "startup/menu-to-gameplay probes",
+    "final 21-class clean-build repeatability"
+  ],
+  "claims": {
+    "complete_campaign_playthrough": false,
+    "gold": false,
+    "native_windows_executable": false
+  }
+}

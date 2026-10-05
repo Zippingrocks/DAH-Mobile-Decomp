@@ -1,5 +1,21 @@
 # Project status
 
+## Integration pass 013 checkpoint — campaign matrix and desktop runtime
+
+- Preserved verified work from the interrupted post-pass-012 integration run.
+- A production-style desktop runtime compiled and ran all 21 repaired classes, rendered a real 176×208 framebuffer, and wrote a file-backed RMS save.
+- Original retail and rebuilt classes matched through a controlled 300-frame desktop-runtime comparison in the recorded scope.
+- A direct-load matrix now matches **all 13 missions** for load state, objective metadata, initial completion gate and completion state.
+- The initial mission 8/9/13 mismatches exposed a real reconstruction bug: the rebuilt objective counter was reading inherited static `o.n` instead of the original actor byte field **`j.n:B`**.
+- Correcting that field binding closes the Blisk-mission mismatches. Missions 7 and 12 correctly use dynamic kill totals of **29** and **30**.
+- The interruption happened before rerunning all prior 300/500-frame, save/load, startup/menu and clean-build regressions against the corrected source.
+- Therefore this checkpoint is **not** a gold or complete-campaign claim.
+
+See [the checkpoint report](evidence/INTEGRATION_PASS_013_CHECKPOINT.md) and
+[machine-readable checkpoint](evidence/integration-pass-013-checkpoint.json).
+
+## Prior status
+
 ## Integration pass 012 — persistence and 500-frame gameplay stress
 
 - Original and rebuilt RMS save/load behavior matches for an 82-byte save buffer, including representative bytes, call ordering and no-save defaults.
