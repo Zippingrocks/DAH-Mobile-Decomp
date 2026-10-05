@@ -36,6 +36,7 @@ DAH-Mobile-Decomp/
 |   |-- collection_recovery.json [CONFIG]
 |   |-- component_recovery.json [CONFIG]
 |   |-- entity_recovery.json [CONFIG]
+|   |-- integration_recovery.json [CONFIG]
 |   |-- source_map.json [CONFIG]
 |   |-- subsystem_recovery.json [CONFIG]
 |   |-- target.json [CONFIG]
@@ -77,8 +78,11 @@ DAH-Mobile-Decomp/
 |   |-- java/
 |   |   |-- CollectionProbe.java [TESTS]
 |   |   |-- ComponentProbe.java [TESTS]
+|   |   |-- DeepIntegrationProbe.java [TESTS]
 |   |   |-- EntityProbe.java [TESTS]
+|   |   |-- IntegrationProbe.java [TESTS]
 |   |   |-- NavigationProbe.java [TESTS]
+|   |   |-- StateProbe.java [TESTS]
 |   |   |-- SubsystemProbe.java [TESTS]
 |   |   |-- WeaponProbe.java [TESTS]
 |   |   |-- collection_support/
@@ -104,6 +108,34 @@ DAH-Mobile-Decomp/
 |   |   |   |           `-- Graphics.java [TESTS]
 |   |   |   |-- k.java [TESTS]
 |   |   |   `-- n.java [TESTS]
+|   |   |-- integration_support/
+|   |   |   |-- com/
+|   |   |   |   `-- nokia/
+|   |   |   |       `-- mid/
+|   |   |   |           `-- ui/
+|   |   |   |               `-- FullCanvas.java [TESTS]
+|   |   |   `-- javax/
+|   |   |       `-- microedition/
+|   |   |           |-- lcdui/
+|   |   |           |   |-- Canvas.java [TESTS]
+|   |   |           |   |-- Display.java [TESTS]
+|   |   |           |   |-- Displayable.java [TESTS]
+|   |   |           |   |-- Graphics.java [TESTS]
+|   |   |           |   `-- Image.java [TESTS]
+|   |   |           |-- media/
+|   |   |           |   |-- Manager.java [TESTS]
+|   |   |           |   |-- MediaException.java [TESTS]
+|   |   |           |   |-- Player.java [TESTS]
+|   |   |           |   `-- PlayerListener.java [TESTS]
+|   |   |           |-- midlet/
+|   |   |           |   |-- MIDlet.java [TESTS]
+|   |   |           |   `-- MIDletStateChangeException.java [TESTS]
+|   |   |           `-- rms/
+|   |   |               |-- RecordComparator.java [TESTS]
+|   |   |               |-- RecordEnumeration.java [TESTS]
+|   |   |               |-- RecordFilter.java [TESTS]
+|   |   |               |-- RecordStore.java [TESTS]
+|   |   |               `-- RecordStoreException.java [TESTS]
 |   |   |-- subsystem_support/
 |   |   |   |-- b.java [TESTS]
 |   |   |   |-- f.java [TESTS]
@@ -138,6 +170,7 @@ DAH-Mobile-Decomp/
 |   |-- test_component_recovery.py [TESTS]
 |   |-- test_dah1.py [TESTS]
 |   |-- test_entity_recovery.py [TESTS]
+|   |-- test_integration_recovery.py [TESTS]
 |   |-- test_source_map.py [TESTS]
 |   |-- test_subsystem_recovery.py [TESTS]
 |   |-- test_treemap_dashboard.py [TESTS]
@@ -149,6 +182,7 @@ DAH-Mobile-Decomp/
     |-- component_recovery.py [TOOL]
     |-- dah1.py [TOOL]
     |-- entity_recovery.py [TOOL]
+    |-- integration_recovery.py [TOOL]
     |-- source_map.py [TOOL]
     |-- subsystem_recovery.py [TOOL]
     |-- treemap_dashboard.py [TOOL]
@@ -168,6 +202,7 @@ DAH-Mobile-Decomp/
 | [`config/collection_recovery.json`](../config/collection_recovery.json) | config | Pin fourteen private source snapshots, explicit aliases, resource hashes and isolated test-support roster. |
 | [`config/component_recovery.json`](../config/component_recovery.json) | config | Pin reviewed private component sources, original class hashes and explicit field mappings. |
 | [`config/entity_recovery.json`](../config/entity_recovery.json) | config | Pin eleven source snapshots, resource hashes and explicit field and method aliases. |
+| [`config/integration_recovery.json`](../config/integration_recovery.json) | config | Pin final repaired private source hashes, original input identity, integration probes and expected whole-tree counts. |
 | [`config/source_map.json`](../config/source_map.json) | config | File descriptions, original-class inventory and evidence-backed progress records. |
 | [`config/subsystem_recovery.json`](../config/subsystem_recovery.json) | config | Pin six local source snapshots, field and method aliases, test support and resource hashes. |
 | [`config/target.json`](../config/target.json) | config | Exact input identity and expected static counts. |
@@ -205,8 +240,11 @@ DAH-Mobile-Decomp/
 | [`docs/evidence/world-pass-008.json`](../docs/evidence/world-pass-008.json) | docs | Machine-readable hashes and scoped observation counts for world-manager recovery pass 008. |
 | [`tests/java/CollectionProbe.java`](../tests/java/CollectionProbe.java) | tests | Authored collection/building differential probe with target-only outcomes; not a game runner or actor implementation. |
 | [`tests/java/ComponentProbe.java`](../tests/java/ComponentProbe.java) | tests | Authored differential probe for e/s/t; not a game runner or recovered game source. |
+| [`tests/java/DeepIntegrationProbe.java`](../tests/java/DeepIntegrationProbe.java) | tests | Authored controlled menu-to-gameplay integration probe exercising real recovered world, actor, weapon, input and rendering paths. |
 | [`tests/java/EntityProbe.java`](../tests/java/EntityProbe.java) | tests | Authored differential observations for effects, base entities, pickups and attached objects. |
+| [`tests/java/IntegrationProbe.java`](../tests/java/IntegrationProbe.java) | tests | Authored startup/init/tick/paint/lifecycle differential probe; not recovered game source or a production platform. |
 | [`tests/java/NavigationProbe.java`](../tests/java/NavigationProbe.java) | tests | Authored navigation-table and selection probe using controlled world records. |
+| [`tests/java/StateProbe.java`](../tests/java/StateProbe.java) | tests | Authored deterministic state-graph serializer and controller/input/render comparison probe. |
 | [`tests/java/SubsystemProbe.java`](../tests/java/SubsystemProbe.java) | tests | Authored original-versus-recovered audio and bitmap-text observation probe. |
 | [`tests/java/WeaponProbe.java`](../tests/java/WeaponProbe.java) | tests | Authored test support or probes; never counted as recovered gameplay or a production platform implementation. |
 | [`tests/java/collection_support/b.java`](../tests/java/collection_support/b.java) | tests | Authored collection/building world or actor test support; not recovered game or production platform code. |
@@ -223,6 +261,23 @@ DAH-Mobile-Decomp/
 | [`tests/java/entity_support/javax/microedition/lcdui/Graphics.java`](../tests/java/entity_support/javax/microedition/lcdui/Graphics.java) | tests | Authored entity test support; not an implementation of unrecovered world or platform systems. |
 | [`tests/java/entity_support/k.java`](../tests/java/entity_support/k.java) | tests | Authored entity test support; not an implementation of unrecovered world or platform systems. |
 | [`tests/java/entity_support/n.java`](../tests/java/entity_support/n.java) | tests | Authored entity test support; not an implementation of unrecovered world or platform systems. |
+| [`tests/java/integration_support/com/nokia/mid/ui/FullCanvas.java`](../tests/java/integration_support/com/nokia/mid/ui/FullCanvas.java) | tests | Authored Nokia FullCanvas API-shape adapter for deterministic integration tests; not a production Nokia implementation. |
+| [`tests/java/integration_support/javax/microedition/lcdui/Canvas.java`](../tests/java/integration_support/javax/microedition/lcdui/Canvas.java) | tests | Authored MIDP Canvas API-shape adapter for deterministic integration tests. |
+| [`tests/java/integration_support/javax/microedition/lcdui/Display.java`](../tests/java/integration_support/javax/microedition/lcdui/Display.java) | tests | Scripted Display lifecycle recorder for integration tests. |
+| [`tests/java/integration_support/javax/microedition/lcdui/Displayable.java`](../tests/java/integration_support/javax/microedition/lcdui/Displayable.java) | tests | Authored MIDP Displayable API-shape adapter for integration tests. |
+| [`tests/java/integration_support/javax/microedition/lcdui/Graphics.java`](../tests/java/integration_support/javax/microedition/lcdui/Graphics.java) | tests | Headless deterministic Graphics recorder/rasterizer shared by original and rebuilt integration runs. |
+| [`tests/java/integration_support/javax/microedition/lcdui/Image.java`](../tests/java/integration_support/javax/microedition/lcdui/Image.java) | tests | ImageIO-backed deterministic Image adapter used only for integration comparisons. |
+| [`tests/java/integration_support/javax/microedition/media/Manager.java`](../tests/java/integration_support/javax/microedition/media/Manager.java) | tests | Scripted media call/state adapter used only for integration comparisons; does not play audio. |
+| [`tests/java/integration_support/javax/microedition/media/MediaException.java`](../tests/java/integration_support/javax/microedition/media/MediaException.java) | tests | Authored media API-shape exception for integration support. |
+| [`tests/java/integration_support/javax/microedition/media/Player.java`](../tests/java/integration_support/javax/microedition/media/Player.java) | tests | Authored media Player API-shape interface for integration support. |
+| [`tests/java/integration_support/javax/microedition/media/PlayerListener.java`](../tests/java/integration_support/javax/microedition/media/PlayerListener.java) | tests | Authored media PlayerListener API-shape interface for integration support. |
+| [`tests/java/integration_support/javax/microedition/midlet/MIDlet.java`](../tests/java/integration_support/javax/microedition/midlet/MIDlet.java) | tests | Authored MIDlet lifecycle contract/recorder for integration support. |
+| [`tests/java/integration_support/javax/microedition/midlet/MIDletStateChangeException.java`](../tests/java/integration_support/javax/microedition/midlet/MIDletStateChangeException.java) | tests | Authored MIDlet API-shape exception for integration support. |
+| [`tests/java/integration_support/javax/microedition/rms/RecordComparator.java`](../tests/java/integration_support/javax/microedition/rms/RecordComparator.java) | tests | Authored RMS RecordComparator API-shape interface for integration support. |
+| [`tests/java/integration_support/javax/microedition/rms/RecordEnumeration.java`](../tests/java/integration_support/javax/microedition/rms/RecordEnumeration.java) | tests | Authored RMS RecordEnumeration API-shape interface for integration support. |
+| [`tests/java/integration_support/javax/microedition/rms/RecordFilter.java`](../tests/java/integration_support/javax/microedition/rms/RecordFilter.java) | tests | Authored RMS RecordFilter API-shape interface for integration support. |
+| [`tests/java/integration_support/javax/microedition/rms/RecordStore.java`](../tests/java/integration_support/javax/microedition/rms/RecordStore.java) | tests | Minimal deterministic RMS API-shape adapter for integration tests; not production persistence. |
+| [`tests/java/integration_support/javax/microedition/rms/RecordStoreException.java`](../tests/java/integration_support/javax/microedition/rms/RecordStoreException.java) | tests | Authored RMS API-shape exception for integration support. |
 | [`tests/java/subsystem_support/b.java`](../tests/java/subsystem_support/b.java) | tests | Authored subsystem test support, not recovered game or production platform code. |
 | [`tests/java/subsystem_support/f.java`](../tests/java/subsystem_support/f.java) | tests | Authored subsystem test support, not recovered game or production platform code. |
 | [`tests/java/subsystem_support/j.java`](../tests/java/subsystem_support/j.java) | tests | Authored subsystem test support, not recovered game or production platform code. |
@@ -247,6 +302,7 @@ DAH-Mobile-Decomp/
 | [`tests/test_component_recovery.py`](../tests/test_component_recovery.py) | tests | Synthetic tests for component input guards, trace mismatches, packaging and signature inventories. |
 | [`tests/test_dah1.py`](../tests/test_dah1.py) | tests | Synthetic tests for input identity checks and the structural auditor. |
 | [`tests/test_entity_recovery.py`](../tests/test_entity_recovery.py) | tests | Check outcome counts, source guards, output isolation and public probe compilation. |
+| [`tests/test_integration_recovery.py`](../tests/test_integration_recovery.py) | tests | Check integration config completeness, support isolation, deterministic packaging, and probe/support compilation without private game source. |
 | [`tests/test_source_map.py`](../tests/test_source_map.py) | tests | Metadata, inventory, evidence, rendering and stale-map regression tests. |
 | [`tests/test_subsystem_recovery.py`](../tests/test_subsystem_recovery.py) | tests | Test aliases, fixtures, isolation and probe compilation without original game data. |
 | [`tests/test_treemap_dashboard.py`](../tests/test_treemap_dashboard.py) | tests | Test treemap geometry, status colors, rendering and repository integration. |
@@ -257,6 +313,7 @@ DAH-Mobile-Decomp/
 | [`tools/component_recovery.py`](../tools/component_recovery.py) | tool | Compile recovered components and compare isolated original/rebuilt probes without a hidden fallback. |
 | [`tools/dah1.py`](../tools/dah1.py) | tool | Verify the pinned JAR and report class structure without executing the game. |
 | [`tools/entity_recovery.py`](../tools/entity_recovery.py) | tool | Build eleven private components and compare isolated effect, entity and pickup probes. |
+| [`tools/integration_recovery.py`](../tools/integration_recovery.py) | tool | Build the final repaired 21-class source tree, package the candidate JAR, verify descriptors/resources, and compare deterministic integration probes. |
 | [`tools/source_map.py`](../tools/source_map.py) | tool | Generate or check the map against tracked files and optionally a local audit. |
 | [`tools/subsystem_recovery.py`](../tools/subsystem_recovery.py) | tool | Build six private component sources and compare audio, bitmap text and navigation in isolated test JVMs. |
 | [`tools/treemap_dashboard.py`](../tools/treemap_dashboard.py) | tool | Render proportional, status-colored SVG treemaps from the real progress schema. |
