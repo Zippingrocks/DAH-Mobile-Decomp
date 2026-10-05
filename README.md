@@ -4,15 +4,15 @@ Faithful, understandable source reconstruction of the **first Java-phone game,
 version 1.2.0**, followed by a native Windows port. This is not the Xbox game,
 Flash game, mobile sequel, or Crypto Does Vegas.
 
-**Current stage: all 21 original classes now have repaired source records, covering all 313 original method entries. The final class p passed its isolated source build and documented differential probes. A final all-repaired whole-tree integration build, complete game validation, and native Windows port remain ahead.**
+**Current stage: all 21 original classes are repaired and the final all-repaired tree has a repeatable 21-class source-only integration build. Startup, controller ticks, deterministic input/state checkpoints, rendering, lifecycle, and a controlled default menu-to-gameplay path match the original under the shared deterministic adapters. Complete-game validation and the native Windows port remain ahead.**
 
 [**Latest integration evidence**](docs/evidence/INTEGRATION_PASS_011.md) · [**Final class recovery**](docs/evidence/RECOVERY_PASS_010.md)
 
-## Latest integration pass
+## Latest integration work
 
 The **final all-repaired 21-class source tree now compiles together** with no copied original classes. Two clean builds are byte-repeatable, all 313 ordered method descriptors match the original, and the candidate packages all 122 original non-code entries byte-for-byte. Original and rebuilt startup, initialization, five ticks, deterministic input/state checkpoints, lifecycle events and the tested rendered frame match under the shared deterministic adapters.
 
-The first integrated paint exposed a real source-linkage defect in `k.paint(Graphics)`; it was corrected against CFR, Vineflower and the original semantics before acceptance. Read [integration pass 011](docs/evidence/INTEGRATION_PASS_011.md).
+The integration harness has now been extended into a reproducible public runner with authored Java ME/Nokia test adapters. A deeper private run drives the recovered game through its default menu path into actual world mode, then applies movement/fire input and compares the resulting recovered world/actor/weapon state and rendering against the original. Two clean runs reproduced the same candidate and comparison result. The first integrated paint had already exposed a real source-linkage defect in `k.paint(Graphics)`; that was corrected before acceptance. Read [integration pass 011](docs/evidence/INTEGRATION_PASS_011.md).
 
 ## Visual progress
 
@@ -116,7 +116,7 @@ material or to dependencies that have not yet been introduced.
 
 ## The next milestone
 
-Move from bounded startup integration to a controlled frame scheduler that can deterministically drive menus into gameplay while comparing state, rendering, audio calls and persistence. Build production Java ME/Nokia-compatible services behind the recovered game API boundary, then proceed toward complete game validation and native Windows compilation.
+Use the new reproducible integration runner to expand deterministic menu→gameplay scripts into longer mission sequences while comparing state, rendering, media calls and persistence. In parallel, replace the authored test adapters with production Java ME/Nokia-compatible services behind the same recovered API boundary, then proceed toward complete-game validation and native Windows compilation.
 
 Read [the project status](docs/STATUS.md),
 [the verification contract](docs/VERIFICATION.md), and

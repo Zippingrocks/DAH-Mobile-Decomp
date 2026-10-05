@@ -1,5 +1,16 @@
 # Project status
 
+## Integration runner publication — controlled menu to gameplay
+
+- Published a reproducible `tools/integration_recovery.py` runner for the final repaired 21-class source tree.
+- The runner verifies the pinned original, all private source hashes, exact 21-class output roster, 313 method entries, descriptor-sequence preservation, byte-exact non-class resources, and repeatable candidate builds.
+- Public authored adapters model the Java ME/Nokia API signatures needed by original and rebuilt classes; they remain deterministic test infrastructure, not production platform services.
+- Published startup/lifecycle, state-graph, and deep controlled integration probes.
+- The deeper private integration script follows the default UI path into real world/gameplay mode, then exercises recovered movement/weapon input and rendering; original and rebuilt results matched in two clean runs.
+- This expands integration evidence beyond startup, but does not establish complete missions, unrestricted frame scheduling, real RMS/audio/handset behavior, or native Windows support.
+
+## Prior status
+
 ## Integration pass 011 — final all-repaired whole-tree build
 
 - The **final repaired 21-class / 313-entry source set compiles together** with no copied original game classes.

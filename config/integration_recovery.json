@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "target_id": "dah1-j2me-en-v1.2.0",
+  "input": {
+    "path": "inputs/original/Destroy-All-Humans_J2ME_EN_v120.jar",
+    "size": 201816,
+    "sha256": "2e03916ea4a5260960e5e57e4dbe0778fb9b577439eac0ce94a685cfecdaaf5f"
+  },
+  "classes": [
+    {
+      "class": "GameMidlet",
+      "sha256": "4571081041663a940b1056fb6483aec9d73b1c7243ab4d021e13a25f2acfc8d3",
+      "bytes": 961
+    },
+    {
+      "class": "a",
+      "sha256": "9b1869b9181dd9c50804d088b858d0d5e77e1528142442b1c98a7f515e189d68",
+      "bytes": 5233
+    },
+    {
+      "class": "b",
+      "sha256": "6492d93735913075f3fbb0bee0f94ca2de69c77491c19a3229b4280cd2404f41",
+      "bytes": 49273
+    },
+    {
+      "class": "c",
+      "sha256": "77810d7dd4f191a4aaac15743a75e60eee8e6f70d8d2a18d3850d5c660c091e9",
+      "bytes": 15433
+    },
+    {
+      "class": "d",
+      "sha256": "6619031595ba924f53d65f0fdc904590d562dc252729de7bfb5bb2d19cf8774a",
+      "bytes": 4868
+    },
+    {
+      "class": "e",
+      "sha256": "2f8c305c5cde7ab9440b72a70be779e3a74b910e708167f67812089a60fc30e9",
+      "bytes": 4832
+    },
+    {
+      "class": "f",
+      "sha256": "7604b6e898296c27340f68f7158360651b062250556a37ebcc4003cb6847c733",
+      "bytes": 6603
+    },
+    {
+      "class": "g",
+      "sha256": "53613677b4bf60747bc01fb3d87403e6228b1cf8970666300e63a30e57eb35ce",
+      "bytes": 5560
+    },
+    {
+      "class": "h",
+      "sha256": "9fb1097065dffc701e0353d56f4aa224d7176b9c2bdb2df194c4288b9546678f",
+      "bytes": 2006
+    },
+    {
+      "class": "i",
+      "sha256": "ddd7da99c32ec6f62cb679a29ccb4553a9000e17ee07a686803d88dd4bcb41e0",
+      "bytes": 3269
+    },
+    {
+      "class": "j",
+      "sha256": "40d981feb73c0b0497f996605d2c977b6015e1c9d699ce353e906b8328980865",
+      "bytes": 27240
+    },
+    {
+      "class": "k",
+      "sha256": "1361f6762fa442437b7269fe746be982c30e8dc8c69e160503b7fa3ae076b876",
+      "bytes": 20400
+    },
+    {
+      "class": "l",
+      "sha256": "f38824fc36e5abf1e4f6b39062d565e31b26daa9d0cfe399521f119c18fc6c54",
+      "bytes": 8839
+    },
+    {
+      "class": "m",
+      "sha256": "790ca3776979782cece0527838b5342a337263d3fc1f967a13efaa47532c93c4",
+      "bytes": 1353
+    },
+    {
+      "class": "n",
+      "sha256": "eb96963f49c64970e4e5920e9f753f75877678ef11531dc2644f191e547e8500",
+      "bytes": 11653
+    },
+    {
+      "class": "o",
+      "sha256": "4b4792cc454ff44c9b5ac5cc456252fe092f8e906b1959a986ac74d00d98d2b6",
+      "bytes": 2946
+    },
+    {
+      "class": "p",
+      "sha256": "d533a1c8a36d4c8a8b9f952b0fc685224cbc44491c21ab36acf6f0eb258f51a1",
+      "bytes": 60762
+    },
+    {
+      "class": "q",
+      "sha256": "eccb4ba1af1fd4ba9af62d04fb3376d3fe5b4f7c1523ea6f95d0cd4bb52a2a68",
+      "bytes": 5807
+    },
+    {
+      "class": "r",
+      "sha256": "0a3a7ec79b802a730027ea23dadb7040465e65aff57597ec1e4950a3a232c155",
+      "bytes": 851
+    },
+    {
+      "class": "s",
+      "sha256": "9806bff4743bf41c8adf164812b78680ac2d84678f2f02e921df7b3a8e044302",
+      "bytes": 3334
+    },
+    {
+      "class": "t",
+      "sha256": "35a011f6dee03b979ceaaea31a5f67ffe85c580092ad242d9e04347502487de6",
+      "bytes": 478
+    }
+  ],
+  "expected": {
+    "class_count": 21,
+    "method_entries": 313,
+    "non_class_entries": 122
+  },
+  "probes": [
+    "tests/java/IntegrationProbe.java",
+    "tests/java/StateProbe.java",
+    "tests/java/DeepIntegrationProbe.java"
+  ],
+  "support_root": "tests/java/integration_support",
+  "notes": [
+    "Source hashes identify the final integrated private snapshots; source bodies remain untracked.",
+    "Support classes are authored deterministic API adapters, not production Java ME/Windows implementations."
+  ]
+}

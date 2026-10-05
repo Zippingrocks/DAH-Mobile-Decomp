@@ -512,6 +512,121 @@
       "path": "docs/evidence/integration-pass-011.json",
       "kind": "docs",
       "purpose": "Machine-readable final integrated candidate hash, repeatability, descriptor/resource checks and scoped startup/state probe digests."
+    },
+    {
+      "path": "config/integration_recovery.json",
+      "kind": "config",
+      "purpose": "Pin final repaired private source hashes, original input identity, integration probes and expected whole-tree counts."
+    },
+    {
+      "path": "tools/integration_recovery.py",
+      "kind": "tool",
+      "purpose": "Build the final repaired 21-class source tree, package the candidate JAR, verify descriptors/resources, and compare deterministic integration probes."
+    },
+    {
+      "path": "tests/test_integration_recovery.py",
+      "kind": "tests",
+      "purpose": "Check integration config completeness, support isolation, deterministic packaging, and probe/support compilation without private game source."
+    },
+    {
+      "path": "tests/java/IntegrationProbe.java",
+      "kind": "tests",
+      "purpose": "Authored startup/init/tick/paint/lifecycle differential probe; not recovered game source or a production platform."
+    },
+    {
+      "path": "tests/java/StateProbe.java",
+      "kind": "tests",
+      "purpose": "Authored deterministic state-graph serializer and controller/input/render comparison probe."
+    },
+    {
+      "path": "tests/java/DeepIntegrationProbe.java",
+      "kind": "tests",
+      "purpose": "Authored controlled menu-to-gameplay integration probe exercising real recovered world, actor, weapon, input and rendering paths."
+    },
+    {
+      "path": "tests/java/integration_support/com/nokia/mid/ui/FullCanvas.java",
+      "kind": "tests",
+      "purpose": "Authored Nokia FullCanvas API-shape adapter for deterministic integration tests; not a production Nokia implementation."
+    },
+    {
+      "path": "tests/java/integration_support/javax/microedition/lcdui/Canvas.java",
+      "kind": "tests",
+      "purpose": "Authored MIDP Canvas API-shape adapter for deterministic integration tests."
+    },
+    {
+      "path": "tests/java/integration_support/javax/microedition/lcdui/Display.java",
+      "kind": "tests",
+      "purpose": "Scripted Display lifecycle recorder for integration tests."
+    },
+    {
+      "path": "tests/java/integration_support/javax/microedition/lcdui/Displayable.java",
+      "kind": "tests",
+      "purpose": "Authored MIDP Displayable API-shape adapter for integration tests."
+    },
+    {
+      "path": "tests/java/integration_support/javax/microedition/lcdui/Graphics.java",
+      "kind": "tests",
+      "purpose": "Headless deterministic Graphics recorder/rasterizer shared by original and rebuilt integration runs."
+    },
+    {
+      "path": "tests/java/integration_support/javax/microedition/lcdui/Image.java",
+      "kind": "tests",
+      "purpose": "ImageIO-backed deterministic Image adapter used only for integration comparisons."
+    },
+    {
+      "path": "tests/java/integration_support/javax/microedition/media/Manager.java",
+      "kind": "tests",
+      "purpose": "Scripted media call/state adapter used only for integration comparisons; does not play audio."
+    },
+    {
+      "path": "tests/java/integration_support/javax/microedition/media/MediaException.java",
+      "kind": "tests",
+      "purpose": "Authored media API-shape exception for integration support."
+    },
+    {
+      "path": "tests/java/integration_support/javax/microedition/media/Player.java",
+      "kind": "tests",
+      "purpose": "Authored media Player API-shape interface for integration support."
+    },
+    {
+      "path": "tests/java/integration_support/javax/microedition/media/PlayerListener.java",
+      "kind": "tests",
+      "purpose": "Authored media PlayerListener API-shape interface for integration support."
+    },
+    {
+      "path": "tests/java/integration_support/javax/microedition/midlet/MIDlet.java",
+      "kind": "tests",
+      "purpose": "Authored MIDlet lifecycle contract/recorder for integration support."
+    },
+    {
+      "path": "tests/java/integration_support/javax/microedition/midlet/MIDletStateChangeException.java",
+      "kind": "tests",
+      "purpose": "Authored MIDlet API-shape exception for integration support."
+    },
+    {
+      "path": "tests/java/integration_support/javax/microedition/rms/RecordComparator.java",
+      "kind": "tests",
+      "purpose": "Authored RMS RecordComparator API-shape interface for integration support."
+    },
+    {
+      "path": "tests/java/integration_support/javax/microedition/rms/RecordEnumeration.java",
+      "kind": "tests",
+      "purpose": "Authored RMS RecordEnumeration API-shape interface for integration support."
+    },
+    {
+      "path": "tests/java/integration_support/javax/microedition/rms/RecordFilter.java",
+      "kind": "tests",
+      "purpose": "Authored RMS RecordFilter API-shape interface for integration support."
+    },
+    {
+      "path": "tests/java/integration_support/javax/microedition/rms/RecordStore.java",
+      "kind": "tests",
+      "purpose": "Minimal deterministic RMS API-shape adapter for integration tests; not production persistence."
+    },
+    {
+      "path": "tests/java/integration_support/javax/microedition/rms/RecordStoreException.java",
+      "kind": "tests",
+      "purpose": "Authored RMS API-shape exception for integration support."
     }
   ],
   "classes": [

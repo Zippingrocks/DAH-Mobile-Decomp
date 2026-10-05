@@ -1,0 +1,1 @@
+package javax.microedition.rms; public interface RecordEnumeration {boolean hasNextElement();byte[] nextRecord() throws RecordStoreException;int nextRecordId() throws RecordStoreException;void destroy();}
