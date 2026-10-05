@@ -55,6 +55,7 @@ DAH-Mobile-Decomp/
 |   `-- evidence/
 |       |-- DECOMPILER_PASS_007.md [DOCS]
 |       |-- INTEGRATION_PASS_011.md [DOCS]
+|       |-- INTEGRATION_PASS_012.md [DOCS]
 |       |-- RECOVERY_PASS_001.md [DOCS]
 |       |-- RECOVERY_PASS_002.md [DOCS]
 |       |-- RECOVERY_PASS_003.md [DOCS]
@@ -70,6 +71,7 @@ DAH-Mobile-Decomp/
 |       |-- decompiler-pass-007.json [DOCS]
 |       |-- entity-pass-003.json [DOCS]
 |       |-- integration-pass-011.json [DOCS]
+|       |-- integration-pass-012.json [DOCS]
 |       |-- subsystem-pass-002.json [DOCS]
 |       |-- ui-pass-010.json [DOCS]
 |       |-- weapon-pass-005.json [DOCS]
@@ -81,7 +83,9 @@ DAH-Mobile-Decomp/
 |   |   |-- DeepIntegrationProbe.java [TESTS]
 |   |   |-- EntityProbe.java [TESTS]
 |   |   |-- IntegrationProbe.java [TESTS]
+|   |   |-- LongRunProbe.java [TESTS]
 |   |   |-- NavigationProbe.java [TESTS]
+|   |   |-- PersistenceProbe.java [TESTS]
 |   |   |-- StateProbe.java [TESTS]
 |   |   |-- SubsystemProbe.java [TESTS]
 |   |   |-- WeaponProbe.java [TESTS]
@@ -219,6 +223,7 @@ DAH-Mobile-Decomp/
 | [`docs/VISUAL_PROGRESS.md`](../docs/VISUAL_PROGRESS.md) | generated | Embed all four class treemaps and report current comparison status. |
 | [`docs/evidence/DECOMPILER_PASS_007.md`](../docs/evidence/DECOMPILER_PASS_007.md) | docs | Document pinned dual-decompiler recovery, all-class raw source compilation, repair points and limitations. |
 | [`docs/evidence/INTEGRATION_PASS_011.md`](../docs/evidence/INTEGRATION_PASS_011.md) | docs | Document the first final all-repaired 21-class integration build, original-versus-rebuilt startup/state/render comparisons, caught linkage defect and remaining platform boundary. |
+| [`docs/evidence/INTEGRATION_PASS_012.md`](../docs/evidence/INTEGRATION_PASS_012.md) | docs | Document integrated RMS round-trip validation and 500-frame deterministic gameplay stress matching. |
 | [`docs/evidence/RECOVERY_PASS_001.md`](../docs/evidence/RECOVERY_PASS_001.md) | docs | Explain the first manual source recovery, scoped component tests, repeatability and remaining gaps. |
 | [`docs/evidence/RECOVERY_PASS_002.md`](../docs/evidence/RECOVERY_PASS_002.md) | docs | Document three more recovered components, 172170 scoped calls, negative controls and limitations. |
 | [`docs/evidence/RECOVERY_PASS_003.md`](../docs/evidence/RECOVERY_PASS_003.md) | docs | Document five new component recoveries, integration tests, negative controls and limitations. |
@@ -234,6 +239,7 @@ DAH-Mobile-Decomp/
 | [`docs/evidence/decompiler-pass-007.json`](../docs/evidence/decompiler-pass-007.json) | docs | Machine-readable tool/source/artifact hashes and static inventory results for decompiler pass 007. |
 | [`docs/evidence/entity-pass-003.json`](../docs/evidence/entity-pass-003.json) | docs | Recorded artifact hashes, direct target call outcomes and scoped observation digests. |
 | [`docs/evidence/integration-pass-011.json`](../docs/evidence/integration-pass-011.json) | docs | Machine-readable final integrated candidate hash, repeatability, descriptor/resource checks and scoped startup/state probe digests. |
+| [`docs/evidence/integration-pass-012.json`](../docs/evidence/integration-pass-012.json) | docs | Machine-readable persistence and long-run probe digests for integration pass 012. |
 | [`docs/evidence/subsystem-pass-002.json`](../docs/evidence/subsystem-pass-002.json) | docs | Hashes and matching observation digests from the second reproducible subsystem run. |
 | [`docs/evidence/ui-pass-010.json`](../docs/evidence/ui-pass-010.json) | docs | Record final p source/artifact hashes and matching scoped observation digests; no game code or assets. |
 | [`docs/evidence/weapon-pass-005.json`](../docs/evidence/weapon-pass-005.json) | docs | Record scoped pass-005 observations, private snapshot hashes and publication limitations. |
@@ -243,7 +249,9 @@ DAH-Mobile-Decomp/
 | [`tests/java/DeepIntegrationProbe.java`](../tests/java/DeepIntegrationProbe.java) | tests | Authored controlled menu-to-gameplay integration probe exercising real recovered world, actor, weapon, input and rendering paths. |
 | [`tests/java/EntityProbe.java`](../tests/java/EntityProbe.java) | tests | Authored differential observations for effects, base entities, pickups and attached objects. |
 | [`tests/java/IntegrationProbe.java`](../tests/java/IntegrationProbe.java) | tests | Authored startup/init/tick/paint/lifecycle differential probe; not recovered game source or a production platform. |
+| [`tests/java/LongRunProbe.java`](../tests/java/LongRunProbe.java) | tests | Authored 500-frame menu-to-gameplay stress probe with periodic state/render/media/RMS observations. |
 | [`tests/java/NavigationProbe.java`](../tests/java/NavigationProbe.java) | tests | Authored navigation-table and selection probe using controlled world records. |
+| [`tests/java/PersistenceProbe.java`](../tests/java/PersistenceProbe.java) | tests | Authored deterministic RMS save/load differential probe for the final integrated game tree. |
 | [`tests/java/StateProbe.java`](../tests/java/StateProbe.java) | tests | Authored deterministic state-graph serializer and controller/input/render comparison probe. |
 | [`tests/java/SubsystemProbe.java`](../tests/java/SubsystemProbe.java) | tests | Authored original-versus-recovered audio and bitmap-text observation probe. |
 | [`tests/java/WeaponProbe.java`](../tests/java/WeaponProbe.java) | tests | Authored test support or probes; never counted as recovered gameplay or a production platform implementation. |
