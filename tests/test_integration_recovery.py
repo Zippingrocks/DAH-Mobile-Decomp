@@ -33,6 +33,21 @@ class IntegrationRecoveryTests(unittest.TestCase):
         src=(ir.ROOT/'tests/java/integration_support/javax/microedition/lcdui/Graphics.java').read_text()
         self.assertIn('if (h==1) dx-=image.getWidth()/2',src)
         self.assertIn('else if(v!=16)',src)
+    def test_persistence_and_long_run_probes_are_in_scope(self):
+        probes = ir.config()["probes"]
+        self.assertIn("tests/java/PersistenceProbe.java", probes)
+        self.assertIn("tests/java/LongRunProbe.java", probes)
+
+    def test_rms_adapter_is_stateful_but_test_only(self):
+        src=(ir.ROOT/"tests/java/integration_support/javax/microedition/rms/RecordStore.java").read_text()
+        self.assertIn("Map<String,List<byte[]>> STORES", src)
+        self.assertIn("not a production persistence backend", src)
+
+    def test_long_run_probe_has_multiple_state_checkpoints(self):
+        src=(ir.ROOT/"tests/java/LongRunProbe.java").read_text()
+        self.assertIn("frame<=500", src)
+        self.assertIn("frame%100==0", src)
+
     def test_original_pin_shape(self):
         i=ir.config()['input'];self.assertEqual(i['size'],201816);self.assertEqual(len(i['sha256']),64)
 if __name__=='__main__':unittest.main()

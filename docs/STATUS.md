@@ -1,5 +1,20 @@
 # Project status
 
+## Integration pass 012 — persistence and 500-frame gameplay stress
+
+- Original and rebuilt RMS save/load behavior matches for an 82-byte save buffer, including representative bytes, call ordering and no-save defaults.
+- The authored RMS adapter is now stateful enough to exercise the game's real record-store path, but remains deterministic test infrastructure rather than production persistence.
+- A controlled **500-frame gameplay run** after the established default menu→world path matches at gameplay start and at frames 100, 200, 300, 400 and 500.
+- Final render, image/resource trace, media call/state trace and RMS trace also match.
+- Candidate JAR remains the same final all-repaired 21-class build from pass 011; no recovered game logic changed in this pass.
+- Local public recovery/integration tooling tests passed before publication.
+- This is not a complete campaign playthrough, real audio implementation, production RMS backend, handset-fidelity claim or native Windows port.
+
+See [integration pass 012](evidence/INTEGRATION_PASS_012.md) and
+[machine-readable evidence](evidence/integration-pass-012.json).
+
+## Prior status
+
 ## Integration runner publication — controlled menu to gameplay
 
 - Published a reproducible `tools/integration_recovery.py` runner for the final repaired 21-class source tree.

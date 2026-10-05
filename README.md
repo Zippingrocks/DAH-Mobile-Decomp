@@ -4,7 +4,7 @@ Faithful, understandable source reconstruction of the **first Java-phone game,
 version 1.2.0**, followed by a native Windows port. This is not the Xbox game,
 Flash game, mobile sequel, or Crypto Does Vegas.
 
-**Current stage: all 21 original classes are repaired and the final all-repaired tree has a repeatable 21-class source-only integration build. Startup, controller ticks, deterministic input/state checkpoints, rendering, lifecycle, and a controlled default menu-to-gameplay path match the original under the shared deterministic adapters. Complete-game validation and the native Windows port remain ahead.**
+**Current stage: all 21 original classes are repaired and the final all-repaired tree has a repeatable 21-class source-only integration build. The original and rebuild now match through startup, menu→gameplay transition, save/load round-trips, and a 500-frame deterministic gameplay stress run with state, rendering, media-call and RMS checkpoints. Complete campaign validation and the native Windows port remain ahead.**
 
 [**Latest integration evidence**](docs/evidence/INTEGRATION_PASS_011.md) · [**Final class recovery**](docs/evidence/RECOVERY_PASS_010.md)
 
@@ -12,7 +12,7 @@ Flash game, mobile sequel, or Crypto Does Vegas.
 
 The **final all-repaired 21-class source tree now compiles together** with no copied original classes. Two clean builds are byte-repeatable, all 313 ordered method descriptors match the original, and the candidate packages all 122 original non-code entries byte-for-byte. Original and rebuilt startup, initialization, five ticks, deterministic input/state checkpoints, lifecycle events and the tested rendered frame match under the shared deterministic adapters.
 
-The integration harness has now been extended into a reproducible public runner with authored Java ME/Nokia test adapters. A deeper private run drives the recovered game through its default menu path into actual world mode, then applies movement/fire input and compares the resulting recovered world/actor/weapon state and rendering against the original. Two clean runs reproduced the same candidate and comparison result. The first integrated paint had already exposed a real source-linkage defect in `k.paint(Graphics)`; that was corrected before acceptance. Read [integration pass 011](docs/evidence/INTEGRATION_PASS_011.md).
+The reproducible integration runner now also validates the game's RMS save/load semantics and a 500-frame deterministic gameplay stress sequence after entering world mode. State checkpoints at 100-frame intervals, final rendering, image/resource calls, media calls and RMS activity all match the original. The RMS adapter is intentionally in-memory test infrastructure, not the production storage backend. Read [integration pass 012](docs/evidence/INTEGRATION_PASS_012.md) and [integration pass 011](docs/evidence/INTEGRATION_PASS_011.md).
 
 ## Visual progress
 

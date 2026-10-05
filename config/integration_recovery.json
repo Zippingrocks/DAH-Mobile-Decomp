@@ -121,7 +121,9 @@
   "probes": [
     "tests/java/IntegrationProbe.java",
     "tests/java/StateProbe.java",
-    "tests/java/DeepIntegrationProbe.java"
+    "tests/java/DeepIntegrationProbe.java",
+    "tests/java/PersistenceProbe.java",
+    "tests/java/LongRunProbe.java"
   ],
   "support_root": "tests/java/integration_support",
   "notes": [

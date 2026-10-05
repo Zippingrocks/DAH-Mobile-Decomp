@@ -627,6 +627,26 @@
       "path": "tests/java/integration_support/javax/microedition/rms/RecordStoreException.java",
       "kind": "tests",
       "purpose": "Authored RMS API-shape exception for integration support."
+    },
+    {
+      "path": "tests/java/PersistenceProbe.java",
+      "kind": "tests",
+      "purpose": "Authored deterministic RMS save/load differential probe for the final integrated game tree."
+    },
+    {
+      "path": "tests/java/LongRunProbe.java",
+      "kind": "tests",
+      "purpose": "Authored 500-frame menu-to-gameplay stress probe with periodic state/render/media/RMS observations."
+    },
+    {
+      "path": "docs/evidence/INTEGRATION_PASS_012.md",
+      "kind": "docs",
+      "purpose": "Document integrated RMS round-trip validation and 500-frame deterministic gameplay stress matching."
+    },
+    {
+      "path": "docs/evidence/integration-pass-012.json",
+      "kind": "docs",
+      "purpose": "Machine-readable persistence and long-run probe digests for integration pass 012."
     }
   ],
   "classes": [
