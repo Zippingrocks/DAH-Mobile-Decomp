@@ -75,6 +75,7 @@ DAH-Mobile-Decomp/
 |       |-- INTEGRATION_PASS_021_MISSION_STRESS.md [DOCS]
 |       |-- INTEGRATION_PASS_022_MISSION_FUZZ.md [DOCS]
 |       |-- INTEGRATION_PASS_023_DESKTOP_POLISH.md [DOCS]
+|       |-- INTEGRATION_PASS_024_AUDIO_SANITY.md [DOCS]
 |       |-- RECOVERY_PASS_001.md [DOCS]
 |       |-- RECOVERY_PASS_002.md [DOCS]
 |       |-- RECOVERY_PASS_003.md [DOCS]
@@ -103,6 +104,7 @@ DAH-Mobile-Decomp/
 |       |-- integration-pass-021-mission-stress.json [DOCS]
 |       |-- integration-pass-022-mission-fuzz.json [DOCS]
 |       |-- integration-pass-023-desktop-polish.json [DOCS]
+|       |-- integration-pass-024-audio-sanity.json [DOCS]
 |       |-- subsystem-pass-002.json [DOCS]
 |       |-- ui-pass-010.json [DOCS]
 |       |-- weapon-pass-005.json [DOCS]
@@ -236,6 +238,7 @@ DAH-Mobile-Decomp/
 |   |       |           |-- MIDlet.java [TESTS]
 |   |       |           `-- MIDletStateChangeException.java [TESTS]
 |   |       `-- k.java [TESTS]
+|   |-- test_audio_sanity.py [TESTS]
 |   |-- test_byte_match.py [TESTS]
 |   |-- test_campaign_progression.py [TESTS]
 |   |-- test_campaign_validation.py [TESTS]
@@ -254,6 +257,7 @@ DAH-Mobile-Decomp/
 |   |-- test_treemap_dashboard.py [TESTS]
 |   `-- test_weapon_recovery.py [TESTS]
 `-- tools/
+    |-- audio_sanity.py [TOOL]
     |-- byte_match.py [TOOL]
     |-- campaign_progression.py [TOOL]
     |-- campaign_validation.py [TOOL]
@@ -324,6 +328,7 @@ DAH-Mobile-Decomp/
 | [`docs/evidence/INTEGRATION_PASS_021_MISSION_STRESS.md`](../docs/evidence/INTEGRATION_PASS_021_MISSION_STRESS.md) | docs | Document 3,900 mission-specific controller/world update frames matching retail across all 13 missions. |
 | [`docs/evidence/INTEGRATION_PASS_022_MISSION_FUZZ.md`](../docs/evidence/INTEGRATION_PASS_022_MISSION_FUZZ.md) | docs | Document 7,800 multi-seed mission-specific controller/world update frames matching retail. |
 | [`docs/evidence/INTEGRATION_PASS_023_DESKTOP_POLISH.md`](../docs/evidence/INTEGRATION_PASS_023_DESKTOP_POLISH.md) | docs | Document deterministic integer scaling and desktop key mapping polish for the authored runtime. |
+| [`docs/evidence/INTEGRATION_PASS_024_AUDIO_SANITY.md`](../docs/evidence/INTEGRATION_PASS_024_AUDIO_SANITY.md) | docs | Document structural/signal sanity results for all four converted retail effects. |
 | [`docs/evidence/RECOVERY_PASS_001.md`](../docs/evidence/RECOVERY_PASS_001.md) | docs | Explain the first manual source recovery, scoped component tests, repeatability and remaining gaps. |
 | [`docs/evidence/RECOVERY_PASS_002.md`](../docs/evidence/RECOVERY_PASS_002.md) | docs | Document three more recovered components, 172170 scoped calls, negative controls and limitations. |
 | [`docs/evidence/RECOVERY_PASS_003.md`](../docs/evidence/RECOVERY_PASS_003.md) | docs | Document five new component recoveries, integration tests, negative controls and limitations. |
@@ -352,6 +357,7 @@ DAH-Mobile-Decomp/
 | [`docs/evidence/integration-pass-021-mission-stress.json`](../docs/evidence/integration-pass-021-mission-stress.json) | docs | Machine-readable mission-stress aggregate result and claim boundaries. |
 | [`docs/evidence/integration-pass-022-mission-fuzz.json`](../docs/evidence/integration-pass-022-mission-fuzz.json) | docs | Machine-readable multi-seed mission fuzz result and claim boundaries. |
 | [`docs/evidence/integration-pass-023-desktop-polish.json`](../docs/evidence/integration-pass-023-desktop-polish.json) | docs | Machine-readable desktop scaling/control mapping state and human-judgment boundary. |
+| [`docs/evidence/integration-pass-024-audio-sanity.json`](../docs/evidence/integration-pass-024-audio-sanity.json) | docs | Machine-readable converted-audio sanity state and subjective-listening boundary. |
 | [`docs/evidence/subsystem-pass-002.json`](../docs/evidence/subsystem-pass-002.json) | docs | Hashes and matching observation digests from the second reproducible subsystem run. |
 | [`docs/evidence/ui-pass-010.json`](../docs/evidence/ui-pass-010.json) | docs | Record final p source/artifact hashes and matching scoped observation digests; no game code or assets. |
 | [`docs/evidence/weapon-pass-005.json`](../docs/evidence/weapon-pass-005.json) | docs | Record scoped pass-005 observations, private snapshot hashes and publication limitations. |
@@ -439,6 +445,7 @@ DAH-Mobile-Decomp/
 | [`tests/java/weapon_support/javax/microedition/midlet/MIDlet.java`](../tests/java/weapon_support/javax/microedition/midlet/MIDlet.java) | tests | Authored test support or probes; never counted as recovered gameplay or a production platform implementation. |
 | [`tests/java/weapon_support/javax/microedition/midlet/MIDletStateChangeException.java`](../tests/java/weapon_support/javax/microedition/midlet/MIDletStateChangeException.java) | tests | Authored test support or probes; never counted as recovered gameplay or a production platform implementation. |
 | [`tests/java/weapon_support/k.java`](../tests/java/weapon_support/k.java) | tests | Authored test support or probes; never counted as recovered gameplay or a production platform implementation. |
+| [`tests/test_audio_sanity.py`](../tests/test_audio_sanity.py) | tests | Public tests for converted-audio metrics and silence/clipping rejection. |
 | [`tests/test_byte_match.py`](../tests/test_byte_match.py) | tests | Synthetic and independently compiled fixtures test matching and stale-report safeguards. |
 | [`tests/test_campaign_progression.py`](../tests/test_campaign_progression.py) | tests | Public regression tests for campaign save-chain config, fresh-process isolation, and RMS comparison behavior. |
 | [`tests/test_campaign_validation.py`](../tests/test_campaign_validation.py) | tests | Public campaign-validator config, compilation and isolation regression tests. |
@@ -456,6 +463,7 @@ DAH-Mobile-Decomp/
 | [`tests/test_subsystem_recovery.py`](../tests/test_subsystem_recovery.py) | tests | Test aliases, fixtures, isolation and probe compilation without original game data. |
 | [`tests/test_treemap_dashboard.py`](../tests/test_treemap_dashboard.py) | tests | Test treemap geometry, status colors, rendering and repository integration. |
 | [`tests/test_weapon_recovery.py`](../tests/test_weapon_recovery.py) | tests | Authored test support or probes; never counted as recovered gameplay or a production platform implementation. |
+| [`tools/audio_sanity.py`](../tools/audio_sanity.py) | tool | Validate packaged converted audio companions for PCM shape, duration, non-silence and clipping. |
 | [`tools/byte_match.py`](../tools/byte_match.py) | tool | Compare original and candidate JAR classes, record hashes and gate displayed match claims. |
 | [`tools/campaign_progression.py`](../tools/campaign_progression.py) | tool | Run each campaign step in a fresh JVM while carrying file-backed RMS forward and compare retail versus rebuilt progression. |
 | [`tools/campaign_validation.py`](../tools/campaign_validation.py) | tool | Build or accept a desktop candidate and compare all 13 mission objective/completion observations against retail in fresh JVMs. |
