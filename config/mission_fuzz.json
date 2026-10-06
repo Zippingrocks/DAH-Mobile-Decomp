@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "target_id": "dah1-j2me-en-v1.2.0",
+  "frames_per_seed": 150,
+  "seeds": [
+    1,
+    3,
+    13,
+    34
+  ],
+  "total_frames": 7800,
+  "missions": [
+    {
+      "mission": 1,
+      "sha256": "e12a5b1b252fdc49e6862855c8323e1894dfe8c0f58a9fc995cf549675d9fa6d"
+    },
+    {
+      "mission": 2,
+      "sha256": "e37552d1906b42c466143a07190230aeca17002209d11f49597387024e8071c8"
+    },
+    {
+      "mission": 3,
+      "sha256": "9e644dd2c649d8b27ea383b732fa1468bc7201ea8048cb93d1ee24057597673e"
+    },
+    {
+      "mission": 4,
+      "sha256": "76defe0c415ae5a05c49f2be1df3ff2f87e00390f150f59c62db74b500ba717a"
+    },
+    {
+      "mission": 5,
+      "sha256": "60bcca66a54b05b9ef55bd65207c1344c098e2999bdc1dac2f85d24300507396"
+    },
+    {
+      "mission": 6,
+      "sha256": "d6c8bee2d157aae60df924be644d02140b5609f8011cd6aaaf6e148156cb7244"
+    },
+    {
+      "mission": 7,
+      "sha256": "c9df7ff2e1732659a7df229e2972b859972e217f2136e82d6aa376e92e546d6e"
+    },
+    {
+      "mission": 8,
+      "sha256": "d83644715fec0d0f5615df51d90bd4fa3c2fb96067072bf49576a8b94fe60020"
+    },
+    {
+      "mission": 9,
+      "sha256": "0f31b4353ff71eaf8ef5bd3cdb9e18882a33a2979c2f8534bf316e93b2821f83"
+    },
+    {
+      "mission": 10,
+      "sha256": "090633db3e98cd639fa7051a4311d309a26c762f25bd33117b13dc7139095809"
+    },
+    {
+      "mission": 11,
+      "sha256": "804954adde4bcc2dbd44ead4047c76a01c5c8fa36c00b2c76a99c6deeb112326"
+    },
+    {
+      "mission": 12,
+      "sha256": "0c0a75d272aac12d92649b9288e3f679a567d81305fd9ea95d8dfcb370f56fdb"
+    },
+    {
+      "mission": 13,
+      "sha256": "20ccf4156cdfc2938f50924635b19bf320c482881946338b1b2bb4c7f8a50f44"
+    }
+  ],
+  "aggregate_mission_hashes_sha256": "521df370f487e06dc1e2064d08ac8390d8d6c7eae9ec03f98ba23a8407af3dc3",
+  "notes": [
+    "Each mission+seed run uses a fresh JVM for retail and rebuilt.",
+    "Game RNG and input RNG are seeded independently from the same seed.",
+    "Input actions include randomized press, release, release-all and no-op decisions across movement/action/soft keys.",
+    "State checkpoints are recorded every 50 frames."
+  ]
+}

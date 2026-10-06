@@ -121,6 +121,24 @@ def main(argv=None):
             "aggregate_stdout_sha256": stress["aggregate_stdout_sha256"],
         }
 
+        fuzz_report = work / "mission-fuzz.json"
+        run([
+            sys.executable, ROOT / "tools" / "mission_fuzz.py",
+            "--input", args.input,
+            "--candidate", candidate,
+            "--report", fuzz_report,
+        ])
+        fuzz = json.loads(fuzz_report.read_text())
+        if fuzz.get("missions") != 13 or fuzz.get("total_frames") != 7800 or not fuzz.get("retail_rebuilt_outputs_identical"):
+            raise RuntimeError("mission fuzz did not pass")
+        checks["mission_fuzz"] = {
+            "missions": 13,
+            "seeds": fuzz["seeds"],
+            "total_frames": 7800,
+            "passed": True,
+            "aggregate_mission_hashes_sha256": fuzz["aggregate_mission_hashes_sha256"],
+        }
+
         progression_report = work / "campaign-progression.json"
         run([
             sys.executable, ROOT / "tools" / "campaign_progression.py",
