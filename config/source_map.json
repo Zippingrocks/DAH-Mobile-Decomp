@@ -887,6 +887,31 @@
       "path": "docs/evidence/integration-pass-019-campaign-progression.json",
       "kind": "docs",
       "purpose": "Machine-readable 13-step progression/persistence result and claim boundaries."
+    },
+    {
+      "path": "tools/full_validation.py",
+      "kind": "tool",
+      "purpose": "Run the complete machine-checkable validation stack and report the remaining human/environment-only gates."
+    },
+    {
+      "path": "tests/test_full_validation.py",
+      "kind": "tests",
+      "purpose": "Check unified validation orchestration, AMR inventory expectations, and explicit non-gold/human-only boundaries."
+    },
+    {
+      "path": "docs/AUTOMATED_VALIDATION.md",
+      "kind": "docs",
+      "purpose": "Usage and scope for the single-command automated validation gate."
+    },
+    {
+      "path": "docs/evidence/INTEGRATION_PASS_020_AUTOMATED_GATE.md",
+      "kind": "docs",
+      "purpose": "Document publication of the unified machine validation gate and remaining human/environment boundaries."
+    },
+    {
+      "path": "docs/evidence/integration-pass-020-automated-gate.json",
+      "kind": "docs",
+      "purpose": "Machine-readable automated-gate scope and remaining finish-line categories."
     }
   ],
   "classes": [

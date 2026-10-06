@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "target_id": "dah1-j2me-en-v1.2.0",
+  "tool": "tools/full_validation.py",
+  "automated_checks": [
+    "public tests",
+    "desktop build",
+    "AMR companion inventory",
+    "native smoke",
+    "13-mission matrix",
+    "1-to-13 RMS progression",
+    "native-image preflight"
+  ],
+  "human_only_remaining": [
+    "interactive full-campaign playtest for control feel and unscripted edge cases",
+    "subjective audio loudness/mix/timing judgment on a real audio device",
+    "subjective desktop presentation/window-scaling judgment"
+  ],
+  "environment_remaining": [
+    "produce and validate the Windows native executable on a Windows GraalVM/MSVC/Windows-SDK host"
+  ],
+  "successful_gate_implies_gold": false,
+  "claims": {
+    "unified_automation_published": true,
+    "gold": false,
+    "native_windows_executable": false
+  }
+}

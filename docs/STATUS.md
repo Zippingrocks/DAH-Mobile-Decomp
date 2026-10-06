@@ -1,5 +1,18 @@
 # Project status
 
+## Integration pass 020 — unified automated validation gate
+
+- Added `tools/full_validation.py` as the one-command machine-checkable release gate.
+- It runs public tests, desktop candidate build/inspection, AMR companion checks, direct native smoke, the 13-mission matrix, the 1→13 file-backed RMS progression chain, and native-image preflight.
+- The gate explicitly emits `gold: false`; it does not turn passing automation into an unconditional completion claim.
+- Remaining human-only work is limited to hands-on full-campaign/control edge-case playtesting, subjective audio judgment, and subjective desktop presentation/scaling judgment.
+- Producing the Windows native executable is tracked separately as an environment requirement because its build procedure is already automated but needs a Windows GraalVM/MSVC/Windows-SDK host.
+
+See [automated validation guide](../docs/AUTOMATED_VALIDATION.md) and
+[pass 020 evidence](evidence/INTEGRATION_PASS_020_AUTOMATED_GATE.md).
+
+## Prior status
+
 ## Integration pass 019 — automated mission-to-mission save progression
 
 - Published a fresh-JVM **mission 1→13 progression validator** that carries real file-backed RMS state across steps.
