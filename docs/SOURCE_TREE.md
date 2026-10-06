@@ -34,6 +34,7 @@ DAH-Mobile-Decomp/
 |-- config/
 |   |-- byte_match.json [CONFIG]
 |   |-- campaign_matrix.json [CONFIG]
+|   |-- campaign_progression.json [CONFIG]
 |   |-- collection_recovery.json [CONFIG]
 |   |-- component_recovery.json [CONFIG]
 |   |-- entity_recovery.json [CONFIG]
@@ -66,6 +67,7 @@ DAH-Mobile-Decomp/
 |       |-- INTEGRATION_PASS_016_AMR_AUDIO.md [DOCS]
 |       |-- INTEGRATION_PASS_017_CAMPAIGN_AUTOMATION.md [DOCS]
 |       |-- INTEGRATION_PASS_018_NATIVE_AOT_PREP.md [DOCS]
+|       |-- INTEGRATION_PASS_019_CAMPAIGN_PROGRESSION.md [DOCS]
 |       |-- RECOVERY_PASS_001.md [DOCS]
 |       |-- RECOVERY_PASS_002.md [DOCS]
 |       |-- RECOVERY_PASS_003.md [DOCS]
@@ -89,6 +91,7 @@ DAH-Mobile-Decomp/
 |       |-- integration-pass-016-amr-audio.json [DOCS]
 |       |-- integration-pass-017-campaign-automation.json [DOCS]
 |       |-- integration-pass-018-native-aot-prep.json [DOCS]
+|       |-- integration-pass-019-campaign-progression.json [DOCS]
 |       |-- subsystem-pass-002.json [DOCS]
 |       |-- ui-pass-010.json [DOCS]
 |       |-- weapon-pass-005.json [DOCS]
@@ -128,6 +131,7 @@ DAH-Mobile-Decomp/
 |-- tests/
 |   |-- java/
 |   |   |-- CampaignMatrixProbe.java [TESTS]
+|   |   |-- CampaignProgressionStepProbe.java [TESTS]
 |   |   |-- CollectionProbe.java [TESTS]
 |   |   |-- ComponentProbe.java [TESTS]
 |   |   |-- DeepIntegrationProbe.java [TESTS]
@@ -220,6 +224,7 @@ DAH-Mobile-Decomp/
 |   |       |           `-- MIDletStateChangeException.java [TESTS]
 |   |       `-- k.java [TESTS]
 |   |-- test_byte_match.py [TESTS]
+|   |-- test_campaign_progression.py [TESTS]
 |   |-- test_campaign_validation.py [TESTS]
 |   |-- test_collection_recovery.py [TESTS]
 |   |-- test_component_recovery.py [TESTS]
@@ -234,6 +239,7 @@ DAH-Mobile-Decomp/
 |   `-- test_weapon_recovery.py [TESTS]
 `-- tools/
     |-- byte_match.py [TOOL]
+    |-- campaign_progression.py [TOOL]
     |-- campaign_validation.py [TOOL]
     |-- classfile.py [TOOL]
     |-- collection_recovery.py [TOOL]
@@ -260,6 +266,7 @@ DAH-Mobile-Decomp/
 | [`README.md`](../README.md) | docs | Project entry point, usage and links to current progress. |
 | [`config/byte_match.json`](../config/byte_match.json) | config | Select a reviewed artifact-comparison report or leave all matches unverified. |
 | [`config/campaign_matrix.json`](../config/campaign_matrix.json) | config | Pin the accepted 13-mission objective/runtime matrix and per-mission observation hashes. |
+| [`config/campaign_progression.json`](../config/campaign_progression.json) | config | Pin the accepted 13-step retail-versus-rebuilt save progression chain and final RMS file hash. |
 | [`config/collection_recovery.json`](../config/collection_recovery.json) | config | Pin fourteen private source snapshots, explicit aliases, resource hashes and isolated test-support roster. |
 | [`config/component_recovery.json`](../config/component_recovery.json) | config | Pin reviewed private component sources, original class hashes and explicit field mappings. |
 | [`config/entity_recovery.json`](../config/entity_recovery.json) | config | Pin eleven source snapshots, resource hashes and explicit field and method aliases. |
@@ -290,6 +297,7 @@ DAH-Mobile-Decomp/
 | [`docs/evidence/INTEGRATION_PASS_016_AMR_AUDIO.md`](../docs/evidence/INTEGRATION_PASS_016_AMR_AUDIO.md) | docs | Document automatic FFmpeg conversion and hash-addressed Java Sound routing for all four retail AMR effects. |
 | [`docs/evidence/INTEGRATION_PASS_017_CAMPAIGN_AUTOMATION.md`](../docs/evidence/INTEGRATION_PASS_017_CAMPAIGN_AUTOMATION.md) | docs | Document the automated 13-mission retail-versus-rebuilt campaign matrix validator. |
 | [`docs/evidence/INTEGRATION_PASS_018_NATIVE_AOT_PREP.md`](../docs/evidence/INTEGRATION_PASS_018_NATIVE_AOT_PREP.md) | docs | Document direct game entry, native smoke validation and automated GraalVM native build preparation. |
+| [`docs/evidence/INTEGRATION_PASS_019_CAMPAIGN_PROGRESSION.md`](../docs/evidence/INTEGRATION_PASS_019_CAMPAIGN_PROGRESSION.md) | docs | Document automated mission-to-mission progression and byte-identical RMS persistence across all 13 missions. |
 | [`docs/evidence/RECOVERY_PASS_001.md`](../docs/evidence/RECOVERY_PASS_001.md) | docs | Explain the first manual source recovery, scoped component tests, repeatability and remaining gaps. |
 | [`docs/evidence/RECOVERY_PASS_002.md`](../docs/evidence/RECOVERY_PASS_002.md) | docs | Document three more recovered components, 172170 scoped calls, negative controls and limitations. |
 | [`docs/evidence/RECOVERY_PASS_003.md`](../docs/evidence/RECOVERY_PASS_003.md) | docs | Document five new component recoveries, integration tests, negative controls and limitations. |
@@ -313,6 +321,7 @@ DAH-Mobile-Decomp/
 | [`docs/evidence/integration-pass-016-amr-audio.json`](../docs/evidence/integration-pass-016-amr-audio.json) | docs | Machine-readable AMR/WAV hashes, sizes and validation result for automatic desktop audio packaging. |
 | [`docs/evidence/integration-pass-017-campaign-automation.json`](../docs/evidence/integration-pass-017-campaign-automation.json) | docs | Machine-readable aggregate campaign validation result and claim boundaries. |
 | [`docs/evidence/integration-pass-018-native-aot-prep.json`](../docs/evidence/integration-pass-018-native-aot-prep.json) | docs | Machine-readable native AOT preparation state and claim boundaries. |
+| [`docs/evidence/integration-pass-019-campaign-progression.json`](../docs/evidence/integration-pass-019-campaign-progression.json) | docs | Machine-readable 13-step progression/persistence result and claim boundaries. |
 | [`docs/evidence/subsystem-pass-002.json`](../docs/evidence/subsystem-pass-002.json) | docs | Hashes and matching observation digests from the second reproducible subsystem run. |
 | [`docs/evidence/ui-pass-010.json`](../docs/evidence/ui-pass-010.json) | docs | Record final p source/artifact hashes and matching scoped observation digests; no game code or assets. |
 | [`docs/evidence/weapon-pass-005.json`](../docs/evidence/weapon-pass-005.json) | docs | Record scoped pass-005 observations, private snapshot hashes and publication limitations. |
@@ -336,6 +345,7 @@ DAH-Mobile-Decomp/
 | [`runtime/desktop/javax/microedition/rms/RecordStore.java`](../runtime/desktop/javax/microedition/rms/RecordStore.java) | tool | File-backed desktop RMS implementation for real save persistence. |
 | [`runtime/desktop/javax/microedition/rms/RecordStoreException.java`](../runtime/desktop/javax/microedition/rms/RecordStoreException.java) | tool | Desktop RMS compatibility exception. |
 | [`tests/java/CampaignMatrixProbe.java`](../tests/java/CampaignMatrixProbe.java) | tests | Authored per-mission reflection probe for mission load/objective/completion behavior; not recovered game source. |
+| [`tests/java/CampaignProgressionStepProbe.java`](../tests/java/CampaignProgressionStepProbe.java) | tests | Authored per-mission progression/save probe invoking the real mission-complete and persistence path. |
 | [`tests/java/CollectionProbe.java`](../tests/java/CollectionProbe.java) | tests | Authored collection/building differential probe with target-only outcomes; not a game runner or actor implementation. |
 | [`tests/java/ComponentProbe.java`](../tests/java/ComponentProbe.java) | tests | Authored differential probe for e/s/t; not a game runner or recovered game source. |
 | [`tests/java/DeepIntegrationProbe.java`](../tests/java/DeepIntegrationProbe.java) | tests | Authored controlled menu-to-gameplay integration probe exercising real recovered world, actor, weapon, input and rendering paths. |
@@ -398,6 +408,7 @@ DAH-Mobile-Decomp/
 | [`tests/java/weapon_support/javax/microedition/midlet/MIDletStateChangeException.java`](../tests/java/weapon_support/javax/microedition/midlet/MIDletStateChangeException.java) | tests | Authored test support or probes; never counted as recovered gameplay or a production platform implementation. |
 | [`tests/java/weapon_support/k.java`](../tests/java/weapon_support/k.java) | tests | Authored test support or probes; never counted as recovered gameplay or a production platform implementation. |
 | [`tests/test_byte_match.py`](../tests/test_byte_match.py) | tests | Synthetic and independently compiled fixtures test matching and stale-report safeguards. |
+| [`tests/test_campaign_progression.py`](../tests/test_campaign_progression.py) | tests | Public regression tests for campaign save-chain config, fresh-process isolation, and RMS comparison behavior. |
 | [`tests/test_campaign_validation.py`](../tests/test_campaign_validation.py) | tests | Public campaign-validator config, compilation and isolation regression tests. |
 | [`tests/test_collection_recovery.py`](../tests/test_collection_recovery.py) | tests | Test source preservation, call accounting, alias identity, output isolation and an authored field-shadowing regression. |
 | [`tests/test_component_recovery.py`](../tests/test_component_recovery.py) | tests | Synthetic tests for component input guards, trace mismatches, packaging and signature inventories. |
@@ -411,6 +422,7 @@ DAH-Mobile-Decomp/
 | [`tests/test_treemap_dashboard.py`](../tests/test_treemap_dashboard.py) | tests | Test treemap geometry, status colors, rendering and repository integration. |
 | [`tests/test_weapon_recovery.py`](../tests/test_weapon_recovery.py) | tests | Authored test support or probes; never counted as recovered gameplay or a production platform implementation. |
 | [`tools/byte_match.py`](../tools/byte_match.py) | tool | Compare original and candidate JAR classes, record hashes and gate displayed match claims. |
+| [`tools/campaign_progression.py`](../tools/campaign_progression.py) | tool | Run each campaign step in a fresh JVM while carrying file-backed RMS forward and compare retail versus rebuilt progression. |
 | [`tools/campaign_validation.py`](../tools/campaign_validation.py) | tool | Build or accept a desktop candidate and compare all 13 mission objective/completion observations against retail in fresh JVMs. |
 | [`tools/classfile.py`](../tools/classfile.py) | tool | Resolve Java class structure and instructions with conservative fail-closed normalization. |
 | [`tools/collection_recovery.py`](../tools/collection_recovery.py) | tool | Build fourteen recovered components and compare entity collections and composite buildings with explicit test boundaries. |
