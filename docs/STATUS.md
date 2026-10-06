@@ -1,5 +1,20 @@
 # Project status
 
+## Integration pass 013 — restored regression replay
+
+- Reconstructed an independent private verification tree from the exact retail JAR and pinned CFR/Vineflower toolchain after the workstation interruption.
+- All **21 classes / 313 method entries** compile source-only again; ordered descriptor sequences match the retail classes.
+- Two clean compiles reproduce every rebuilt class byte-for-byte.
+- Original vs rebuilt outputs match again for startup/lifecycle, deterministic state/input/render, menu→gameplay, RMS save/load and the 500-frame gameplay stress probe.
+- This restored verification tree is semantic evidence; its Java text is not claimed to be byte-identical to the interrupted renamed private source snapshot.
+- The **13/13 mission matrix** remains separately preserved by the pass-013 campaign checkpoint after the corrected `j.n:B` objective-counter binding.
+- Of the five interrupted reruns, only the **300-frame production desktop runtime rerun** remains to be recreated and repeated.
+
+See [restored regression evidence](evidence/INTEGRATION_PASS_013_REGRESSION_RESTORE.md) and
+[machine-readable results](evidence/integration-pass-013-regression-restore.json).
+
+## Prior status
+
 ## Integration pass 013 checkpoint — campaign matrix and desktop runtime
 
 - Preserved verified work from the interrupted post-pass-012 integration run.

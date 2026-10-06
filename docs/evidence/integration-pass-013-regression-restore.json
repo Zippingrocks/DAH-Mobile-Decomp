@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "target_id": "dah1-j2me-en-v1.2.0",
+  "input_sha256": "2e03916ea4a5260960e5e57e4dbe0778fb9b577439eac0ce94a685cfecdaaf5f",
+  "restore_basis": {
+    "cfr": {
+      "version": "0.152",
+      "sha256": "f686e8f3ded377d7bc87d216a90e9e9512df4156e75b06c655a16648ae8765b2"
+    },
+    "vineflower": {
+      "version": "1.12.0",
+      "sha256": "1dfcfe974395734fa467ce620661c7623d05ba83670de0529b1fbd63ff548b9d"
+    },
+    "source_text_identical_to_interrupted_private_snapshot": false,
+    "semantic_verification_tree": true
+  },
+  "clean_build": {
+    "classes": 21,
+    "method_entries": 313,
+    "descriptor_sequences_match_all": true,
+    "two_clean_compiles_class_bytes_identical": true
+  },
+  "probes": {
+    "integration": "a2a621363ac695d516ff21efa1e43d4c4f05dc4b3c8cd6c270817298751df2ec",
+    "state": "dc01b54d0e53dbb6df2b91ff0c6863e5e9b564ad468e6f005eea38eaaa1a1049",
+    "deep_integration": "ec8952277a2e04c6fb4f348522f964314cb62841f0bf49265ecc9316bbcceeda",
+    "persistence": "91e083590d3838bbf7a3717eeefd96135b1dcef5829410ca5aedb45d9b686ef0",
+    "long_run_500": "38ded5fab464972f8822076a2b71bafe4cf16baa73d98318b6607c8f711ccafc"
+  },
+  "original_rebuilt_probe_outputs_byte_identical": true,
+  "pending_after_restore": [
+    "300-frame production desktop comparison rerun"
+  ],
+  "campaign_matrix_evidence": "docs/evidence/INTEGRATION_PASS_013_CHECKPOINT.md",
+  "claims": {
+    "gold": false,
+    "complete_campaign_playthrough": false,
+    "native_windows_executable": false
+  }
+}

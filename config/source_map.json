@@ -657,6 +657,16 @@
       "path": "docs/evidence/integration-pass-013-checkpoint.json",
       "kind": "docs",
       "purpose": "Machine-readable checkpoint for the 13-mission matrix, desktop runtime smoke/comparison, reconstruction defect, and pending regression reruns."
+    },
+    {
+      "path": "docs/evidence/INTEGRATION_PASS_013_REGRESSION_RESTORE.md",
+      "kind": "docs",
+      "purpose": "Document reconstruction of the interrupted integration workspace and replay of accepted startup/state/gameplay/persistence regressions."
+    },
+    {
+      "path": "docs/evidence/integration-pass-013-regression-restore.json",
+      "kind": "docs",
+      "purpose": "Machine-readable clean-build, descriptor and accepted regression digests from the restored pass-013 verification workspace."
     }
   ],
   "classes": [
