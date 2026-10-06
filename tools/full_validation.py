@@ -83,6 +83,17 @@ def main(argv=None):
         checks["audio_packaging"] = {"amr": 4, "wav": 4}
         checks["direct_launcher"] = True
 
+        audio_report = work / "audio-sanity.json"
+        run([
+            sys.executable, ROOT / "tools" / "audio_sanity.py",
+            "--candidate", candidate,
+            "--report", audio_report,
+        ])
+        audio = json.loads(audio_report.read_text())
+        if audio.get("effects") != 4 or not audio.get("all_sane"):
+            raise RuntimeError("audio sanity did not pass")
+        checks["audio_sanity"] = {"effects": 4, "passed": True}
+
         run([
             "java", "-Djava.awt.headless=true", "-cp", candidate,
             "DesktopLauncher", "--native-smoke",

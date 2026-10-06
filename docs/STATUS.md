@@ -1,5 +1,18 @@
 # Project status
 
+## Integration pass 024 — automated converted-audio sanity
+
+- Added packaged-audio sanity checks for all **4** converted retail AMR effects.
+- Every actual effect is mono, **8 kHz**, **16-bit PCM**, non-silent, and has **0 clipped samples**.
+- The validator checks duration, PCM shape, signal level and clipping directly from a packaged desktop candidate.
+- The unified automated gate now requires this audio-sanity pass in addition to AMR companion presence/routing.
+- Subjective loudness/mix/timing listening remains a human judgment; silent/corrupt/clipped conversion discovery no longer does.
+
+See [audio sanity evidence](evidence/INTEGRATION_PASS_024_AUDIO_SANITY.md) and
+[machine-readable results](evidence/integration-pass-024-audio-sanity.json).
+
+## Prior status
+
 ## Integration pass 023 — desktop input and presentation polish
 
 - Added deterministic integer framebuffer scaling via `-Ddah.scale=N` (1–8, default 3).

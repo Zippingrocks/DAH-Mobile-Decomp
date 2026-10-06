@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "target_id": "dah1-j2me-en-v1.2.0",
+  "effects": 4,
+  "all_mono": true,
+  "sample_rate": 8000,
+  "sample_width_bits": 16,
+  "all_non_silent": true,
+  "all_unclipped": true,
+  "claims": {
+    "mechanical_audio_sanity_complete": true,
+    "subjective_audio_review_complete": false,
+    "gold": false
+  }
+}

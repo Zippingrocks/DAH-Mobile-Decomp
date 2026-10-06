@@ -982,6 +982,26 @@
       "path": "docs/evidence/integration-pass-023-desktop-polish.json",
       "kind": "docs",
       "purpose": "Machine-readable desktop scaling/control mapping state and human-judgment boundary."
+    },
+    {
+      "path": "tools/audio_sanity.py",
+      "kind": "tool",
+      "purpose": "Validate packaged converted audio companions for PCM shape, duration, non-silence and clipping."
+    },
+    {
+      "path": "tests/test_audio_sanity.py",
+      "kind": "tests",
+      "purpose": "Public tests for converted-audio metrics and silence/clipping rejection."
+    },
+    {
+      "path": "docs/evidence/INTEGRATION_PASS_024_AUDIO_SANITY.md",
+      "kind": "docs",
+      "purpose": "Document structural/signal sanity results for all four converted retail effects."
+    },
+    {
+      "path": "docs/evidence/integration-pass-024-audio-sanity.json",
+      "kind": "docs",
+      "purpose": "Machine-readable converted-audio sanity state and subjective-listening boundary."
     }
   ],
   "classes": [
