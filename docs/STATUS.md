@@ -1,5 +1,20 @@
 # Project status
 
+## Integration pass 015 — reproducible desktop JAR build path
+
+- Added **18 tracked authored desktop runtime Java sources** covering Swing/AWT rendering/input, ImageIO resources, file-backed RMS, MIDlet/Canvas/Nokia API compatibility, and Java Sound MIDI plumbing.
+- Added `tools/desktop_build.py`, which verifies the exact retail JAR, compiles runtime + 21 local recovered classes, requires all **313 method descriptors**, copies only original non-class resources, and packages a desktop JAR with no original game class fallback.
+- An accepted local packaging run produced a 166-entry desktop JAR with SHA-256 `a483ce5124d9032c97aeb90edaa687f3bee59e2b06bb1454fc2b4092a9da83cc`.
+- The binary is not committed because it contains original non-code resources; users build it locally from their own retail JAR.
+- Public runtime tests compile the desktop compatibility layer without recovered source or original game data.
+- Pass 014 already showed the retail and rebuild match for 300 gameplay frames on this runtime, including framebuffer and file-backed save data.
+- AMR decoding, interactive human playtesting, longer campaign execution, and native Windows AOT remain open.
+
+See [desktop build evidence](evidence/INTEGRATION_PASS_015_DESKTOP_BUILD.md) and
+[the desktop runtime guide](DESKTOP_RUNTIME.md).
+
+## Prior status
+
 ## Integration pass 014 — recreated production desktop runtime
 
 - Recreated the authored production-style desktop runtime after the interrupted workstation.

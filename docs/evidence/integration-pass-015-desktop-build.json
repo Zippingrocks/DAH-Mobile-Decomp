@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "target_id": "dah1-j2me-en-v1.2.0",
+  "runtime_java_sources": 18,
+  "game_classes": 21,
+  "method_entries": 313,
+  "original_class_fallback": false,
+  "packaged_entries": 166,
+  "main_class": "dah.desktop.Launcher",
+  "accepted_local_desktop_jar_sha256": "a483ce5124d9032c97aeb90edaa687f3bee59e2b06bb1454fc2b4092a9da83cc",
+  "runtime_evidence": "docs/evidence/INTEGRATION_PASS_014_DESKTOP_RUNTIME.md",
+  "binary_committed": false,
+  "claims": {
+    "playable_release": false,
+    "amr_audio_complete": false,
+    "native_windows_executable": false,
+    "gold": false
+  }
+}

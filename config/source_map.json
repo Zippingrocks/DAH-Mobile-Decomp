@@ -677,6 +677,121 @@
       "path": "docs/evidence/integration-pass-014-desktop-runtime.json",
       "kind": "docs",
       "purpose": "Machine-readable production desktop state/frame/save hashes and completion of all interrupted pass-013 regression reruns."
+    },
+    {
+      "path": "runtime/desktop/com/nokia/mid/ui/FullCanvas.java",
+      "kind": "tool",
+      "purpose": "Authored Nokia FullCanvas compatibility class for the production desktop runtime."
+    },
+    {
+      "path": "runtime/desktop/javax/microedition/lcdui/Displayable.java",
+      "kind": "tool",
+      "purpose": "Authored MIDP Displayable compatibility class for the production desktop runtime."
+    },
+    {
+      "path": "runtime/desktop/javax/microedition/lcdui/Image.java",
+      "kind": "tool",
+      "purpose": "ImageIO-backed production desktop image loader for original PNG resources."
+    },
+    {
+      "path": "runtime/desktop/javax/microedition/lcdui/Graphics.java",
+      "kind": "tool",
+      "purpose": "BufferedImage-backed production desktop renderer used by the recovered game."
+    },
+    {
+      "path": "runtime/desktop/javax/microedition/lcdui/Canvas.java",
+      "kind": "tool",
+      "purpose": "Swing-backed Canvas compatibility layer with keyboard translation and framebuffer presentation."
+    },
+    {
+      "path": "runtime/desktop/javax/microedition/lcdui/Display.java",
+      "kind": "tool",
+      "purpose": "Desktop Display bridge that mounts Canvas instances into a Swing window."
+    },
+    {
+      "path": "runtime/desktop/dah/desktop/Launcher.java",
+      "kind": "tool",
+      "purpose": "Desktop main entry point that starts the recovered GameMidlet by reflection."
+    },
+    {
+      "path": "runtime/desktop/javax/microedition/midlet/MIDletStateChangeException.java",
+      "kind": "tool",
+      "purpose": "Desktop compatibility exception for the MIDlet lifecycle API."
+    },
+    {
+      "path": "runtime/desktop/javax/microedition/midlet/MIDlet.java",
+      "kind": "tool",
+      "purpose": "Desktop compatibility base class for the MIDlet lifecycle API."
+    },
+    {
+      "path": "runtime/desktop/javax/microedition/media/MediaException.java",
+      "kind": "tool",
+      "purpose": "Desktop compatibility exception for Java ME media."
+    },
+    {
+      "path": "runtime/desktop/javax/microedition/media/PlayerListener.java",
+      "kind": "tool",
+      "purpose": "Desktop compatibility PlayerListener interface."
+    },
+    {
+      "path": "runtime/desktop/javax/microedition/media/Player.java",
+      "kind": "tool",
+      "purpose": "Desktop compatibility Player interface."
+    },
+    {
+      "path": "runtime/desktop/javax/microedition/media/Manager.java",
+      "kind": "tool",
+      "purpose": "Desktop media manager with Java Sound MIDI plumbing; AMR remains unsupported."
+    },
+    {
+      "path": "runtime/desktop/javax/microedition/rms/RecordStoreException.java",
+      "kind": "tool",
+      "purpose": "Desktop RMS compatibility exception."
+    },
+    {
+      "path": "runtime/desktop/javax/microedition/rms/RecordFilter.java",
+      "kind": "tool",
+      "purpose": "Desktop RMS RecordFilter compatibility interface."
+    },
+    {
+      "path": "runtime/desktop/javax/microedition/rms/RecordComparator.java",
+      "kind": "tool",
+      "purpose": "Desktop RMS RecordComparator compatibility interface."
+    },
+    {
+      "path": "runtime/desktop/javax/microedition/rms/RecordEnumeration.java",
+      "kind": "tool",
+      "purpose": "Desktop RMS RecordEnumeration compatibility interface."
+    },
+    {
+      "path": "runtime/desktop/javax/microedition/rms/RecordStore.java",
+      "kind": "tool",
+      "purpose": "File-backed desktop RMS implementation for real save persistence."
+    },
+    {
+      "path": "tools/desktop_build.py",
+      "kind": "tool",
+      "purpose": "Build a runnable desktop JAR from local recovered source and a user-supplied exact retail JAR without original class fallback."
+    },
+    {
+      "path": "tests/test_desktop_runtime.py",
+      "kind": "tests",
+      "purpose": "Compile and inspect the authored desktop runtime without requiring recovered game source or original assets."
+    },
+    {
+      "path": "docs/DESKTOP_RUNTIME.md",
+      "kind": "docs",
+      "purpose": "Build/run guide, service inventory and limitations for the authored desktop runtime."
+    },
+    {
+      "path": "docs/evidence/INTEGRATION_PASS_015_DESKTOP_BUILD.md",
+      "kind": "docs",
+      "purpose": "Document the first reproducible desktop-JAR packaging path and its validation limits."
+    },
+    {
+      "path": "docs/evidence/integration-pass-015-desktop-build.json",
+      "kind": "docs",
+      "purpose": "Machine-readable desktop build counts, hash and claim boundaries for pass 015."
     }
   ],
   "classes": [
