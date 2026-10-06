@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "target_id": "dah1-j2me-en-v1.2.0",
+  "direct_launcher": true,
+  "reflection_free_normal_entry": true,
+  "native_smoke_mode": true,
+  "native_smoke_actual_game_passed": true,
+  "native_ready_validation_jar_sha256": "97bf61e562d1802a700e3fa1fe52121b5465cea67ae125193622f7e42e5e52a3",
+  "tracing_agent_automated": true,
+  "all_resources_native_image_flag": "-H:IncludeResources=.*",
+  "no_fallback": true,
+  "current_worker_native_image_available": false,
+  "windows_executable_built": false,
+  "tool": "tools/native_build.py",
+  "docs": "docs/NATIVE_WINDOWS.md",
+  "claims": {
+    "native_build_automation_prepared": true,
+    "native_windows_executable": false,
+    "gold": false
+  }
+}

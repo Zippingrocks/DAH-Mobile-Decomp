@@ -832,6 +832,31 @@
       "path": "docs/evidence/integration-pass-017-campaign-automation.json",
       "kind": "docs",
       "purpose": "Machine-readable aggregate campaign validation result and claim boundaries."
+    },
+    {
+      "path": "tools/native_build.py",
+      "kind": "tool",
+      "purpose": "Automate GraalVM tracing-agent metadata collection and native-image compilation from the native-ready desktop JAR."
+    },
+    {
+      "path": "tests/test_native_build.py",
+      "kind": "tests",
+      "purpose": "Validate direct launcher generation, native preflight inspection and native-image automation wiring without private game data."
+    },
+    {
+      "path": "docs/NATIVE_WINDOWS.md",
+      "kind": "docs",
+      "purpose": "Native Windows AOT build/preflight guide and explicit toolchain/validation boundary."
+    },
+    {
+      "path": "docs/evidence/INTEGRATION_PASS_018_NATIVE_AOT_PREP.md",
+      "kind": "docs",
+      "purpose": "Document direct game entry, native smoke validation and automated GraalVM native build preparation."
+    },
+    {
+      "path": "docs/evidence/integration-pass-018-native-aot-prep.json",
+      "kind": "docs",
+      "purpose": "Machine-readable native AOT preparation state and claim boundaries."
     }
   ],
   "classes": [

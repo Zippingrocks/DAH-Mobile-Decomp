@@ -1,5 +1,19 @@
 # Project status
 
+## Integration pass 018 — native AOT build automation
+
+- `desktop_build.py` now generates a default-package **direct `DesktopLauncher`** whose normal path calls `new GameMidlet().startApp()` without reflective entry-point discovery.
+- The launcher has an automated `--native-smoke` mode for GraalVM tracing-agent metadata collection; that smoke path compiled and ran successfully against the actual packaged game.
+- Added `tools/native_build.py` to automate desktop build/preflight, tracing-agent collection, resource inclusion, `native-image --no-fallback`, and output hashing/reporting.
+- The accepted native-ready validation JAR SHA-256 is `97bf61e562d1802a700e3fa1fe52121b5465cea67ae125193622f7e42e5e52a3`.
+- This worker has no GraalVM `native-image` and is not a Windows native build host, so **no Windows EXE is claimed yet**.
+- The remaining native blocker is running the automated build on a Windows host with GraalVM + MSVC/Windows SDK, then validating the produced executable.
+
+See [native AOT preparation evidence](evidence/INTEGRATION_PASS_018_NATIVE_AOT_PREP.md) and
+[the native Windows guide](NATIVE_WINDOWS.md).
+
+## Prior status
+
 ## Integration pass 017 — automated 13-mission campaign matrix
 
 - Published a repeatable campaign validator that runs **each mission in a fresh JVM** against both retail and rebuilt desktop code.

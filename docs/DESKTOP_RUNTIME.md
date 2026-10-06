@@ -52,7 +52,7 @@ The builder:
 9. packages the rebuilt game + desktop runtime with `dah.desktop.Launcher` as
    the main class.
 
-It never copies an original game class into the desktop JAR.
+It never copies an original game class into the desktop JAR. The generated launcher also supports `--native-smoke` for automated GraalVM reachability-metadata collection.
 
 Run the result with:
 
