@@ -46,6 +46,7 @@ DAH-Mobile-Decomp/
 |   |-- BUILD_TREEMAP.svg [GENERATED]
 |   |-- BYTE_MATCH.md [DOCS]
 |   |-- BYTE_MATCH_TREEMAP.svg [GENERATED]
+|   |-- DESKTOP_RUNTIME.md [DOCS]
 |   |-- RECOVERY_TREEMAP.svg [GENERATED]
 |   |-- SOURCE_MAP_GUIDE.md [DOCS]
 |   |-- SOURCE_TREE.md [GENERATED]
@@ -59,6 +60,7 @@ DAH-Mobile-Decomp/
 |       |-- INTEGRATION_PASS_013_CHECKPOINT.md [DOCS]
 |       |-- INTEGRATION_PASS_013_REGRESSION_RESTORE.md [DOCS]
 |       |-- INTEGRATION_PASS_014_DESKTOP_RUNTIME.md [DOCS]
+|       |-- INTEGRATION_PASS_015_DESKTOP_BUILD.md [DOCS]
 |       |-- RECOVERY_PASS_001.md [DOCS]
 |       |-- RECOVERY_PASS_002.md [DOCS]
 |       |-- RECOVERY_PASS_003.md [DOCS]
@@ -78,10 +80,43 @@ DAH-Mobile-Decomp/
 |       |-- integration-pass-013-checkpoint.json [DOCS]
 |       |-- integration-pass-013-regression-restore.json [DOCS]
 |       |-- integration-pass-014-desktop-runtime.json [DOCS]
+|       |-- integration-pass-015-desktop-build.json [DOCS]
 |       |-- subsystem-pass-002.json [DOCS]
 |       |-- ui-pass-010.json [DOCS]
 |       |-- weapon-pass-005.json [DOCS]
 |       `-- world-pass-008.json [DOCS]
+|-- runtime/
+|   `-- desktop/
+|       |-- com/
+|       |   `-- nokia/
+|       |       `-- mid/
+|       |           `-- ui/
+|       |               `-- FullCanvas.java [TOOL]
+|       |-- dah/
+|       |   `-- desktop/
+|       |       `-- Launcher.java [TOOL]
+|       `-- javax/
+|           `-- microedition/
+|               |-- lcdui/
+|               |   |-- Canvas.java [TOOL]
+|               |   |-- Display.java [TOOL]
+|               |   |-- Displayable.java [TOOL]
+|               |   |-- Graphics.java [TOOL]
+|               |   `-- Image.java [TOOL]
+|               |-- media/
+|               |   |-- Manager.java [TOOL]
+|               |   |-- MediaException.java [TOOL]
+|               |   |-- Player.java [TOOL]
+|               |   `-- PlayerListener.java [TOOL]
+|               |-- midlet/
+|               |   |-- MIDlet.java [TOOL]
+|               |   `-- MIDletStateChangeException.java [TOOL]
+|               `-- rms/
+|                   |-- RecordComparator.java [TOOL]
+|                   |-- RecordEnumeration.java [TOOL]
+|                   |-- RecordFilter.java [TOOL]
+|                   |-- RecordStore.java [TOOL]
+|                   `-- RecordStoreException.java [TOOL]
 |-- tests/
 |   |-- java/
 |   |   |-- CollectionProbe.java [TESTS]
@@ -179,6 +214,7 @@ DAH-Mobile-Decomp/
 |   |-- test_collection_recovery.py [TESTS]
 |   |-- test_component_recovery.py [TESTS]
 |   |-- test_dah1.py [TESTS]
+|   |-- test_desktop_runtime.py [TESTS]
 |   |-- test_entity_recovery.py [TESTS]
 |   |-- test_integration_recovery.py [TESTS]
 |   |-- test_source_map.py [TESTS]
@@ -191,6 +227,7 @@ DAH-Mobile-Decomp/
     |-- collection_recovery.py [TOOL]
     |-- component_recovery.py [TOOL]
     |-- dah1.py [TOOL]
+    |-- desktop_build.py [TOOL]
     |-- entity_recovery.py [TOOL]
     |-- integration_recovery.py [TOOL]
     |-- source_map.py [TOOL]
@@ -221,6 +258,7 @@ DAH-Mobile-Decomp/
 | [`docs/BUILD_TREEMAP.svg`](../docs/BUILD_TREEMAP.svg) | generated | GitHub-embeddable build class treemap from recorded evidence. |
 | [`docs/BYTE_MATCH.md`](../docs/BYTE_MATCH.md) | docs | Define exact and normalized comparison scope, freshness, provenance and limitations. |
 | [`docs/BYTE_MATCH_TREEMAP.svg`](../docs/BYTE_MATCH_TREEMAP.svg) | generated | GitHub-embeddable byte-match class treemap from recorded evidence. |
+| [`docs/DESKTOP_RUNTIME.md`](../docs/DESKTOP_RUNTIME.md) | docs | Build/run guide, service inventory and limitations for the authored desktop runtime. |
 | [`docs/RECOVERY_TREEMAP.svg`](../docs/RECOVERY_TREEMAP.svg) | generated | GitHub-embeddable recovery class treemap from recorded evidence. |
 | [`docs/SOURCE_MAP_GUIDE.md`](../docs/SOURCE_MAP_GUIDE.md) | docs | How to refresh the map and record scoped evidence without overstating progress. |
 | [`docs/SOURCE_TREE.md`](../docs/SOURCE_TREE.md) | generated | Generated tree, class register, stage counts and planned-only work. |
@@ -233,6 +271,7 @@ DAH-Mobile-Decomp/
 | [`docs/evidence/INTEGRATION_PASS_013_CHECKPOINT.md`](../docs/evidence/INTEGRATION_PASS_013_CHECKPOINT.md) | docs | Preserve the interrupted campaign-matrix and production-desktop-runtime integration results, including the corrected j.n:B binding and pending regressions. |
 | [`docs/evidence/INTEGRATION_PASS_013_REGRESSION_RESTORE.md`](../docs/evidence/INTEGRATION_PASS_013_REGRESSION_RESTORE.md) | docs | Document reconstruction of the interrupted integration workspace and replay of accepted startup/state/gameplay/persistence regressions. |
 | [`docs/evidence/INTEGRATION_PASS_014_DESKTOP_RUNTIME.md`](../docs/evidence/INTEGRATION_PASS_014_DESKTOP_RUNTIME.md) | docs | Document the recreated production desktop runtime and 300-frame original-versus-rebuilt comparison with framebuffer and file-backed RMS evidence. |
+| [`docs/evidence/INTEGRATION_PASS_015_DESKTOP_BUILD.md`](../docs/evidence/INTEGRATION_PASS_015_DESKTOP_BUILD.md) | docs | Document the first reproducible desktop-JAR packaging path and its validation limits. |
 | [`docs/evidence/RECOVERY_PASS_001.md`](../docs/evidence/RECOVERY_PASS_001.md) | docs | Explain the first manual source recovery, scoped component tests, repeatability and remaining gaps. |
 | [`docs/evidence/RECOVERY_PASS_002.md`](../docs/evidence/RECOVERY_PASS_002.md) | docs | Document three more recovered components, 172170 scoped calls, negative controls and limitations. |
 | [`docs/evidence/RECOVERY_PASS_003.md`](../docs/evidence/RECOVERY_PASS_003.md) | docs | Document five new component recoveries, integration tests, negative controls and limitations. |
@@ -252,10 +291,29 @@ DAH-Mobile-Decomp/
 | [`docs/evidence/integration-pass-013-checkpoint.json`](../docs/evidence/integration-pass-013-checkpoint.json) | docs | Machine-readable checkpoint for the 13-mission matrix, desktop runtime smoke/comparison, reconstruction defect, and pending regression reruns. |
 | [`docs/evidence/integration-pass-013-regression-restore.json`](../docs/evidence/integration-pass-013-regression-restore.json) | docs | Machine-readable clean-build, descriptor and accepted regression digests from the restored pass-013 verification workspace. |
 | [`docs/evidence/integration-pass-014-desktop-runtime.json`](../docs/evidence/integration-pass-014-desktop-runtime.json) | docs | Machine-readable production desktop state/frame/save hashes and completion of all interrupted pass-013 regression reruns. |
+| [`docs/evidence/integration-pass-015-desktop-build.json`](../docs/evidence/integration-pass-015-desktop-build.json) | docs | Machine-readable desktop build counts, hash and claim boundaries for pass 015. |
 | [`docs/evidence/subsystem-pass-002.json`](../docs/evidence/subsystem-pass-002.json) | docs | Hashes and matching observation digests from the second reproducible subsystem run. |
 | [`docs/evidence/ui-pass-010.json`](../docs/evidence/ui-pass-010.json) | docs | Record final p source/artifact hashes and matching scoped observation digests; no game code or assets. |
 | [`docs/evidence/weapon-pass-005.json`](../docs/evidence/weapon-pass-005.json) | docs | Record scoped pass-005 observations, private snapshot hashes and publication limitations. |
 | [`docs/evidence/world-pass-008.json`](../docs/evidence/world-pass-008.json) | docs | Machine-readable hashes and scoped observation counts for world-manager recovery pass 008. |
+| [`runtime/desktop/com/nokia/mid/ui/FullCanvas.java`](../runtime/desktop/com/nokia/mid/ui/FullCanvas.java) | tool | Authored Nokia FullCanvas compatibility class for the production desktop runtime. |
+| [`runtime/desktop/dah/desktop/Launcher.java`](../runtime/desktop/dah/desktop/Launcher.java) | tool | Desktop main entry point that starts the recovered GameMidlet by reflection. |
+| [`runtime/desktop/javax/microedition/lcdui/Canvas.java`](../runtime/desktop/javax/microedition/lcdui/Canvas.java) | tool | Swing-backed Canvas compatibility layer with keyboard translation and framebuffer presentation. |
+| [`runtime/desktop/javax/microedition/lcdui/Display.java`](../runtime/desktop/javax/microedition/lcdui/Display.java) | tool | Desktop Display bridge that mounts Canvas instances into a Swing window. |
+| [`runtime/desktop/javax/microedition/lcdui/Displayable.java`](../runtime/desktop/javax/microedition/lcdui/Displayable.java) | tool | Authored MIDP Displayable compatibility class for the production desktop runtime. |
+| [`runtime/desktop/javax/microedition/lcdui/Graphics.java`](../runtime/desktop/javax/microedition/lcdui/Graphics.java) | tool | BufferedImage-backed production desktop renderer used by the recovered game. |
+| [`runtime/desktop/javax/microedition/lcdui/Image.java`](../runtime/desktop/javax/microedition/lcdui/Image.java) | tool | ImageIO-backed production desktop image loader for original PNG resources. |
+| [`runtime/desktop/javax/microedition/media/Manager.java`](../runtime/desktop/javax/microedition/media/Manager.java) | tool | Desktop media manager with Java Sound MIDI plumbing; AMR remains unsupported. |
+| [`runtime/desktop/javax/microedition/media/MediaException.java`](../runtime/desktop/javax/microedition/media/MediaException.java) | tool | Desktop compatibility exception for Java ME media. |
+| [`runtime/desktop/javax/microedition/media/Player.java`](../runtime/desktop/javax/microedition/media/Player.java) | tool | Desktop compatibility Player interface. |
+| [`runtime/desktop/javax/microedition/media/PlayerListener.java`](../runtime/desktop/javax/microedition/media/PlayerListener.java) | tool | Desktop compatibility PlayerListener interface. |
+| [`runtime/desktop/javax/microedition/midlet/MIDlet.java`](../runtime/desktop/javax/microedition/midlet/MIDlet.java) | tool | Desktop compatibility base class for the MIDlet lifecycle API. |
+| [`runtime/desktop/javax/microedition/midlet/MIDletStateChangeException.java`](../runtime/desktop/javax/microedition/midlet/MIDletStateChangeException.java) | tool | Desktop compatibility exception for the MIDlet lifecycle API. |
+| [`runtime/desktop/javax/microedition/rms/RecordComparator.java`](../runtime/desktop/javax/microedition/rms/RecordComparator.java) | tool | Desktop RMS RecordComparator compatibility interface. |
+| [`runtime/desktop/javax/microedition/rms/RecordEnumeration.java`](../runtime/desktop/javax/microedition/rms/RecordEnumeration.java) | tool | Desktop RMS RecordEnumeration compatibility interface. |
+| [`runtime/desktop/javax/microedition/rms/RecordFilter.java`](../runtime/desktop/javax/microedition/rms/RecordFilter.java) | tool | Desktop RMS RecordFilter compatibility interface. |
+| [`runtime/desktop/javax/microedition/rms/RecordStore.java`](../runtime/desktop/javax/microedition/rms/RecordStore.java) | tool | File-backed desktop RMS implementation for real save persistence. |
+| [`runtime/desktop/javax/microedition/rms/RecordStoreException.java`](../runtime/desktop/javax/microedition/rms/RecordStoreException.java) | tool | Desktop RMS compatibility exception. |
 | [`tests/java/CollectionProbe.java`](../tests/java/CollectionProbe.java) | tests | Authored collection/building differential probe with target-only outcomes; not a game runner or actor implementation. |
 | [`tests/java/ComponentProbe.java`](../tests/java/ComponentProbe.java) | tests | Authored differential probe for e/s/t; not a game runner or recovered game source. |
 | [`tests/java/DeepIntegrationProbe.java`](../tests/java/DeepIntegrationProbe.java) | tests | Authored controlled menu-to-gameplay integration probe exercising real recovered world, actor, weapon, input and rendering paths. |
@@ -321,6 +379,7 @@ DAH-Mobile-Decomp/
 | [`tests/test_collection_recovery.py`](../tests/test_collection_recovery.py) | tests | Test source preservation, call accounting, alias identity, output isolation and an authored field-shadowing regression. |
 | [`tests/test_component_recovery.py`](../tests/test_component_recovery.py) | tests | Synthetic tests for component input guards, trace mismatches, packaging and signature inventories. |
 | [`tests/test_dah1.py`](../tests/test_dah1.py) | tests | Synthetic tests for input identity checks and the structural auditor. |
+| [`tests/test_desktop_runtime.py`](../tests/test_desktop_runtime.py) | tests | Compile and inspect the authored desktop runtime without requiring recovered game source or original assets. |
 | [`tests/test_entity_recovery.py`](../tests/test_entity_recovery.py) | tests | Check outcome counts, source guards, output isolation and public probe compilation. |
 | [`tests/test_integration_recovery.py`](../tests/test_integration_recovery.py) | tests | Check integration config completeness, support isolation, deterministic packaging, and probe/support compilation without private game source. |
 | [`tests/test_source_map.py`](../tests/test_source_map.py) | tests | Metadata, inventory, evidence, rendering and stale-map regression tests. |
@@ -332,6 +391,7 @@ DAH-Mobile-Decomp/
 | [`tools/collection_recovery.py`](../tools/collection_recovery.py) | tool | Build fourteen recovered components and compare entity collections and composite buildings with explicit test boundaries. |
 | [`tools/component_recovery.py`](../tools/component_recovery.py) | tool | Compile recovered components and compare isolated original/rebuilt probes without a hidden fallback. |
 | [`tools/dah1.py`](../tools/dah1.py) | tool | Verify the pinned JAR and report class structure without executing the game. |
+| [`tools/desktop_build.py`](../tools/desktop_build.py) | tool | Build a runnable desktop JAR from local recovered source and a user-supplied exact retail JAR without original class fallback. |
 | [`tools/entity_recovery.py`](../tools/entity_recovery.py) | tool | Build eleven private components and compare isolated effect, entity and pickup probes. |
 | [`tools/integration_recovery.py`](../tools/integration_recovery.py) | tool | Build the final repaired 21-class source tree, package the candidate JAR, verify descriptors/resources, and compare deterministic integration probes. |
 | [`tools/source_map.py`](../tools/source_map.py) | tool | Generate or check the map against tracked files and optionally a local audit. |
