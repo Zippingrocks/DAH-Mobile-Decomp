@@ -74,6 +74,7 @@ DAH-Mobile-Decomp/
 |       |-- INTEGRATION_PASS_020_AUTOMATED_GATE.md [DOCS]
 |       |-- INTEGRATION_PASS_021_MISSION_STRESS.md [DOCS]
 |       |-- INTEGRATION_PASS_022_MISSION_FUZZ.md [DOCS]
+|       |-- INTEGRATION_PASS_023_DESKTOP_POLISH.md [DOCS]
 |       |-- RECOVERY_PASS_001.md [DOCS]
 |       |-- RECOVERY_PASS_002.md [DOCS]
 |       |-- RECOVERY_PASS_003.md [DOCS]
@@ -101,6 +102,7 @@ DAH-Mobile-Decomp/
 |       |-- integration-pass-020-automated-gate.json [DOCS]
 |       |-- integration-pass-021-mission-stress.json [DOCS]
 |       |-- integration-pass-022-mission-fuzz.json [DOCS]
+|       |-- integration-pass-023-desktop-polish.json [DOCS]
 |       |-- subsystem-pass-002.json [DOCS]
 |       |-- ui-pass-010.json [DOCS]
 |       |-- weapon-pass-005.json [DOCS]
@@ -321,6 +323,7 @@ DAH-Mobile-Decomp/
 | [`docs/evidence/INTEGRATION_PASS_020_AUTOMATED_GATE.md`](../docs/evidence/INTEGRATION_PASS_020_AUTOMATED_GATE.md) | docs | Document publication of the unified machine validation gate and remaining human/environment boundaries. |
 | [`docs/evidence/INTEGRATION_PASS_021_MISSION_STRESS.md`](../docs/evidence/INTEGRATION_PASS_021_MISSION_STRESS.md) | docs | Document 3,900 mission-specific controller/world update frames matching retail across all 13 missions. |
 | [`docs/evidence/INTEGRATION_PASS_022_MISSION_FUZZ.md`](../docs/evidence/INTEGRATION_PASS_022_MISSION_FUZZ.md) | docs | Document 7,800 multi-seed mission-specific controller/world update frames matching retail. |
+| [`docs/evidence/INTEGRATION_PASS_023_DESKTOP_POLISH.md`](../docs/evidence/INTEGRATION_PASS_023_DESKTOP_POLISH.md) | docs | Document deterministic integer scaling and desktop key mapping polish for the authored runtime. |
 | [`docs/evidence/RECOVERY_PASS_001.md`](../docs/evidence/RECOVERY_PASS_001.md) | docs | Explain the first manual source recovery, scoped component tests, repeatability and remaining gaps. |
 | [`docs/evidence/RECOVERY_PASS_002.md`](../docs/evidence/RECOVERY_PASS_002.md) | docs | Document three more recovered components, 172170 scoped calls, negative controls and limitations. |
 | [`docs/evidence/RECOVERY_PASS_003.md`](../docs/evidence/RECOVERY_PASS_003.md) | docs | Document five new component recoveries, integration tests, negative controls and limitations. |
@@ -348,6 +351,7 @@ DAH-Mobile-Decomp/
 | [`docs/evidence/integration-pass-020-automated-gate.json`](../docs/evidence/integration-pass-020-automated-gate.json) | docs | Machine-readable automated-gate scope and remaining finish-line categories. |
 | [`docs/evidence/integration-pass-021-mission-stress.json`](../docs/evidence/integration-pass-021-mission-stress.json) | docs | Machine-readable mission-stress aggregate result and claim boundaries. |
 | [`docs/evidence/integration-pass-022-mission-fuzz.json`](../docs/evidence/integration-pass-022-mission-fuzz.json) | docs | Machine-readable multi-seed mission fuzz result and claim boundaries. |
+| [`docs/evidence/integration-pass-023-desktop-polish.json`](../docs/evidence/integration-pass-023-desktop-polish.json) | docs | Machine-readable desktop scaling/control mapping state and human-judgment boundary. |
 | [`docs/evidence/subsystem-pass-002.json`](../docs/evidence/subsystem-pass-002.json) | docs | Hashes and matching observation digests from the second reproducible subsystem run. |
 | [`docs/evidence/ui-pass-010.json`](../docs/evidence/ui-pass-010.json) | docs | Record final p source/artifact hashes and matching scoped observation digests; no game code or assets. |
 | [`docs/evidence/weapon-pass-005.json`](../docs/evidence/weapon-pass-005.json) | docs | Record scoped pass-005 observations, private snapshot hashes and publication limitations. |
