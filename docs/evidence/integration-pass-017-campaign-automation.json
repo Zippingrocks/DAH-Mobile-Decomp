@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "target_id": "dah1-j2me-en-v1.2.0",
+  "missions_tested": 13,
+  "fresh_jvm_per_mission": true,
+  "original_rebuilt_outputs_identical": true,
+  "expected_matrix_rows_match": true,
+  "aggregate_output_sha256": "36e32e9d96cabbb894d9090904b21f5053ef0c02a83271d849e499e100afb3b9",
+  "dynamic_targets": {
+    "7": 29,
+    "12": 30
+  },
+  "pinned_field_binding_regressions": [
+    8,
+    9,
+    13
+  ],
+  "config": "config/campaign_matrix.json",
+  "tool": "tools/campaign_validation.py",
+  "probe": "tests/java/CampaignMatrixProbe.java",
+  "claims": {
+    "automated_campaign_matrix_complete": true,
+    "end_to_end_campaign_playthrough": false,
+    "gold": false,
+    "native_windows_executable": false
+  }
+}

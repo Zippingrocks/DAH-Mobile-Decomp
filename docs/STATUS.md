@@ -1,5 +1,19 @@
 # Project status
 
+## Integration pass 017 — automated 13-mission campaign matrix
+
+- Published a repeatable campaign validator that runs **each mission in a fresh JVM** against both retail and rebuilt desktop code.
+- All **13/13 missions** match for authored objective tuple, runtime target/dynamic total, initial completion gate, mechanically fulfilled objective state and final progress/completion result.
+- The accepted aggregate output SHA-256 is `36e32e9d96cabbb894d9090904b21f5053ef0c02a83271d849e499e100afb3b9`.
+- Mission 7 and 12 dynamic runtime targets remain pinned at **29** and **30**.
+- Missions 8, 9 and 13 are explicit regressions for the previously caught actor-byte field-binding defect.
+- This removes manual campaign-matrix rechecking from future source/runtime changes; it is still distinct from physically navigating every mission end-to-end.
+
+See [campaign automation evidence](evidence/INTEGRATION_PASS_017_CAMPAIGN_AUTOMATION.md) and
+[machine-readable results](evidence/integration-pass-017-campaign-automation.json).
+
+## Prior status
+
 ## Integration pass 016 — automatic AMR desktop audio
 
 - The retail game has **4 AMR effects** and 3 MIDI tracks.

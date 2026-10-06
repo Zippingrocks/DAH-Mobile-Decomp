@@ -802,6 +802,36 @@
       "path": "docs/evidence/integration-pass-016-amr-audio.json",
       "kind": "docs",
       "purpose": "Machine-readable AMR/WAV hashes, sizes and validation result for automatic desktop audio packaging."
+    },
+    {
+      "path": "config/campaign_matrix.json",
+      "kind": "config",
+      "purpose": "Pin the accepted 13-mission objective/runtime matrix and per-mission observation hashes."
+    },
+    {
+      "path": "tools/campaign_validation.py",
+      "kind": "tool",
+      "purpose": "Build or accept a desktop candidate and compare all 13 mission objective/completion observations against retail in fresh JVMs."
+    },
+    {
+      "path": "tests/java/CampaignMatrixProbe.java",
+      "kind": "tests",
+      "purpose": "Authored per-mission reflection probe for mission load/objective/completion behavior; not recovered game source."
+    },
+    {
+      "path": "tests/test_campaign_validation.py",
+      "kind": "tests",
+      "purpose": "Public campaign-validator config, compilation and isolation regression tests."
+    },
+    {
+      "path": "docs/evidence/INTEGRATION_PASS_017_CAMPAIGN_AUTOMATION.md",
+      "kind": "docs",
+      "purpose": "Document the automated 13-mission retail-versus-rebuilt campaign matrix validator."
+    },
+    {
+      "path": "docs/evidence/integration-pass-017-campaign-automation.json",
+      "kind": "docs",
+      "purpose": "Machine-readable aggregate campaign validation result and claim boundaries."
     }
   ],
   "classes": [
