@@ -1,5 +1,20 @@
 # Project status
 
+## Integration pass 014 — recreated production desktop runtime
+
+- Recreated the authored production-style desktop runtime after the interrupted workstation.
+- Original retail and rebuilt game classes now match through a fresh **300-frame gameplay run** on that runtime.
+- Matching observations include normalized game state, real 176×208 desktop framebuffer, and the file-backed RMS save result.
+- The produced RMS save file is 90 bytes and byte-identical on both sides.
+- This closes the final pending post-campaign regression from pass 013; all five interrupted rerun categories are re-established.
+- The separate campaign checkpoint still records **13/13 missions matching** for direct-load state/objective/completion semantics after the `j.n:B` correction.
+- The desktop runtime is not yet a finished release: AMR audio support, human interactive playtesting, longer end-to-end mission scripts, desktop packaging and native Windows AOT remain.
+
+See [desktop runtime evidence](evidence/INTEGRATION_PASS_014_DESKTOP_RUNTIME.md) and
+[machine-readable results](evidence/integration-pass-014-desktop-runtime.json).
+
+## Prior status
+
 ## Integration pass 013 — restored regression replay
 
 - Reconstructed an independent private verification tree from the exact retail JAR and pinned CFR/Vineflower toolchain after the workstation interruption.

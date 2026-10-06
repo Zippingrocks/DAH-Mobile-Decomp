@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "target_id": "dah1-j2me-en-v1.2.0",
+  "runtime": "recreated production-style desktop Java runtime",
+  "comparison_frames": 300,
+  "observations": {
+    "state_sha256": "5e1d535ba2543a001fffe99bfd016575c646af71db09e46f2e4f71e55d25243f",
+    "framebuffer_sha256": "da363d6cf71085f0dda2533b8ffdc5b8709872eff001834c7b5ff031dbfd844a",
+    "save_aggregate_sha256": "77d74229a27aef3940e715373b36cb0c7f9d2487cfe7830c31842be4e894698e",
+    "output_sha256": "b1a9f4098157251b806f20f9069a77aa61388046e0b4f1144e8c1b62ee3bb034",
+    "save_file_bytes": 90,
+    "save_file_sha256": "8394bcc4de35787475f7455746806eeb4fdf6a45c77f96be6d102d596813aa22"
+  },
+  "original_rebuilt_outputs_identical": true,
+  "pass013_pending_regressions_remaining": 0,
+  "campaign_matrix_evidence": "docs/evidence/INTEGRATION_PASS_013_CHECKPOINT.md",
+  "claims": {
+    "playable_release": false,
+    "native_windows_executable": false,
+    "complete_campaign_playthrough": false,
+    "gold": false
+  }
+}

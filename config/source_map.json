@@ -667,6 +667,16 @@
       "path": "docs/evidence/integration-pass-013-regression-restore.json",
       "kind": "docs",
       "purpose": "Machine-readable clean-build, descriptor and accepted regression digests from the restored pass-013 verification workspace."
+    },
+    {
+      "path": "docs/evidence/INTEGRATION_PASS_014_DESKTOP_RUNTIME.md",
+      "kind": "docs",
+      "purpose": "Document the recreated production desktop runtime and 300-frame original-versus-rebuilt comparison with framebuffer and file-backed RMS evidence."
+    },
+    {
+      "path": "docs/evidence/integration-pass-014-desktop-runtime.json",
+      "kind": "docs",
+      "purpose": "Machine-readable production desktop state/frame/save hashes and completion of all interrupted pass-013 regression reruns."
     }
   ],
   "classes": [
