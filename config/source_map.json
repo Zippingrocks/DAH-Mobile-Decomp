@@ -792,6 +792,16 @@
       "path": "docs/evidence/integration-pass-015-desktop-build.json",
       "kind": "docs",
       "purpose": "Machine-readable desktop build counts, hash and claim boundaries for pass 015."
+    },
+    {
+      "path": "docs/evidence/INTEGRATION_PASS_016_AMR_AUDIO.md",
+      "kind": "docs",
+      "purpose": "Document automatic FFmpeg conversion and hash-addressed Java Sound routing for all four retail AMR effects."
+    },
+    {
+      "path": "docs/evidence/integration-pass-016-amr-audio.json",
+      "kind": "docs",
+      "purpose": "Machine-readable AMR/WAV hashes, sizes and validation result for automatic desktop audio packaging."
     }
   ],
   "classes": [

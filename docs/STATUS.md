@@ -1,5 +1,19 @@
 # Project status
 
+## Integration pass 016 — automatic AMR desktop audio
+
+- The retail game has **4 AMR effects** and 3 MIDI tracks.
+- `tools/desktop_build.py` now automatically converts every retail AMR to mono 8 kHz WAV with an external FFmpeg executable while preserving the original AMR resources.
+- Converted WAVs are embedded under `META-INF/dah-audio/<AMR-SHA256>.wav`; the desktop media runtime hashes the AMR bytes supplied by recovered game code and resolves the matching companion transparently.
+- All four actual retail AMRs were converted, packaged, resolved and driven through the desktop Player lifecycle successfully.
+- FFmpeg is a build dependency only and is not redistributed by the repository.
+- Manual asset conversion is no longer part of the human checklist; only subjective loudness/mix/timing listening remains.
+
+See [AMR audio evidence](evidence/INTEGRATION_PASS_016_AMR_AUDIO.md) and
+[machine-readable results](evidence/integration-pass-016-amr-audio.json).
+
+## Prior status
+
 ## Integration pass 015 — reproducible desktop JAR build path
 
 - Added **18 tracked authored desktop runtime Java sources** covering Swing/AWT rendering/input, ImageIO resources, file-backed RMS, MIDlet/Canvas/Nokia API compatibility, and Java Sound MIDI plumbing.

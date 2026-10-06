@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "target_id": "dah1-j2me-en-v1.2.0",
+  "ffmpeg_observed": "7.1.5-0+deb13u1",
+  "retail_amr_count": 4,
+  "automatic_conversion": true,
+  "original_amr_preserved": true,
+  "runtime_lookup": "sha256-addressed embedded WAV",
+  "clips": [
+    {
+      "path": "Sound/pickup.amr",
+      "amr_sha256": "5fdad79f7f4001deab559b240a808e134578bb80640ca5876dea3b5f575f0690",
+      "wav_bytes": 3918,
+      "wav_sha256": "827687e527f4abdc9d302582c822b58348078db8e8bd527128eadf7ee4a65997"
+    },
+    {
+      "path": "Sound/select.amr",
+      "amr_sha256": "94bb3ab8ae3f01c4f6fc2a780630082b25b8ba68ca0a5edf9e05f8ebb0b1be18",
+      "wav_bytes": 1038,
+      "wav_sha256": "a448a2fdc377f338f492dbe530a1b5d0c08fb410be211fd1e407ecce0fe92b11"
+    },
+    {
+      "path": "Sound/shoot.amr",
+      "amr_sha256": "ab2e745f7c47589645ffecac648369b06bd165398fac2d18d319beebc5554273",
+      "wav_bytes": 5198,
+      "wav_sha256": "792b1c95dffa23882a4969aca17609fd90045cd7e356a9f260bfc140c4f8d9df"
+    },
+    {
+      "path": "Sound/transition.amr",
+      "amr_sha256": "aa8f4a0c0e0504314da5229a2e3d2b6d784830b2f2f6a166b08f375d72224700",
+      "wav_bytes": 14798,
+      "wav_sha256": "3da6bf17e34747414dd19af4827b13ebee7b18a0b6e052277c3e8da197c088a1"
+    }
+  ],
+  "packaged_probe_all_resolved": true,
+  "patched_validation_jar_sha256": "90c540a8e28dd6bbd746f1684b9676d68a035b300f8237af36cd568cfcf05ca9",
+  "claims": {
+    "mechanical_amr_packaging_complete": true,
+    "subjective_audio_playtest_complete": false,
+    "gold": false,
+    "native_windows_executable": false
+  }
+}

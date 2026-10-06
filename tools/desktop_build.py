@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import argparse, hashlib, json, subprocess, sys, tempfile, zipfile
+import argparse, hashlib, json, shutil, subprocess, sys, tempfile, zipfile
 from pathlib import Path
 
 GAME_CLASSES = ["GameMidlet"] + list("abcdefghijklmnopqrst")
@@ -32,6 +32,16 @@ def javac(output: Path, sources, classpath: Path | None = None):
     cmd += list(sources)
     run(cmd)
 
+def transcode_amr(ffmpeg: str, name: str, data: bytes, work: Path):
+    digest = hashlib.sha256(data).hexdigest()
+    source = work / (digest + ".amr")
+    target = work / (digest + ".wav")
+    source.write_bytes(data)
+    run([ffmpeg, "-nostdin", "-loglevel", "error", "-y", "-i", source, "-ac", "1", "-ar", "8000", target])
+    if not target.is_file() or target.stat().st_size <= 44:
+        raise RuntimeError("AMR transcode failed: " + name)
+    return digest, target.read_bytes()
+
 def build(args):
     original = args.input.resolve()
     source_dir = args.source_dir.resolve()
@@ -50,12 +60,18 @@ def build(args):
     if not runtime_sources:
         raise RuntimeError("no desktop runtime sources found")
 
+    ffmpeg = args.ffmpeg or shutil.which("ffmpeg")
+    if not ffmpeg:
+        raise RuntimeError("ffmpeg is required to package the game's AMR audio; install ffmpeg or pass --ffmpeg")
+
     with tempfile.TemporaryDirectory(prefix="dah-desktop-build-") as td:
         work = Path(td)
         runtime_classes = work / "runtime"
         game_classes = work / "game"
+        audio_work = work / "audio"
         runtime_classes.mkdir()
         game_classes.mkdir()
+        audio_work.mkdir()
 
         javac(runtime_classes, runtime_sources)
         javac(game_classes, game_sources, runtime_classes)
@@ -76,13 +92,23 @@ def build(args):
 
         output.parent.mkdir(parents=True, exist_ok=True)
         manifest = "Manifest-Version: 1.0\nMain-Class: dah.desktop.Launcher\n\n"
+        converted_audio = {}
         with zipfile.ZipFile(output, "w", zipfile.ZIP_DEFLATED) as outjar:
             outjar.writestr("META-INF/MANIFEST.MF", manifest)
             with zipfile.ZipFile(original) as sourcejar:
                 for info in sourcejar.infolist():
                     if info.filename.upper() == "META-INF/MANIFEST.MF" or info.filename.endswith(".class"):
                         continue
-                    outjar.writestr(info.filename, sourcejar.read(info.filename))
+                    data = sourcejar.read(info.filename)
+                    outjar.writestr(info.filename, data)
+                    if info.filename.lower().endswith(".amr"):
+                        digest, wav = transcode_amr(ffmpeg, info.filename, data, audio_work)
+                        outjar.writestr("META-INF/dah-audio/" + digest + ".wav", wav)
+                        converted_audio[info.filename] = {
+                            "sha256": digest,
+                            "wav_bytes": len(wav),
+                            "wav_sha256": hashlib.sha256(wav).hexdigest(),
+                        }
             for root in (runtime_classes, game_classes):
                 for path in sorted(root.rglob("*.class")):
                     outjar.write(path, path.relative_to(root).as_posix())
@@ -97,6 +123,9 @@ def build(args):
             "runtime_java_sources": len(runtime_sources),
             "original_class_fallback": False,
             "main_class": "dah.desktop.Launcher",
+            "ffmpeg": ffmpeg,
+            "amr_converted": len(converted_audio),
+            "amr_audio": converted_audio,
         }
         if args.report:
             args.report.parent.mkdir(parents=True, exist_ok=True)
@@ -110,6 +139,7 @@ def main():
     parser.add_argument("--runtime-src", type=Path, default=Path("runtime/desktop"))
     parser.add_argument("--output", type=Path, default=Path("dist/DAH-Mobile-Desktop.jar"))
     parser.add_argument("--report", type=Path)
+    parser.add_argument("--ffmpeg")
     args = parser.parse_args()
     try:
         build(args)

@@ -49,10 +49,24 @@ class DesktopRuntimeTests(unittest.TestCase):
         self.assertIn("MidiSystem", src)
         self.assertIn("Sequencer", src)
 
+    def test_media_has_hash_addressed_amr_wav_backend(self):
+        src = (RUNTIME / "javax/microedition/media/Manager.java").read_text()
+        self.assertIn("META-INF/dah-audio/", src)
+        self.assertIn("MessageDigest.getInstance("SHA-256")", src)
+        self.assertIn("AudioSystem.getAudioInputStream", src)
+        self.assertIn("AudioSystem.getClip", src)
+
     def test_desktop_builder_refuses_original_class_fallback(self):
         src = (ROOT / "tools/desktop_build.py").read_text()
         self.assertIn('info.filename.endswith(".class")', src)
         self.assertIn('"original_class_fallback": False', src)
+
+    def test_desktop_builder_transcodes_amr_automatically(self):
+        src = (ROOT / "tools/desktop_build.py").read_text()
+        self.assertIn("def transcode_amr(", src)
+        self.assertIn('shutil.which("ffmpeg")', src)
+        self.assertIn('"META-INF/dah-audio/" + digest + ".wav"', src)
+        self.assertIn('"amr_converted": len(converted_audio)', src)
 
 if __name__ == "__main__":
     unittest.main()
