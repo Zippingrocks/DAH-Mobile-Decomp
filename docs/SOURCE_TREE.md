@@ -40,6 +40,7 @@ DAH-Mobile-Decomp/
 |   |-- entity_recovery.json [CONFIG]
 |   |-- integration_recovery.json [CONFIG]
 |   |-- mission_fuzz.json [CONFIG]
+|   |-- mission_soak.json [CONFIG]
 |   |-- mission_stress.json [CONFIG]
 |   |-- source_map.json [CONFIG]
 |   |-- subsystem_recovery.json [CONFIG]
@@ -76,6 +77,7 @@ DAH-Mobile-Decomp/
 |       |-- INTEGRATION_PASS_022_MISSION_FUZZ.md [DOCS]
 |       |-- INTEGRATION_PASS_023_DESKTOP_POLISH.md [DOCS]
 |       |-- INTEGRATION_PASS_024_AUDIO_SANITY.md [DOCS]
+|       |-- INTEGRATION_PASS_025_MISSION_SOAK.md [DOCS]
 |       |-- RECOVERY_PASS_001.md [DOCS]
 |       |-- RECOVERY_PASS_002.md [DOCS]
 |       |-- RECOVERY_PASS_003.md [DOCS]
@@ -105,6 +107,7 @@ DAH-Mobile-Decomp/
 |       |-- integration-pass-022-mission-fuzz.json [DOCS]
 |       |-- integration-pass-023-desktop-polish.json [DOCS]
 |       |-- integration-pass-024-audio-sanity.json [DOCS]
+|       |-- integration-pass-025-mission-soak.json [DOCS]
 |       |-- subsystem-pass-002.json [DOCS]
 |       |-- ui-pass-010.json [DOCS]
 |       |-- weapon-pass-005.json [DOCS]
@@ -250,6 +253,7 @@ DAH-Mobile-Decomp/
 |   |-- test_full_validation.py [TESTS]
 |   |-- test_integration_recovery.py [TESTS]
 |   |-- test_mission_fuzz.py [TESTS]
+|   |-- test_mission_soak.py [TESTS]
 |   |-- test_mission_stress.py [TESTS]
 |   |-- test_native_build.py [TESTS]
 |   |-- test_source_map.py [TESTS]
@@ -270,6 +274,7 @@ DAH-Mobile-Decomp/
     |-- full_validation.py [TOOL]
     |-- integration_recovery.py [TOOL]
     |-- mission_fuzz.py [TOOL]
+    |-- mission_soak.py [TOOL]
     |-- mission_stress.py [TOOL]
     |-- native_build.py [TOOL]
     |-- source_map.py [TOOL]
@@ -295,6 +300,7 @@ DAH-Mobile-Decomp/
 | [`config/entity_recovery.json`](../config/entity_recovery.json) | config | Pin eleven source snapshots, resource hashes and explicit field and method aliases. |
 | [`config/integration_recovery.json`](../config/integration_recovery.json) | config | Pin final repaired private source hashes, original input identity, integration probes and expected whole-tree counts. |
 | [`config/mission_fuzz.json`](../config/mission_fuzz.json) | config | Pin the accepted four-seed-per-mission differential fuzz hashes and aggregate mission hash. |
+| [`config/mission_soak.json`](../config/mission_soak.json) | config | Pin the accepted 5,000-frame-per-mission soak hashes and aggregate output. |
 | [`config/mission_stress.json`](../config/mission_stress.json) | config | Pin accepted 13-mission deterministic simulation-stress hashes and aggregate output. |
 | [`config/source_map.json`](../config/source_map.json) | config | File descriptions, original-class inventory and evidence-backed progress records. |
 | [`config/subsystem_recovery.json`](../config/subsystem_recovery.json) | config | Pin six local source snapshots, field and method aliases, test support and resource hashes. |
@@ -329,6 +335,7 @@ DAH-Mobile-Decomp/
 | [`docs/evidence/INTEGRATION_PASS_022_MISSION_FUZZ.md`](../docs/evidence/INTEGRATION_PASS_022_MISSION_FUZZ.md) | docs | Document 7,800 multi-seed mission-specific controller/world update frames matching retail. |
 | [`docs/evidence/INTEGRATION_PASS_023_DESKTOP_POLISH.md`](../docs/evidence/INTEGRATION_PASS_023_DESKTOP_POLISH.md) | docs | Document deterministic integer scaling and desktop key mapping polish for the authored runtime. |
 | [`docs/evidence/INTEGRATION_PASS_024_AUDIO_SANITY.md`](../docs/evidence/INTEGRATION_PASS_024_AUDIO_SANITY.md) | docs | Document structural/signal sanity results for all four converted retail effects. |
+| [`docs/evidence/INTEGRATION_PASS_025_MISSION_SOAK.md`](../docs/evidence/INTEGRATION_PASS_025_MISSION_SOAK.md) | docs | Document 65,000 long-duration mission-specific update frames matching retail. |
 | [`docs/evidence/RECOVERY_PASS_001.md`](../docs/evidence/RECOVERY_PASS_001.md) | docs | Explain the first manual source recovery, scoped component tests, repeatability and remaining gaps. |
 | [`docs/evidence/RECOVERY_PASS_002.md`](../docs/evidence/RECOVERY_PASS_002.md) | docs | Document three more recovered components, 172170 scoped calls, negative controls and limitations. |
 | [`docs/evidence/RECOVERY_PASS_003.md`](../docs/evidence/RECOVERY_PASS_003.md) | docs | Document five new component recoveries, integration tests, negative controls and limitations. |
@@ -358,6 +365,7 @@ DAH-Mobile-Decomp/
 | [`docs/evidence/integration-pass-022-mission-fuzz.json`](../docs/evidence/integration-pass-022-mission-fuzz.json) | docs | Machine-readable multi-seed mission fuzz result and claim boundaries. |
 | [`docs/evidence/integration-pass-023-desktop-polish.json`](../docs/evidence/integration-pass-023-desktop-polish.json) | docs | Machine-readable desktop scaling/control mapping state and human-judgment boundary. |
 | [`docs/evidence/integration-pass-024-audio-sanity.json`](../docs/evidence/integration-pass-024-audio-sanity.json) | docs | Machine-readable converted-audio sanity state and subjective-listening boundary. |
+| [`docs/evidence/integration-pass-025-mission-soak.json`](../docs/evidence/integration-pass-025-mission-soak.json) | docs | Machine-readable long-duration mission soak result and claim boundaries. |
 | [`docs/evidence/subsystem-pass-002.json`](../docs/evidence/subsystem-pass-002.json) | docs | Hashes and matching observation digests from the second reproducible subsystem run. |
 | [`docs/evidence/ui-pass-010.json`](../docs/evidence/ui-pass-010.json) | docs | Record final p source/artifact hashes and matching scoped observation digests; no game code or assets. |
 | [`docs/evidence/weapon-pass-005.json`](../docs/evidence/weapon-pass-005.json) | docs | Record scoped pass-005 observations, private snapshot hashes and publication limitations. |
@@ -457,6 +465,7 @@ DAH-Mobile-Decomp/
 | [`tests/test_full_validation.py`](../tests/test_full_validation.py) | tests | Check unified validation orchestration, AMR inventory expectations, and explicit non-gold/human-only boundaries. |
 | [`tests/test_integration_recovery.py`](../tests/test_integration_recovery.py) | tests | Check integration config completeness, support isolation, deterministic packaging, and probe/support compilation without private game source. |
 | [`tests/test_mission_fuzz.py`](../tests/test_mission_fuzz.py) | tests | Public regression tests for fuzz matrix size, seeds, hashes and process isolation. |
+| [`tests/test_mission_soak.py`](../tests/test_mission_soak.py) | tests | Public checks for 13-mission soak scope, frame count and pinned hashes. |
 | [`tests/test_mission_stress.py`](../tests/test_mission_stress.py) | tests | Public tests for mission-stress config, isolation, controller transition and non-forced-render boundary. |
 | [`tests/test_native_build.py`](../tests/test_native_build.py) | tests | Validate direct launcher generation, native preflight inspection and native-image automation wiring without private game data. |
 | [`tests/test_source_map.py`](../tests/test_source_map.py) | tests | Metadata, inventory, evidence, rendering and stale-map regression tests. |
@@ -476,6 +485,7 @@ DAH-Mobile-Decomp/
 | [`tools/full_validation.py`](../tools/full_validation.py) | tool | Run the complete machine-checkable validation stack and report the remaining human/environment-only gates. |
 | [`tools/integration_recovery.py`](../tools/integration_recovery.py) | tool | Build the final repaired 21-class source tree, package the candidate JAR, verify descriptors/resources, and compare deterministic integration probes. |
 | [`tools/mission_fuzz.py`](../tools/mission_fuzz.py) | tool | Run fresh-JVM multi-seed deterministic input fuzzing across all 13 missions and compare retail versus rebuilt outputs. |
+| [`tools/mission_soak.py`](../tools/mission_soak.py) | tool | Run a 5,000-frame deterministic controller/world soak in each mission and compare retail versus rebuilt outputs. |
 | [`tools/mission_stress.py`](../tools/mission_stress.py) | tool | Run 300 controller/world update frames in each mission and require retail-vs-rebuilt output identity. |
 | [`tools/native_build.py`](../tools/native_build.py) | tool | Automate GraalVM tracing-agent metadata collection and native-image compilation from the native-ready desktop JAR. |
 | [`tools/source_map.py`](../tools/source_map.py) | tool | Generate or check the map against tracked files and optionally a local audit. |
