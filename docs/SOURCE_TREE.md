@@ -44,6 +44,7 @@ DAH-Mobile-Decomp/
 |   |-- target.json [CONFIG]
 |   `-- weapon_recovery.json [CONFIG]
 |-- docs/
+|   |-- AUTOMATED_VALIDATION.md [DOCS]
 |   |-- BEHAVIOR_TREEMAP.svg [GENERATED]
 |   |-- BUILD_TREEMAP.svg [GENERATED]
 |   |-- BYTE_MATCH.md [DOCS]
@@ -68,6 +69,7 @@ DAH-Mobile-Decomp/
 |       |-- INTEGRATION_PASS_017_CAMPAIGN_AUTOMATION.md [DOCS]
 |       |-- INTEGRATION_PASS_018_NATIVE_AOT_PREP.md [DOCS]
 |       |-- INTEGRATION_PASS_019_CAMPAIGN_PROGRESSION.md [DOCS]
+|       |-- INTEGRATION_PASS_020_AUTOMATED_GATE.md [DOCS]
 |       |-- RECOVERY_PASS_001.md [DOCS]
 |       |-- RECOVERY_PASS_002.md [DOCS]
 |       |-- RECOVERY_PASS_003.md [DOCS]
@@ -92,6 +94,7 @@ DAH-Mobile-Decomp/
 |       |-- integration-pass-017-campaign-automation.json [DOCS]
 |       |-- integration-pass-018-native-aot-prep.json [DOCS]
 |       |-- integration-pass-019-campaign-progression.json [DOCS]
+|       |-- integration-pass-020-automated-gate.json [DOCS]
 |       |-- subsystem-pass-002.json [DOCS]
 |       |-- ui-pass-010.json [DOCS]
 |       |-- weapon-pass-005.json [DOCS]
@@ -231,6 +234,7 @@ DAH-Mobile-Decomp/
 |   |-- test_dah1.py [TESTS]
 |   |-- test_desktop_runtime.py [TESTS]
 |   |-- test_entity_recovery.py [TESTS]
+|   |-- test_full_validation.py [TESTS]
 |   |-- test_integration_recovery.py [TESTS]
 |   |-- test_native_build.py [TESTS]
 |   |-- test_source_map.py [TESTS]
@@ -247,6 +251,7 @@ DAH-Mobile-Decomp/
     |-- dah1.py [TOOL]
     |-- desktop_build.py [TOOL]
     |-- entity_recovery.py [TOOL]
+    |-- full_validation.py [TOOL]
     |-- integration_recovery.py [TOOL]
     |-- native_build.py [TOOL]
     |-- source_map.py [TOOL]
@@ -275,6 +280,7 @@ DAH-Mobile-Decomp/
 | [`config/subsystem_recovery.json`](../config/subsystem_recovery.json) | config | Pin six local source snapshots, field and method aliases, test support and resource hashes. |
 | [`config/target.json`](../config/target.json) | config | Exact input identity and expected static counts. |
 | [`config/weapon_recovery.json`](../config/weapon_recovery.json) | config | Pin seventeen recovered source snapshots and explicit weapon, saucer and lifecycle aliases. |
+| [`docs/AUTOMATED_VALIDATION.md`](../docs/AUTOMATED_VALIDATION.md) | docs | Usage and scope for the single-command automated validation gate. |
 | [`docs/BEHAVIOR_TREEMAP.svg`](../docs/BEHAVIOR_TREEMAP.svg) | generated | GitHub-embeddable behavior class treemap from recorded evidence. |
 | [`docs/BUILD_TREEMAP.svg`](../docs/BUILD_TREEMAP.svg) | generated | GitHub-embeddable build class treemap from recorded evidence. |
 | [`docs/BYTE_MATCH.md`](../docs/BYTE_MATCH.md) | docs | Define exact and normalized comparison scope, freshness, provenance and limitations. |
@@ -298,6 +304,7 @@ DAH-Mobile-Decomp/
 | [`docs/evidence/INTEGRATION_PASS_017_CAMPAIGN_AUTOMATION.md`](../docs/evidence/INTEGRATION_PASS_017_CAMPAIGN_AUTOMATION.md) | docs | Document the automated 13-mission retail-versus-rebuilt campaign matrix validator. |
 | [`docs/evidence/INTEGRATION_PASS_018_NATIVE_AOT_PREP.md`](../docs/evidence/INTEGRATION_PASS_018_NATIVE_AOT_PREP.md) | docs | Document direct game entry, native smoke validation and automated GraalVM native build preparation. |
 | [`docs/evidence/INTEGRATION_PASS_019_CAMPAIGN_PROGRESSION.md`](../docs/evidence/INTEGRATION_PASS_019_CAMPAIGN_PROGRESSION.md) | docs | Document automated mission-to-mission progression and byte-identical RMS persistence across all 13 missions. |
+| [`docs/evidence/INTEGRATION_PASS_020_AUTOMATED_GATE.md`](../docs/evidence/INTEGRATION_PASS_020_AUTOMATED_GATE.md) | docs | Document publication of the unified machine validation gate and remaining human/environment boundaries. |
 | [`docs/evidence/RECOVERY_PASS_001.md`](../docs/evidence/RECOVERY_PASS_001.md) | docs | Explain the first manual source recovery, scoped component tests, repeatability and remaining gaps. |
 | [`docs/evidence/RECOVERY_PASS_002.md`](../docs/evidence/RECOVERY_PASS_002.md) | docs | Document three more recovered components, 172170 scoped calls, negative controls and limitations. |
 | [`docs/evidence/RECOVERY_PASS_003.md`](../docs/evidence/RECOVERY_PASS_003.md) | docs | Document five new component recoveries, integration tests, negative controls and limitations. |
@@ -322,6 +329,7 @@ DAH-Mobile-Decomp/
 | [`docs/evidence/integration-pass-017-campaign-automation.json`](../docs/evidence/integration-pass-017-campaign-automation.json) | docs | Machine-readable aggregate campaign validation result and claim boundaries. |
 | [`docs/evidence/integration-pass-018-native-aot-prep.json`](../docs/evidence/integration-pass-018-native-aot-prep.json) | docs | Machine-readable native AOT preparation state and claim boundaries. |
 | [`docs/evidence/integration-pass-019-campaign-progression.json`](../docs/evidence/integration-pass-019-campaign-progression.json) | docs | Machine-readable 13-step progression/persistence result and claim boundaries. |
+| [`docs/evidence/integration-pass-020-automated-gate.json`](../docs/evidence/integration-pass-020-automated-gate.json) | docs | Machine-readable automated-gate scope and remaining finish-line categories. |
 | [`docs/evidence/subsystem-pass-002.json`](../docs/evidence/subsystem-pass-002.json) | docs | Hashes and matching observation digests from the second reproducible subsystem run. |
 | [`docs/evidence/ui-pass-010.json`](../docs/evidence/ui-pass-010.json) | docs | Record final p source/artifact hashes and matching scoped observation digests; no game code or assets. |
 | [`docs/evidence/weapon-pass-005.json`](../docs/evidence/weapon-pass-005.json) | docs | Record scoped pass-005 observations, private snapshot hashes and publication limitations. |
@@ -415,6 +423,7 @@ DAH-Mobile-Decomp/
 | [`tests/test_dah1.py`](../tests/test_dah1.py) | tests | Synthetic tests for input identity checks and the structural auditor. |
 | [`tests/test_desktop_runtime.py`](../tests/test_desktop_runtime.py) | tests | Compile and inspect the authored desktop runtime without requiring recovered game source or original assets. |
 | [`tests/test_entity_recovery.py`](../tests/test_entity_recovery.py) | tests | Check outcome counts, source guards, output isolation and public probe compilation. |
+| [`tests/test_full_validation.py`](../tests/test_full_validation.py) | tests | Check unified validation orchestration, AMR inventory expectations, and explicit non-gold/human-only boundaries. |
 | [`tests/test_integration_recovery.py`](../tests/test_integration_recovery.py) | tests | Check integration config completeness, support isolation, deterministic packaging, and probe/support compilation without private game source. |
 | [`tests/test_native_build.py`](../tests/test_native_build.py) | tests | Validate direct launcher generation, native preflight inspection and native-image automation wiring without private game data. |
 | [`tests/test_source_map.py`](../tests/test_source_map.py) | tests | Metadata, inventory, evidence, rendering and stale-map regression tests. |
@@ -430,6 +439,7 @@ DAH-Mobile-Decomp/
 | [`tools/dah1.py`](../tools/dah1.py) | tool | Verify the pinned JAR and report class structure without executing the game. |
 | [`tools/desktop_build.py`](../tools/desktop_build.py) | tool | Build a runnable desktop JAR from local recovered source and a user-supplied exact retail JAR without original class fallback. |
 | [`tools/entity_recovery.py`](../tools/entity_recovery.py) | tool | Build eleven private components and compare isolated effect, entity and pickup probes. |
+| [`tools/full_validation.py`](../tools/full_validation.py) | tool | Run the complete machine-checkable validation stack and report the remaining human/environment-only gates. |
 | [`tools/integration_recovery.py`](../tools/integration_recovery.py) | tool | Build the final repaired 21-class source tree, package the candidate JAR, verify descriptors/resources, and compare deterministic integration probes. |
 | [`tools/native_build.py`](../tools/native_build.py) | tool | Automate GraalVM tracing-agent metadata collection and native-image compilation from the native-ready desktop JAR. |
 | [`tools/source_map.py`](../tools/source_map.py) | tool | Generate or check the map against tracked files and optionally a local audit. |
