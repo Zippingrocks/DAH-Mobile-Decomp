@@ -104,6 +104,23 @@ def main(argv=None):
             "passed": True,
         }
 
+        stress_report = work / "mission-stress.json"
+        run([
+            sys.executable, ROOT / "tools" / "mission_stress.py",
+            "--input", args.input,
+            "--candidate", candidate,
+            "--report", stress_report,
+        ])
+        stress = json.loads(stress_report.read_text())
+        if stress.get("missions") != 13 or stress.get("total_frames") != 3900 or not stress.get("retail_rebuilt_outputs_identical"):
+            raise RuntimeError("mission stress did not pass")
+        checks["mission_stress"] = {
+            "missions": 13,
+            "total_frames": 3900,
+            "passed": True,
+            "aggregate_stdout_sha256": stress["aggregate_stdout_sha256"],
+        }
+
         progression_report = work / "campaign-progression.json"
         run([
             sys.executable, ROOT / "tools" / "campaign_progression.py",

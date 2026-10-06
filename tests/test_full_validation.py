@@ -36,7 +36,7 @@ class FullValidationTests(unittest.TestCase):
     def test_gate_orchestrates_campaign_matrix_and_progression(self):
         src=(ROOT/"tools/full_validation.py").read_text()
         self.assertIn("campaign_validation.py",src)
-        self.assertIn("campaign_progression.py",src)
+        self.assertIn("campaign_progression.py",src)\n        self.assertIn("mission_stress.py",src)
         self.assertIn("native_build.py",src)
         self.assertIn("DesktopLauncher",src)
         self.assertIn("--native-smoke",src)

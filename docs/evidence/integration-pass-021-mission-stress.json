@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "target_id": "dah1-j2me-en-v1.2.0",
+  "missions": 13,
+  "frames_per_mission": 300,
+  "total_frames": 3900,
+  "fresh_jvm_per_mission": true,
+  "retail_rebuilt_outputs_identical": true,
+  "aggregate_stdout_sha256": "aba5560012594e11f19d563f5601d58f40f879bd72cb6dc39c02867613edbca6",
+  "rendering_forced_in_direct_selected_state": false,
+  "rendering_reason": "retail requires interstitial UI state; natural rendering covered by other integration passes",
+  "claims": {
+    "mission_simulation_stress_match": true,
+    "autonomous_end_to_end_navigation": false,
+    "human_playtest_complete": false,
+    "gold": false
+  }
+}

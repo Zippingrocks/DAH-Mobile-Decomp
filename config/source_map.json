@@ -912,6 +912,36 @@
       "path": "docs/evidence/integration-pass-020-automated-gate.json",
       "kind": "docs",
       "purpose": "Machine-readable automated-gate scope and remaining finish-line categories."
+    },
+    {
+      "path": "config/mission_stress.json",
+      "kind": "config",
+      "purpose": "Pin accepted 13-mission deterministic simulation-stress hashes and aggregate output."
+    },
+    {
+      "path": "tools/mission_stress.py",
+      "kind": "tool",
+      "purpose": "Run 300 controller/world update frames in each mission and require retail-vs-rebuilt output identity."
+    },
+    {
+      "path": "tests/java/MissionStressProbe.java",
+      "kind": "tests",
+      "purpose": "Authored deterministic per-mission controller/world simulation stress probe using normalized state checkpoints."
+    },
+    {
+      "path": "tests/test_mission_stress.py",
+      "kind": "tests",
+      "purpose": "Public tests for mission-stress config, isolation, controller transition and non-forced-render boundary."
+    },
+    {
+      "path": "docs/evidence/INTEGRATION_PASS_021_MISSION_STRESS.md",
+      "kind": "docs",
+      "purpose": "Document 3,900 mission-specific controller/world update frames matching retail across all 13 missions."
+    },
+    {
+      "path": "docs/evidence/integration-pass-021-mission-stress.json",
+      "kind": "docs",
+      "purpose": "Machine-readable mission-stress aggregate result and claim boundaries."
     }
   ],
   "classes": [

@@ -1,5 +1,20 @@
 # Project status
 
+## Integration pass 021 — automated 13-mission simulation stress
+
+- Added a fresh-JVM mission stress validator covering **all 13 missions**.
+- Each mission enters world mode through the game's own controller transition and runs **300 real controller/world update frames** with deterministic movement/action input.
+- Normalized full-state checkpoints are recorded every 100 frames, plus final state and image/media side-effect hashes.
+- Retail and rebuilt complete outputs match for **13/13 missions**, totaling **3,900 mission-specific update frames**.
+- Aggregate concatenated output SHA-256: `aba5560012594e11f19d563f5601d58f40f879bd72cb6dc39c02867613edbca6`.
+- Direct-selected mission rendering is intentionally excluded because retail itself requires an interstitial UI state not present in that setup; naturally reached rendering remains covered by passes 011/012/014.
+- The unified automated gate now includes this mission-stress validator.
+
+See [mission stress evidence](evidence/INTEGRATION_PASS_021_MISSION_STRESS.md) and
+[machine-readable results](evidence/integration-pass-021-mission-stress.json).
+
+## Prior status
+
 ## Integration pass 020 — unified automated validation gate
 
 - Added `tools/full_validation.py` as the one-command machine-checkable release gate.
