@@ -57,6 +57,7 @@ DAH-Mobile-Decomp/
 |       |-- INTEGRATION_PASS_011.md [DOCS]
 |       |-- INTEGRATION_PASS_012.md [DOCS]
 |       |-- INTEGRATION_PASS_013_CHECKPOINT.md [DOCS]
+|       |-- INTEGRATION_PASS_013_REGRESSION_RESTORE.md [DOCS]
 |       |-- RECOVERY_PASS_001.md [DOCS]
 |       |-- RECOVERY_PASS_002.md [DOCS]
 |       |-- RECOVERY_PASS_003.md [DOCS]
@@ -74,6 +75,7 @@ DAH-Mobile-Decomp/
 |       |-- integration-pass-011.json [DOCS]
 |       |-- integration-pass-012.json [DOCS]
 |       |-- integration-pass-013-checkpoint.json [DOCS]
+|       |-- integration-pass-013-regression-restore.json [DOCS]
 |       |-- subsystem-pass-002.json [DOCS]
 |       |-- ui-pass-010.json [DOCS]
 |       |-- weapon-pass-005.json [DOCS]
@@ -227,6 +229,7 @@ DAH-Mobile-Decomp/
 | [`docs/evidence/INTEGRATION_PASS_011.md`](../docs/evidence/INTEGRATION_PASS_011.md) | docs | Document the first final all-repaired 21-class integration build, original-versus-rebuilt startup/state/render comparisons, caught linkage defect and remaining platform boundary. |
 | [`docs/evidence/INTEGRATION_PASS_012.md`](../docs/evidence/INTEGRATION_PASS_012.md) | docs | Document integrated RMS round-trip validation and 500-frame deterministic gameplay stress matching. |
 | [`docs/evidence/INTEGRATION_PASS_013_CHECKPOINT.md`](../docs/evidence/INTEGRATION_PASS_013_CHECKPOINT.md) | docs | Preserve the interrupted campaign-matrix and production-desktop-runtime integration results, including the corrected j.n:B binding and pending regressions. |
+| [`docs/evidence/INTEGRATION_PASS_013_REGRESSION_RESTORE.md`](../docs/evidence/INTEGRATION_PASS_013_REGRESSION_RESTORE.md) | docs | Document reconstruction of the interrupted integration workspace and replay of accepted startup/state/gameplay/persistence regressions. |
 | [`docs/evidence/RECOVERY_PASS_001.md`](../docs/evidence/RECOVERY_PASS_001.md) | docs | Explain the first manual source recovery, scoped component tests, repeatability and remaining gaps. |
 | [`docs/evidence/RECOVERY_PASS_002.md`](../docs/evidence/RECOVERY_PASS_002.md) | docs | Document three more recovered components, 172170 scoped calls, negative controls and limitations. |
 | [`docs/evidence/RECOVERY_PASS_003.md`](../docs/evidence/RECOVERY_PASS_003.md) | docs | Document five new component recoveries, integration tests, negative controls and limitations. |
@@ -244,6 +247,7 @@ DAH-Mobile-Decomp/
 | [`docs/evidence/integration-pass-011.json`](../docs/evidence/integration-pass-011.json) | docs | Machine-readable final integrated candidate hash, repeatability, descriptor/resource checks and scoped startup/state probe digests. |
 | [`docs/evidence/integration-pass-012.json`](../docs/evidence/integration-pass-012.json) | docs | Machine-readable persistence and long-run probe digests for integration pass 012. |
 | [`docs/evidence/integration-pass-013-checkpoint.json`](../docs/evidence/integration-pass-013-checkpoint.json) | docs | Machine-readable checkpoint for the 13-mission matrix, desktop runtime smoke/comparison, reconstruction defect, and pending regression reruns. |
+| [`docs/evidence/integration-pass-013-regression-restore.json`](../docs/evidence/integration-pass-013-regression-restore.json) | docs | Machine-readable clean-build, descriptor and accepted regression digests from the restored pass-013 verification workspace. |
 | [`docs/evidence/subsystem-pass-002.json`](../docs/evidence/subsystem-pass-002.json) | docs | Hashes and matching observation digests from the second reproducible subsystem run. |
 | [`docs/evidence/ui-pass-010.json`](../docs/evidence/ui-pass-010.json) | docs | Record final p source/artifact hashes and matching scoped observation digests; no game code or assets. |
 | [`docs/evidence/weapon-pass-005.json`](../docs/evidence/weapon-pass-005.json) | docs | Record scoped pass-005 observations, private snapshot hashes and publication limitations. |
