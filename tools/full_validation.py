@@ -150,6 +150,23 @@ def main(argv=None):
             "aggregate_mission_hashes_sha256": fuzz["aggregate_mission_hashes_sha256"],
         }
 
+        soak_report = work / "mission-soak.json"
+        run([
+            sys.executable, ROOT / "tools" / "mission_soak.py",
+            "--input", args.input,
+            "--candidate", candidate,
+            "--report", soak_report,
+        ])
+        soak = json.loads(soak_report.read_text())
+        if soak.get("missions") != 13 or soak.get("total_frames") != 65000 or not soak.get("retail_rebuilt_outputs_identical"):
+            raise RuntimeError("mission soak did not pass")
+        checks["mission_soak"] = {
+            "missions": 13,
+            "total_frames": 65000,
+            "passed": True,
+            "aggregate_stdout_sha256": soak["aggregate_stdout_sha256"],
+        }
+
         progression_report = work / "campaign-progression.json"
         run([
             sys.executable, ROOT / "tools" / "campaign_progression.py",

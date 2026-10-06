@@ -1,5 +1,18 @@
 # Project status
 
+## Integration pass 025 — 65,000-frame all-mission soak
+
+- Added a deterministic **5,000-frame soak** for every mission through the real controller/world update path.
+- Retail and rebuilt outputs match for **13/13 missions**, totaling **65,000 mission-specific update frames per side**.
+- Aggregate concatenated output SHA-256: `318f4f57708cf7eb34175e33fceb50f9253e78e011227c41d8f4268bc21c21fa`.
+- This targets slow counter/timer/state drift and long-duration instability beyond the shorter stress/fuzz passes.
+- The unified automated gate now requires this long-duration soak too.
+
+See [mission soak evidence](evidence/INTEGRATION_PASS_025_MISSION_SOAK.md) and
+[machine-readable results](evidence/integration-pass-025-mission-soak.json).
+
+## Prior status
+
 ## Integration pass 024 — automated converted-audio sanity
 
 - Added packaged-audio sanity checks for all **4** converted retail AMR effects.

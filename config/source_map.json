@@ -1002,6 +1002,31 @@
       "path": "docs/evidence/integration-pass-024-audio-sanity.json",
       "kind": "docs",
       "purpose": "Machine-readable converted-audio sanity state and subjective-listening boundary."
+    },
+    {
+      "path": "config/mission_soak.json",
+      "kind": "config",
+      "purpose": "Pin the accepted 5,000-frame-per-mission soak hashes and aggregate output."
+    },
+    {
+      "path": "tools/mission_soak.py",
+      "kind": "tool",
+      "purpose": "Run a 5,000-frame deterministic controller/world soak in each mission and compare retail versus rebuilt outputs."
+    },
+    {
+      "path": "tests/test_mission_soak.py",
+      "kind": "tests",
+      "purpose": "Public checks for 13-mission soak scope, frame count and pinned hashes."
+    },
+    {
+      "path": "docs/evidence/INTEGRATION_PASS_025_MISSION_SOAK.md",
+      "kind": "docs",
+      "purpose": "Document 65,000 long-duration mission-specific update frames matching retail."
+    },
+    {
+      "path": "docs/evidence/integration-pass-025-mission-soak.json",
+      "kind": "docs",
+      "purpose": "Machine-readable long-duration mission soak result and claim boundaries."
     }
   ],
   "classes": [

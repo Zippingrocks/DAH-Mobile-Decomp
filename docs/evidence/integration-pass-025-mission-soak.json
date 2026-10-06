@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "target_id": "dah1-j2me-en-v1.2.0",
+  "missions": 13,
+  "frames_per_mission": 5000,
+  "total_frames": 65000,
+  "retail_rebuilt_outputs_identical": true,
+  "aggregate_stdout_sha256": "318f4f57708cf7eb34175e33fceb50f9253e78e011227c41d8f4268bc21c21fa",
+  "claims": {
+    "long_duration_mission_soak_match": true,
+    "exhaustive": false,
+    "gold": false
+  }
+}

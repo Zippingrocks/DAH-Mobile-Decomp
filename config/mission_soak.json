@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "target_id": "dah1-j2me-en-v1.2.0",
+  "frames_per_mission": 5000,
+  "total_frames": 65000,
+  "missions": [
+    {
+      "mission": 1,
+      "sha256": "0ec21e6ff5fe8626a347e9c68774e85ed91436bfd6cb93564d1bfaa4bf3f9508"
+    },
+    {
+      "mission": 2,
+      "sha256": "b3e1e082a24158b77eb0e12b08cd0879009019401c08f8062b3c571dfb004263"
+    },
+    {
+      "mission": 3,
+      "sha256": "ecb5dfbc714a4bca29e0afd18b933a0706f250eca9c55709877490e2107cc9c0"
+    },
+    {
+      "mission": 4,
+      "sha256": "140ef5decf8f6e812b72fac7fdd92b776b92a961cba3df244bf503c78b50862f"
+    },
+    {
+      "mission": 5,
+      "sha256": "880d1bdb34083727919624b34035dc2285d71f02008c285586a5459449f62502"
+    },
+    {
+      "mission": 6,
+      "sha256": "11b4e58c8c9f3c23e378617cb75b00addb5f93b2c1b3aafb8a3941656fd20d3c"
+    },
+    {
+      "mission": 7,
+      "sha256": "d4b8a0480de1cb571d4953bd973ddfb6741b7ac2c9822aa482df201f64034541"
+    },
+    {
+      "mission": 8,
+      "sha256": "321d46a31d9d0a3c6f286b347698ec6f2468669e45cccbde10c8d2d472dfca13"
+    },
+    {
+      "mission": 9,
+      "sha256": "a9ec17d43de89ff8b3b5e8999b961e52f7d8df537a0352d3a47c025ea8a88750"
+    },
+    {
+      "mission": 10,
+      "sha256": "0680afea005d0c571ee6f6f34af583d313231ed7c94824618efae426b39342ea"
+    },
+    {
+      "mission": 11,
+      "sha256": "f04a21ebaaa2e069df7f847d6b7b89b08b24ba1f1bdaacd6c3990b80dc448ecd"
+    },
+    {
+      "mission": 12,
+      "sha256": "56f63a4ae6ce701aeb8eff939eae48e55779bfb8195e9165dcf25768227bfd41"
+    },
+    {
+      "mission": 13,
+      "sha256": "4c5e55d73210746492e6798bcadc7424cd3fbcc4ccc3a1c84a162718cc317b71"
+    }
+  ],
+  "aggregate_stdout_sha256": "318f4f57708cf7eb34175e33fceb50f9253e78e011227c41d8f4268bc21c21fa",
+  "notes": [
+    "Uses the same controller/world path as MissionStressProbe.",
+    "Each mission runs in a fresh JVM.",
+    "This is a long-duration deterministic soak, not exhaustive input exploration."
+  ]
+}

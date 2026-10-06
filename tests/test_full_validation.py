@@ -39,6 +39,7 @@ class FullValidationTests(unittest.TestCase):
         self.assertIn("campaign_progression.py",src)
         self.assertIn("mission_stress.py",src)
         self.assertIn("mission_fuzz.py",src)
+        self.assertIn("mission_soak.py",src)
         self.assertIn("audio_sanity.py",src)
         self.assertIn("native_build.py",src)
         self.assertIn("DesktopLauncher",src)
