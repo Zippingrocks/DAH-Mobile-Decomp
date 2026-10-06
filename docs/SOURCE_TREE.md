@@ -78,6 +78,7 @@ DAH-Mobile-Decomp/
 |       |-- INTEGRATION_PASS_023_DESKTOP_POLISH.md [DOCS]
 |       |-- INTEGRATION_PASS_024_AUDIO_SANITY.md [DOCS]
 |       |-- INTEGRATION_PASS_025_MISSION_SOAK.md [DOCS]
+|       |-- INTEGRATION_PASS_026_RELEASE_READINESS.md [DOCS]
 |       |-- RECOVERY_PASS_001.md [DOCS]
 |       |-- RECOVERY_PASS_002.md [DOCS]
 |       |-- RECOVERY_PASS_003.md [DOCS]
@@ -108,6 +109,7 @@ DAH-Mobile-Decomp/
 |       |-- integration-pass-023-desktop-polish.json [DOCS]
 |       |-- integration-pass-024-audio-sanity.json [DOCS]
 |       |-- integration-pass-025-mission-soak.json [DOCS]
+|       |-- integration-pass-026-release-readiness.json [DOCS]
 |       |-- subsystem-pass-002.json [DOCS]
 |       |-- ui-pass-010.json [DOCS]
 |       |-- weapon-pass-005.json [DOCS]
@@ -256,6 +258,7 @@ DAH-Mobile-Decomp/
 |   |-- test_mission_soak.py [TESTS]
 |   |-- test_mission_stress.py [TESTS]
 |   |-- test_native_build.py [TESTS]
+|   |-- test_release_readiness.py [TESTS]
 |   |-- test_source_map.py [TESTS]
 |   |-- test_subsystem_recovery.py [TESTS]
 |   |-- test_treemap_dashboard.py [TESTS]
@@ -277,6 +280,7 @@ DAH-Mobile-Decomp/
     |-- mission_soak.py [TOOL]
     |-- mission_stress.py [TOOL]
     |-- native_build.py [TOOL]
+    |-- release_readiness.py [TOOL]
     |-- source_map.py [TOOL]
     |-- subsystem_recovery.py [TOOL]
     |-- treemap_dashboard.py [TOOL]
@@ -336,6 +340,7 @@ DAH-Mobile-Decomp/
 | [`docs/evidence/INTEGRATION_PASS_023_DESKTOP_POLISH.md`](../docs/evidence/INTEGRATION_PASS_023_DESKTOP_POLISH.md) | docs | Document deterministic integer scaling and desktop key mapping polish for the authored runtime. |
 | [`docs/evidence/INTEGRATION_PASS_024_AUDIO_SANITY.md`](../docs/evidence/INTEGRATION_PASS_024_AUDIO_SANITY.md) | docs | Document structural/signal sanity results for all four converted retail effects. |
 | [`docs/evidence/INTEGRATION_PASS_025_MISSION_SOAK.md`](../docs/evidence/INTEGRATION_PASS_025_MISSION_SOAK.md) | docs | Document 65,000 long-duration mission-specific update frames matching retail. |
+| [`docs/evidence/INTEGRATION_PASS_026_RELEASE_READINESS.md`](../docs/evidence/INTEGRATION_PASS_026_RELEASE_READINESS.md) | docs | Document the machine release-readiness auditor and verification-contract refresh. |
 | [`docs/evidence/RECOVERY_PASS_001.md`](../docs/evidence/RECOVERY_PASS_001.md) | docs | Explain the first manual source recovery, scoped component tests, repeatability and remaining gaps. |
 | [`docs/evidence/RECOVERY_PASS_002.md`](../docs/evidence/RECOVERY_PASS_002.md) | docs | Document three more recovered components, 172170 scoped calls, negative controls and limitations. |
 | [`docs/evidence/RECOVERY_PASS_003.md`](../docs/evidence/RECOVERY_PASS_003.md) | docs | Document five new component recoveries, integration tests, negative controls and limitations. |
@@ -366,6 +371,7 @@ DAH-Mobile-Decomp/
 | [`docs/evidence/integration-pass-023-desktop-polish.json`](../docs/evidence/integration-pass-023-desktop-polish.json) | docs | Machine-readable desktop scaling/control mapping state and human-judgment boundary. |
 | [`docs/evidence/integration-pass-024-audio-sanity.json`](../docs/evidence/integration-pass-024-audio-sanity.json) | docs | Machine-readable converted-audio sanity state and subjective-listening boundary. |
 | [`docs/evidence/integration-pass-025-mission-soak.json`](../docs/evidence/integration-pass-025-mission-soak.json) | docs | Machine-readable long-duration mission soak result and claim boundaries. |
+| [`docs/evidence/integration-pass-026-release-readiness.json`](../docs/evidence/integration-pass-026-release-readiness.json) | docs | Machine-readable current objective readiness result and remaining human/environment gates. |
 | [`docs/evidence/subsystem-pass-002.json`](../docs/evidence/subsystem-pass-002.json) | docs | Hashes and matching observation digests from the second reproducible subsystem run. |
 | [`docs/evidence/ui-pass-010.json`](../docs/evidence/ui-pass-010.json) | docs | Record final p source/artifact hashes and matching scoped observation digests; no game code or assets. |
 | [`docs/evidence/weapon-pass-005.json`](../docs/evidence/weapon-pass-005.json) | docs | Record scoped pass-005 observations, private snapshot hashes and publication limitations. |
@@ -468,6 +474,7 @@ DAH-Mobile-Decomp/
 | [`tests/test_mission_soak.py`](../tests/test_mission_soak.py) | tests | Public checks for 13-mission soak scope, frame count and pinned hashes. |
 | [`tests/test_mission_stress.py`](../tests/test_mission_stress.py) | tests | Public tests for mission-stress config, isolation, controller transition and non-forced-render boundary. |
 | [`tests/test_native_build.py`](../tests/test_native_build.py) | tests | Validate direct launcher generation, native preflight inspection and native-image automation wiring without private game data. |
+| [`tests/test_release_readiness.py`](../tests/test_release_readiness.py) | tests | Guard release-readiness evidence coverage, exact source-map counts, native/human boundaries and non-gold behavior. |
 | [`tests/test_source_map.py`](../tests/test_source_map.py) | tests | Metadata, inventory, evidence, rendering and stale-map regression tests. |
 | [`tests/test_subsystem_recovery.py`](../tests/test_subsystem_recovery.py) | tests | Test aliases, fixtures, isolation and probe compilation without original game data. |
 | [`tests/test_treemap_dashboard.py`](../tests/test_treemap_dashboard.py) | tests | Test treemap geometry, status colors, rendering and repository integration. |
@@ -488,6 +495,7 @@ DAH-Mobile-Decomp/
 | [`tools/mission_soak.py`](../tools/mission_soak.py) | tool | Run a 5,000-frame deterministic controller/world soak in each mission and compare retail versus rebuilt outputs. |
 | [`tools/mission_stress.py`](../tools/mission_stress.py) | tool | Run 300 controller/world update frames in each mission and require retail-vs-rebuilt output identity. |
 | [`tools/native_build.py`](../tools/native_build.py) | tool | Automate GraalVM tracing-agent metadata collection and native-image compilation from the native-ready desktop JAR. |
+| [`tools/release_readiness.py`](../tools/release_readiness.py) | tool | Audit objective source/evidence release gates and report remaining human/environment-only work without claiming gold. |
 | [`tools/source_map.py`](../tools/source_map.py) | tool | Generate or check the map against tracked files and optionally a local audit. |
 | [`tools/subsystem_recovery.py`](../tools/subsystem_recovery.py) | tool | Build six private component sources and compare audio, bitmap text and navigation in isolated test JVMs. |
 | [`tools/treemap_dashboard.py`](../tools/treemap_dashboard.py) | tool | Render proportional, status-colored SVG treemaps from the real progress schema. |
