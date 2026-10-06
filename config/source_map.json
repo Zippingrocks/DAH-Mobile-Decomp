@@ -857,6 +857,36 @@
       "path": "docs/evidence/integration-pass-018-native-aot-prep.json",
       "kind": "docs",
       "purpose": "Machine-readable native AOT preparation state and claim boundaries."
+    },
+    {
+      "path": "config/campaign_progression.json",
+      "kind": "config",
+      "purpose": "Pin the accepted 13-step retail-versus-rebuilt save progression chain and final RMS file hash."
+    },
+    {
+      "path": "tools/campaign_progression.py",
+      "kind": "tool",
+      "purpose": "Run each campaign step in a fresh JVM while carrying file-backed RMS forward and compare retail versus rebuilt progression."
+    },
+    {
+      "path": "tests/java/CampaignProgressionStepProbe.java",
+      "kind": "tests",
+      "purpose": "Authored per-mission progression/save probe invoking the real mission-complete and persistence path."
+    },
+    {
+      "path": "tests/test_campaign_progression.py",
+      "kind": "tests",
+      "purpose": "Public regression tests for campaign save-chain config, fresh-process isolation, and RMS comparison behavior."
+    },
+    {
+      "path": "docs/evidence/INTEGRATION_PASS_019_CAMPAIGN_PROGRESSION.md",
+      "kind": "docs",
+      "purpose": "Document automated mission-to-mission progression and byte-identical RMS persistence across all 13 missions."
+    },
+    {
+      "path": "docs/evidence/integration-pass-019-campaign-progression.json",
+      "kind": "docs",
+      "purpose": "Machine-readable 13-step progression/persistence result and claim boundaries."
     }
   ],
   "classes": [

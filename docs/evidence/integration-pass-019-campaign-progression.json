@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "target_id": "dah1-j2me-en-v1.2.0",
+  "missions": 13,
+  "fresh_jvm_per_step": true,
+  "shared_file_backed_rms_across_steps": true,
+  "retail_rebuilt_stdout_identical_each_step": true,
+  "retail_rebuilt_rms_identical_each_step": true,
+  "aggregate_stdout_sha256": "02a4d6dab556e8fca05eb56bee3959a88a58b062c2d19bcfd65652d840449286",
+  "final_rms_file_bytes": 90,
+  "final_rms_file_sha256": "b4fbb6743d71916be57ab6fc879306f9421cbb2747de296b1c8400e657339f23",
+  "mission13_after": 13,
+  "tool": "tools/campaign_progression.py",
+  "config": "config/campaign_progression.json",
+  "probe": "tests/java/CampaignProgressionStepProbe.java",
+  "claims": {
+    "mission_progression_persistence_match": true,
+    "physical_end_to_end_navigation": false,
+    "human_playtest_complete": false,
+    "native_windows_executable": false,
+    "gold": false
+  }
+}

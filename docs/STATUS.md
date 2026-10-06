@@ -1,5 +1,20 @@
 # Project status
 
+## Integration pass 019 — automated mission-to-mission save progression
+
+- Published a fresh-JVM **mission 1→13 progression validator** that carries real file-backed RMS state across steps.
+- Each mission loads from the prior saved progression state, fulfills its actual runtime objective, invokes the game's real mission-complete routine, persists through RMS, exits, and resumes in a new JVM.
+- Retail and rebuilt stdout match at every step, and their concrete RMS files are byte-identical after every mission.
+- Aggregate progression stdout SHA-256: `02a4d6dab556e8fca05eb56bee3959a88a58b062c2d19bcfd65652d840449286`.
+- Final `DAH.rms`: **90 bytes**, SHA-256 `b4fbb6743d71916be57ab6fc879306f9421cbb2747de296b1c8400e657339f23`.
+- Mission 13 correctly enters the ending path without advancing/saving a nonexistent mission 14.
+- This removes manual campaign save-chain verification; it is still distinct from physically navigating every map with human controls.
+
+See [campaign progression evidence](evidence/INTEGRATION_PASS_019_CAMPAIGN_PROGRESSION.md) and
+[machine-readable results](evidence/integration-pass-019-campaign-progression.json).
+
+## Prior status
+
 ## Integration pass 018 — native AOT build automation
 
 - `desktop_build.py` now generates a default-package **direct `DesktopLauncher`** whose normal path calls `new GameMidlet().startApp()` without reflective entry-point discovery.

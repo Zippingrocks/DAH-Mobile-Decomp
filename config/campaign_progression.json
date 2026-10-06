@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "target_id": "dah1-j2me-en-v1.2.0",
+  "input_sha256": "2e03916ea4a5260960e5e57e4dbe0778fb9b577439eac0ce94a685cfecdaaf5f",
+  "steps": [
+    {
+      "mission": 1,
+      "target": 10,
+      "after": 2,
+      "save": "7d85c01bab4347ea691abe236d194a2a90e8aa0e98c032103b8e12e27516b552"
+    },
+    {
+      "mission": 2,
+      "target": 10,
+      "after": 3,
+      "save": "c81403ce0dd67c0601c07eba980cf2b7ac743bd339ca01ccf90d1bcf359e0a68"
+    },
+    {
+      "mission": 3,
+      "target": 10,
+      "after": 4,
+      "save": "3b96a547b0e91a33fdd7bb699501639fe27fb0e6a4d1910d9af57642ca7ccca2"
+    },
+    {
+      "mission": 4,
+      "target": 0,
+      "after": 5,
+      "save": "8d22c319ad241caf7f782cf76c5e09585ec4b09d05af40c42e65b8d0c5c94e5d"
+    },
+    {
+      "mission": 5,
+      "target": 8,
+      "after": 6,
+      "save": "0e293d989f8a3b4711f6f81f82f4e809ec69b34e997ba6e64e582e892e0e1a32"
+    },
+    {
+      "mission": 6,
+      "target": 15,
+      "after": 7,
+      "save": "9a9e5e7e9e0e6802abef2fdd3affb7bde4e9cb7eabeccce3bfce662f52833c5d"
+    },
+    {
+      "mission": 7,
+      "target": 29,
+      "after": 8,
+      "save": "e7f71ca92c125fcd34dc56d5103845cf1ead9bdc86f0cfa5b7befbc16c7aa4b4"
+    },
+    {
+      "mission": 8,
+      "target": 6,
+      "after": 9,
+      "save": "6fb792cfc6da0042de042a4306001f60c0776fb924b3fed728892f3d236b21ed"
+    },
+    {
+      "mission": 9,
+      "target": 8,
+      "after": 10,
+      "save": "12c87b4856d80bfd85c57ec3603318e0306097bd34415f02119c9dd9227dd0d5"
+    },
+    {
+      "mission": 10,
+      "target": 10,
+      "after": 11,
+      "save": "cd00109dd881d928673bebe1b35d0685e6af7cf4fcfb765fc0247b60ed8c7748"
+    },
+    {
+      "mission": 11,
+      "target": 15,
+      "after": 12,
+      "save": "efc234b1f1bfacae191bf7f549714f07ffd0052a5f6947c7e67e7e4d923928f9"
+    },
+    {
+      "mission": 12,
+      "target": 30,
+      "after": 13,
+      "save": "3fae88353e6c15915e598ef0694101e0860a024a909dc60ff420a1c9f364fd71"
+    },
+    {
+      "mission": 13,
+      "target": 1,
+      "after": 13,
+      "save": "3fae88353e6c15915e598ef0694101e0860a024a909dc60ff420a1c9f364fd71"
+    }
+  ],
+  "aggregate_stdout_sha256": "02a4d6dab556e8fca05eb56bee3959a88a58b062c2d19bcfd65652d840449286",
+  "final_rms_file_bytes": 90,
+  "final_rms_file_sha256": "b4fbb6743d71916be57ab6fc879306f9421cbb2747de296b1c8400e657339f23",
+  "notes": [
+    "Each step runs in a fresh JVM and reopens the same file-backed RMS directory.",
+    "Retail and rebuilt runs use separate RMS directories and each step requires byte-identical RMS files.",
+    "Mission 13 enters the ending path and does not advance/save beyond mission index 13."
+  ]
+}
