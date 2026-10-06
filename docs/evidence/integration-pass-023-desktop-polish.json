@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "target_id": "dah1-j2me-en-v1.2.0",
+  "logical_framebuffer": "176x208",
+  "default_scale": 3,
+  "min_scale": 1,
+  "max_scale": 8,
+  "nearest_neighbor": true,
+  "window_resizable": false,
+  "mappings": {
+    "left": [
+      "LEFT",
+      "A"
+    ],
+    "right": [
+      "RIGHT",
+      "D"
+    ],
+    "up": [
+      "UP",
+      "W"
+    ],
+    "down": [
+      "DOWN",
+      "S"
+    ],
+    "action": [
+      "ENTER",
+      "SPACE"
+    ],
+    "left_soft": [
+      "Z",
+      "Q"
+    ],
+    "right_soft": [
+      "X",
+      "ESCAPE"
+    ],
+    "numeric": "0-9"
+  },
+  "unmapped_key_ignored": true,
+  "claims": {
+    "desktop_wrapper_polish_automated": true,
+    "subjective_human_playtest_complete": false,
+    "gold": false
+  }
+}

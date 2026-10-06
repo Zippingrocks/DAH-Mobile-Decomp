@@ -1,5 +1,18 @@
 # Project status
 
+## Integration pass 023 — desktop input and presentation polish
+
+- Added deterministic integer framebuffer scaling via `-Ddah.scale=N` (1–8, default 3).
+- Desktop presentation uses nearest-neighbor scaling and a non-resizable window to avoid fractional interpolation.
+- Added WASD/arrows, Enter/Space, both mobile soft keys (Z/Q and X/Escape), and number-row mappings.
+- Unmapped desktop keys are ignored instead of forwarding key code 0 into the recovered game.
+- Public tests pin scaling, interpolation, key mapping and zero-key filtering.
+- This reduces the human playtest burden to subjective game feel/presentation rather than wrapper setup.
+
+See [desktop polish evidence](evidence/INTEGRATION_PASS_023_DESKTOP_POLISH.md).
+
+## Prior status
+
 ## Integration pass 022 — multi-seed mission differential fuzzing
 
 - Added fresh-JVM differential fuzzing across **all 13 missions** with seeds `1, 3, 13, 34`.

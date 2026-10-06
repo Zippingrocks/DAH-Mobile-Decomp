@@ -23,6 +23,25 @@ recovered game code does not need to know that conversion occurred.
 
 FFmpeg is an external build dependency and is **not bundled** by this repository.
 
+## Desktop controls and scaling
+
+The logical game remains 176×208. The desktop window uses integer nearest-neighbor
+scaling. Set the scale with:
+
+```console
+java -Ddah.scale=4 -jar dist/DAH-Mobile-Desktop.jar
+```
+
+Accepted values are 1–8; the default is 3.
+
+Desktop controls:
+
+- arrows or WASD: movement
+- Enter or Space: center/action
+- Z or Q: left soft key
+- X or Escape: right soft key
+- 0–9: original mobile number keys
+
 ## Build a desktop JAR
 
 The public repository does not contain recovered game source or original assets.

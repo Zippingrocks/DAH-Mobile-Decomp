@@ -972,6 +972,16 @@
       "path": "docs/evidence/integration-pass-022-mission-fuzz.json",
       "kind": "docs",
       "purpose": "Machine-readable multi-seed mission fuzz result and claim boundaries."
+    },
+    {
+      "path": "docs/evidence/INTEGRATION_PASS_023_DESKTOP_POLISH.md",
+      "kind": "docs",
+      "purpose": "Document deterministic integer scaling and desktop key mapping polish for the authored runtime."
+    },
+    {
+      "path": "docs/evidence/integration-pass-023-desktop-polish.json",
+      "kind": "docs",
+      "purpose": "Machine-readable desktop scaling/control mapping state and human-judgment boundary."
     }
   ],
   "classes": [

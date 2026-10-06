@@ -68,5 +68,29 @@ class DesktopRuntimeTests(unittest.TestCase):
         self.assertIn('"META-INF/dah-audio/" + digest + ".wav"', src)
         self.assertIn('"amr_converted": len(converted_audio)', src)
 
+    def test_canvas_has_configurable_integer_scale(self):
+        src = (RUNTIME / "javax/microedition/lcdui/Canvas.java").read_text()
+        self.assertIn('System.getProperty("dah.scale", "3")', src)
+        self.assertIn("Math.max(1, Math.min(8, value))", src)
+        self.assertIn("VALUE_INTERPOLATION_NEAREST_NEIGHBOR", src)
+
+    def test_canvas_maps_desktop_controls(self):
+        src = (RUNTIME / "javax/microedition/lcdui/Canvas.java").read_text()
+        self.assertIn("KeyEvent.VK_A", src)
+        self.assertIn("KeyEvent.VK_D", src)
+        self.assertIn("KeyEvent.VK_W", src)
+        self.assertIn("KeyEvent.VK_S", src)
+        self.assertIn("KeyEvent.VK_SPACE", src)
+        self.assertIn("KeyEvent.VK_Z", src)
+        self.assertIn("KeyEvent.VK_X", src)
+        self.assertIn("return -6", src)
+        self.assertIn("return -7", src)
+
+    def test_canvas_ignores_unmapped_zero_key(self):
+        src = (RUNTIME / "javax/microedition/lcdui/Canvas.java").read_text()
+        self.assertIn("if (key != 0) Canvas.this.keyPressed(key)", src)
+        self.assertIn("if (key != 0) Canvas.this.keyReleased(key)", src)
+
+
 if __name__ == "__main__":
     unittest.main()
