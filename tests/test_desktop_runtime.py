@@ -52,7 +52,7 @@ class DesktopRuntimeTests(unittest.TestCase):
     def test_media_has_hash_addressed_amr_wav_backend(self):
         src = (RUNTIME / "javax/microedition/media/Manager.java").read_text()
         self.assertIn("META-INF/dah-audio/", src)
-        self.assertIn("MessageDigest.getInstance("SHA-256")", src)
+        self.assertIn('MessageDigest.getInstance("SHA-256")', src)
         self.assertIn("AudioSystem.getAudioInputStream", src)
         self.assertIn("AudioSystem.getClip", src)
 
