@@ -942,6 +942,36 @@
       "path": "docs/evidence/integration-pass-021-mission-stress.json",
       "kind": "docs",
       "purpose": "Machine-readable mission-stress aggregate result and claim boundaries."
+    },
+    {
+      "path": "config/mission_fuzz.json",
+      "kind": "config",
+      "purpose": "Pin the accepted four-seed-per-mission differential fuzz hashes and aggregate mission hash."
+    },
+    {
+      "path": "tools/mission_fuzz.py",
+      "kind": "tool",
+      "purpose": "Run fresh-JVM multi-seed deterministic input fuzzing across all 13 missions and compare retail versus rebuilt outputs."
+    },
+    {
+      "path": "tests/java/MissionFuzzProbe.java",
+      "kind": "tests",
+      "purpose": "Authored randomized deterministic press/release/no-op mission fuzz probe with normalized state checkpoints."
+    },
+    {
+      "path": "tests/test_mission_fuzz.py",
+      "kind": "tests",
+      "purpose": "Public regression tests for fuzz matrix size, seeds, hashes and process isolation."
+    },
+    {
+      "path": "docs/evidence/INTEGRATION_PASS_022_MISSION_FUZZ.md",
+      "kind": "docs",
+      "purpose": "Document 7,800 multi-seed mission-specific controller/world update frames matching retail."
+    },
+    {
+      "path": "docs/evidence/integration-pass-022-mission-fuzz.json",
+      "kind": "docs",
+      "purpose": "Machine-readable multi-seed mission fuzz result and claim boundaries."
     }
   ],
   "classes": [

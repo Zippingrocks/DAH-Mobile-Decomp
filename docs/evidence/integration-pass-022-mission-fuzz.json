@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "target_id": "dah1-j2me-en-v1.2.0",
+  "missions": 13,
+  "seeds": [
+    1,
+    3,
+    13,
+    34
+  ],
+  "frames_per_seed": 150,
+  "total_frames": 7800,
+  "fresh_jvm_per_mission_seed": true,
+  "retail_rebuilt_outputs_identical": true,
+  "aggregate_mission_hashes_sha256": "521df370f487e06dc1e2064d08ac8390d8d6c7eae9ec03f98ba23a8407af3dc3",
+  "tool": "tools/mission_fuzz.py",
+  "config": "config/mission_fuzz.json",
+  "probe": "tests/java/MissionFuzzProbe.java",
+  "claims": {
+    "multi_seed_differential_fuzz_match": true,
+    "exhaustive_state_space": false,
+    "human_playtest_complete": false,
+    "gold": false
+  }
+}

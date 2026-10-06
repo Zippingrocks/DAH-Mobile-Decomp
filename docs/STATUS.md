@@ -1,5 +1,19 @@
 # Project status
 
+## Integration pass 022 — multi-seed mission differential fuzzing
+
+- Added fresh-JVM differential fuzzing across **all 13 missions** with seeds `1, 3, 13, 34`.
+- Each mission/seed pair runs **150 real controller/world update frames** with randomized deterministic press/release/release-all/no-op input decisions.
+- Full normalized state checkpoints are recorded every 50 frames, with final state and image/media side-effect hashes.
+- Retail and rebuilt outputs match for all **52 mission/seed pairs**, totaling **7,800 additional mission-specific frames**.
+- SHA-256 of the concatenated per-mission aggregate hashes: `521df370f487e06dc1e2064d08ac8390d8d6c7eae9ec03f98ba23a8407af3dc3`.
+- The unified automated gate now requires both the fixed-pattern mission stress pass and this multi-seed fuzz pass.
+
+See [mission fuzz evidence](evidence/INTEGRATION_PASS_022_MISSION_FUZZ.md) and
+[machine-readable results](evidence/integration-pass-022-mission-fuzz.json).
+
+## Prior status
+
 ## Integration pass 021 — automated 13-mission simulation stress
 
 - Added a fresh-JVM mission stress validator covering **all 13 missions**.
