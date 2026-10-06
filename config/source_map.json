@@ -1027,6 +1027,26 @@
       "path": "docs/evidence/integration-pass-025-mission-soak.json",
       "kind": "docs",
       "purpose": "Machine-readable long-duration mission soak result and claim boundaries."
+    },
+    {
+      "path": "tools/release_readiness.py",
+      "kind": "tool",
+      "purpose": "Audit objective source/evidence release gates and report remaining human/environment-only work without claiming gold."
+    },
+    {
+      "path": "tests/test_release_readiness.py",
+      "kind": "tests",
+      "purpose": "Guard release-readiness evidence coverage, exact source-map counts, native/human boundaries and non-gold behavior."
+    },
+    {
+      "path": "docs/evidence/INTEGRATION_PASS_026_RELEASE_READINESS.md",
+      "kind": "docs",
+      "purpose": "Document the machine release-readiness auditor and verification-contract refresh."
+    },
+    {
+      "path": "docs/evidence/integration-pass-026-release-readiness.json",
+      "kind": "docs",
+      "purpose": "Machine-readable current objective readiness result and remaining human/environment gates."
     }
   ],
   "classes": [

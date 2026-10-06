@@ -1,5 +1,19 @@
 # Project status
 
+## Integration pass 026 — machine release-readiness audit
+
+- Added `tools/release_readiness.py` to audit the current objective source/evidence gates directly from the repository.
+- Current machine-checkable audit: **21/21 repaired**, **313/313 method entries**, **21/21 build records**, **21/21 scoped behavior records**, and the required evidence chain is present.
+- The auditor reports **machine release readiness = true** for those objective repository gates.
+- It still reports **native Windows executable = false** and **gold = false**.
+- Human-only remainder: hands-on full-campaign/control edge-case playtest, subjective audio mix/timing, subjective desktop presentation/scaling.
+- Environment-only remainder: execute/validate the already-automated native build on a Windows GraalVM/MSVC/Windows-SDK host.
+- `docs/VERIFICATION.md` has been refreshed so it no longer falsely says deterministic replay/image/original-vs-rebuilt harnesses do not exist.
+
+See [release-readiness evidence](evidence/INTEGRATION_PASS_026_RELEASE_READINESS.md).
+
+## Prior status
+
 ## Integration pass 025 — 65,000-frame all-mission soak
 
 - Added a deterministic **5,000-frame soak** for every mission through the real controller/world update path.

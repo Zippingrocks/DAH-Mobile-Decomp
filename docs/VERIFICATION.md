@@ -12,17 +12,17 @@ build with no known fidelity defects against a documented reference. Tests
 support that claim only within their documented coverage. Do not promise
 unconditional equivalence for every possible input based on playtesting.
 
-## Milestones (all except input/tooling setup are pending)
+## Milestones and current evidence state
 
-| Gate | Evidence required |
-| --- | --- |
-| Input/tooling setup | Exact hash verification, reproducible structural audit, synthetic tooling tests. |
-| Initial recovery | Complete decompiler outputs and logs; every original method accounted for. |
-| Source rebuild | Clean build from recovered source and documented dependencies, without copying original game classes. |
-| Behavior baseline | Controlled original/rebuilt runs, explained bytecode differences, regression records. |
-| Understandable source | Identifier mappings, system documentation, resolved unknowns, independently checked explanations. |
-| Native proof | Original game logic compiled ahead of time; platform services implemented, not an interpreter bundle. |
-| Gold candidate | Full progression and persistence checks; no unexplained mismatches or gameplay stubs; reproducible build and documented limitations. |
+| Gate | Evidence required | Current state |
+| --- | --- | --- |
+| Input/tooling setup | Exact hash verification, reproducible structural audit, synthetic tooling tests. | Established and continuously checked. |
+| Initial recovery | Complete decompiler outputs and logs; every original method accounted for. | Established: 21/21 classes, 313/313 method entries. |
+| Source rebuild | Clean build from recovered source and documented dependencies, without copying original game classes. | Established in the all-repaired whole-tree build and desktop packager. |
+| Behavior baseline | Controlled original/rebuilt runs, explained reconstruction defects, regression records. | Established in scoped component/integration/campaign/stress/fuzz/soak comparisons. |
+| Understandable source | Identifier mappings, system documentation, resolved unknowns, independently checked explanations. | Substantially established; documentation remains a maintenance task rather than a missing source phase. |
+| Native proof | Original game logic compiled ahead of time; platform services implemented, not an interpreter bundle. | Build automation and tracing-agent/native-image preparation are established; a Windows native executable is not yet built on a suitable Windows host. |
+| Gold candidate | Full progression and persistence checks; no unexplained mismatches or gameplay stubs; reproducible build and documented limitations. | Machine-checkable progression/persistence/runtime gates are established; human subjective playtest/judgment and validated native Windows output remain open. |
 
 ## Required comparisons
 
@@ -36,9 +36,29 @@ Use method-level bytecode review where execution alone is insufficient. Any
 normalization for identifier changes or constant-pool ordering must preserve
 meaningful instructions, exception handling, and reference identity.
 
-A deterministic replay system, automated image comparison, and an original/
-rebuilt harness do NOT exist yet. This document specifies requirements rather
-than claiming implementations.
+The project now has implemented deterministic original-versus-rebuilt harnesses,
+state-graph comparison, headless framebuffer comparison, mission objective and
+completion comparison, mission-to-mission file-backed RMS progression, fixed-
+pattern mission stress, multi-seed differential fuzzing, long-duration mission
+soak testing, audio packaging/sanity checks, and a production desktop-runtime
+comparison.
+
+These mechanisms still prove only their documented scopes. They do not remove the
+need for human subjective playtesting, nor do they constitute a Windows native
+executable by themselves.
+
+## Machine release-readiness audit
+
+Run:
+
+```console
+python tools/release_readiness.py --check
+```
+
+The auditor checks the current source map and required evidence files, reports the
+machine-checkable gates, and lists remaining human-only/environment-only work. It
+deliberately reports `gold: false` until the project has a validated native
+Windows executable plus the remaining subjective human validation.
 
 ## No hidden substitutes
 
