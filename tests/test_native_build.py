@@ -3,6 +3,7 @@ import subprocess
 import tempfile
 import unittest
 import zipfile
+from unittest.mock import patch
 from pathlib import Path
 
 from tools import desktop_build
@@ -12,6 +13,37 @@ ROOT = Path(__file__).resolve().parents[1]
 RUNTIME = ROOT / "runtime" / "desktop"
 
 class NativeBuildTests(unittest.TestCase):
+    def test_linux_cannot_produce_windows_named_output(self):
+        with tempfile.TemporaryDirectory() as td, patch.object(native_build.os, "name", "posix"), patch.object(native_build, "run") as run:
+            with self.assertRaisesRegex(RuntimeError, "Windows host"):
+                native_build.native_compile("native-image", Path("game.jar"), Path("metadata"), Path(td) / "game.exe")
+            run.assert_not_called()
+
+    def test_windows_format_rejects_elf_truncation_and_dll(self):
+        with tempfile.TemporaryDirectory() as td:
+            output = Path(td) / "game.exe"
+            pe = bytearray(90)
+            pe[:2] = b"MZ"
+            pe[60:64] = (64).to_bytes(4, "little")
+            pe[64:68] = b"PE\0\0"
+            pe[68:70] = (0x8664).to_bytes(2, "little")
+            pe[88:90] = (0x20b).to_bytes(2, "little")
+            output.write_bytes(pe)
+            self.assertEqual(native_build.inspect_windows_executable(output)["machine"], "x64")
+            for bad in (b"\x7fELF" + bytes(100), b"MZ", pe[:70]):
+                output.write_bytes(bad)
+                with self.assertRaises(RuntimeError):
+                    native_build.inspect_windows_executable(output)
+            pe[86:88] = (0x2000).to_bytes(2, "little")
+            output.write_bytes(pe)
+            with self.assertRaisesRegex(RuntimeError, "DLL"):
+                native_build.inspect_windows_executable(output)
+
+    def test_native_smoke_failure_is_not_success(self):
+        with patch.object(native_build.subprocess, "run", return_value=subprocess.CompletedProcess([], 1, "", "missing dependency")):
+            with self.assertRaisesRegex(RuntimeError, "missing dependency"):
+                native_build.native_smoke(Path("game.exe"))
+
     def test_generated_launcher_uses_direct_game_entry(self):
         src = desktop_build.desktop_launcher_source()
         self.assertIn("GameMidlet midlet = new GameMidlet()", src)

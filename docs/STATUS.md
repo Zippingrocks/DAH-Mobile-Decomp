@@ -1,5 +1,24 @@
 # Project status
 
+## Native build acceptance repair — 2026-10-07
+
+The native builder now rejects Linux-to-`.exe` renaming, checks Windows outputs
+for an x64 PE32+ executable header, and runs the produced binary's smoke path
+before reporting success. Empty tracing-metadata reuse is rejected. Preparation
+reports distinguish desktop readiness, Windows host and compiler presence.
+All 233 public tooling tests pass with no skips; format fixtures and subprocess
+failure tests are tooling checks, not a native game validation.
+
+Verified command on the checkpoint-028 candidate:
+
+```console
+python tools/native_build.py --desktop-jar local/restore-028/DAH-Mobile-Desktop.jar --prepare-only --report local/native-next/preflight.json
+```
+
+This host is Linux; `native-image` is absent. No Windows executable was built
+or validated. Next: run the private build on Windows, inventory dependent DLLs,
+and review gameplay, controls and audio. See [NATIVE_WINDOWS.md](NATIVE_WINDOWS.md).
+
 ## Integration pass 028 — source restoration and fresh gate replay
 
 - Reconstructed a separate complete private **21-class** verification tree using

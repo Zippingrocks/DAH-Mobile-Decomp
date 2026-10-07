@@ -62,12 +62,15 @@ def collect_metadata(java, jar: Path, metadata: Path):
         java,
         "-agentlib:native-image-agent=config-output-dir=" + str(metadata),
         "-Djava.awt.headless=true",
+        "-Ddah.rms.dir=" + str(metadata / "smoke-rms"),
         "-cp", jar,
         "DesktopLauncher",
         "--native-smoke",
     ])
 
 def native_compile(native_image, jar: Path, metadata: Path, output: Path):
+    if output.suffix.lower() == ".exe" and os.name != "nt":
+        raise RuntimeError("Windows .exe builds require a Windows host; refusing to rename a host binary")
     output.parent.mkdir(parents=True, exist_ok=True)
     base = output.with_suffix("") if output.suffix.lower() == ".exe" else output
     run([
@@ -88,6 +91,31 @@ def native_compile(native_image, jar: Path, metadata: Path, output: Path):
             output.unlink()
         expected.replace(output)
     return output
+
+def inspect_windows_executable(path: Path):
+    with path.open("rb") as stream:
+        header = stream.read(64)
+        if len(header) != 64 or header[:2] != b"MZ":
+            raise RuntimeError("native output is not a Windows PE executable")
+        offset = int.from_bytes(header[60:64], "little")
+        if offset < 64 or offset > path.stat().st_size - 26:
+            raise RuntimeError("invalid Windows PE header offset")
+        stream.seek(offset)
+        pe = stream.read(26)
+    if pe[:4] != b"PE\0\0" or int.from_bytes(pe[4:6], "little") != 0x8664:
+        raise RuntimeError("native output is not an x64 Windows PE executable")
+    if int.from_bytes(pe[24:26], "little") != 0x20b or int.from_bytes(pe[22:24], "little") & 0x2000:
+        raise RuntimeError("native output must be a PE32+ executable, not a DLL")
+    return {"format": "PE32+", "machine": "x64"}
+
+def native_smoke(output: Path):
+    with tempfile.TemporaryDirectory(prefix="dah-native-smoke-") as td:
+        result = subprocess.run([str(output), "-Djava.awt.headless=true",
+                                 "-Ddah.rms.dir=" + td, "--native-smoke"], cwd=td,
+                                text=True, capture_output=True, timeout=120)
+    if result.returncode:
+        raise RuntimeError("native smoke failed\n" + result.stdout + "\n" + result.stderr)
+    return {"passed": True, "stdout": result.stdout, "stderr": result.stderr}
 
 def main(argv=None):
     parser = argparse.ArgumentParser()
@@ -124,6 +152,9 @@ def main(argv=None):
             "metadata_dir": str(args.metadata_dir),
             "prepare_only": args.prepare_only,
             "native_built": False,
+            "windows_host": os.name == "nt",
+            "native_windows_validated": False,
+            "toolchain_present": bool(native_image and Path(native_image).is_file() and java and Path(java).is_file()),
         }
 
         if args.prepare_only:
@@ -138,19 +169,26 @@ def main(argv=None):
             raise RuntimeError("native-image not found; install GraalVM Native Image or pass --native-image")
         if not java:
             raise RuntimeError("Java executable for the GraalVM installation was not found")
+        if args.output.suffix.lower() == ".exe" and os.name != "nt":
+            raise RuntimeError("Windows .exe builds require a Windows host")
 
         metadata = args.metadata_dir.resolve()
         if not args.skip_agent:
             collect_metadata(java, jar, metadata)
-        elif not metadata.is_dir():
-            raise RuntimeError("--skip-agent requires an existing metadata directory")
+        elif not metadata.is_dir() or not any(metadata.glob("*.json")):
+            raise RuntimeError("--skip-agent requires a metadata directory containing JSON configuration")
 
         output = native_compile(native_image, jar, metadata, args.output.resolve())
+        binary = inspect_windows_executable(output) if os.name == "nt" else {"format": "host-native"}
+        smoke = native_smoke(output)
         report.update({
             "native_built": True,
             "native_output": str(output),
             "native_sha256": sha(output),
             "native_bytes": output.stat().st_size,
+            "binary": binary,
+            "native_smoke": smoke,
+            "native_windows_validated": os.name == "nt",
         })
         text = json.dumps(report, indent=2) + "\n"
         if args.report:

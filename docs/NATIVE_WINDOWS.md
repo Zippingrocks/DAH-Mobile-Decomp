@@ -34,7 +34,7 @@ Example on a suitable Windows host:
 ```console
 python tools/native_build.py \
   --input inputs/original/Destroy-All-Humans_J2ME_EN_v120.jar \
-  --source-dir src/game \
+  --source-dir src/game/verification-028 \
   --output dist/DAH-Mobile-Windows.exe \
   --report local/native-build.json
 ```
@@ -64,3 +64,24 @@ so a Windows native executable has **not** yet been produced or claimed.
 
 The remaining native step is environmental compilation/validation, not recovery
 of another game subsystem.
+
+## Build acceptance checks (2026-10-07)
+
+The builder refuses a Windows `.exe` output on a non-Windows host. A Windows
+build must have an x64 PE32+ header and must successfully execute
+`--native-smoke` in a fresh temporary working directory before the success
+report is written. Smoke checks cover startup, five ticks and painting; they
+do not establish interactive campaign, controls, audio or clean-machine DLL
+packaging. Native Image's AWT dependencies must still be inventoried on the
+Windows build host; an executable alone does not prove standalone packaging.
+
+`--prepare-only` checks the desktop JAR and records `windows_host` and
+`toolchain_present`; its successful exit does not mean a compiler is installed.
+`--skip-agent` requires JSON configuration in the metadata directory.
+
+This Linux worker has no Native Image installation and cannot build or execute
+a Windows candidate. Use the verified checkpoint-028 source root explicitly;
+older `src/game` snapshots are incomplete on this restored workstation. The
+next concrete step is a local Windows build with the documented GraalVM/MSVC
+installation, followed by native smoke, DLL inventory and interactive review.
+No compiler download or game upload was performed in this check.
