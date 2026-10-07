@@ -79,6 +79,7 @@ DAH-Mobile-Decomp/
 |       |-- INTEGRATION_PASS_024_AUDIO_SANITY.md [DOCS]
 |       |-- INTEGRATION_PASS_025_MISSION_SOAK.md [DOCS]
 |       |-- INTEGRATION_PASS_026_RELEASE_READINESS.md [DOCS]
+|       |-- INTEGRATION_PASS_027_CI_READINESS.md [DOCS]
 |       |-- RECOVERY_PASS_001.md [DOCS]
 |       |-- RECOVERY_PASS_002.md [DOCS]
 |       |-- RECOVERY_PASS_003.md [DOCS]
@@ -110,6 +111,7 @@ DAH-Mobile-Decomp/
 |       |-- integration-pass-024-audio-sanity.json [DOCS]
 |       |-- integration-pass-025-mission-soak.json [DOCS]
 |       |-- integration-pass-026-release-readiness.json [DOCS]
+|       |-- integration-pass-027-ci-readiness.json [DOCS]
 |       |-- subsystem-pass-002.json [DOCS]
 |       |-- ui-pass-010.json [DOCS]
 |       |-- weapon-pass-005.json [DOCS]
@@ -341,6 +343,7 @@ DAH-Mobile-Decomp/
 | [`docs/evidence/INTEGRATION_PASS_024_AUDIO_SANITY.md`](../docs/evidence/INTEGRATION_PASS_024_AUDIO_SANITY.md) | docs | Document structural/signal sanity results for all four converted retail effects. |
 | [`docs/evidence/INTEGRATION_PASS_025_MISSION_SOAK.md`](../docs/evidence/INTEGRATION_PASS_025_MISSION_SOAK.md) | docs | Document 65,000 long-duration mission-specific update frames matching retail. |
 | [`docs/evidence/INTEGRATION_PASS_026_RELEASE_READINESS.md`](../docs/evidence/INTEGRATION_PASS_026_RELEASE_READINESS.md) | docs | Document the machine release-readiness auditor and verification-contract refresh. |
+| [`docs/evidence/INTEGRATION_PASS_027_CI_READINESS.md`](../docs/evidence/INTEGRATION_PASS_027_CI_READINESS.md) | docs | Document CI enforcement of the tracked machine release-readiness contract. |
 | [`docs/evidence/RECOVERY_PASS_001.md`](../docs/evidence/RECOVERY_PASS_001.md) | docs | Explain the first manual source recovery, scoped component tests, repeatability and remaining gaps. |
 | [`docs/evidence/RECOVERY_PASS_002.md`](../docs/evidence/RECOVERY_PASS_002.md) | docs | Document three more recovered components, 172170 scoped calls, negative controls and limitations. |
 | [`docs/evidence/RECOVERY_PASS_003.md`](../docs/evidence/RECOVERY_PASS_003.md) | docs | Document five new component recoveries, integration tests, negative controls and limitations. |
@@ -372,6 +375,7 @@ DAH-Mobile-Decomp/
 | [`docs/evidence/integration-pass-024-audio-sanity.json`](../docs/evidence/integration-pass-024-audio-sanity.json) | docs | Machine-readable converted-audio sanity state and subjective-listening boundary. |
 | [`docs/evidence/integration-pass-025-mission-soak.json`](../docs/evidence/integration-pass-025-mission-soak.json) | docs | Machine-readable long-duration mission soak result and claim boundaries. |
 | [`docs/evidence/integration-pass-026-release-readiness.json`](../docs/evidence/integration-pass-026-release-readiness.json) | docs | Machine-readable current objective readiness result and remaining human/environment gates. |
+| [`docs/evidence/integration-pass-027-ci-readiness.json`](../docs/evidence/integration-pass-027-ci-readiness.json) | docs | Machine-readable CI readiness-enforcement state and claim boundaries. |
 | [`docs/evidence/subsystem-pass-002.json`](../docs/evidence/subsystem-pass-002.json) | docs | Hashes and matching observation digests from the second reproducible subsystem run. |
 | [`docs/evidence/ui-pass-010.json`](../docs/evidence/ui-pass-010.json) | docs | Record final p source/artifact hashes and matching scoped observation digests; no game code or assets. |
 | [`docs/evidence/weapon-pass-005.json`](../docs/evidence/weapon-pass-005.json) | docs | Record scoped pass-005 observations, private snapshot hashes and publication limitations. |
