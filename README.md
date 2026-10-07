@@ -27,8 +27,9 @@ count. Red in recovery means not recovered. Gray in comparison means unverified,
 not failure. Green exact-byte matches and blue normalized matches remain separate
 from behavioral accuracy. The dashboard also contains build and behavior views.
 
-**Twenty classes now have repaired source and scoped build/behavior evidence; p
-remains raw decompiler output only.** Test support remains separate from rebuilt
+**All 21 classes have repaired source and scoped build/behavior evidence.**
+These are historical evidence records; a fresh workstation must separately
+restore and verify the private source snapshots. Test support remains separate from rebuilt
 artifacts. No whole-class exact/normalized match is claimed, and the global
 byte-match report remains unselected.
 
@@ -52,6 +53,11 @@ python tools/source_map.py --check
 See [the maintenance guide](docs/SOURCE_MAP_GUIDE.md) before updating statuses.
 
 ## Working here
+
+Before resuming on a fresh worker, run `python tools/workstation_check.py`.
+It checks the actual original input, structural counts, Java compiler support,
+runtime tools, and all 21 pinned private source hashes. A metadata-readiness
+pass alone does not establish that local game comparisons can be replayed.
 
 Python 3.10 or newer runs the current tools, with no third-party Python packages.
 Run commands from the repository root. On Windows, `py -3` can replace `python`.

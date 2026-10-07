@@ -1,5 +1,57 @@
 # Project status
 
+## Recon/setup recheck — fresh workstation
+
+The previous chat summary describing zero recovered classes was stale. At base
+commit `f827c14`, the repository records 21 repaired classes and later integration
+passes. Those historical records have not been downgraded or treated as new runs.
+
+Freshly verified here:
+
+- Exact original JAR restored and hash verified; structural audit matches all
+  pinned counts: 21 classes, 313 method entries, 54,035 bytecode bytes, zero native
+  game methods.
+- Source-map, dashboard and historical evidence-presence checks pass.
+- Restored a local OpenJDK compiler/toolchain, compiled an independent `--release 8`
+  fixture, and ran all 226 public tooling tests successfully with no skips.
+- Restored checkpoint 006 privately: 18 source files exist; 8 match the final
+  integration hashes, 10 are earlier snapshots, and b/k/p are absent.
+- Added `tools/workstation_check.py` to distinguish real local prerequisites and
+  pinned source availability from historical metadata readiness.
+- Corrected the stale README statement that p remained raw output.
+
+Commands from the repository root:
+
+```console
+export PATH="$PWD/local/toolchain/jdk/bin:$PATH"
+python tools/dah1.py verify
+python tools/dah1.py audit --output local/recon-recheck/audit.json
+python tools/workstation_check.py --report local/recon-recheck/workstation-with-jdk.json
+python -m unittest discover -s tests -v
+python tools/source_map.py --check
+python tools/treemap_dashboard.py --check
+python tools/release_readiness.py --check
+```
+
+Report paths above already exist; select new names on rerun. The workstation
+check intentionally returns exit code 1: recon prerequisites are ready but the
+final private source snapshots are not all restored. No game comparison was
+replayed here. The historical release-readiness check inspects metadata/evidence
+presence; it does not substitute for a local source build.
+
+**Next concrete task:** restore the final 21 pinned private snapshots, or create
+an explicitly separate verified reconstruction if they cannot be recovered;
+then rerun the source-only integration and desktop/campaign gates. Preserve the
+current source hashes and historical evidence until a replacement has its own
+review and behavioral comparisons. Do not advance to native-port completion
+claims while this reproducibility gap remains.
+
+Dependency provenance and machine-readable findings:
+[evidence/recon-setup-recheck.json](evidence/recon-setup-recheck.json).
+Original inputs, restored source and toolchain binaries remain ignored.
+
+## Prior status
+
 ## Integration pass 027 — CI-enforced release-readiness contract
 
 - GitHub Actions now runs `tools/release_readiness.py --check` on both pull-request validation and main-branch refresh runs.

@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "target_id": "dah1-j2me-en-v1.2.0",
+  "reference": {
+    "passed": true,
+    "sha256": "2e03916ea4a5260960e5e57e4dbe0778fb9b577439eac0ce94a685cfecdaaf5f",
+    "classes": 21,
+    "totals": {
+      "class_bytes": 119140,
+      "method_entries": 313,
+      "constructors": 23,
+      "class_initializers": 12,
+      "native_methods": 0,
+      "methods_with_code": 313,
+      "method_bytecode_bytes": 54035
+    }
+  },
+  "compiler": {
+    "passed": true,
+    "version": "javac 17.0.20"
+  },
+  "dependencies": {
+    "java": true,
+    "javap": true,
+    "ffmpeg": true
+  },
+  "private_source_snapshots": {
+    "GameMidlet": "match",
+    "a": "match",
+    "b": "missing",
+    "c": "different_snapshot",
+    "d": "different_snapshot",
+    "e": "match",
+    "f": "different_snapshot",
+    "g": "match",
+    "h": "different_snapshot",
+    "i": "different_snapshot",
+    "j": "different_snapshot",
+    "k": "missing",
+    "l": "match",
+    "m": "match",
+    "n": "different_snapshot",
+    "o": "different_snapshot",
+    "p": "missing",
+    "q": "different_snapshot",
+    "r": "different_snapshot",
+    "s": "match",
+    "t": "match"
+  },
+  "recon_prerequisites_ready": true,
+  "integration_replay_ready": false,
+  "behavior_replayed": false,
+  "scope": "Local prerequisites only; run public tests and actual integration comparisons separately.",
+  "base_commit": "f827c14",
+  "tooling_tests": {
+    "run": 226,
+    "passed": 226,
+    "skipped": 0,
+    "game_behavior_test": false
+  },
+  "compiler_provenance": {
+    "package": "openjdk-17-jdk-headless",
+    "version": "17.0.20+8-1~24.04",
+    "source": "Ubuntu snapshot 20260828T000000Z noble-updates/main amd64",
+    "package_sha256": "24a6fc05d51f205b4de06f78621c37f27d1e87673aa55507cf38d20f7eb38968",
+    "license": "OpenJDK GPLv2 with Classpath Exception; local dependency, not redistributed",
+    "runtime": "OpenJDK 17.0.20 Ubuntu",
+    "ffmpeg": "6.1.1-3ubuntu5, existing build-only dependency"
+  }
+}

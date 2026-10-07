@@ -112,6 +112,7 @@ DAH-Mobile-Decomp/
 |       |-- integration-pass-025-mission-soak.json [DOCS]
 |       |-- integration-pass-026-release-readiness.json [DOCS]
 |       |-- integration-pass-027-ci-readiness.json [DOCS]
+|       |-- recon-setup-recheck.json [DOCS]
 |       |-- subsystem-pass-002.json [DOCS]
 |       |-- ui-pass-010.json [DOCS]
 |       |-- weapon-pass-005.json [DOCS]
@@ -264,7 +265,8 @@ DAH-Mobile-Decomp/
 |   |-- test_source_map.py [TESTS]
 |   |-- test_subsystem_recovery.py [TESTS]
 |   |-- test_treemap_dashboard.py [TESTS]
-|   `-- test_weapon_recovery.py [TESTS]
+|   |-- test_weapon_recovery.py [TESTS]
+|   `-- test_workstation_check.py [TESTS]
 `-- tools/
     |-- audio_sanity.py [TOOL]
     |-- byte_match.py [TOOL]
@@ -286,7 +288,8 @@ DAH-Mobile-Decomp/
     |-- source_map.py [TOOL]
     |-- subsystem_recovery.py [TOOL]
     |-- treemap_dashboard.py [TOOL]
-    `-- weapon_recovery.py [TOOL]
+    |-- weapon_recovery.py [TOOL]
+    `-- workstation_check.py [TOOL]
 ```
 
 ### What the existing files do
@@ -376,6 +379,7 @@ DAH-Mobile-Decomp/
 | [`docs/evidence/integration-pass-025-mission-soak.json`](../docs/evidence/integration-pass-025-mission-soak.json) | docs | Machine-readable long-duration mission soak result and claim boundaries. |
 | [`docs/evidence/integration-pass-026-release-readiness.json`](../docs/evidence/integration-pass-026-release-readiness.json) | docs | Machine-readable current objective readiness result and remaining human/environment gates. |
 | [`docs/evidence/integration-pass-027-ci-readiness.json`](../docs/evidence/integration-pass-027-ci-readiness.json) | docs | Machine-readable CI readiness-enforcement state and claim boundaries. |
+| [`docs/evidence/recon-setup-recheck.json`](../docs/evidence/recon-setup-recheck.json) | docs | Fresh input/tooling verification and explicit private source restoration gaps. |
 | [`docs/evidence/subsystem-pass-002.json`](../docs/evidence/subsystem-pass-002.json) | docs | Hashes and matching observation digests from the second reproducible subsystem run. |
 | [`docs/evidence/ui-pass-010.json`](../docs/evidence/ui-pass-010.json) | docs | Record final p source/artifact hashes and matching scoped observation digests; no game code or assets. |
 | [`docs/evidence/weapon-pass-005.json`](../docs/evidence/weapon-pass-005.json) | docs | Record scoped pass-005 observations, private snapshot hashes and publication limitations. |
@@ -483,6 +487,7 @@ DAH-Mobile-Decomp/
 | [`tests/test_subsystem_recovery.py`](../tests/test_subsystem_recovery.py) | tests | Test aliases, fixtures, isolation and probe compilation without original game data. |
 | [`tests/test_treemap_dashboard.py`](../tests/test_treemap_dashboard.py) | tests | Test treemap geometry, status colors, rendering and repository integration. |
 | [`tests/test_weapon_recovery.py`](../tests/test_weapon_recovery.py) | tests | Authored test support or probes; never counted as recovered gameplay or a production platform implementation. |
+| [`tests/test_workstation_check.py`](../tests/test_workstation_check.py) | tests | Reject missing compilers and incomplete or changed private checkpoints. |
 | [`tools/audio_sanity.py`](../tools/audio_sanity.py) | tool | Validate packaged converted audio companions for PCM shape, duration, non-silence and clipping. |
 | [`tools/byte_match.py`](../tools/byte_match.py) | tool | Compare original and candidate JAR classes, record hashes and gate displayed match claims. |
 | [`tools/campaign_progression.py`](../tools/campaign_progression.py) | tool | Run each campaign step in a fresh JVM while carrying file-backed RMS forward and compare retail versus rebuilt progression. |
@@ -504,6 +509,7 @@ DAH-Mobile-Decomp/
 | [`tools/subsystem_recovery.py`](../tools/subsystem_recovery.py) | tool | Build six private component sources and compare audio, bitmap text and navigation in isolated test JVMs. |
 | [`tools/treemap_dashboard.py`](../tools/treemap_dashboard.py) | tool | Render proportional, status-colored SVG treemaps from the real progress schema. |
 | [`tools/weapon_recovery.py`](../tools/weapon_recovery.py) | tool | Compile seventeen private components and compare isolated weapon, saucer and lifecycle probes. |
+| [`tools/workstation_check.py`](../tools/workstation_check.py) | tool | Check local reference, compiler and final private source prerequisites before replay. |
 
 ## Original-class recovery register
 

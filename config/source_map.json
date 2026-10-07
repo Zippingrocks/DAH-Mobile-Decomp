@@ -1057,6 +1057,21 @@
       "path": "docs/evidence/integration-pass-027-ci-readiness.json",
       "kind": "docs",
       "purpose": "Machine-readable CI readiness-enforcement state and claim boundaries."
+    },
+    {
+      "path": "tools/workstation_check.py",
+      "kind": "tool",
+      "purpose": "Check local reference, compiler and final private source prerequisites before replay."
+    },
+    {
+      "path": "tests/test_workstation_check.py",
+      "kind": "tests",
+      "purpose": "Reject missing compilers and incomplete or changed private checkpoints."
+    },
+    {
+      "path": "docs/evidence/recon-setup-recheck.json",
+      "kind": "docs",
+      "purpose": "Fresh input/tooling verification and explicit private source restoration gaps."
     }
   ],
   "classes": [
