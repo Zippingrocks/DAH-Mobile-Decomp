@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "target_id": "dah1-j2me-en-v1.2.0",
+  "ci_release_readiness_check": true,
+  "pull_requests_checked": true,
+  "main_pushes_checked": true,
+  "command": "python3 tools/release_readiness.py --check",
+  "automated_validation_doc_refreshed": true,
+  "claims": {
+    "new_gameplay_fidelity_claim": false,
+    "gold": false,
+    "native_windows_executable": false
+  }
+}

@@ -1047,6 +1047,16 @@
       "path": "docs/evidence/integration-pass-026-release-readiness.json",
       "kind": "docs",
       "purpose": "Machine-readable current objective readiness result and remaining human/environment gates."
+    },
+    {
+      "path": "docs/evidence/INTEGRATION_PASS_027_CI_READINESS.md",
+      "kind": "docs",
+      "purpose": "Document CI enforcement of the tracked machine release-readiness contract."
+    },
+    {
+      "path": "docs/evidence/integration-pass-027-ci-readiness.json",
+      "kind": "docs",
+      "purpose": "Machine-readable CI readiness-enforcement state and claim boundaries."
     }
   ],
   "classes": [

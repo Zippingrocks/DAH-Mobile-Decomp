@@ -9,11 +9,15 @@ automatically:
 1. run the complete public unit/tooling suite,
 2. build the desktop candidate,
 3. verify the four original AMR resources and four converted WAV companions,
-4. run the direct launcher's headless native-smoke path,
-5. compare all 13 mission objective/completion rows against retail,
-6. run the mission 1→13 save/progression chain with byte-identical file-backed RMS,
-7. perform the GraalVM/native-image preflight,
-8. emit one machine-readable report.
+4. run packaged-audio sanity checks for PCM shape, signal level and clipping,
+5. run the direct launcher's headless native-smoke path,
+6. compare all 13 mission objective/completion rows against retail,
+7. run the fixed-pattern 13-mission simulation stress suite,
+8. run the four-seed differential mission-fuzz suite,
+9. run the 5,000-frame-per-mission soak suite,
+10. run the mission 1→13 save/progression chain with byte-identical file-backed RMS,
+11. perform the GraalVM/native-image preflight,
+12. emit one machine-readable report.
 
 Example:
 
@@ -25,6 +29,13 @@ python tools/full_validation.py \
 ```
 
 An already-built desktop candidate can be supplied with `--candidate`.
+
+## Repository-only readiness audit
+
+`tools/release_readiness.py --check` does not need the private retail/game source
+inputs. It verifies the tracked source-map/evidence contract and now runs in
+GitHub Actions on pushes and pull requests. If an evidence file disappears or the
+recorded 21-class / 313-entry machine gates regress, CI fails.
 
 ## Why it does not say "gold"
 

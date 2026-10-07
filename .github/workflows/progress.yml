@@ -20,6 +20,7 @@ jobs:
       - run: |
           python3 tools/source_map.py --check
           python3 tools/treemap_dashboard.py --check
+          python3 tools/release_readiness.py --check
           python3 -m unittest discover -s tests -v
   refresh:
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
@@ -36,6 +37,7 @@ jobs:
           python3 tools/treemap_dashboard.py
           python3 tools/source_map.py --check
           python3 tools/treemap_dashboard.py --check
+          python3 tools/release_readiness.py --check
           python3 -m unittest discover -s tests -v
       - name: Commit generated documentation only
         run: |

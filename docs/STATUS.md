@@ -1,5 +1,16 @@
 # Project status
 
+## Integration pass 027 — CI-enforced release-readiness contract
+
+- GitHub Actions now runs `tools/release_readiness.py --check` on both pull-request validation and main-branch refresh runs.
+- CI therefore enforces the tracked **21/21 repaired / 313/313 method-entry** machine-readiness contract and required evidence presence.
+- The automated-validation guide now reflects the current audio-sanity, mission stress, fuzz, 65,000-frame soak, save-progression and native-preflight stack.
+- This is an enforcement/maintenance milestone, not a new gameplay-fidelity claim.
+
+See [CI readiness evidence](evidence/INTEGRATION_PASS_027_CI_READINESS.md).
+
+## Prior status
+
 ## Integration pass 026 — machine release-readiness audit
 
 - Added `tools/release_readiness.py` to audit the current objective source/evidence gates directly from the repository.
