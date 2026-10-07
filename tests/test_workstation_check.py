@@ -8,6 +8,16 @@ from tools import workstation_check as wc
 
 
 class WorkstationCheckTests(unittest.TestCase):
+    def test_selected_snapshot_is_checked_instead_of_legacy_tree(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            folder = root / 'src/game/verification'
+            folder.mkdir(parents=True)
+            (folder / 'a.java').write_bytes(b'accepted')
+            (root / 'src/game/a.java').write_bytes(b'legacy')
+            rows = [{'class': 'a', 'sha256': hashlib.sha256(b'accepted').hexdigest()}]
+            self.assertEqual(wc.source_inventory(root, rows, 'src/game/verification'), {'a': 'match'})
+
     def test_partial_or_changed_checkpoint_is_not_accepted(self):
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)

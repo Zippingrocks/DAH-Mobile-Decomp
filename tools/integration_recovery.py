@@ -18,12 +18,22 @@ def run(cmd, cwd=ROOT):
         raise RuntimeError(f"command failed ({p.returncode}): {' '.join(map(str,cmd))}\nSTDOUT:\n{p.stdout}\nSTDERR:\n{p.stderr}")
     return p.stdout,p.stderr
 
-def config(): return json.loads(CFG.read_text())
+def config(path=CFG):
+    cfg=json.loads(path.read_text())
+    target=json.loads((ROOT/'config/target.json').read_text())
+    if cfg.get('target_id')!=target['id'] or cfg.get('input',{}).get('sha256')!=target['sha256'] or cfg.get('input',{}).get('size')!=target['size_bytes']:
+        raise RuntimeError('source manifest changes the pinned target')
+    if [row['class'] for row in cfg['classes']]!=GAME or cfg['expected']!={'class_count':21,'method_entries':313,'non_class_entries':122}:
+        raise RuntimeError('source manifest changes the complete integration scope')
+    source_dir=Path(cfg.get('source_dir','src/game'))
+    if source_dir.is_absolute() or '..' in source_dir.parts or source_dir.parts[:2]!=('src','game'):
+        raise RuntimeError('source snapshot must remain under src/game')
+    return cfg
 def verify_private(cfg, jar):
     if not jar.is_file() or jar.stat().st_size!=cfg['input']['size'] or sha(jar)!=cfg['input']['sha256']:
         raise RuntimeError('original input identity mismatch')
     for row in cfg['classes']:
-        p=ROOT/'src/game'/f"{row['class']}.java"
+        p=ROOT/cfg.get('source_dir','src/game')/f"{row['class']}.java"
         if not p.is_file(): raise RuntimeError(f'missing private source: {p.relative_to(ROOT)}')
         if sha(p)!=row['sha256']: raise RuntimeError(f"private source hash mismatch: {row['class']}")
 
@@ -31,8 +41,8 @@ def compile_support(out):
     sources=sorted((ROOT/'tests/java/integration_support').rglob('*.java'))
     run(['javac','--release','8','-g:none','-implicit:none','-d',str(out),*[str(x) for x in sources]])
 
-def compile_game(out,support):
-    sources=[ROOT/'src/game'/f'{c}.java' for c in GAME]
+def compile_game(out,support,source_dir=None):
+    sources=[(source_dir or ROOT/'src/game')/f'{c}.java' for c in GAME]
     run(['javac','--release','8','-g:none','-implicit:none','-sourcepath','', '-cp',str(support),'-d',str(out),*[str(x) for x in sources]])
     actual=sorted(p.name for p in out.glob('*.class'))
     expect=sorted(f'{c}.class' for c in GAME)
@@ -67,8 +77,8 @@ def descriptors(cp, cls):
             d=nxt.split(':',1)[1].strip();(methods if d.startswith('(') else fields).append(d)
     return fields,methods
 
-def compile_probes(out,support,candidate):
-    probes=[ROOT/x for x in config()['probes']]
+def compile_probes(out,support,candidate,cfg=None):
+    probes=[ROOT/x for x in (cfg or config())['probes']]
     run(['javac','--release','8','-g:none','-implicit:none','-cp',os.pathsep.join([str(support),str(candidate)]),'-d',str(out),*[str(x) for x in probes]])
 
 def java_probe(name,support,probe_classes,gamejar):
@@ -77,13 +87,14 @@ def java_probe(name,support,probe_classes,gamejar):
     return out
 
 def main(argv=None):
-    ap=argparse.ArgumentParser();ap.add_argument('--input',type=Path);ap.add_argument('--run-dir',type=Path,required=True);args=ap.parse_args(argv)
-    cfg=config(); original=(args.input or ROOT/cfg['input']['path']).resolve(); run_dir=(ROOT/args.run_dir).resolve() if not args.run_dir.is_absolute() else args.run_dir
+    ap=argparse.ArgumentParser();ap.add_argument('--input',type=Path);ap.add_argument('--config',type=Path,default=CFG);ap.add_argument('--run-dir',type=Path,required=True);args=ap.parse_args(argv)
+    cfg=config(args.config); original=(args.input or ROOT/cfg['input']['path']).resolve(); run_dir=(ROOT/args.run_dir).resolve() if not args.run_dir.is_absolute() else args.run_dir
     if run_dir.exists(): raise RuntimeError('run directory already exists')
     verify_private(cfg,original); run_dir.mkdir(parents=True)
     support=run_dir/'support';game1=run_dir/'game1';game2=run_dir/'game2';probes=run_dir/'probes'
     for p in (support,game1,game2,probes):p.mkdir()
-    compile_support(support);compile_game(game1,support);compile_game(game2,support)
+    source_dir=ROOT/cfg.get('source_dir','src/game')
+    compile_support(support);compile_game(game1,support,source_dir);compile_game(game2,support,source_dir)
     repeat={c:sha(game1/f'{c}.class')==sha(game2/f'{c}.class') for c in GAME}
     if not all(repeat.values()):raise RuntimeError('clean source builds are not byte-repeatable')
     candidate=run_dir/'rebuilt-all-repaired.jar';resource_count=build_candidate(original,game1,candidate)
@@ -93,7 +104,7 @@ def main(argv=None):
         of,om=descriptors(original,c);cf,cm=descriptors(game1,c);same=(of==cf and om==cm);desc[c]=same;method_total+=len(om)
         if not same:raise RuntimeError(f'descriptor sequence mismatch: {c}')
     if method_total!=cfg['expected']['method_entries']:raise RuntimeError('method total mismatch')
-    compile_probes(probes,support,candidate)
+    compile_probes(probes,support,candidate,cfg)
     results={}
     for probe_path in cfg['probes']:
         probe=Path(probe_path).stem

@@ -13,16 +13,18 @@ import tempfile
 
 try:
     from . import dah1
+    from . import integration_recovery
 except ImportError:
     import dah1
+    import integration_recovery
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def source_inventory(root, records):
+def source_inventory(root, records, source_dir='src/game'):
     result = {}
     for row in records:
-        path = root / 'src/game' / (row['class'] + '.java')
+        path = root / source_dir / (row['class'] + '.java')
         result[row['class']] = (
             'missing' if not path.is_file() else
             'match' if hashlib.sha256(path.read_bytes()).hexdigest() == row['sha256']
@@ -48,7 +50,7 @@ def compiler_check():
         return {'passed': False, 'reason': str(exc)}
 
 
-def inspect(root=ROOT):
+def inspect(root=ROOT, manifest=None):
     target = dah1.load_target(root / 'config/target.json')
     original = root / 'inputs/original' / target['filename']
     try:
@@ -58,8 +60,8 @@ def inspect(root=ROOT):
                      'classes': audit['class_count'], 'totals': audit['totals']}
     except (OSError, ValueError) as exc:
         reference = {'passed': False, 'reason': str(exc)}
-    config = json.loads((root / 'config/integration_recovery.json').read_text())
-    sources = source_inventory(root, config['classes'])
+    config = integration_recovery.config(manifest or root / 'config/integration_recovery.json')
+    sources = source_inventory(root, config['classes'], config.get('source_dir', 'src/game'))
     compiler = compiler_check()
     dependencies = {name: shutil.which(name) is not None
                     for name in ('java', 'javap', 'ffmpeg')}
@@ -77,8 +79,9 @@ def inspect(root=ROOT):
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--report', type=Path)
+    parser.add_argument('--config', type=Path, help='Select an independently verified source manifest.')
     args = parser.parse_args(argv)
-    result = inspect()
+    result = inspect(manifest=args.config)
     text = json.dumps(result, indent=2) + '\n'
     if args.report:
         with args.report.open('x') as out:

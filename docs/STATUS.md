@@ -1,5 +1,33 @@
 # Project status
 
+## Integration pass 028 — source restoration and fresh gate replay
+
+- Reconstructed a separate complete private **21-class** verification tree using
+  the exact original and pinned CFR/Vineflower; historical snapshots remain intact.
+- New manifest: `config/integration_restore_028.json`; source root:
+  `src/game/verification-028`. Select this manifest explicitly for readiness and
+  integration replay; default legacy hashes still identify the earlier tree.
+- Two clean source-only builds match; all **313 method entries / 366 fields**
+  preserve ordered descriptors; all 122 original non-code entries remain exact.
+- All five integration probes match retail, including the 500-frame run.
+- Production-desktop 300-frame state/framebuffer checkpoints and 90-byte RMS
+  files match retail and reproduce the prior frame-300/save hashes.
+- The full automated gate passes: 13 missions, 3,900 stress frames, 7,800 fuzz
+  frames, 65,000 soak frames, mission 1→13 save progression, audio and native preflight.
+- All **230 public tooling tests pass with zero skips**.
+- Fixed the soak runner's standalone import error, with a PYTHONPATH-free
+  subprocess regression. No gameplay repair was needed after those replay results.
+
+Commands and scoped evidence:
+[INTEGRATION_PASS_028_RESTORED_SOURCE.md](evidence/INTEGRATION_PASS_028_RESTORED_SOURCE.md).
+
+**Next task:** human campaign/control/audio/presentation review and building/
+validating the Windows native executable on the documented Windows toolchain.
+This pass closes private source restoration for an independent verification tree;
+it does not claim exact recovery of the lost renamed source text or gold status.
+
+## Prior status
+
 ## Recon/setup recheck — fresh workstation
 
 The previous chat summary describing zero recovered classes was stale. At base

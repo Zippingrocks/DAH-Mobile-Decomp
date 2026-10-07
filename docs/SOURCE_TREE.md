@@ -39,6 +39,7 @@ DAH-Mobile-Decomp/
 |   |-- component_recovery.json [CONFIG]
 |   |-- entity_recovery.json [CONFIG]
 |   |-- integration_recovery.json [CONFIG]
+|   |-- integration_restore_028.json [CONFIG]
 |   |-- mission_fuzz.json [CONFIG]
 |   |-- mission_soak.json [CONFIG]
 |   |-- mission_stress.json [CONFIG]
@@ -80,6 +81,7 @@ DAH-Mobile-Decomp/
 |       |-- INTEGRATION_PASS_025_MISSION_SOAK.md [DOCS]
 |       |-- INTEGRATION_PASS_026_RELEASE_READINESS.md [DOCS]
 |       |-- INTEGRATION_PASS_027_CI_READINESS.md [DOCS]
+|       |-- INTEGRATION_PASS_028_RESTORED_SOURCE.md [DOCS]
 |       |-- RECOVERY_PASS_001.md [DOCS]
 |       |-- RECOVERY_PASS_002.md [DOCS]
 |       |-- RECOVERY_PASS_003.md [DOCS]
@@ -112,6 +114,7 @@ DAH-Mobile-Decomp/
 |       |-- integration-pass-025-mission-soak.json [DOCS]
 |       |-- integration-pass-026-release-readiness.json [DOCS]
 |       |-- integration-pass-027-ci-readiness.json [DOCS]
+|       |-- integration-pass-028-restored-source.json [DOCS]
 |       |-- recon-setup-recheck.json [DOCS]
 |       |-- subsystem-pass-002.json [DOCS]
 |       |-- ui-pass-010.json [DOCS]
@@ -308,6 +311,7 @@ DAH-Mobile-Decomp/
 | [`config/component_recovery.json`](../config/component_recovery.json) | config | Pin reviewed private component sources, original class hashes and explicit field mappings. |
 | [`config/entity_recovery.json`](../config/entity_recovery.json) | config | Pin eleven source snapshots, resource hashes and explicit field and method aliases. |
 | [`config/integration_recovery.json`](../config/integration_recovery.json) | config | Pin final repaired private source hashes, original input identity, integration probes and expected whole-tree counts. |
+| [`config/integration_restore_028.json`](../config/integration_restore_028.json) | config | Pin the independent restored 21-class verification sources without replacing historical snapshots. |
 | [`config/mission_fuzz.json`](../config/mission_fuzz.json) | config | Pin the accepted four-seed-per-mission differential fuzz hashes and aggregate mission hash. |
 | [`config/mission_soak.json`](../config/mission_soak.json) | config | Pin the accepted 5,000-frame-per-mission soak hashes and aggregate output. |
 | [`config/mission_stress.json`](../config/mission_stress.json) | config | Pin accepted 13-mission deterministic simulation-stress hashes and aggregate output. |
@@ -347,6 +351,7 @@ DAH-Mobile-Decomp/
 | [`docs/evidence/INTEGRATION_PASS_025_MISSION_SOAK.md`](../docs/evidence/INTEGRATION_PASS_025_MISSION_SOAK.md) | docs | Document 65,000 long-duration mission-specific update frames matching retail. |
 | [`docs/evidence/INTEGRATION_PASS_026_RELEASE_READINESS.md`](../docs/evidence/INTEGRATION_PASS_026_RELEASE_READINESS.md) | docs | Document the machine release-readiness auditor and verification-contract refresh. |
 | [`docs/evidence/INTEGRATION_PASS_027_CI_READINESS.md`](../docs/evidence/INTEGRATION_PASS_027_CI_READINESS.md) | docs | Document CI enforcement of the tracked machine release-readiness contract. |
+| [`docs/evidence/INTEGRATION_PASS_028_RESTORED_SOURCE.md`](../docs/evidence/INTEGRATION_PASS_028_RESTORED_SOURCE.md) | docs | Record fresh restored-source builds, desktop comparisons and the complete automated gate replay. |
 | [`docs/evidence/RECOVERY_PASS_001.md`](../docs/evidence/RECOVERY_PASS_001.md) | docs | Explain the first manual source recovery, scoped component tests, repeatability and remaining gaps. |
 | [`docs/evidence/RECOVERY_PASS_002.md`](../docs/evidence/RECOVERY_PASS_002.md) | docs | Document three more recovered components, 172170 scoped calls, negative controls and limitations. |
 | [`docs/evidence/RECOVERY_PASS_003.md`](../docs/evidence/RECOVERY_PASS_003.md) | docs | Document five new component recoveries, integration tests, negative controls and limitations. |
@@ -379,6 +384,7 @@ DAH-Mobile-Decomp/
 | [`docs/evidence/integration-pass-025-mission-soak.json`](../docs/evidence/integration-pass-025-mission-soak.json) | docs | Machine-readable long-duration mission soak result and claim boundaries. |
 | [`docs/evidence/integration-pass-026-release-readiness.json`](../docs/evidence/integration-pass-026-release-readiness.json) | docs | Machine-readable current objective readiness result and remaining human/environment gates. |
 | [`docs/evidence/integration-pass-027-ci-readiness.json`](../docs/evidence/integration-pass-027-ci-readiness.json) | docs | Machine-readable CI readiness-enforcement state and claim boundaries. |
+| [`docs/evidence/integration-pass-028-restored-source.json`](../docs/evidence/integration-pass-028-restored-source.json) | docs | Record actual pass-028 source/build/comparison hashes and scoped gate results. |
 | [`docs/evidence/recon-setup-recheck.json`](../docs/evidence/recon-setup-recheck.json) | docs | Fresh input/tooling verification and explicit private source restoration gaps. |
 | [`docs/evidence/subsystem-pass-002.json`](../docs/evidence/subsystem-pass-002.json) | docs | Hashes and matching observation digests from the second reproducible subsystem run. |
 | [`docs/evidence/ui-pass-010.json`](../docs/evidence/ui-pass-010.json) | docs | Record final p source/artifact hashes and matching scoped observation digests; no game code or assets. |

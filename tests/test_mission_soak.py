@@ -1,7 +1,20 @@
+import os
+import subprocess
+import sys
+import tempfile
 import unittest
 from tools import mission_soak as soak
 
 class MissionSoakTests(unittest.TestCase):
+    def test_standalone_command_without_pythonpath(self):
+        env = dict(os.environ)
+        env.pop("PYTHONPATH", None)
+        with tempfile.TemporaryDirectory() as cwd:
+            result = subprocess.run([sys.executable, str(soak.ROOT / "tools/mission_soak.py"), "--help"],
+                                    cwd=cwd, env=env, capture_output=True, text=True, timeout=30)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("--candidate", result.stdout)
+
     def test_config_has_13_missions(self):
         cfg=soak.load_config()
         self.assertEqual([x["mission"] for x in cfg["missions"]],list(range(1,14)))

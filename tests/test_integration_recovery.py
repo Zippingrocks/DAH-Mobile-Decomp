@@ -1,7 +1,32 @@
 from pathlib import Path
 import hashlib, json, tempfile, unittest, zipfile
+from unittest.mock import patch
 from tools import integration_recovery as ir
 class IntegrationRecoveryTests(unittest.TestCase):
+    def test_alternate_manifest_cannot_change_reference_or_drop_classes(self):
+        cfg=ir.config()
+        with tempfile.TemporaryDirectory() as td:
+            manifest=Path(td)/'manifest.json'
+            changed=json.loads(json.dumps(cfg));changed['input']['sha256']='0'*64
+            manifest.write_text(json.dumps(changed))
+            with self.assertRaisesRegex(RuntimeError,'pinned target'):ir.config(manifest)
+            changed=json.loads(json.dumps(cfg));changed['classes']=changed['classes'][:-1]
+            manifest.write_text(json.dumps(changed))
+            with self.assertRaisesRegex(RuntimeError,'complete integration scope'):ir.config(manifest)
+
+    def test_alternate_snapshot_requires_its_own_source_hashes(self):
+        with tempfile.TemporaryDirectory() as td:
+            root=Path(td); source=root/'src/game/verification';source.mkdir(parents=True)
+            jar=root/'input.jar';jar.write_bytes(b'fixture')
+            current=source/'a.java';current.write_bytes(b'accepted source')
+            cfg={'input':{'size':7,'sha256':ir.sha(jar)},'source_dir':'src/game/verification',
+                 'classes':[{'class':'a','sha256':ir.sha(current)}]}
+            with patch.object(ir,'ROOT',root):
+                ir.verify_private(cfg,jar)
+                current.write_bytes(b'changed source')
+                with self.assertRaisesRegex(RuntimeError,'private source hash mismatch'):
+                    ir.verify_private(cfg,jar)
+
     def test_config_has_complete_unique_class_roster(self):
         c=ir.config(); names=[x['class'] for x in c['classes']]
         self.assertEqual(names,ir.GAME); self.assertEqual(len(names),len(set(names))); self.assertEqual(c['expected']['method_entries'],313)

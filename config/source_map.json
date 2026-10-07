@@ -1072,6 +1072,21 @@
       "path": "docs/evidence/recon-setup-recheck.json",
       "kind": "docs",
       "purpose": "Fresh input/tooling verification and explicit private source restoration gaps."
+    },
+    {
+      "path": "config/integration_restore_028.json",
+      "kind": "config",
+      "purpose": "Pin the independent restored 21-class verification sources without replacing historical snapshots."
+    },
+    {
+      "path": "docs/evidence/INTEGRATION_PASS_028_RESTORED_SOURCE.md",
+      "kind": "docs",
+      "purpose": "Record fresh restored-source builds, desktop comparisons and the complete automated gate replay."
+    },
+    {
+      "path": "docs/evidence/integration-pass-028-restored-source.json",
+      "kind": "docs",
+      "purpose": "Record actual pass-028 source/build/comparison hashes and scoped gate results."
     }
   ],
   "classes": [

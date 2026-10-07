@@ -2,7 +2,10 @@
 from __future__ import annotations
 import argparse, hashlib, json, sys, tempfile
 from pathlib import Path
-from tools import mission_stress as ms
+if __package__:
+    from . import mission_stress as ms
+else:
+    import mission_stress as ms
 
 ROOT=Path(__file__).resolve().parents[1]
 CONFIG=ROOT/"config/mission_soak.json"

@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "target_id": "dah1-j2me-en-v1.2.0",
+  "input": {
+    "path": "inputs/original/Destroy-All-Humans_J2ME_EN_v120.jar",
+    "size": 201816,
+    "sha256": "2e03916ea4a5260960e5e57e4dbe0778fb9b577439eac0ce94a685cfecdaaf5f"
+  },
+  "classes": [
+    {
+      "class": "GameMidlet",
+      "sha256": "9fac4a7b818fab9c791c6604f94795d1445526e34b192c9539671430ab099041",
+      "bytes": 1316
+    },
+    {
+      "class": "a",
+      "sha256": "5fd83d1dea140abcbb7ec7834db444ff83d69dc9773fffd607abd1d8af6e6f35",
+      "bytes": 7211
+    },
+    {
+      "class": "b",
+      "sha256": "9ac9be3553e862b0b046e1732d31d872ee725d81bc7936bda35f11c38dd6aeb8",
+      "bytes": 53485
+    },
+    {
+      "class": "c",
+      "sha256": "c4e2ea658cf9ac0337c512852ac01f066a38b59507ff7ae01a1e5352cbfa359f",
+      "bytes": 25785
+    },
+    {
+      "class": "d",
+      "sha256": "e0ca5a20b298005fe218aecd6bf31c1f5f7b1f3e47867dceb6d92b63fcfdaf1e",
+      "bytes": 7377
+    },
+    {
+      "class": "e",
+      "sha256": "e9a98535f1ed1b1fad6138703e45769d7e63799a7d709637b7232a5974bfbf3e",
+      "bytes": 3275
+    },
+    {
+      "class": "f",
+      "sha256": "7c554480a6d040e74b79eb70ab40d5e33765d9f35450a27b19981a0022872ce6",
+      "bytes": 10208
+    },
+    {
+      "class": "g",
+      "sha256": "ae6f82019db55e1d2b49d811fff3290a4937c4b952dda3831cdd6886a22f94ed",
+      "bytes": 7229
+    },
+    {
+      "class": "h",
+      "sha256": "2e9d60d62f7ad0e9e512e09d394aff8eda11f0cb41bb29bc31724f5ccb1431d2",
+      "bytes": 2671
+    },
+    {
+      "class": "i",
+      "sha256": "3f8adc2cd809ea7be9b7f1d2f05d1f99c9c2058e6caa3a2f52d79e7f9fd259a0",
+      "bytes": 5652
+    },
+    {
+      "class": "j",
+      "sha256": "f79f42b871e9e8a35037e99bcc064e632b4c66b7c7f2fda8d1754f41a6799adb",
+      "bytes": 53071
+    },
+    {
+      "class": "k",
+      "sha256": "2d8123e9e45bbf84563a4be3ffaa4f6a8e8bfbefa475dd6e407f84e243e614f2",
+      "bytes": 21501
+    },
+    {
+      "class": "l",
+      "sha256": "dc00108c27e192f9e1e4499469eeac45d66040db4cec1e36beebaa23626e31f9",
+      "bytes": 9650
+    },
+    {
+      "class": "m",
+      "sha256": "5062d0dfcd26a01a7b14edf651676b389e6de6a1cc7df843d94c8e47a2234815",
+      "bytes": 2420
+    },
+    {
+      "class": "n",
+      "sha256": "0720d5112a6041a2017a86e029fa24da24450f709b9e4e430c2d7c717f66168a",
+      "bytes": 14958
+    },
+    {
+      "class": "o",
+      "sha256": "9c60839326613a68d173a5219b9cfeadd27778f90c3ccd62d0bdf32c42b78ade",
+      "bytes": 3673
+    },
+    {
+      "class": "p",
+      "sha256": "761ccd1379ec00cea578b1b7327f04ece9b26964ccf890c9ab9e8048ee3a283a",
+      "bytes": 68314
+    },
+    {
+      "class": "q",
+      "sha256": "65f8da192ee0ca932a06f73c1f788e1b8e20a2235127e4fc6abd529650618475",
+      "bytes": 6127
+    },
+    {
+      "class": "r",
+      "sha256": "406c06d0c4d1b487c50af2693d34524a786934817c4d01c3046ec020e1c4bee6",
+      "bytes": 1132
+    },
+    {
+      "class": "s",
+      "sha256": "b2e27d223e9d42d988f0a952077d96b7022a6c7c9b778ca81604f6d899daab75",
+      "bytes": 3139
+    },
+    {
+      "class": "t",
+      "sha256": "f43ee16ffd72e95261b17ef056864107ec6ed4593ea653a292ad5491c5683604",
+      "bytes": 330
+    }
+  ],
+  "expected": {
+    "class_count": 21,
+    "method_entries": 313,
+    "non_class_entries": 122
+  },
+  "probes": [
+    "tests/java/IntegrationProbe.java",
+    "tests/java/StateProbe.java",
+    "tests/java/DeepIntegrationProbe.java",
+    "tests/java/PersistenceProbe.java",
+    "tests/java/LongRunProbe.java"
+  ],
+  "support_root": "tests/java/integration_support",
+  "notes": [
+    "Independent pass-028 verification reconstruction; not byte-identical to the historical renamed source snapshots.",
+    "Original legacy manifest and checkpoint-006 sources remain preserved.",
+    "All 21 classes compile from source; no original class fallback.",
+    "Accepted reconstruction and behavior evidence: docs/evidence/INTEGRATION_PASS_028_RESTORED_SOURCE.md."
+  ],
+  "source_dir": "src/game/verification-028"
+}

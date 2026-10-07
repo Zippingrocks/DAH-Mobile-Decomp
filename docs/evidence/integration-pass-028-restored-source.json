@@ -1,0 +1,360 @@
+{
+  "schema_version": 1,
+  "target_id": "dah1-j2me-en-v1.2.0",
+  "input_sha256": "2e03916ea4a5260960e5e57e4dbe0778fb9b577439eac0ce94a685cfecdaaf5f",
+  "snapshot_kind": "independent verification reconstruction; historical renamed source hashes are preserved",
+  "source_manifest": "config/integration_restore_028.json",
+  "source_directory": "src/game/verification-028",
+  "private_member_mapping": "local/restore-028/member-map.json",
+  "source_build": {
+    "classes": 21,
+    "method_entries": 313,
+    "fields": 366,
+    "repeat_build_match": true,
+    "descriptors_match": true,
+    "source_directory": "local/restore-028/source",
+    "classes_detail": {
+      "GameMidlet": {
+        "descriptors_match": true,
+        "repeat_build_match": true,
+        "source_sha256": "9fac4a7b818fab9c791c6604f94795d1445526e34b192c9539671430ab099041",
+        "class_sha256": "34e19a62fa8dba8a8e30e4eb34812958c79bb6379fc4f82b94c7f7c61b6a20e0"
+      },
+      "a": {
+        "descriptors_match": true,
+        "repeat_build_match": true,
+        "source_sha256": "5fd83d1dea140abcbb7ec7834db444ff83d69dc9773fffd607abd1d8af6e6f35",
+        "class_sha256": "eef3ecf852b47890a78c9ec55d29d9661c8a2462023c3f37eb0c592ba28bcdc7"
+      },
+      "b": {
+        "descriptors_match": true,
+        "repeat_build_match": true,
+        "source_sha256": "9ac9be3553e862b0b046e1732d31d872ee725d81bc7936bda35f11c38dd6aeb8",
+        "class_sha256": "628df20e948c52ca8146394e587de43b66fe56ad243965d2c9e5be11fe3fd080"
+      },
+      "c": {
+        "descriptors_match": true,
+        "repeat_build_match": true,
+        "source_sha256": "c4e2ea658cf9ac0337c512852ac01f066a38b59507ff7ae01a1e5352cbfa359f",
+        "class_sha256": "2e222e6c99a012c88edf5c536982d1fdcf5e5973d1c837b727ccef8882575f00"
+      },
+      "d": {
+        "descriptors_match": true,
+        "repeat_build_match": true,
+        "source_sha256": "e0ca5a20b298005fe218aecd6bf31c1f5f7b1f3e47867dceb6d92b63fcfdaf1e",
+        "class_sha256": "1dcabc50c8968330fc913ccd1798d1919d1931ef212233009b81f41c34139262"
+      },
+      "e": {
+        "descriptors_match": true,
+        "repeat_build_match": true,
+        "source_sha256": "e9a98535f1ed1b1fad6138703e45769d7e63799a7d709637b7232a5974bfbf3e",
+        "class_sha256": "99fa0751901d7d6eb3d3218ba29cd643efcc1ac01582f6bb80fd37a63698bfaf"
+      },
+      "f": {
+        "descriptors_match": true,
+        "repeat_build_match": true,
+        "source_sha256": "7c554480a6d040e74b79eb70ab40d5e33765d9f35450a27b19981a0022872ce6",
+        "class_sha256": "1ffbf4c2eec6b0d230a28ca93b26bfdd0d8a4fc2ed07923dd0799a89ac262867"
+      },
+      "g": {
+        "descriptors_match": true,
+        "repeat_build_match": true,
+        "source_sha256": "ae6f82019db55e1d2b49d811fff3290a4937c4b952dda3831cdd6886a22f94ed",
+        "class_sha256": "4b90f7fd58f6c8d8a9f82050f32783828235761c86f36e3b8b33d5b55dc74dfc"
+      },
+      "h": {
+        "descriptors_match": true,
+        "repeat_build_match": true,
+        "source_sha256": "2e9d60d62f7ad0e9e512e09d394aff8eda11f0cb41bb29bc31724f5ccb1431d2",
+        "class_sha256": "9ba0cc8b678c5a08447dc19b03e832abac14d62385a4133e15a3e7fdd335e882"
+      },
+      "i": {
+        "descriptors_match": true,
+        "repeat_build_match": true,
+        "source_sha256": "3f8adc2cd809ea7be9b7f1d2f05d1f99c9c2058e6caa3a2f52d79e7f9fd259a0",
+        "class_sha256": "ae0b387467667f2845bc2740d8025bc054b49a9aefeef88ef9fd43213f12e51f"
+      },
+      "j": {
+        "descriptors_match": true,
+        "repeat_build_match": true,
+        "source_sha256": "f79f42b871e9e8a35037e99bcc064e632b4c66b7c7f2fda8d1754f41a6799adb",
+        "class_sha256": "41e2a3399243007c47c434776926158ed85be2f9902ecaade3180260f38e4585"
+      },
+      "k": {
+        "descriptors_match": true,
+        "repeat_build_match": true,
+        "source_sha256": "2d8123e9e45bbf84563a4be3ffaa4f6a8e8bfbefa475dd6e407f84e243e614f2",
+        "class_sha256": "5c48f2ea0ad2f60a8e53b3402a6f9db786e6798ae4253b2d3e046ae221be9e9f"
+      },
+      "l": {
+        "descriptors_match": true,
+        "repeat_build_match": true,
+        "source_sha256": "dc00108c27e192f9e1e4499469eeac45d66040db4cec1e36beebaa23626e31f9",
+        "class_sha256": "e98fe5b21ee17327d3133eac7bdf05b8a394ac7a6312d511ccb08af4c576eff7"
+      },
+      "m": {
+        "descriptors_match": true,
+        "repeat_build_match": true,
+        "source_sha256": "5062d0dfcd26a01a7b14edf651676b389e6de6a1cc7df843d94c8e47a2234815",
+        "class_sha256": "837964990b0af260ea0af132a4f34a19d425d587d1682c15dba059e130557ca9"
+      },
+      "n": {
+        "descriptors_match": true,
+        "repeat_build_match": true,
+        "source_sha256": "0720d5112a6041a2017a86e029fa24da24450f709b9e4e430c2d7c717f66168a",
+        "class_sha256": "51b0c4f9b02f15f55c7c0a8eb96c2833120a9bcfdd17a7de4b5cc2dcde8763d0"
+      },
+      "o": {
+        "descriptors_match": true,
+        "repeat_build_match": true,
+        "source_sha256": "9c60839326613a68d173a5219b9cfeadd27778f90c3ccd62d0bdf32c42b78ade",
+        "class_sha256": "00968033bb78e042802b207d1dbc2e6bb4418fcfac461d9021e6b14ed2fa6dd3"
+      },
+      "p": {
+        "descriptors_match": true,
+        "repeat_build_match": true,
+        "source_sha256": "761ccd1379ec00cea578b1b7327f04ece9b26964ccf890c9ab9e8048ee3a283a",
+        "class_sha256": "a248a5e842894cca54bf8259857031021997301c72555bee0cbd617440d73d1e"
+      },
+      "q": {
+        "descriptors_match": true,
+        "repeat_build_match": true,
+        "source_sha256": "65f8da192ee0ca932a06f73c1f788e1b8e20a2235127e4fc6abd529650618475",
+        "class_sha256": "0ae43093f738d25abff8a65c58668a6e2a878638865fd451ea455b9782a71e73"
+      },
+      "r": {
+        "descriptors_match": true,
+        "repeat_build_match": true,
+        "source_sha256": "406c06d0c4d1b487c50af2693d34524a786934817c4d01c3046ec020e1c4bee6",
+        "class_sha256": "afc0e9e4bfca9ba66f004f7c615582466b2352dd02c7508333f1f11f6176897b"
+      },
+      "s": {
+        "descriptors_match": true,
+        "repeat_build_match": true,
+        "source_sha256": "b2e27d223e9d42d988f0a952077d96b7022a6c7c9b778ca81604f6d899daab75",
+        "class_sha256": "0aa8c96d22d0104b2495dbfd68caab2c7e7ae59178e90197e084d9da58110a03"
+      },
+      "t": {
+        "descriptors_match": true,
+        "repeat_build_match": true,
+        "source_sha256": "f43ee16ffd72e95261b17ef056864107ec6ed4593ea653a292ad5491c5683604",
+        "class_sha256": "52d2fec610f28bc2c49003446a9f38db9fb8d3c687513b75af9d4a17ae5efd41"
+      }
+    },
+    "probes": {
+      "IntegrationProbe": {
+        "sha256": "a2a621363ac695d516ff21efa1e43d4c4f05dc4b3c8cd6c270817298751df2ec",
+        "outputs_identical": true
+      },
+      "StateProbe": {
+        "sha256": "dc01b54d0e53dbb6df2b91ff0c6863e5e9b564ad468e6f005eea38eaaa1a1049",
+        "outputs_identical": true
+      },
+      "DeepIntegrationProbe": {
+        "sha256": "ec8952277a2e04c6fb4f348522f964314cb62841f0bf49265ecc9316bbcceeda",
+        "outputs_identical": true
+      },
+      "PersistenceProbe": {
+        "sha256": "91e083590d3838bbf7a3717eeefd96135b1dcef5829410ca5aedb45d9b686ef0",
+        "outputs_identical": true
+      },
+      "LongRunProbe": {
+        "sha256": "38ded5fab464972f8822076a2b71bafe4cf16baa73d98318b6607c8f711ccafc",
+        "outputs_identical": true
+      }
+    },
+    "member_mapping": "member-map.json",
+    "desktop_replay": {
+      "frames": 300,
+      "state_and_framebuffer_outputs_identical": true,
+      "rms_files_identical": true,
+      "output_sha256": "39cb56a029be7d0fadc632899b64811ebc6f06aae223d784a612b339a74d2c6d",
+      "rms_sha256": "8394bcc4de35787475f7455746806eeb4fdf6a45c77f96be6d102d596813aa22",
+      "rms_bytes": 90
+    }
+  },
+  "integration_runner": {
+    "schema_version": 1,
+    "target_id": "dah1-j2me-en-v1.2.0",
+    "original_sha256": "2e03916ea4a5260960e5e57e4dbe0778fb9b577439eac0ce94a685cfecdaaf5f",
+    "candidate_sha256": "f927270e3c562792f2d7ba9ce02923baf770320a1c99290cbfd0f7d16afe4524",
+    "classes": 21,
+    "method_entries": 313,
+    "resources_byte_exact": 122,
+    "repeat_builds": true,
+    "descriptor_sequences_match": true,
+    "probes": {
+      "IntegrationProbe": {
+        "sha256": "a2a621363ac695d516ff21efa1e43d4c4f05dc4b3c8cd6c270817298751df2ec",
+        "lines": 5
+      },
+      "StateProbe": {
+        "sha256": "dc01b54d0e53dbb6df2b91ff0c6863e5e9b564ad468e6f005eea38eaaa1a1049",
+        "lines": 4
+      },
+      "DeepIntegrationProbe": {
+        "sha256": "ec8952277a2e04c6fb4f348522f964314cb62841f0bf49265ecc9316bbcceeda",
+        "lines": 7
+      },
+      "PersistenceProbe": {
+        "sha256": "91e083590d3838bbf7a3717eeefd96135b1dcef5829410ca5aedb45d9b686ef0",
+        "lines": 5
+      },
+      "LongRunProbe": {
+        "sha256": "38ded5fab464972f8822076a2b71bafe4cf16baa73d98318b6607c8f711ccafc",
+        "lines": 10
+      }
+    },
+    "candidate_class_sha256": {
+      "GameMidlet": "34e19a62fa8dba8a8e30e4eb34812958c79bb6379fc4f82b94c7f7c61b6a20e0",
+      "a": "eef3ecf852b47890a78c9ec55d29d9661c8a2462023c3f37eb0c592ba28bcdc7",
+      "b": "628df20e948c52ca8146394e587de43b66fe56ad243965d2c9e5be11fe3fd080",
+      "c": "2e222e6c99a012c88edf5c536982d1fdcf5e5973d1c837b727ccef8882575f00",
+      "d": "1dcabc50c8968330fc913ccd1798d1919d1931ef212233009b81f41c34139262",
+      "e": "99fa0751901d7d6eb3d3218ba29cd643efcc1ac01582f6bb80fd37a63698bfaf",
+      "f": "1ffbf4c2eec6b0d230a28ca93b26bfdd0d8a4fc2ed07923dd0799a89ac262867",
+      "g": "4b90f7fd58f6c8d8a9f82050f32783828235761c86f36e3b8b33d5b55dc74dfc",
+      "h": "9ba0cc8b678c5a08447dc19b03e832abac14d62385a4133e15a3e7fdd335e882",
+      "i": "ae0b387467667f2845bc2740d8025bc054b49a9aefeef88ef9fd43213f12e51f",
+      "j": "41e2a3399243007c47c434776926158ed85be2f9902ecaade3180260f38e4585",
+      "k": "5c48f2ea0ad2f60a8e53b3402a6f9db786e6798ae4253b2d3e046ae221be9e9f",
+      "l": "e98fe5b21ee17327d3133eac7bdf05b8a394ac7a6312d511ccb08af4c576eff7",
+      "m": "837964990b0af260ea0af132a4f34a19d425d587d1682c15dba059e130557ca9",
+      "n": "51b0c4f9b02f15f55c7c0a8eb96c2833120a9bcfdd17a7de4b5cc2dcde8763d0",
+      "o": "00968033bb78e042802b207d1dbc2e6bb4418fcfac461d9021e6b14ed2fa6dd3",
+      "p": "a248a5e842894cca54bf8259857031021997301c72555bee0cbd617440d73d1e",
+      "q": "0ae43093f738d25abff8a65c58668a6e2a878638865fd451ea455b9782a71e73",
+      "r": "afc0e9e4bfca9ba66f004f7c615582466b2352dd02c7508333f1f11f6176897b",
+      "s": "0aa8c96d22d0104b2495dbfd68caab2c7e7ae59178e90197e084d9da58110a03",
+      "t": "52d2fec610f28bc2c49003446a9f38db9fb8d3c687513b75af9d4a17ae5efd41"
+    }
+  },
+  "desktop_build": {
+    "schema_version": 1,
+    "input_sha256": "2e03916ea4a5260960e5e57e4dbe0778fb9b577439eac0ce94a685cfecdaaf5f",
+    "desktop_jar": "local/restore-028/DAH-Mobile-Desktop.jar",
+    "desktop_jar_sha256": "f0bccc0056b23c3646734e3d6f1df9db4e4688960ca7f7f6de46db737c725ee4",
+    "game_classes": 21,
+    "method_entries": 313,
+    "runtime_java_sources": 18,
+    "original_class_fallback": false,
+    "main_class": "DesktopLauncher",
+    "direct_game_entry": true,
+    "native_smoke_mode": true,
+    "ffmpeg": "/usr/bin/ffmpeg",
+    "amr_converted": 4,
+    "amr_audio": {
+      "Sound/pickup.amr": {
+        "sha256": "5fdad79f7f4001deab559b240a808e134578bb80640ca5876dea3b5f575f0690",
+        "wav_bytes": 3918,
+        "wav_sha256": "a5b5126c5483d0de237ae4febdd9b1acd3818262404f016f533e4bd62b7e0c2a"
+      },
+      "Sound/select.amr": {
+        "sha256": "94bb3ab8ae3f01c4f6fc2a780630082b25b8ba68ca0a5edf9e05f8ebb0b1be18",
+        "wav_bytes": 1038,
+        "wav_sha256": "9d6f6f04112e7657e142595092ded109cfd61409524c16739f414d5f8f46272d"
+      },
+      "Sound/shoot.amr": {
+        "sha256": "ab2e745f7c47589645ffecac648369b06bd165398fac2d18d319beebc5554273",
+        "wav_bytes": 5198,
+        "wav_sha256": "158debdd06af6c22dc3bcd65c08ca083fd7ac9dee8421bfb67176546815cfb03"
+      },
+      "Sound/transition.amr": {
+        "sha256": "aa8f4a0c0e0504314da5229a2e3d2b6d784830b2f2f6a166b08f375d72224700",
+        "wav_bytes": 14798,
+        "wav_sha256": "496924e4a07bd135242a0668735a010d19cd2915df2a6b746868542ba6535f41"
+      }
+    }
+  },
+  "automated_gate": {
+    "schema_version": 1,
+    "target_id": "dah1-j2me-en-v1.2.0",
+    "automated_gate_passed": true,
+    "checks": {
+      "public_tests": "passed",
+      "candidate_sha256": "f0bccc0056b23c3646734e3d6f1df9db4e4688960ca7f7f6de46db737c725ee4",
+      "audio_packaging": {
+        "amr": 4,
+        "wav": 4
+      },
+      "direct_launcher": true,
+      "audio_sanity": {
+        "effects": 4,
+        "passed": true
+      },
+      "native_smoke": "passed",
+      "campaign_matrix": {
+        "missions": 13,
+        "passed": true
+      },
+      "mission_stress": {
+        "missions": 13,
+        "total_frames": 3900,
+        "passed": true,
+        "aggregate_stdout_sha256": "aba5560012594e11f19d563f5601d58f40f879bd72cb6dc39c02867613edbca6"
+      },
+      "mission_fuzz": {
+        "missions": 13,
+        "seeds": [
+          1,
+          3,
+          13,
+          34
+        ],
+        "total_frames": 7800,
+        "passed": true,
+        "aggregate_mission_hashes_sha256": "521df370f487e06dc1e2064d08ac8390d8d6c7eae9ec03f98ba23a8407af3dc3"
+      },
+      "mission_soak": {
+        "missions": 13,
+        "total_frames": 65000,
+        "passed": true,
+        "aggregate_stdout_sha256": "318f4f57708cf7eb34175e33fceb50f9253e78e011227c41d8f4268bc21c21fa"
+      },
+      "campaign_progression": {
+        "missions": 13,
+        "passed": true,
+        "final_rms_file_sha256": "b4fbb6743d71916be57ab6fc879306f9421cbb2747de296b1c8400e657339f23"
+      },
+      "native_preflight": "passed"
+    },
+    "build_report": null,
+    "human_only_remaining": [
+      "interactive full-campaign playtest for control feel and unscripted edge cases",
+      "subjective audio loudness/mix/timing judgment on a real audio device",
+      "subjective desktop presentation/window-scaling judgment"
+    ],
+    "environment_remaining": [
+      "produce and validate the Windows native executable on a Windows GraalVM/MSVC/Windows-SDK host"
+    ],
+    "gold": false
+  },
+  "dependencies": {
+    "cfr": {
+      "version": "0.152",
+      "sha256": "f686e8f3ded377d7bc87d216a90e9e9512df4156e75b06c655a16648ae8765b2"
+    },
+    "vineflower": {
+      "version": "1.12.0",
+      "sha256": "1dfcfe974395734fa467ce620661c7623d05ba83670de0529b1fbd63ff548b9d"
+    }
+  },
+  "compiler_used": "OpenJDK 17.0.20 --release 8 -g:none -implicit:none",
+  "native_windows_executable_built": false,
+  "gold": false,
+  "compiler_provenance": {
+    "package": "openjdk-17-jdk-headless",
+    "version": "17.0.20+8-1~24.04",
+    "source": "Ubuntu snapshot 20260828T000000Z noble-updates/main amd64",
+    "package_sha256": "24a6fc05d51f205b4de06f78621c37f27d1e87673aa55507cf38d20f7eb38968",
+    "license": "OpenJDK GPLv2 with Classpath Exception; local dependency, not redistributed",
+    "runtime": "OpenJDK 17.0.20 Ubuntu",
+    "ffmpeg": "6.1.1-3ubuntu5, existing build-only dependency"
+  },
+  "final_public_tests": {
+    "run": 230,
+    "passed": 230,
+    "skipped": 0,
+    "scope": "public tooling tests after manifest/import changes; separate from actual game comparisons"
+  }
+}
