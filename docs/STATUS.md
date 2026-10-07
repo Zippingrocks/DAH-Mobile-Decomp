@@ -1,5 +1,22 @@
 # Project status
 
+## Native build provenance and handoff — 2026-10-07
+
+Tracing metadata is now hash-bound to its desktop JAR and configuration files.
+Changed or unbound metadata cannot be silently reused. Build reports capture
+installed compiler/runtime identities and direct Windows DLL imports when
+`dumpbin` is available, including adjacent dependency hashes. These checks
+leave clean-machine packaging and interactive validation explicitly pending.
+
+The Windows instructions now use a command valid in PowerShell and specify
+checkpoint-028 sources, fresh tracing directories and retained private reports.
+Verification: `python -m unittest discover -s tests -v` (236 tests, zero skips);
+`python tools/source_map.py --check`; `python tools/treemap_dashboard.py --check`.
+Metadata mismatch and DLL inventory tests use synthetic fixtures; they do not
+claim a native game build. The current Linux host still has no Native Image.
+Next concrete task: run the documented private command on Windows and inspect
+its native smoke/dependency report, then test on a clean Windows machine.
+
 ## Native build acceptance repair — 2026-10-07
 
 The native builder now rejects Linux-to-`.exe` renaming, checks Windows outputs

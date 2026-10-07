@@ -1,4 +1,5 @@
 import shutil
+import json
 import subprocess
 import tempfile
 import unittest
@@ -13,6 +14,44 @@ ROOT = Path(__file__).resolve().parents[1]
 RUNTIME = ROOT / "runtime" / "desktop"
 
 class NativeBuildTests(unittest.TestCase):
+    def test_reused_metadata_rejects_changed_jar_and_configuration(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            jar = root / "desktop.jar"
+            jar.write_bytes(b"first candidate")
+            metadata = root / "metadata"
+            metadata.mkdir()
+            config = metadata / "reflect-config.json"
+            config.write_text("[]")
+            (metadata / "dah-provenance.json").write_text(json.dumps({
+                "desktop_jar_sha256": native_build.sha(jar),
+                "configuration_sha256": {config.name: native_build.sha(config)},
+            }))
+            native_build.verify_metadata(jar, metadata)
+            jar.write_bytes(b"second candidate")
+            with self.assertRaisesRegex(RuntimeError, "does not match"):
+                native_build.verify_metadata(jar, metadata)
+            jar.write_bytes(b"first candidate")
+            config.write_text('[{"name":"Changed"}]')
+            with self.assertRaisesRegex(RuntimeError, "does not match"):
+                native_build.verify_metadata(jar, metadata)
+
+    def test_dependency_inventory_records_imports_and_adjacent_hashes(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            (root / "awt.dll").write_bytes(b"fixture")
+            with patch.object(native_build.shutil, "which", return_value="dumpbin"), patch.object(native_build, "run", return_value="Dependencies:\n    awt.dll\n    KERNEL32.dll\n    awt.dll\n"):
+                result = native_build.dependency_inventory(root / "game.exe")
+            self.assertEqual(result["direct_imports"], ["KERNEL32.dll", "awt.dll"])
+            self.assertEqual(result["adjacent_dlls"][0]["sha256"], native_build.sha(root / "awt.dll"))
+            self.assertFalse(result["clean_machine_tested"])
+
+    def test_missing_dumpbin_does_not_claim_packaging_validation(self):
+        with patch.object(native_build.shutil, "which", return_value=None):
+            result = native_build.dependency_inventory(Path("game.exe"))
+            self.assertFalse(result["recorded"])
+            self.assertFalse(result["clean_machine_tested"])
+
     def test_linux_cannot_produce_windows_named_output(self):
         with tempfile.TemporaryDirectory() as td, patch.object(native_build.os, "name", "posix"), patch.object(native_build, "run") as run:
             with self.assertRaisesRegex(RuntimeError, "Windows host"):

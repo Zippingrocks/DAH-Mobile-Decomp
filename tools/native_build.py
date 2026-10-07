@@ -67,6 +67,44 @@ def collect_metadata(java, jar: Path, metadata: Path):
         "DesktopLauncher",
         "--native-smoke",
     ])
+    files = {path.name: sha(path) for path in sorted(metadata.glob("*.json"))}
+    if not files:
+        raise RuntimeError("tracing agent produced no JSON configuration")
+    (metadata / "dah-provenance.json").write_text(json.dumps({
+        "desktop_jar_sha256": sha(jar), "configuration_sha256": files,
+    }, indent=2) + "\n")
+
+def verify_metadata(jar: Path, metadata: Path):
+    provenance = metadata / "dah-provenance.json"
+    if not provenance.is_file():
+        raise RuntimeError("metadata provenance missing; collect fresh tracing metadata")
+    data = json.loads(provenance.read_text())
+    files = {path.name: sha(path) for path in sorted(metadata.glob("*.json"))
+             if path.name != provenance.name}
+    if data.get("desktop_jar_sha256") != sha(jar) or not files or files != data.get("configuration_sha256"):
+        raise RuntimeError("tracing metadata does not match this desktop JAR or was changed")
+
+def tool_identity(executable, version_args):
+    result = subprocess.run([str(executable), *version_args], text=True,
+                            capture_output=True, timeout=30)
+    if result.returncode:
+        raise RuntimeError("cannot identify tool: " + str(executable))
+    return {"path": str(executable), "sha256": sha(Path(executable)),
+            "version": (result.stdout + result.stderr).strip()}
+
+def dependency_inventory(output: Path):
+    dumpbin = shutil.which("dumpbin")
+    if not dumpbin:
+        return {"recorded": False, "reason": "dumpbin not on PATH; use the x64 Native Tools prompt",
+                "clean_machine_tested": False}
+    listing = run([dumpbin, "/dependents", output])
+    names = sorted({line.strip() for line in listing.splitlines()
+                    if line.strip().lower().endswith(".dll") and " " not in line.strip()})
+    siblings = {path.name.lower(): path for path in output.parent.glob("*") if path.is_file()}
+    return {"recorded": True, "direct_imports": names,
+            "adjacent_dlls": [{"name": name, "sha256": sha(siblings[name.lower()])}
+                              for name in names if name.lower() in siblings],
+            "dumpbin_output": listing, "clean_machine_tested": False}
 
 def native_compile(native_image, jar: Path, metadata: Path, output: Path):
     if output.suffix.lower() == ".exe" and os.name != "nt":
@@ -171,12 +209,17 @@ def main(argv=None):
             raise RuntimeError("Java executable for the GraalVM installation was not found")
         if args.output.suffix.lower() == ".exe" and os.name != "nt":
             raise RuntimeError("Windows .exe builds require a Windows host")
+        report["toolchain"] = {
+            "native_image": tool_identity(native_image, ["--version"]),
+            "java": tool_identity(java, ["-version"]),
+        }
 
         metadata = args.metadata_dir.resolve()
         if not args.skip_agent:
             collect_metadata(java, jar, metadata)
         elif not metadata.is_dir() or not any(metadata.glob("*.json")):
             raise RuntimeError("--skip-agent requires a metadata directory containing JSON configuration")
+        verify_metadata(jar, metadata)
 
         output = native_compile(native_image, jar, metadata, args.output.resolve())
         binary = inspect_windows_executable(output) if os.name == "nt" else {"format": "host-native"}
@@ -189,6 +232,7 @@ def main(argv=None):
             "binary": binary,
             "native_smoke": smoke,
             "native_windows_validated": os.name == "nt",
+            "dependencies": dependency_inventory(output) if os.name == "nt" else None,
         })
         text = json.dumps(report, indent=2) + "\n"
         if args.report:

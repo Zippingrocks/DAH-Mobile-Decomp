@@ -31,12 +31,8 @@ metadata without human interaction.
 
 Example on a suitable Windows host:
 
-```console
-python tools/native_build.py \
-  --input inputs/original/Destroy-All-Humans_J2ME_EN_v120.jar \
-  --source-dir src/game/verification-028 \
-  --output dist/DAH-Mobile-Windows.exe \
-  --report local/native-build.json
+```powershell
+python tools/native_build.py --input inputs/original/Destroy-All-Humans_J2ME_EN_v120.jar --source-dir src/game/verification-028 --metadata-dir local/native-windows-001 --output dist/DAH-Mobile-Windows.exe --report local/native-windows-001-report.json
 ```
 
 Use `--prepare-only` to inspect the desktop JAR and toolchain without attempting
@@ -85,3 +81,30 @@ older `src/game` snapshots are incomplete on this restored workstation. The
 next concrete step is a local Windows build with the documented GraalVM/MSVC
 installation, followed by native smoke, DLL inventory and interactive review.
 No compiler download or game upload was performed in this check.
+
+## Private Windows handoff
+
+Restore checkpoint 028 into a checkout of the current tooling repository. Run
+the command above from the repository root in an x64 Native Tools prompt, with
+the installed GraalVM `bin` directory and FFmpeg on PATH. Choose a new metadata
+directory for each fresh trace; do not overwrite a previous build report.
+
+The report records executable hashes and installed Java/Native Image version
+output. It records the hash of the Native Image launcher; that hash alone does
+not fingerprint the entire GraalVM distribution. Retain the installer/archive
+hash and its provenance separately before accepting a toolchain as pinned.
+The project neither downloads nor redistributes these build dependencies.
+
+Tracing configurations are bound to the exact desktop JAR and all generated
+JSON configuration hashes in `dah-provenance.json`. Reuse with `--skip-agent`
+rejects a different JAR, modified configuration, extra JSON files, or missing
+provenance. Previously collected unbound metadata must be collected again.
+
+On Windows, `dumpbin /dependents` records direct DLL imports and hashes matching
+DLLs beside the executable. If dumpbin is absent, the report explicitly marks
+the inventory unrecorded. This inventory does not resolve system DLLs,
+transitive imports or libraries loaded dynamically (including AWT/JNI). Keep
+all generated companion files together, check the distribution on a clean
+Windows machine without Java or GraalVM, and exercise rendering, saving and
+audio. `clean_machine_tested` stays false until separate evidence establishes
+that test; this builder does not mark packaging or the game gold.
