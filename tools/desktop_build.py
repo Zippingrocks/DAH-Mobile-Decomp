@@ -69,11 +69,16 @@ def desktop_launcher_source() -> str:
         midlet.destroyApp(true);
     }
     public static void main(String[] args) throws Exception {
-        GameMidlet midlet = new GameMidlet();
         if (args.length > 0 && "--native-smoke".equals(args[0])) {
+            System.setProperty("java.awt.headless", "true");
+            if (System.getProperty("dah.rms.dir") == null) {
+                System.setProperty("dah.rms.dir", System.getProperty("user.dir"));
+            }
+            GameMidlet midlet = new GameMidlet();
             nativeSmoke(midlet);
             return;
         }
+        GameMidlet midlet = new GameMidlet();
         midlet.startApp();
     }
 }

@@ -1,5 +1,5 @@
 from pathlib import Path
-import hashlib, json, tempfile, unittest, zipfile
+import hashlib, json, shutil, tempfile, unittest, zipfile
 from unittest.mock import patch
 from tools import integration_recovery as ir
 class IntegrationRecoveryTests(unittest.TestCase):
@@ -35,6 +35,7 @@ class IntegrationRecoveryTests(unittest.TestCase):
     def test_support_contains_no_game_class_names_at_root(self):
         root=ir.ROOT/'tests/java/integration_support'; names={p.stem for p in root.glob('*.java')}; self.assertFalse(names & set(ir.GAME))
     def test_support_compiles_without_game_source(self):
+        if not shutil.which('javac'): self.skipTest('javac unavailable')
         with tempfile.TemporaryDirectory() as td: ir.compile_support(Path(td))
     def test_candidate_packaging_excludes_original_classes_and_preserves_resources(self):
         with tempfile.TemporaryDirectory() as td:

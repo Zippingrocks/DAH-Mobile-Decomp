@@ -178,7 +178,11 @@ def audit_jar(data: bytes) -> dict:
             raise AuditError("Archive exceeds entry or unpacked-size limit")
         seen = set()
         for entry in entries:
-            name = entry.filename
+            # ZipInfo normalizes the platform separator while it is constructed.
+            # On Windows, entry.filename can therefore hide a raw backslash that
+            # was present in the archive.  orig_filename preserves the decoded
+            # central-directory name before that normalization.
+            name = entry.orig_filename
             parts = PurePosixPath(name).parts
             if (name in seen or not parts or name.startswith("/") or ".." in parts
                     or "\\" in name or ":" in name or "\x00" in name):

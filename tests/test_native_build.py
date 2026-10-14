@@ -53,10 +53,12 @@ class NativeBuildTests(unittest.TestCase):
             self.assertFalse(result["clean_machine_tested"])
 
     def test_linux_cannot_produce_windows_named_output(self):
-        with tempfile.TemporaryDirectory() as td, patch.object(native_build.os, "name", "posix"), patch.object(native_build, "run") as run:
-            with self.assertRaisesRegex(RuntimeError, "Windows host"):
-                native_build.native_compile("native-image", Path("game.jar"), Path("metadata"), Path(td) / "game.exe")
-            run.assert_not_called()
+        with tempfile.TemporaryDirectory() as td:
+            output = Path(td) / "game.exe"
+            with patch.object(native_build, "is_windows_host", return_value=False), patch.object(native_build, "run") as run:
+                with self.assertRaisesRegex(RuntimeError, "Windows host"):
+                    native_build.native_compile("native-image", Path("game.jar"), Path("metadata"), output)
+                run.assert_not_called()
 
     def test_windows_format_rejects_elf_truncation_and_dll(self):
         with tempfile.TemporaryDirectory() as td:
@@ -83,6 +85,13 @@ class NativeBuildTests(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError, "missing dependency"):
                 native_build.native_smoke(Path("game.exe"))
 
+    def test_native_smoke_selects_smoke_mode_as_first_argument(self):
+        completed = subprocess.CompletedProcess([], 0, "native smoke ok\n", "")
+        with patch.object(native_build.subprocess, "run", return_value=completed) as run:
+            result = native_build.native_smoke(Path("game.exe"))
+        self.assertTrue(result["passed"])
+        self.assertEqual(run.call_args.args[0][1:], ["--native-smoke"])
+
     def test_generated_launcher_uses_direct_game_entry(self):
         src = desktop_build.desktop_launcher_source()
         self.assertIn("GameMidlet midlet = new GameMidlet()", src)
@@ -95,6 +104,8 @@ class NativeBuildTests(unittest.TestCase):
         self.assertIn('method(type, "i")', src)
         self.assertIn('method(type, "j")', src)
         self.assertIn('method(type, "paint"', src)
+        self.assertIn('System.setProperty("java.awt.headless", "true")', src)
+        self.assertIn('System.setProperty("dah.rms.dir", System.getProperty("user.dir"))', src)
 
     def test_generated_launcher_compiles_with_public_runtime_and_stub_game(self):
         if not shutil.which("javac"):

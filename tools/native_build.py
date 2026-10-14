@@ -5,6 +5,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
+def is_windows_host():
+    return os.name == "nt"
+
 def sha(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
@@ -107,7 +110,7 @@ def dependency_inventory(output: Path):
             "dumpbin_output": listing, "clean_machine_tested": False}
 
 def native_compile(native_image, jar: Path, metadata: Path, output: Path):
-    if output.suffix.lower() == ".exe" and os.name != "nt":
+    if output.suffix.lower() == ".exe" and not is_windows_host():
         raise RuntimeError("Windows .exe builds require a Windows host; refusing to rename a host binary")
     output.parent.mkdir(parents=True, exist_ok=True)
     base = output.with_suffix("") if output.suffix.lower() == ".exe" else output
@@ -121,7 +124,7 @@ def native_compile(native_image, jar: Path, metadata: Path, output: Path):
         "DesktopLauncher",
         "-o", base,
     ])
-    expected = Path(str(base) + ".exe") if os.name == "nt" else base
+    expected = Path(str(base) + ".exe") if is_windows_host() else base
     if not expected.is_file():
         raise RuntimeError("native-image completed but output was not found: " + str(expected))
     if output != expected:
@@ -148,8 +151,10 @@ def inspect_windows_executable(path: Path):
 
 def native_smoke(output: Path):
     with tempfile.TemporaryDirectory(prefix="dah-native-smoke-") as td:
-        result = subprocess.run([str(output), "-Djava.awt.headless=true",
-                                 "-Ddah.rms.dir=" + td, "--native-smoke"], cwd=td,
+        # Native Image executables receive -D arguments as application arguments;
+        # they are not parsed by a JVM launcher.  Keep the smoke selector first
+        # and let DesktopLauncher establish its headless/RMS properties.
+        result = subprocess.run([str(output), "--native-smoke"], cwd=td,
                                 text=True, capture_output=True, timeout=120)
     if result.returncode:
         raise RuntimeError("native smoke failed\n" + result.stdout + "\n" + result.stderr)
@@ -190,7 +195,7 @@ def main(argv=None):
             "metadata_dir": str(args.metadata_dir),
             "prepare_only": args.prepare_only,
             "native_built": False,
-            "windows_host": os.name == "nt",
+            "windows_host": is_windows_host(),
             "native_windows_validated": False,
             "toolchain_present": bool(native_image and Path(native_image).is_file() and java and Path(java).is_file()),
         }
@@ -207,7 +212,7 @@ def main(argv=None):
             raise RuntimeError("native-image not found; install GraalVM Native Image or pass --native-image")
         if not java:
             raise RuntimeError("Java executable for the GraalVM installation was not found")
-        if args.output.suffix.lower() == ".exe" and os.name != "nt":
+        if args.output.suffix.lower() == ".exe" and not is_windows_host():
             raise RuntimeError("Windows .exe builds require a Windows host")
         report["toolchain"] = {
             "native_image": tool_identity(native_image, ["--version"]),
@@ -222,7 +227,7 @@ def main(argv=None):
         verify_metadata(jar, metadata)
 
         output = native_compile(native_image, jar, metadata, args.output.resolve())
-        binary = inspect_windows_executable(output) if os.name == "nt" else {"format": "host-native"}
+        binary = inspect_windows_executable(output) if is_windows_host() else {"format": "host-native"}
         smoke = native_smoke(output)
         report.update({
             "native_built": True,
@@ -231,8 +236,8 @@ def main(argv=None):
             "native_bytes": output.stat().st_size,
             "binary": binary,
             "native_smoke": smoke,
-            "native_windows_validated": os.name == "nt",
-            "dependencies": dependency_inventory(output) if os.name == "nt" else None,
+            "native_windows_validated": is_windows_host(),
+            "dependencies": dependency_inventory(output) if is_windows_host() else None,
         })
         text = json.dumps(report, indent=2) + "\n"
         if args.report:

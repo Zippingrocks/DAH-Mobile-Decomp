@@ -75,12 +75,21 @@ Windows build host; an executable alone does not prove standalone packaging.
 `toolchain_present`; its successful exit does not mean a compiler is installed.
 `--skip-agent` requires JSON configuration in the metadata directory.
 
-This Linux worker has no Native Image installation and cannot build or execute
-a Windows candidate. Use the verified checkpoint-028 source root explicitly;
-older `src/game` snapshots are incomplete on this restored workstation. The
-next concrete step is a local Windows build with the documented GraalVM/MSVC
-installation, followed by native smoke, DLL inventory and interactive review.
-No compiler download or game upload was performed in this check.
+The native executable is launched as `DAH-Mobile-Windows.exe --native-smoke`.
+Unlike the `java` launcher, a Native Image executable does not interpret `-D`
+arguments as JVM system properties. `DesktopLauncher` therefore establishes
+headless mode and a temporary working-directory RMS root before it constructs
+the game during native smoke. This ordering is part of the acceptance check;
+putting `-D` arguments before `--native-smoke` would run the ordinary launcher
+path instead of the intended smoke path.
+
+Use the verified checkpoint-028 source root explicitly; older `src/game`
+snapshots are incomplete on a restored workstation. A Windows checkout still
+needs checkpoint 028 plus GraalVM Native Image, MSVC/Windows SDK, a release-8
+Java compiler and FFmpeg before it can produce the candidate. The next concrete
+step is that private build, followed by native smoke, DLL inventory and
+interactive review. No build report may claim an executable from preflight
+alone.
 
 ## Private Windows handoff
 

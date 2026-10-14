@@ -8,6 +8,36 @@
 - Existing decompilation, campaign, persistence, stress/fuzz/soak, audio, desktop-runtime and native-build tooling should continue to serve the Windows-port goal.
 - Final completion still requires a validated Windows-native build plus the remaining human-only subjective playtest/audio/presentation review.
 
+## Windows continuation audit — 2026-10-13
+
+A fresh public checkout was inspected on Windows. The private retail input and
+`src/game/verification-028` checkpoint are not present in this checkout, so the
+desktop candidate, campaign gate and native executable cannot honestly be
+rebuilt here. The host has Java runtimes but no `javac`, GraalVM Native Image,
+MSVC/Windows SDK command-line tools, `dumpbin`, or FFmpeg on PATH.
+
+The Windows run did expose and repair two cross-platform test defects and one
+native acceptance defect. ZIP safety auditing now checks the original archive
+entry name so Windows path normalization cannot conceal a raw backslash. The
+Linux-host refusal test no longer mutates Python's process-wide `os.name`, and
+compile-dependent integration support tests skip cleanly when `javac` is absent.
+Most importantly, native smoke now invokes the executable with
+`--native-smoke` as its first application argument. Native Image executables do
+not consume Java-launcher `-D` arguments; the prior ordering could select the
+ordinary launcher path instead. The generated launcher now establishes
+headless and temporary RMS properties before constructing the game in smoke
+mode.
+
+Verification on this host: `python -m unittest discover -s tests -v` passes all
+237 public tests, with 11 compiler-dependent tests skipped because `javac` is
+absent. `python tools/source_map.py --check`, `python
+tools/treemap_dashboard.py --check`, `python tools/release_readiness.py --check`
+and `git diff --check` also pass. This is tooling/acceptance hardening only: no
+checkpoint-028 source build, Windows executable, campaign playthrough,
+listening test or presentation review is claimed. Next concrete task remains
+restoring the private checkpoint and toolchain on Windows, then running the
+documented native build and clean-machine interactive validation.
+
 
 ## Native build provenance and handoff — 2026-10-07
 

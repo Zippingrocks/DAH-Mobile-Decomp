@@ -42,7 +42,11 @@ def archive(entries):
     stream = io.BytesIO()
     with zipfile.ZipFile(stream, "w") as jar:
         for name, content in entries:
-            jar.writestr(name, content)
+            # ZipInfo(name) normalizes backslashes on Windows.  Assigning after
+            # construction preserves the exact unsafe name in the test archive.
+            info = zipfile.ZipInfo("fixture")
+            info.filename = name
+            jar.writestr(info, content)
     return stream.getvalue()
 
 
