@@ -8,6 +8,41 @@
 - Existing decompilation, campaign, persistence, stress/fuzz/soak, audio, desktop-runtime and native-build tooling should continue to serve the Windows-port goal.
 - Final completion still requires a validated Windows-native build plus the remaining human-only subjective playtest/audio/presentation review.
 
+## Windows native toolchain proved — 2026-10-13
+
+The current Windows x64 host now has a locally extracted AWT-capable Liberica
+Native Image Kit Full toolchain plus the existing Visual Studio toolchain and
+FFmpeg. The downloaded archive was obtained from BellSoft's official release
+URL for Liberica NIK 25.0.4.1+1 / OpenJDK 25.0.4.1+2. Its vendor-published
+SHA-1 is `0532bd5512bcc8b07056c90057eb413ec5fae7df`; independently recorded
+SHA-256 is `0057842a15121dde3c97de25aaae4c3bde4ff1ad5d520d72affdb98d5a7a51be`.
+The third-party archive/toolchain remains ignored and is not redistributed.
+
+Installed tools execute successfully: Java/Javac/Native Image 25.0.4.1,
+MSVC x64 19.51.36256, linker and `dumpbin`. The full 237-test public suite
+passes with zero skips when run outside the restricted worker sandbox with the
+local JDK on PATH. Source-map, treemap and release-readiness checks remain
+current.
+
+An independently authored synthetic desktop candidate exercised the real
+native pipeline end to end: tracing-agent metadata collection, provenance
+binding, `native-image --no-fallback`, x64 PE32+ inspection, executable smoke
+and `dumpbin` import inventory all passed. The synthetic JAR SHA-256 was
+`47a45448f2d90f038bb036fee1a6edd233a819ec4a2244d5865b9f69f83aa8ec`;
+the 250,265,600-byte temporary executable SHA-256 was
+`74cbe6644c19a30caaeb9113512f894c7ae3263fba5c1ef4dd047e95629978b7`.
+It directly imported the expected Windows/system CRT set including
+`VCRUNTIME140.dll`. The disposable compiler archive and synthetic EXE were
+removed after verification; private metadata and the report remain ignored.
+
+This proves the host and native-build machinery, not the game executable. A
+hash search of the user's local files and plausible recycle/system locations
+found neither the pinned 201,816-byte retail JAR nor any checkpoint-028 source
+hash. Until the owner supplies that private input (and preferably the private
+`src/game/verification-028` snapshot), the actual desktop JAR, campaign gate
+and game EXE cannot be reproduced. No gold, gameplay, audio or presentation
+claim is made.
+
 ## Windows continuation audit — 2026-10-13
 
 A fresh public checkout was inspected on Windows. The private retail input and

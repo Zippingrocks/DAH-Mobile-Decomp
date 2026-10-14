@@ -48,8 +48,15 @@ SDK. See:
 - https://www.graalvm.org/latest/getting-started/windows/
 - https://www.graalvm.org/latest/reference-manual/native-image/
 
+Because this runtime uses AWT, an AWT-capable Native Image distribution is
+required. Liberica Native Image Kit Full is one supported option; BellSoft's
+desktop guidance explicitly distinguishes the Full desktop-capable package:
+
+- https://docs.bell-sw.com/liberica-nik/23.0.5b1-17.0.12b10/how-to/using-nik-with-desktop-applications/
+
 The project does not redistribute GraalVM, Visual Studio Build Tools, the Windows
-SDK, or FFmpeg.
+SDK, Liberica Native Image Kit, or FFmpeg. Record the exact archive hash and
+vendor URL privately before accepting any toolchain.
 
 ## Validation boundary
 
