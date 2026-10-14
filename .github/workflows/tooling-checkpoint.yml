@@ -1,0 +1,35 @@
+name: Public tooling checkpoint
+on:
+  push:
+    branches: [work/native-desktop-finishline]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  public-tooling:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4, pinned
+        with:
+          persist-credentials: false
+      - name: Archive tracked public tooling only
+        shell: bash
+        run: |
+          mkdir -p local/public-checkpoint
+          git archive --format=zip --output=local/public-checkpoint/tooling.zip HEAD
+          git rev-parse HEAD > local/public-checkpoint/commit.txt
+          sha256sum local/public-checkpoint/tooling.zip > local/public-checkpoint/SHA256SUMS
+      - name: Test public tooling
+        shell: bash
+        run: |
+          set -o pipefail
+          python3 -m unittest discover -s tests -v 2>&1 | tee local/public-checkpoint/tests.log
+      - name: Retain tooling and test evidence, never private game inputs
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: public-tooling-${{ github.sha }}
+          path: local/public-checkpoint/
+          if-no-files-found: error
+          retention-days: 7
