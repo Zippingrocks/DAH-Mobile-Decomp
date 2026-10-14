@@ -48,7 +48,12 @@ public final class Manager {
                 sequencer.setSequence(new ByteArrayInputStream(data));
                 sequencer.setLoopCount(loops < 0 ? Sequencer.LOOP_CONTINUOUSLY : Math.max(0, loops-1));
                 sequencer.start();
-            } catch (Exception ignored) { sequencer=null; }
+            } catch (Throwable failure) {
+                sequencer=null;
+                if (Boolean.getBoolean("dah.audio.strict")) {
+                    throw new IllegalStateException("MIDI backend failed", failure);
+                }
+            }
         }
         private void startConvertedAmr() {
             AudioInputStream audio = null;
@@ -63,8 +68,11 @@ public final class Manager {
                 if (loops < 0) clip.loop(Clip.LOOP_CONTINUOUSLY);
                 else if (loops > 1) clip.loop(loops-1);
                 else clip.start();
-            } catch (Exception ignored) {
+            } catch (Throwable failure) {
                 if (clip != null) { clip.close(); clip=null; }
+                if (Boolean.getBoolean("dah.audio.strict")) {
+                    throw new IllegalStateException("sampled-audio backend failed", failure);
+                }
             } finally {
                 if (audio != null) try { audio.close(); } catch (IOException ignored) {}
             }

@@ -20,6 +20,7 @@
 *.dylib
 *.bin
 *.dat
+*.rms
 *.map
 *.png
 *.jpg

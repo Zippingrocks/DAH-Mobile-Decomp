@@ -10,7 +10,7 @@ HUMAN_ONLY_REMAINING = [
     "subjective desktop presentation/window-scaling judgment",
 ]
 ENVIRONMENT_REMAINING = [
-    "produce and validate the Windows native executable on a Windows GraalVM/MSVC/Windows-SDK host",
+    "validate Windows native packaging on a clean machine without the development toolchain",
 ]
 
 def run(cmd, cwd=ROOT):

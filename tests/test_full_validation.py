@@ -28,10 +28,11 @@ class FullValidationTests(unittest.TestCase):
         self.assertNotIn("compile recovered source",text)
         self.assertNotIn("convert amr",text)
 
-    def test_windows_native_build_is_environment_not_human_judgment(self):
+    def test_clean_machine_packaging_is_environment_not_human_judgment(self):
         self.assertEqual(len(fv.ENVIRONMENT_REMAINING),1)
         self.assertIn("windows",fv.ENVIRONMENT_REMAINING[0].lower())
-        self.assertIn("graalvm",fv.ENVIRONMENT_REMAINING[0].lower())
+        self.assertIn("clean machine",fv.ENVIRONMENT_REMAINING[0].lower())
+        self.assertIn("toolchain",fv.ENVIRONMENT_REMAINING[0].lower())
 
     def test_gate_orchestrates_campaign_matrix_progression_stress_and_fuzz(self):
         src=(ROOT/"tools/full_validation.py").read_text()

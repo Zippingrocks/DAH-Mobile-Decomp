@@ -6,7 +6,41 @@
 - Recovered game logic is treated as the fidelity baseline; behavior changes require evidence from the retail bytecode or original-vs-rebuilt comparisons.
 - Windows-specific graphics, input, audio, storage, scaling, packaging and AOT work belong in the authored runtime/build layer, not as silent gameplay rewrites.
 - Existing decompilation, campaign, persistence, stress/fuzz/soak, audio, desktop-runtime and native-build tooling should continue to serve the Windows-port goal.
-- Final completion still requires a validated Windows-native build plus the remaining human-only subjective playtest/audio/presentation review.
+- A validated Windows-native developer-host build now exists. Final completion still requires the remaining human-only campaign/audio/presentation review and clean-machine packaging validation.
+
+## Integration pass 029 — Windows native input and audio startup — 2026-10-13
+
+The exact 201,816-byte retail JAR was restored and independently verified at
+SHA-256 `2e03916ea4a5260960e5e57e4dbe0778fb9b577439eac0ce94a685cfecdaaf5f`.
+All 21 reconstructed sources compile with 313 ordered method entries and no
+original-class fallback. The final desktop payload SHA-256 is
+`0b25b93896f12974b16f3bf7bf9bb11200966dd41bb5f42ec2a84777770ff098`.
+
+A real 64-bit Windows PE32+ executable was produced on Windows with Liberica
+NIK 25.0.4.1 and MSVC x64. It is 280,420,352 bytes with SHA-256
+`eada1c8280fb68f8888b245af58b6a85a831d66e89255447ebe428efbcfccd64`.
+The native acceptance report passes headless game logic, a four-second normal
+window launch with empty stderr, and a post-language interaction path that
+requires strict MIDI startup and a live game thread.
+
+Hands-on testing found and repaired three issues that earlier automation missed:
+Enter had mapped to center key 5 instead of the left SELECT soft key, the canvas
+had no mouse listener, and native MIDI startup killed the game thread after
+language selection because Native Image does not populate `java.home`. Enter now
+selects menus, Space remains center/action, the lower-left/lower-right mouse
+regions map to the visible soft keys, the remaining canvas maps to center/action,
+and the launcher initializes the required native desktop properties. A native
+Direct3D JNI failure was also removed by selecting the stable software/GDI path.
+The normal final executable was observed through title, save and main-menu
+screens with no captured stderr; SELECT interactions advanced two menu levels.
+
+The exact final desktop payload also passes all 244 public tests, the 13-mission
+matrix, 3,900 stress frames, 7,800 fuzz frames, 65,000 soak frames, mission 1→13
+save progression, four-effect audio sanity and native preflight. This is not a
+gold claim. A full human campaign playthrough, subjective listening/mix/timing
+review, subjective presentation review, and a clean Windows machine test without
+the development toolchain remain open. See
+[INTEGRATION_PASS_029_WINDOWS_NATIVE_INPUT.md](evidence/INTEGRATION_PASS_029_WINDOWS_NATIVE_INPUT.md).
 
 ## Windows native toolchain proved — 2026-10-13
 

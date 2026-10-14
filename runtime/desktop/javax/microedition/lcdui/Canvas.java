@@ -4,6 +4,8 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -25,6 +27,8 @@ public abstract class Canvas extends Displayable {
     public int getGameAction(int key) { return 0; }
     public int getKeyCode(int action) { return action; }
     public Graphics desktopGraphics() { return graphics; }
+    public final void desktopKeyPressed(int key) { keyPressed(key); }
+    public final void desktopKeyReleased(int key) { keyReleased(key); }
 
     public void repaint() {
         paint(graphics);
@@ -60,6 +64,7 @@ public abstract class Canvas extends Displayable {
             case KeyEvent.VK_S:
                 return 56;
             case KeyEvent.VK_ENTER:
+                return -6;
             case KeyEvent.VK_SPACE:
                 return 53;
             case KeyEvent.VK_Z:
@@ -71,6 +76,12 @@ public abstract class Canvas extends Displayable {
             default:
                 return Character.isDigit(keyChar) ? keyChar : 0;
         }
+    }
+
+    static int mapDesktopClick(int x, int y, int width, int height) {
+        if (width <= 0 || height <= 0 || x < 0 || y < 0 || x >= width || y >= height) return 0;
+        if (y >= height * 3 / 4) return x < width / 2 ? -6 : -7;
+        return 53;
     }
 
     void mount(JFrame frame) {
@@ -98,6 +109,20 @@ public abstract class Canvas extends Displayable {
             public void keyReleased(KeyEvent e) {
                 int key = mapDesktopKey(e.getKeyCode(), e.getKeyChar());
                 if (key != 0) Canvas.this.keyReleased(key);
+            }
+        });
+        panel.addMouseListener(new MouseAdapter() {
+            private int pressedKey;
+
+            public void mousePressed(MouseEvent e) {
+                panel.requestFocusInWindow();
+                pressedKey = mapDesktopClick(e.getX(), e.getY(), panel.getWidth(), panel.getHeight());
+                if (pressedKey != 0) Canvas.this.keyPressed(pressedKey);
+            }
+
+            public void mouseReleased(MouseEvent e) {
+                if (pressedKey != 0) Canvas.this.keyReleased(pressedKey);
+                pressedKey = 0;
             }
         });
 

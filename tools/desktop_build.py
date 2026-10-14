@@ -44,6 +44,7 @@ def transcode_amr(ffmpeg: str, name: str, data: bytes, work: Path):
 
 def desktop_launcher_source() -> str:
     return """public final class DesktopLauncher {
+    private static volatile Throwable guiFailure;
     private static java.lang.reflect.Field controllerField() {
         for (java.lang.reflect.Field field : GameMidlet.class.getDeclaredFields()) {
             if (java.lang.reflect.Modifier.isStatic(field.getModifiers()) && field.getType().getName().equals("k")) {
@@ -68,7 +69,30 @@ def desktop_launcher_source() -> str:
         method(type, "paint", javax.microedition.lcdui.Graphics.class).invoke(controller, graphics);
         midlet.destroyApp(true);
     }
+    private static void nativeGuiSmoke(GameMidlet midlet) throws Exception {
+        Thread.setDefaultUncaughtExceptionHandler((thread, error) -> {
+            guiFailure = error;
+            error.printStackTrace();
+        });
+        System.setProperty("dah.audio.strict", "true");
+        midlet.startApp();
+        Thread.sleep(1000L);
+        Object controller = controllerField().get(null);
+        javax.microedition.lcdui.Canvas canvas = (javax.microedition.lcdui.Canvas)controller;
+        canvas.desktopKeyPressed(-6);
+        Thread.sleep(250L);
+        canvas.desktopKeyReleased(-6);
+        Thread.sleep(3000L);
+        if (guiFailure != null) throw new IllegalStateException("GUI game thread failed", guiFailure);
+        midlet.destroyApp(true);
+    }
     public static void main(String[] args) throws Exception {
+        if (System.getProperty("sun.java2d.d3d") == null) {
+            System.setProperty("sun.java2d.d3d", "false");
+        }
+        if (System.getProperty("java.home") == null) {
+            System.setProperty("java.home", System.getProperty("user.dir"));
+        }
         if (args.length > 0 && "--native-smoke".equals(args[0])) {
             System.setProperty("java.awt.headless", "true");
             if (System.getProperty("dah.rms.dir") == null) {
@@ -77,6 +101,19 @@ def desktop_launcher_source() -> str:
             GameMidlet midlet = new GameMidlet();
             nativeSmoke(midlet);
             return;
+        }
+        if (args.length > 0 && "--native-gui-smoke".equals(args[0])) {
+            if (System.getProperty("dah.rms.dir") == null) {
+                System.setProperty("dah.rms.dir", System.getProperty("user.dir"));
+            }
+            GameMidlet midlet = new GameMidlet();
+            try {
+                nativeGuiSmoke(midlet);
+            } catch (Throwable failure) {
+                failure.printStackTrace();
+                System.exit(1);
+            }
+            System.exit(0);
         }
         GameMidlet midlet = new GameMidlet();
         midlet.startApp();

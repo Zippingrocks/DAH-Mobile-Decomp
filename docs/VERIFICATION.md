@@ -21,8 +21,8 @@ unconditional equivalence for every possible input based on playtesting.
 | Source rebuild | Clean build from recovered source and documented dependencies, without copying original game classes. | Established in the all-repaired whole-tree build and desktop packager. |
 | Behavior baseline | Controlled original/rebuilt runs, explained reconstruction defects, regression records. | Established in scoped component/integration/campaign/stress/fuzz/soak comparisons. |
 | Understandable source | Identifier mappings, system documentation, resolved unknowns, independently checked explanations. | Substantially established; documentation remains a maintenance task rather than a missing source phase. |
-| Native proof | Original game logic compiled ahead of time; platform services implemented, not an interpreter bundle. | Build automation and tracing-agent/native-image preparation are established; a Windows native executable is not yet built on a suitable Windows host. |
-| Gold candidate | Full progression and persistence checks; no unexplained mismatches or gameplay stubs; reproducible build and documented limitations. | Machine-checkable progression/persistence/runtime gates are established; human subjective playtest/judgment and validated native Windows output remain open. |
+| Native proof | Original game logic compiled ahead of time; platform services implemented, not an interpreter bundle. | Established on a Windows developer host: the source-only payload produced an x64 PE32+ executable that passed headless, normal-window and post-language strict-audio startup gates. |
+| Gold candidate | Full progression and persistence checks; no unexplained mismatches or gameplay stubs; reproducible build and documented limitations. | Machine-checkable progression/persistence/runtime/native gates are established; full human campaign/audio/presentation review and clean-machine packaging validation remain open. |
 
 ## Required comparisons
 
@@ -44,8 +44,9 @@ soak testing, audio packaging/sanity checks, and a production desktop-runtime
 comparison.
 
 These mechanisms still prove only their documented scopes. They do not remove the
-need for human subjective playtesting, nor do they constitute a Windows native
-executable by themselves.
+need for human subjective playtesting. Native pass 029 separately establishes a
+Windows executable on the documented developer host, not clean-machine packaging
+or gold status.
 
 ## Machine release-readiness audit
 

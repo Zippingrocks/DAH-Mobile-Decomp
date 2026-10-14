@@ -82,6 +82,7 @@ DAH-Mobile-Decomp/
 |       |-- INTEGRATION_PASS_026_RELEASE_READINESS.md [DOCS]
 |       |-- INTEGRATION_PASS_027_CI_READINESS.md [DOCS]
 |       |-- INTEGRATION_PASS_028_RESTORED_SOURCE.md [DOCS]
+|       |-- INTEGRATION_PASS_029_WINDOWS_NATIVE_INPUT.md [DOCS]
 |       |-- RECOVERY_PASS_001.md [DOCS]
 |       |-- RECOVERY_PASS_002.md [DOCS]
 |       |-- RECOVERY_PASS_003.md [DOCS]
@@ -115,6 +116,7 @@ DAH-Mobile-Decomp/
 |       |-- integration-pass-026-release-readiness.json [DOCS]
 |       |-- integration-pass-027-ci-readiness.json [DOCS]
 |       |-- integration-pass-028-restored-source.json [DOCS]
+|       |-- integration-pass-029-windows-native-input.json [DOCS]
 |       |-- recon-setup-recheck.json [DOCS]
 |       |-- subsystem-pass-002.json [DOCS]
 |       |-- ui-pass-010.json [DOCS]
@@ -352,6 +354,7 @@ DAH-Mobile-Decomp/
 | [`docs/evidence/INTEGRATION_PASS_026_RELEASE_READINESS.md`](../docs/evidence/INTEGRATION_PASS_026_RELEASE_READINESS.md) | docs | Document the machine release-readiness auditor and verification-contract refresh. |
 | [`docs/evidence/INTEGRATION_PASS_027_CI_READINESS.md`](../docs/evidence/INTEGRATION_PASS_027_CI_READINESS.md) | docs | Document CI enforcement of the tracked machine release-readiness contract. |
 | [`docs/evidence/INTEGRATION_PASS_028_RESTORED_SOURCE.md`](../docs/evidence/INTEGRATION_PASS_028_RESTORED_SOURCE.md) | docs | Record fresh restored-source builds, desktop comparisons and the complete automated gate replay. |
+| [`docs/evidence/INTEGRATION_PASS_029_WINDOWS_NATIVE_INPUT.md`](../docs/evidence/INTEGRATION_PASS_029_WINDOWS_NATIVE_INPUT.md) | docs | Document the validated Windows-native executable, repaired desktop input, and post-language strict-audio acceptance gate. |
 | [`docs/evidence/RECOVERY_PASS_001.md`](../docs/evidence/RECOVERY_PASS_001.md) | docs | Explain the first manual source recovery, scoped component tests, repeatability and remaining gaps. |
 | [`docs/evidence/RECOVERY_PASS_002.md`](../docs/evidence/RECOVERY_PASS_002.md) | docs | Document three more recovered components, 172170 scoped calls, negative controls and limitations. |
 | [`docs/evidence/RECOVERY_PASS_003.md`](../docs/evidence/RECOVERY_PASS_003.md) | docs | Document five new component recoveries, integration tests, negative controls and limitations. |
@@ -385,6 +388,7 @@ DAH-Mobile-Decomp/
 | [`docs/evidence/integration-pass-026-release-readiness.json`](../docs/evidence/integration-pass-026-release-readiness.json) | docs | Machine-readable current objective readiness result and remaining human/environment gates. |
 | [`docs/evidence/integration-pass-027-ci-readiness.json`](../docs/evidence/integration-pass-027-ci-readiness.json) | docs | Machine-readable CI readiness-enforcement state and claim boundaries. |
 | [`docs/evidence/integration-pass-028-restored-source.json`](../docs/evidence/integration-pass-028-restored-source.json) | docs | Record actual pass-028 source/build/comparison hashes and scoped gate results. |
+| [`docs/evidence/integration-pass-029-windows-native-input.json`](../docs/evidence/integration-pass-029-windows-native-input.json) | docs | Machine-readable Windows native hashes, acceptance results, automated regression scope, and remaining human/packaging gates. |
 | [`docs/evidence/recon-setup-recheck.json`](../docs/evidence/recon-setup-recheck.json) | docs | Fresh input/tooling verification and explicit private source restoration gaps. |
 | [`docs/evidence/subsystem-pass-002.json`](../docs/evidence/subsystem-pass-002.json) | docs | Hashes and matching observation digests from the second reproducible subsystem run. |
 | [`docs/evidence/ui-pass-010.json`](../docs/evidence/ui-pass-010.json) | docs | Record final p source/artifact hashes and matching scoped observation digests; no game code or assets. |

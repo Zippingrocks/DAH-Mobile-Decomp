@@ -19,6 +19,13 @@ That mode initializes the recovered game, advances controller ticks, paints a
 frame and exits. It exists so GraalVM's tracing agent can collect reachability
 metadata without human interaction.
 
+Native acceptance also runs `--native-gui-smoke`. That mode opens the real AWT
+window, selects the language, requires strict MIDI backend startup, observes the
+game thread for three more seconds and exits. The builder separately keeps an
+ordinary window alive for four seconds and rejects any stderr output. These
+checks prevent headless-only success from concealing missing AWT/JNI or audio
+reachability.
+
 `tools/native_build.py` automates the rest:
 
 1. build (or accept) the desktop JAR,
@@ -27,7 +34,8 @@ metadata without human interaction.
 4. run `native-image-agent` through `--native-smoke`,
 5. include all packaged resources,
 6. invoke `native-image --no-fallback`,
-7. hash and report the resulting native executable.
+7. run headless, ordinary-window and post-language strict-audio smoke checks,
+8. hash and report the resulting native executable.
 
 Example on a suitable Windows host:
 
@@ -60,21 +68,26 @@ vendor URL privately before accepting any toolchain.
 
 ## Validation boundary
 
-The generated direct launcher has been compiled against the actual packaged game
-and its `--native-smoke` path has run successfully in headless mode. The current
-worker does not have `native-image` installed and is not a Windows build host,
-so a Windows native executable has **not** yet been produced or claimed.
+Integration pass 029 produced the actual game executable on Windows. The final
+280,420,352-byte x64 PE32+ candidate has SHA-256
+`eada1c8280fb68f8888b245af58b6a85a831d66e89255447ebe428efbcfccd64`
+and passed all three native smoke paths. The ordinary interactive run reached
+the title, save and main menus without captured errors.
 
-The remaining native step is environmental compilation/validation, not recovery
-of another game subsystem.
+This is developer-host native proof, not standalone distribution proof. Direct
+imports still include `VCRUNTIME140.dll` and `VCRUNTIME140_1.dll`, no adjacent
+copies are packaged, and `clean_machine_tested` remains false. Full campaign,
+subjective audio/presentation and clean-machine testing remain required.
 
 ## Build acceptance checks (2026-10-07)
 
 The builder refuses a Windows `.exe` output on a non-Windows host. A Windows
 build must have an x64 PE32+ header and must successfully execute
 `--native-smoke` in a fresh temporary working directory before the success
-report is written. Smoke checks cover startup, five ticks and painting; they
-do not establish interactive campaign, controls, audio or clean-machine DLL
+report is written. Headless smoke covers startup, five ticks and painting. GUI
+startup and post-language strict-audio smoke cover the normal AWT path, language
+transition, MIDI initialization and game-thread survival; they do not establish
+a full interactive campaign, subjective audio quality or clean-machine DLL
 packaging. Native Image's AWT dependencies must still be inventoried on the
 Windows build host; an executable alone does not prove standalone packaging.
 
@@ -91,12 +104,12 @@ putting `-D` arguments before `--native-smoke` would run the ordinary launcher
 path instead of the intended smoke path.
 
 Use the verified checkpoint-028 source root explicitly; older `src/game`
-snapshots are incomplete on a restored workstation. A Windows checkout still
-needs checkpoint 028 plus GraalVM Native Image, MSVC/Windows SDK, a release-8
-Java compiler and FFmpeg before it can produce the candidate. The next concrete
-step is that private build, followed by native smoke, DLL inventory and
-interactive review. No build report may claim an executable from preflight
-alone.
+snapshots are incomplete on a restored workstation. Reproducing the Windows
+candidate still needs checkpoint 028 plus GraalVM Native Image, MSVC/Windows
+SDK, a release-8 Java compiler and FFmpeg. Pass 029 completed that private build,
+native smoke, DLL inventory and initial interactive review. The next native
+step is clean-machine packaging validation. No build report may claim an
+executable from preflight alone.
 
 ## Private Windows handoff
 

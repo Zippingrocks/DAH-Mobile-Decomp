@@ -8,7 +8,7 @@ class ReleaseReadinessTests(unittest.TestCase):
             "source_recovery","whole_tree_build","desktop_runtime","desktop_build",
             "amr_audio","campaign_matrix","native_aot_prep","campaign_progression",
             "automated_gate","mission_stress","mission_fuzz","desktop_polish",
-            "audio_sanity","mission_soak"
+            "audio_sanity","mission_soak","windows_native"
         ]:
             self.assertIn(key,keys)
 
@@ -22,10 +22,11 @@ class ReleaseReadinessTests(unittest.TestCase):
         self.assertIn("human_only_remaining",result)
         self.assertGreaterEqual(len(result["human_only_remaining"]),3)
 
-    def test_windows_exe_remains_environment_gate_until_evidence_changes(self):
+    def test_windows_exe_is_recorded_but_clean_machine_gate_remains(self):
         result=rr.inspect()
-        self.assertFalse(result["native_windows_executable_built"])
+        self.assertTrue(result["native_windows_executable_built"])
         self.assertEqual(len(result["environment_only_remaining"]),1)
+        self.assertIn("clean machine",result["environment_only_remaining"][0])
 
     def test_source_map_counts_are_exact(self):
         summary=rr.source_map_summary()

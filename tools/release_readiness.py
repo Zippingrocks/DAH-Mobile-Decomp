@@ -20,6 +20,7 @@ REQUIRED_EVIDENCE={
     "desktop_polish":"docs/evidence/INTEGRATION_PASS_023_DESKTOP_POLISH.md",
     "audio_sanity":"docs/evidence/INTEGRATION_PASS_024_AUDIO_SANITY.md",
     "mission_soak":"docs/evidence/INTEGRATION_PASS_025_MISSION_SOAK.md",
+    "windows_native":"docs/evidence/INTEGRATION_PASS_029_WINDOWS_NATIVE_INPUT.md",
 }
 
 HUMAN_ONLY=[
@@ -28,8 +29,12 @@ HUMAN_ONLY=[
     "subjective desktop presentation/window-scaling judgment",
 ]
 
-ENVIRONMENT_ONLY=[
+NATIVE_BUILD_ENVIRONMENT=[
     "produce and validate a Windows native executable on a Windows GraalVM/MSVC/Windows-SDK host",
+]
+
+CLEAN_MACHINE_ENVIRONMENT=[
+    "validate Windows native packaging on a clean machine without the development toolchain",
 ]
 
 def load_json(path:Path):
@@ -62,10 +67,19 @@ def inspect():
     }
     machine_ready=all(machine_gates.values())
 
-    native_evidence=ROOT/"docs/evidence/integration-pass-018-native-aot-prep.json"
+    native_evidence=ROOT/"docs/evidence/integration-pass-029-windows-native-input.json"
     native_built=False
     if native_evidence.is_file():
-        native_built=bool(load_json(native_evidence).get("windows_executable_built",False))
+        native=load_json(native_evidence).get("windows_native",{})
+        native_built=bool(
+            native.get("sha256")
+            and native.get("format")=="PE32+"
+            and native.get("machine")=="x64"
+            and native.get("headless_smoke")
+            and native.get("gui_startup_smoke")
+            and native.get("language_selection_smoke")
+            and native.get("strict_audio_startup")
+        )
 
     result={
         "schema_version":1,
@@ -75,10 +89,10 @@ def inspect():
         "missing_evidence":missing,
         "machine_release_readiness":machine_ready,
         "human_only_remaining":HUMAN_ONLY,
-        "environment_only_remaining":[] if native_built else ENVIRONMENT_ONLY,
+        "environment_only_remaining":CLEAN_MACHINE_ENVIRONMENT if native_built else NATIVE_BUILD_ENVIRONMENT,
         "native_windows_executable_built":native_built,
         "gold":False,
-        "gold_reason":"Gold requires human subjective playtest/judgment and a validated native Windows executable in addition to machine gates.",
+        "gold_reason":"Gold requires human campaign/audio/presentation judgment and clean-machine native packaging validation in addition to machine gates.",
     }
     return result
 

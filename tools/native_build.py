@@ -117,6 +117,17 @@ def native_compile(native_image, jar: Path, metadata: Path, output: Path):
     run([
         native_image,
         "--no-fallback",
+        # Liberica NIK's AWT reachability is selected at image-build time.
+        # The tracing pass intentionally runs headless, so make the production
+        # image's ordinary launcher path explicitly non-headless as documented
+        # by BellSoft.  Without this, a PE can pass headless smoke yet fail on
+        # first window creation because AWT event classes were omitted.
+        "-Djava.awt.headless=false",
+        # The D3D pipeline reaches anonymous JNI callbacks that are not present
+        # in a headless tracing pass.  The launcher also sets this property at
+        # runtime before AWT initializes so the native executable consistently
+        # uses the Windows software/GDI path.
+        "-Dsun.java2d.d3d=false",
         "-H:+ReportExceptionStackTraces",
         "-H:ConfigurationFileDirectories=" + str(metadata),
         "-H:IncludeResources=.*",
@@ -159,6 +170,48 @@ def native_smoke(output: Path):
     if result.returncode:
         raise RuntimeError("native smoke failed\n" + result.stdout + "\n" + result.stderr)
     return {"passed": True, "stdout": result.stdout, "stderr": result.stderr}
+
+def native_gui_startup_smoke(output: Path, timeout=4.0):
+    with tempfile.TemporaryDirectory(prefix="dah-native-gui-") as td:
+        process = subprocess.Popen([str(output)], cwd=td, text=True,
+                                   stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        try:
+            returncode = process.wait(timeout=timeout)
+        except subprocess.TimeoutExpired:
+            process.terminate()
+            try:
+                stdout, stderr = process.communicate(timeout=15)
+            except subprocess.TimeoutExpired:
+                process.kill()
+                stdout, stderr = process.communicate(timeout=15)
+            if stderr.strip():
+                raise RuntimeError("native GUI emitted errors during startup\n" + stdout + "\n" + stderr)
+            return {"passed": True, "observed_seconds": timeout,
+                    "terminated_after_startup": True,
+                    "stdout": stdout, "stderr": stderr}
+        stdout, stderr = process.communicate()
+    raise RuntimeError(
+        "native GUI exited during startup with code " + str(returncode)
+        + "\n" + stdout + "\n" + stderr
+    )
+
+def native_gui_interaction_smoke(output: Path):
+    try:
+        with tempfile.TemporaryDirectory(prefix="dah-native-gui-interaction-") as td:
+            result = subprocess.run([str(output), "--native-gui-smoke"], cwd=td,
+                                    text=True, capture_output=True, timeout=30)
+    except subprocess.TimeoutExpired as failure:
+        stdout = failure.stdout.decode(errors="replace") if isinstance(failure.stdout, bytes) else (failure.stdout or "")
+        stderr = failure.stderr.decode(errors="replace") if isinstance(failure.stderr, bytes) else (failure.stderr or "")
+        raise RuntimeError("native GUI interaction smoke timed out\n" + stdout + "\n" + stderr)
+    if result.returncode or result.stderr.strip():
+        raise RuntimeError(
+            "native GUI interaction smoke failed with code " + str(result.returncode)
+            + "\n" + result.stdout + "\n" + result.stderr
+        )
+    return {"passed": True, "language_selected": True,
+            "strict_audio_startup": True,
+            "stdout": result.stdout, "stderr": result.stderr}
 
 def main(argv=None):
     parser = argparse.ArgumentParser()
@@ -229,6 +282,8 @@ def main(argv=None):
         output = native_compile(native_image, jar, metadata, args.output.resolve())
         binary = inspect_windows_executable(output) if is_windows_host() else {"format": "host-native"}
         smoke = native_smoke(output)
+        gui_smoke = native_gui_startup_smoke(output)
+        gui_interaction_smoke = native_gui_interaction_smoke(output)
         report.update({
             "native_built": True,
             "native_output": str(output),
@@ -236,6 +291,8 @@ def main(argv=None):
             "native_bytes": output.stat().st_size,
             "binary": binary,
             "native_smoke": smoke,
+            "native_gui_startup_smoke": gui_smoke,
+            "native_gui_interaction_smoke": gui_interaction_smoke,
             "native_windows_validated": is_windows_host(),
             "dependencies": dependency_inventory(output) if is_windows_host() else None,
         })

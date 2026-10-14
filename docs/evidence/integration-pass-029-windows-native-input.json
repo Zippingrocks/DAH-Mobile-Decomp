@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-13",
+  "target_id": "dah1-j2me-en-v1.2.0",
+  "input_sha256": "2e03916ea4a5260960e5e57e4dbe0778fb9b577439eac0ce94a685cfecdaaf5f",
+  "source_build": {
+    "game_classes": 21,
+    "method_entries": 313,
+    "original_class_fallback": false,
+    "desktop_jar_sha256": "0b25b93896f12974b16f3bf7bf9bb11200966dd41bb5f42ec2a84777770ff098"
+  },
+  "windows_native": {
+    "format": "PE32+",
+    "machine": "x64",
+    "bytes": 280420352,
+    "sha256": "eada1c8280fb68f8888b245af58b6a85a831d66e89255447ebe428efbcfccd64",
+    "headless_smoke": true,
+    "gui_startup_smoke": true,
+    "gui_startup_stderr_empty": true,
+    "language_selection_smoke": true,
+    "strict_audio_startup": true,
+    "clean_machine_tested": false
+  },
+  "automated_gate": {
+    "public_tests": 244,
+    "public_test_skips": 0,
+    "missions": 13,
+    "stress_frames": 3900,
+    "fuzz_frames": 7800,
+    "soak_frames": 65000,
+    "campaign_progression": true,
+    "audio_effects": 4,
+    "passed": true
+  },
+  "interactive_scope": {
+    "title_rendered": true,
+    "save_menu_rendered": true,
+    "main_menu_rendered": true,
+    "select_transitions_observed": 2,
+    "captured_stderr_empty": true,
+    "full_campaign_played": false,
+    "subjective_audio_reviewed": false,
+    "subjective_presentation_reviewed": false
+  },
+  "gold": false
+}

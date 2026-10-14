@@ -60,6 +60,23 @@ class NativeBuildTests(unittest.TestCase):
                     native_build.native_compile("native-image", Path("game.jar"), Path("metadata"), output)
                 run.assert_not_called()
 
+    def test_native_compile_enables_non_headless_awt_at_build_time(self):
+        with tempfile.TemporaryDirectory() as td:
+            output = Path(td) / "game.exe"
+            def create_output(command, cwd=native_build.ROOT):
+                output.write_bytes(b"fixture")
+                return ""
+            with patch.object(native_build, "is_windows_host", return_value=True), \
+                    patch.object(native_build, "run", side_effect=create_output) as run:
+                self.assertEqual(
+                    native_build.native_compile("native-image", Path("game.jar"), Path("metadata"), output),
+                    output,
+                )
+            command = run.call_args.args[0]
+            self.assertIn("-Djava.awt.headless=false", command)
+            self.assertIn("-Dsun.java2d.d3d=false", command)
+            self.assertLess(command.index("-Djava.awt.headless=false"), command.index("DesktopLauncher"))
+
     def test_windows_format_rejects_elf_truncation_and_dll(self):
         with tempfile.TemporaryDirectory() as td:
             output = Path(td) / "game.exe"
@@ -92,6 +109,50 @@ class NativeBuildTests(unittest.TestCase):
         self.assertTrue(result["passed"])
         self.assertEqual(run.call_args.args[0][1:], ["--native-smoke"])
 
+    def test_native_gui_smoke_rejects_early_exit(self):
+        process = unittest.mock.Mock()
+        process.wait.return_value = 1
+        process.communicate.return_value = ("", "NoClassDefFoundError: java/awt/event/InputEvent")
+        with patch.object(native_build.subprocess, "Popen", return_value=process):
+            with self.assertRaisesRegex(RuntimeError, "InputEvent"):
+                native_build.native_gui_startup_smoke(Path("game.exe"), timeout=0.01)
+
+    def test_native_gui_smoke_accepts_live_window_process(self):
+        process = unittest.mock.Mock()
+        process.wait.side_effect = subprocess.TimeoutExpired(["game.exe"], 0.01)
+        process.communicate.return_value = ("", "")
+        with patch.object(native_build.subprocess, "Popen", return_value=process):
+            result = native_build.native_gui_startup_smoke(Path("game.exe"), timeout=0.01)
+        self.assertTrue(result["passed"])
+        self.assertTrue(result["terminated_after_startup"])
+        process.terminate.assert_called_once_with()
+
+    def test_native_gui_smoke_rejects_background_thread_errors(self):
+        process = unittest.mock.Mock()
+        process.wait.side_effect = subprocess.TimeoutExpired(["game.exe"], 0.01)
+        process.communicate.return_value = (
+            "", 'Exception in thread "AWT-Windows": java.lang.NoSuchMethodError\n'
+        )
+        with patch.object(native_build.subprocess, "Popen", return_value=process):
+            with self.assertRaisesRegex(RuntimeError, "NoSuchMethodError"):
+                native_build.native_gui_startup_smoke(Path("game.exe"), timeout=0.01)
+
+    def test_native_gui_interaction_smoke_rejects_audio_failure(self):
+        completed = subprocess.CompletedProcess(
+            [], 1, "", "IllegalStateException: MIDI backend failed"
+        )
+        with patch.object(native_build.subprocess, "run", return_value=completed):
+            with self.assertRaisesRegex(RuntimeError, "MIDI backend failed"):
+                native_build.native_gui_interaction_smoke(Path("game.exe"))
+
+    def test_native_gui_interaction_smoke_selects_language_and_audio(self):
+        completed = subprocess.CompletedProcess([], 0, "", "")
+        with patch.object(native_build.subprocess, "run", return_value=completed) as run:
+            result = native_build.native_gui_interaction_smoke(Path("game.exe"))
+        self.assertTrue(result["language_selected"])
+        self.assertTrue(result["strict_audio_startup"])
+        self.assertEqual(run.call_args.args[0][1:], ["--native-gui-smoke"])
+
     def test_generated_launcher_uses_direct_game_entry(self):
         src = desktop_build.desktop_launcher_source()
         self.assertIn("GameMidlet midlet = new GameMidlet()", src)
@@ -106,6 +167,12 @@ class NativeBuildTests(unittest.TestCase):
         self.assertIn('method(type, "paint"', src)
         self.assertIn('System.setProperty("java.awt.headless", "true")', src)
         self.assertIn('System.setProperty("dah.rms.dir", System.getProperty("user.dir"))', src)
+        self.assertIn('System.setProperty("sun.java2d.d3d", "false")', src)
+        self.assertIn('System.setProperty("java.home", System.getProperty("user.dir"))', src)
+        self.assertIn('"--native-gui-smoke"', src)
+        self.assertIn('System.setProperty("dah.audio.strict", "true")', src)
+        self.assertIn("canvas.desktopKeyPressed(-6)", src)
+        self.assertIn("canvas.desktopKeyReleased(-6)", src)
 
     def test_generated_launcher_compiles_with_public_runtime_and_stub_game(self):
         if not shutil.which("javac"):

@@ -37,9 +37,12 @@ Accepted values are 1–8; the default is 3.
 Desktop controls:
 
 - arrows or WASD: movement
-- Enter or Space: center/action
+- Enter: select / left soft key
+- Space: center/action
 - Z or Q: left soft key
 - X or Escape: right soft key
+- Mouse: click the lower-left quarter for SELECT, lower-right quarter for BACK/EXIT,
+  or the rest of the game area for center/action. Clicking also restores keyboard focus.
 - 0–9: original mobile number keys
 
 ## Build a desktop JAR

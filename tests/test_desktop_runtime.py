@@ -48,6 +48,8 @@ class DesktopRuntimeTests(unittest.TestCase):
         src = (RUNTIME / "javax/microedition/media/Manager.java").read_text()
         self.assertIn("MidiSystem", src)
         self.assertIn("Sequencer", src)
+        self.assertIn('Boolean.getBoolean("dah.audio.strict")', src)
+        self.assertIn("catch (Throwable failure)", src)
 
     def test_media_has_hash_addressed_amr_wav_backend(self):
         src = (RUNTIME / "javax/microedition/media/Manager.java").read_text()
@@ -85,6 +87,39 @@ class DesktopRuntimeTests(unittest.TestCase):
         self.assertIn("KeyEvent.VK_X", src)
         self.assertIn("return -6", src)
         self.assertIn("return -7", src)
+        self.assertIn("desktopKeyPressed", src)
+        self.assertIn("desktopKeyReleased", src)
+
+    def test_canvas_control_mapping_executes(self):
+        if not shutil.which("javac") or not shutil.which("java"):
+            self.skipTest("Java toolchain unavailable")
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            probe = root / "CanvasControlProbe.java"
+            probe.write_text(
+                "package javax.microedition.lcdui;"
+                "import java.awt.event.KeyEvent;"
+                "public final class CanvasControlProbe {"
+                " public static void main(String[] args) {"
+                "  System.out.println(Canvas.mapDesktopKey(KeyEvent.VK_ENTER, '\\n'));"
+                "  System.out.println(Canvas.mapDesktopKey(KeyEvent.VK_SPACE, ' '));"
+                "  System.out.println(Canvas.mapDesktopClick(100, 100, 528, 624));"
+                "  System.out.println(Canvas.mapDesktopClick(100, 600, 528, 624));"
+                "  System.out.println(Canvas.mapDesktopClick(500, 600, 528, 624));"
+                " }"
+                "}"
+            )
+            classes = root / "classes"
+            sources = [str(path) for path in sorted(RUNTIME.rglob("*.java"))]
+            subprocess.run(
+                ["javac", "--release", "8", "-g:none", "-d", str(classes), *sources, str(probe)],
+                cwd=ROOT, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True,
+            )
+            result = subprocess.run(
+                ["java", "-cp", str(classes), "javax.microedition.lcdui.CanvasControlProbe"],
+                cwd=ROOT, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True,
+            )
+            self.assertEqual(result.stdout.splitlines(), ["-6", "53", "53", "-6", "-7"])
 
     def test_canvas_ignores_unmapped_zero_key(self):
         src = (RUNTIME / "javax/microedition/lcdui/Canvas.java").read_text()
