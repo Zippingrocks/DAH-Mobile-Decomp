@@ -1,5 +1,14 @@
 # Project status
 
+## Current project focus — Windows port fidelity
+
+- Primary deliverable: an accurate Windows port of Destroy All Humans! Mobile (English v1.2.0).
+- Recovered game logic is treated as the fidelity baseline; behavior changes require evidence from the retail bytecode or original-vs-rebuilt comparisons.
+- Windows-specific graphics, input, audio, storage, scaling, packaging and AOT work belong in the authored runtime/build layer, not as silent gameplay rewrites.
+- Existing decompilation, campaign, persistence, stress/fuzz/soak, audio, desktop-runtime and native-build tooling should continue to serve the Windows-port goal.
+- Final completion still requires a validated Windows-native build plus the remaining human-only subjective playtest/audio/presentation review.
+
+
 ## Native build provenance and handoff — 2026-10-07
 
 Tracing metadata is now hash-bound to its desktop JAR and configuration files.
